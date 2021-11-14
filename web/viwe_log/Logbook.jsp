@@ -11,10 +11,10 @@
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description"/>
     <meta content="Coderthemes" name="author"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-
     <!-- App favicon -->
-    <link rel="shortcut icon" href="../assets/images/favicon.ico" >
-
+    <link rel="shortcut icon" href="../assets/images/favicon.ico">
+    <!-- Responsive Table css -->
+    <link href="../assets/libs/admin-resources/rwd-table/rwd-table.min.css" rel="stylesheet" type="text/css" />
     <!-- Plugins css -->
     <link href="../assets/libs/flatpickr/flatpickr.min.css" rel="stylesheet" type="text/css"/>
     <link href="../assets/libs/selectize/css/selectize.bootstrap3.css" rel="stylesheet" type="text/css"/>
@@ -130,7 +130,7 @@
                         </div>
 
                         <!-- item-->
-                        <a href="javascript:void(0);"  class="dropdown-item notify-item">
+                        <a href="javascript:void(0);" class="dropdown-item notify-item">
                             <i class="fe-user"></i>My Account
                         </a>
 
@@ -162,7 +162,7 @@
                     <img src="../assets/images/logo-sm.png" alt="" height="22">
                 </span>
                     <span class="logo-lg">
-                    <img src="../assets/images/logo-light.png" alt="" height="80" >
+                    <img src="../assets/images/logo-light.png" alt="" height="80">
                 </span>
                 </a>
             </div>
@@ -187,7 +187,6 @@
                 </li>
 
 
-
             </ul>
             <div class="clearfix"></div>
         </div>
@@ -201,11 +200,18 @@
 
                 <div class="collapse navbar-collapse" id="topnav-menu-content">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link " href="Logbook.html" role="button">
-                                <i class="fe-airplay me-1"></i>我的行程
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-dashboard" role="button"
+                               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fe-airplay me-1"></i> 我的行程
+                                <div class="arrow-down"></div>
                             </a>
+                            <div class="dropdown-menu" aria-labelledby="topnav-dashboard">
+                                <a href="index.html" class="dropdown-item">查看当前行程</a>
+                                <a href="dashboard-2.html" class="dropdown-item">查看历史行程</a>
+                            </div>
                         </li>
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-apps" role="button"
                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -268,152 +274,103 @@
             <div class="container-fluid">
 
                 <!-- start page title -->
+                <!-- start page title -->
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box">
-                            <h4 class="page-title">欢迎，理中客先生</h4>
+                            <h4 class="page-title">行车日志</h4>
                         </div>
                     </div>
                 </div>
                 <!-- end page title -->
+
                 <div class="row">
-                    <div class="col-lg-4 col-xl-4">
-                        <div class="card text-center">
+                    <div class="col-12">
+                        <div class="card">
                             <div class="card-body">
-                                <h4 class="mb-0">理中客</h4>
-                                <p class="text-muted">001</p>
+                                <div class="responsive-table-plugin">
+                                    <div class="table-rep-plugin">
+                                        <div class="table-responsive" data-pattern="priority-columns">
+                                            <table id="tech-companies-1" class="table table-striped">
+                                                <thead>
+                                                <tr>
+                                                    <th>出车单号</th>
+                                                    <th data-priority="1">车牌号</th>
+                                                    <th data-priority="1">驾驶员</th>
+                                                    <th data-priority="3">开始时间</th>
+                                                    <th data-priority="3">结束时间</th>
+                                                    <th data-priority="3">违规记录</th>
+                                                    <th data-priority="3">损坏记录</th>
+                                                    <th data-priority="6">业务编号</th>
+                                                    <th data-priority="6">具体信息</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <th>GOOG <span class="co-name">Google Inc.</span></th>
+                                                    <td>597.74</td>
+                                                    <td>12:12PM</td>
+                                                    <td>14.81 (2.54%)</td>
+                                                    <td>582.93</td>
+                                                    <td>597.95</td>
+                                                    <td>597.73 x 100</td>
+                                                    <td>597.91 x 300</td>
+                                                    <td>
+                                                        <form>  <input class="btn-xs btn-primary text-center" type="submit" value="查看详情"></form>
+                                                    </td>
 
-                                <button type="button" class="btn btn-success btn-xs waves-effect mb-2 waves-light">Follow</button>
-                                <button type="button" class="btn btn-danger btn-xs waves-effect mb-2 waves-light">Message</button>
 
-                                <div class="text-start mt-3">
-                                    <h4 class="font-13 text-uppercase">About Me :</h4>
-                                    <p class="text-muted font-13 mb-3">
-                                        Hi I'm Johnathn Deo,has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
-                                    </p>
-                                    <p class="text-muted mb-2 font-13"><strong>姓名 :</strong> <span class="ms-2">理中客</span></p>
+                                                </tr>
+                                                <tr>
+                                                    <th>AAPL <span class="co-name">Apple Inc.</span></th>
+                                                    <td>378.94</td>
+                                                    <td>12:22PM</td>
+                                                    <td>5.74 (1.54%)</td>
+                                                    <td>373.20</td>
+                                                    <td>381.02</td>
+                                                    <td>378.92 x 300</td>
+                                                    <td>378.99 x 100</td>
+                                                    <td>505.94</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>AMZN <span class="co-name">Amazon.com Inc.</span></th>
+                                                    <td>191.55</td>
+                                                    <td>12:23PM</td>
+                                                    <td>3.16 (1.68%)</td>
+                                                    <td>188.39</td>
+                                                    <td>194.99</td>
+                                                    <td>191.52 x 300</td>
+                                                    <td>191.58 x 100</td>
+                                                    <td>240.32</td>
+                                                </tr>
+                                                <!-- Repeat -->
+                                                <tr>
+                                                    <th>GOOG <span class="co-name">Google Inc.</span></th>
+                                                    <td>597.74</td>
+                                                    <td>12:12PM</td>
+                                                    <td>14.81 (2.54%)</td>
+                                                    <td>582.93</td>
+                                                    <td>597.95</td>
+                                                    <td>597.73 x 100</td>
+                                                    <td>597.91 x 300</td>
+                                                    <td>731.10</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div> <!-- end .table-responsive -->
 
-                                    <p class="text-muted mb-2 font-13"><strong>电话 :</strong><span class="ms-2">(123) 123 1234</span></p>
-
-                                    <p class="text-muted mb-2 font-13"><strong>邮箱 :</strong> <span class="ms-2">user@email.domain</span></p>
-
-                                    <p class="text-muted mb-1 font-13"><strong>所属部门 :</strong> <span class="ms-2">销售</span></p>
-                                </div>
-
+                                    </div> <!-- end .table-rep-plugin-->
+                                </div> <!-- end .responsive-table-plugin-->
                             </div>
                         </div> <!-- end card -->
-                    </div> <!-- end col-->
-                    <div class="col-lg-4 col-xl-4">
-                        <div class="card text-center">
-                            <h4 class="mt-4">状态切换</h4>
-                            <div class="card-body">
-                                <div>
-                                    <form>
-                                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                                            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-                                            <label class="btn btn-outline-success" for="btnradio1">可以出车</label>
-
-                                            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                                            <label class="btn btn-outline-danger" for="btnradio2">无法出车</label>
-
-                                            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-                                            <label class="btn btn-outline-secondary" for="btnradio3">休假</label>
-                                        </div>
-                                        <div class="m-3">
-                                            <label for="reason" class="mb-2">备注</label>
-                                            <div class="mt-2">
-                                                <textarea class="form-control" id="reason" rows="5"></textarea>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <input class="btn btn-primary text-center" type="submit" value="切换状态">
-                                        </div>
-                                    </form>
-                                </div>
-
-                            </div> <!-- end card -->
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-xl-4">
-                        <div class="card text-center">
-                            <h4 class="mt-4">我的通知</h4>
-                            <div class="card-body">
-                                <div>
-                                    <div class="collapse show" id="todayTasks">
-                                        <!-- task -->
-                                        <div class="row justify-content-sm-between">
-                                            <div class="col-lg-4 mb-2 mt-1">
-                                                <label class="form-check-label">保养通知</label>
-                                                <!-- end checkbox -->
-                                            </div>
-                                            <!-- end col -->
-                                            <div class="col-lg-8 mb-2">
-                                                <div class="d-sm-flex justify-content-between">
-                                                    <div class="mt-3 mt-sm-0">
-                                                        <ul class="list-inline font-13 text-sm-end">
-                                                            <li class="list-inline-item pe-1">
-                                                                <i class="mdi font-16 me-1"></i>
-                                                                2021-11-14
-                                                            </li>
-                                                            <li class="list-inline-item pe-1">
-                                                                <i class="mdi mdi-tune font-16 me-1"></i>
-                                                                车辆管理部
-                                                            </li>
-                                                            <li class="list-inline-item">
-                                                                <span class="badge badge-soft-danger p-1">High</span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <!-- end .d-flex-->
-                                            </div>
-                                            <!-- end col -->
-                                        </div>
-                                        <!-- end task -->
-                                        <div class="row justify-content-sm-between">
-                                            <div class="col-lg-4 mb-2 mt-1">
-                                                <label class="form-check-label">保养通知</label>
-                                                <!-- end checkbox -->
-                                            </div>
-                                            <!-- end col -->
-                                            <div class="col-lg-8 mb-2">
-                                                <div class="d-sm-flex justify-content-between">
-                                                    <div class="mt-3 mt-sm-0">
-                                                        <ul class="list-inline font-13 text-sm-end">
-                                                            <li class="list-inline-item pe-1">
-                                                                <i class="mdi font-16 me-1"></i>
-                                                                2021-11-14
-                                                            </li>
-                                                            <li class="list-inline-item pe-1">
-                                                                <i class="mdi mdi-tune font-16 me-1"></i>
-                                                                车辆管理部
-                                                            </li>
-                                                            <li class="list-inline-item">
-                                                                <span class="badge badge-soft-danger p-1">High</span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <!-- end .d-flex-->
-                                            </div>
-                                            <!-- end col -->
-                                        </div>
-                                    </div>
-                                    <!--end list-->
-                                </div>
-                                <a href="myindex.html"
-                                   class="dropdown-item text-center text-primary notify-item notify-all">
-                                    查看通知详情
-                                    <i class="fe-arrow-right"></i>
-                                </a>
-                            </div> <!-- end card -->
-                        </div>
-                    </div>
+                    </div> <!-- end col -->
                 </div>
-                <!-- end row-->
-
-
                 <!-- end row -->
+                <!-- end page title -->
+
+                <div class="row">
+
+                </div>
 
             </div> <!-- container -->
 
@@ -448,7 +405,6 @@
 
 </div>
 <!-- END wrapper -->
-
 
 
 <!-- Vendor js -->

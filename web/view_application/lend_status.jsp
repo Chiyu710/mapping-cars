@@ -11,9 +11,8 @@
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description"/>
     <meta content="Coderthemes" name="author"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-
     <!-- App favicon -->
-    <link rel="shortcut icon" href="../assets/images/favicon.ico" >
+    <link rel="shortcut icon" href="../assets/images/favicon.ico">
 
     <!-- Plugins css -->
     <link href="../assets/libs/flatpickr/flatpickr.min.css" rel="stylesheet" type="text/css"/>
@@ -130,7 +129,7 @@
                         </div>
 
                         <!-- item-->
-                        <a href="javascript:void(0);"  class="dropdown-item notify-item">
+                        <a href="javascript:void(0);" class="dropdown-item notify-item">
                             <i class="fe-user"></i>My Account
                         </a>
 
@@ -162,7 +161,7 @@
                     <img src="../assets/images/logo-sm.png" alt="" height="22">
                 </span>
                     <span class="logo-lg">
-                    <img src="../assets/images/logo-light.png" alt="" height="80" >
+                    <img src="../assets/images/logo-light.png" alt="" height="80">
                 </span>
                 </a>
             </div>
@@ -187,7 +186,6 @@
                 </li>
 
 
-
             </ul>
             <div class="clearfix"></div>
         </div>
@@ -201,11 +199,18 @@
 
                 <div class="collapse navbar-collapse" id="topnav-menu-content">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link " href="Logbook.html" role="button">
-                                <i class="fe-airplay me-1"></i>我的行程
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-dashboard" role="button"
+                               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fe-airplay me-1"></i> 我的行程
+                                <div class="arrow-down"></div>
                             </a>
+                            <div class="dropdown-menu" aria-labelledby="topnav-dashboard">
+                                <a href="index.html" class="dropdown-item">查看当前行程</a>
+                                <a href="dashboard-2.html" class="dropdown-item">查看历史行程</a>
+                            </div>
                         </li>
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-apps" role="button"
                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -271,149 +276,146 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box">
-                            <h4 class="page-title">欢迎，理中客先生</h4>
+                            <h4 class="page-title">我的派修申请</h4>
                         </div>
                     </div>
                 </div>
                 <!-- end page title -->
+
                 <div class="row">
-                    <div class="col-lg-4 col-xl-4">
-                        <div class="card text-center">
-                            <div class="card-body">
-                                <h4 class="mb-0">理中客</h4>
-                                <p class="text-muted">001</p>
-
-                                <button type="button" class="btn btn-success btn-xs waves-effect mb-2 waves-light">Follow</button>
-                                <button type="button" class="btn btn-danger btn-xs waves-effect mb-2 waves-light">Message</button>
-
-                                <div class="text-start mt-3">
-                                    <h4 class="font-13 text-uppercase">About Me :</h4>
-                                    <p class="text-muted font-13 mb-3">
-                                        Hi I'm Johnathn Deo,has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
-                                    </p>
-                                    <p class="text-muted mb-2 font-13"><strong>姓名 :</strong> <span class="ms-2">理中客</span></p>
-
-                                    <p class="text-muted mb-2 font-13"><strong>电话 :</strong><span class="ms-2">(123) 123 1234</span></p>
-
-                                    <p class="text-muted mb-2 font-13"><strong>邮箱 :</strong> <span class="ms-2">user@email.domain</span></p>
-
-                                    <p class="text-muted mb-1 font-13"><strong>所属部门 :</strong> <span class="ms-2">销售</span></p>
+                    <div class="card d-block">
+                        <div class="card-body">
+                            <div class="dropdown float-end">
+                                <a href="#" class="dropdown-toggle arrow-none text-muted" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="mdi mdi-dots-horizontal font-18"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item"> <i class="mdi mdi-attachment me-1"></i>Attachment </a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item"> <i class="mdi mdi-pencil-outline me-1"></i>Edit </a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item"> <i class="mdi mdi-content-copy me-1"></i>Mark as Duplicate </a>
+                                    <div class="dropdown-divider"></div>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item text-danger"> <i class="mdi mdi-delete-outline me-1"></i>Delete </a>
                                 </div>
-
+                                <!-- end dropdown menu-->
                             </div>
-                        </div> <!-- end card -->
-                    </div> <!-- end col-->
-                    <div class="col-lg-4 col-xl-4">
-                        <div class="card text-center">
-                            <h4 class="mt-4">状态切换</h4>
-                            <div class="card-body">
-                                <div>
-                                    <form>
-                                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                                            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-                                            <label class="btn btn-outline-success" for="btnradio1">可以出车</label>
+                            <!-- end dropdown-->
+                            <!-- end form-check-->
+                            <div class="clearfix"></div>
 
-                                            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                                            <label class="btn btn-outline-danger" for="btnradio2">无法出车</label>
+                            <h4><button type="button" class="btn btn-success me-2">已通过</button>申请单号：fa-12345</h4>
 
-                                            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-                                            <label class="btn btn-outline-secondary" for="btnradio3">休假</label>
-                                        </div>
-                                        <div class="m-3">
-                                            <label for="reason" class="mb-2">备注</label>
-                                            <div class="mt-2">
-                                                <textarea class="form-control" id="reason" rows="5"></textarea>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <input class="btn btn-primary text-center" type="submit" value="切换状态">
-                                        </div>
-                                    </form>
-                                </div>
-
-                            </div> <!-- end card -->
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-xl-4">
-                        <div class="card text-center">
-                            <h4 class="mt-4">我的通知</h4>
-                            <div class="card-body">
-                                <div>
-                                    <div class="collapse show" id="todayTasks">
-                                        <!-- task -->
-                                        <div class="row justify-content-sm-between">
-                                            <div class="col-lg-4 mb-2 mt-1">
-                                                <label class="form-check-label">保养通知</label>
-                                                <!-- end checkbox -->
-                                            </div>
-                                            <!-- end col -->
-                                            <div class="col-lg-8 mb-2">
-                                                <div class="d-sm-flex justify-content-between">
-                                                    <div class="mt-3 mt-sm-0">
-                                                        <ul class="list-inline font-13 text-sm-end">
-                                                            <li class="list-inline-item pe-1">
-                                                                <i class="mdi font-16 me-1"></i>
-                                                                2021-11-14
-                                                            </li>
-                                                            <li class="list-inline-item pe-1">
-                                                                <i class="mdi mdi-tune font-16 me-1"></i>
-                                                                车辆管理部
-                                                            </li>
-                                                            <li class="list-inline-item">
-                                                                <span class="badge badge-soft-danger p-1">High</span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <!-- end .d-flex-->
-                                            </div>
-                                            <!-- end col -->
-                                        </div>
-                                        <!-- end task -->
-                                        <div class="row justify-content-sm-between">
-                                            <div class="col-lg-4 mb-2 mt-1">
-                                                <label class="form-check-label">保养通知</label>
-                                                <!-- end checkbox -->
-                                            </div>
-                                            <!-- end col -->
-                                            <div class="col-lg-8 mb-2">
-                                                <div class="d-sm-flex justify-content-between">
-                                                    <div class="mt-3 mt-sm-0">
-                                                        <ul class="list-inline font-13 text-sm-end">
-                                                            <li class="list-inline-item pe-1">
-                                                                <i class="mdi font-16 me-1"></i>
-                                                                2021-11-14
-                                                            </li>
-                                                            <li class="list-inline-item pe-1">
-                                                                <i class="mdi mdi-tune font-16 me-1"></i>
-                                                                车辆管理部
-                                                            </li>
-                                                            <li class="list-inline-item">
-                                                                <span class="badge badge-soft-danger p-1">High</span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <!-- end .d-flex-->
-                                            </div>
-                                            <!-- end col -->
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <!-- assignee -->
+                                    <p class="mt-2 mb-1 text-muted">出借人</p>
+                                    <div class="d-flex align-items-start">
+                                        <div class="w-100">
+                                            <h5 class="mt-1 font-size-14">
+                                                理中客
+                                            </h5>
                                         </div>
                                     </div>
-                                    <!--end list-->
+                                    <!-- end assignee -->
                                 </div>
-                                <a href="myindex.html"
-                                   class="dropdown-item text-center text-primary notify-item notify-all">
-                                    查看通知详情
-                                    <i class="fe-arrow-right"></i>
-                                </a>
-                            </div> <!-- end card -->
+                                <!-- end col -->
+
+                                <div class="col-md-4">
+                                    <!-- start due date -->
+                                    <p class="mt-2 mb-1 text-muted">勘察车号</p>
+                                    <div class="d-flex align-items-start">
+                                        <div class="w-100">
+                                            <h5 class="mt-1 font-size-14">
+                                                12345
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <!-- end due date -->
+                                </div>
+                                <div class="col-md-4">
+                                    <!-- start due date -->
+                                    <p class="mt-2 mb-1 text-muted">出借日期</p>
+                                    <div class="d-flex align-items-start">
+                                        <i class="mdi mdi-calendar-month-outline font-18 text-success me-1"></i>
+                                        <div class="w-100">
+                                            <h5 class="mt-1 font-size-14">
+                                                2021-11-14
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <!-- end due date -->
+                                </div>
+
+                                <!-- end col -->
+                                <div class="col-md-4">
+                                    <!-- assignee -->
+                                    <p class="mt-2 mb-1 text-muted">借用人</p>
+                                    <div class="d-flex align-items-start">
+                                        <div class="w-100">
+                                            <h5 class="mt-1 font-size-14">
+                                                孙孙孙
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <!-- end assignee -->
+                                </div>
+                                <!-- end col -->
+
+                                <div class="col-md-4">
+                                    <!-- start due date -->
+                                    <p class="mt-2 mb-1 text-muted">借用人所属部门</p>
+                                    <div class="d-flex align-items-start">
+                                        <div class="w-100">
+                                            <h5 class="mt-1 font-size-14">
+                                                技术部
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <!-- end due date -->
+                                </div>
+                                <div class="col-md-4">
+                                    <!-- start due date -->
+                                    <p class="mt-2 mb-1 text-muted">预定归还日期</p>
+                                    <div class="d-flex align-items-start">
+                                        <i class="mdi mdi-calendar-month-outline font-18 text-danger me-1"></i>
+                                        <div class="w-100">
+                                            <h5 class="mt-1 font-size-14">
+                                                2021-11-24
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <!-- end due date -->
+                                </div>
+                                <div class="col-md-4">
+                                    <!-- assignee -->
+                                    <p class="mt-2 mb-1 text-muted">审核员</p>
+                                    <div class="d-flex align-items-start">
+                                        <div class="w-100">
+                                            <h5 class="mt-1 font-size-14">
+                                                沈河
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <!-- end assignee -->
+                                </div>
+                                <!-- end col -->
+
+                            </div>
+                            <!-- end row -->
+                            <div>
+                                <h5 class="mt-3">备注:</h5>
+
+                                <p class="text-muted mb-4">
+                                </p>
+                            </div>
+
                         </div>
+                        <!-- end card-body-->
                     </div>
                 </div>
-                <!-- end row-->
-
-
-                <!-- end row -->
 
             </div> <!-- container -->
 
@@ -448,7 +450,6 @@
 
 </div>
 <!-- END wrapper -->
-
 
 
 <!-- Vendor js -->

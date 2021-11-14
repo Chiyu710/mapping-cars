@@ -80,6 +80,7 @@
                         <div class="noti-scroll" data-simplebar>
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item notify-item ">
+
                                 <p class="notify-details mt-1">
                                 <div>
                                     系统通知 <span class="badge badge-pill badge-outline-danger">重要</span>
@@ -200,18 +201,11 @@
 
                 <div class="collapse navbar-collapse" id="topnav-menu-content">
                     <ul class="navbar-nav">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-dashboard" role="button"
-                               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fe-airplay me-1"></i> 我的行程
-                                <div class="arrow-down"></div>
+                        <li class="nav-item">
+                            <a class="nav-link " href="Logbook.html" role="button">
+                                <i class="fe-airplay me-1"></i>我的行程
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="topnav-dashboard">
-                                <a href="index.html" class="dropdown-item">查看当前行程</a>
-                                <a href="dashboard-2.html" class="dropdown-item">查看历史行程</a>
-                            </div>
                         </li>
-
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-apps" role="button"
                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -232,7 +226,7 @@
                                         <div class="arrow-down"></div>
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="topnav-task">
-                                        <a href="task-list.html" class="dropdown-item">派车单</a>
+                                        <a href="../tempo/task-list.html" class="dropdown-item">派车单</a>
                                         <a href="task-details.html" class="dropdown-item">派修单</a>
                                         <a href="task-kanban-board.html" class="dropdown-item">出借单</a>
                                     </div>
@@ -277,557 +271,148 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box">
-                            <div class="page-title-right">
-                                <form class="d-flex align-items-center mb-3">
-                                    <div class="input-group input-group-sm">
-                                        <input type="text" class="form-control border" id="dash-daterange">
-                                        <span class="input-group-text bg-blue border-blue text-white">
-                                                    <i class="mdi mdi-calendar-range"></i>
-                                                </span>
-                                    </div>
-                                    <a href="javascript: void(0);" class="btn btn-blue btn-sm ms-2">
-                                        <i class="mdi mdi-autorenew"></i>
-                                    </a>
-                                    <a href="javascript: void(0);" class="btn btn-blue btn-sm ms-1">
-                                        <i class="mdi mdi-filter-variant"></i>
-                                    </a>
-                                </form>
-                            </div>
-                            <h4 class="page-title">Dashboard</h4>
+                            <h4 class="page-title">欢迎，理中客先生</h4>
                         </div>
                     </div>
                 </div>
                 <!-- end page title -->
-
                 <div class="row">
-                    <div class="col-md-6 col-xl-3">
-                        <div class="widget-rounded-circle card">
+                    <div class="col-lg-4 col-xl-4">
+                        <div class="card text-center">
                             <div class="card-body">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="avatar-lg rounded-circle bg-soft-primary border-primary border">
-                                            <i class="fe-heart font-22 avatar-title text-primary"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="text-end">
-                                            <h3 class="text-dark mt-1">$<span data-plugin="counterup">58,947</span></h3>
-                                            <p class="text-muted mb-1 text-truncate">Total Revenue</p>
-                                        </div>
-                                    </div>
-                                </div> <!-- end row-->
-                            </div>
-                        </div> <!-- end widget-rounded-circle-->
-                    </div> <!-- end col-->
+                                <h4 class="mb-0">理中客</h4>
+                                <p class="text-muted">001</p>
 
-                    <div class="col-md-6 col-xl-3">
-                        <div class="widget-rounded-circle card">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="avatar-lg rounded-circle bg-soft-success border-success border">
-                                            <i class="fe-shopping-cart font-22 avatar-title text-success"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="text-end">
-                                            <h3 class="text-dark mt-1"><span data-plugin="counterup">127</span></h3>
-                                            <p class="text-muted mb-1 text-truncate">Today's Sales</p>
-                                        </div>
-                                    </div>
-                                </div> <!-- end row-->
-                            </div>
-                        </div> <!-- end widget-rounded-circle-->
-                    </div> <!-- end col-->
+                                <button type="button" class="btn btn-success btn-xs waves-effect mb-2 waves-light">Follow</button>
+                                <button type="button" class="btn btn-danger btn-xs waves-effect mb-2 waves-light">Message</button>
 
-                    <div class="col-md-6 col-xl-3">
-                        <div class="widget-rounded-circle card">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="avatar-lg rounded-circle bg-soft-info border-info border">
-                                            <i class="fe-bar-chart-line- font-22 avatar-title text-info"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="text-end">
-                                            <h3 class="text-dark mt-1"><span data-plugin="counterup">0.58</span>%</h3>
-                                            <p class="text-muted mb-1 text-truncate">Conversion</p>
-                                        </div>
-                                    </div>
-                                </div> <!-- end row-->
-                            </div>
-                        </div> <!-- end widget-rounded-circle-->
-                    </div> <!-- end col-->
+                                <div class="text-start mt-3">
+                                    <h4 class="font-13 text-uppercase">About Me :</h4>
+                                    <p class="text-muted font-13 mb-3">
+                                        Hi I'm Johnathn Deo,has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
+                                    </p>
+                                    <p class="text-muted mb-2 font-13"><strong>姓名 :</strong> <span class="ms-2">理中客</span></p>
 
-                    <div class="col-md-6 col-xl-3">
-                        <div class="widget-rounded-circle card">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="avatar-lg rounded-circle bg-soft-warning border-warning border">
-                                            <i class="fe-eye font-22 avatar-title text-warning"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="text-end">
-                                            <h3 class="text-dark mt-1"><span data-plugin="counterup">78.41</span>k</h3>
-                                            <p class="text-muted mb-1 text-truncate">Today's Visits</p>
-                                        </div>
-                                    </div>
-                                </div> <!-- end row-->
+                                    <p class="text-muted mb-2 font-13"><strong>电话 :</strong><span class="ms-2">(123) 123 1234</span></p>
+
+                                    <p class="text-muted mb-2 font-13"><strong>邮箱 :</strong> <span class="ms-2">user@email.domain</span></p>
+
+                                    <p class="text-muted mb-1 font-13"><strong>所属部门 :</strong> <span class="ms-2">销售</span></p>
+                                </div>
+
                             </div>
-                        </div> <!-- end widget-rounded-circle-->
+                        </div> <!-- end card -->
                     </div> <!-- end col-->
+                    <div class="col-lg-4 col-xl-4">
+                        <div class="card text-center">
+                            <h4 class="mt-4">状态切换</h4>
+                            <div class="card-body">
+                                <div>
+                                    <form>
+                                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                                            <label class="btn btn-outline-success" for="btnradio1">可以出车</label>
+
+                                            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                                            <label class="btn btn-outline-danger" for="btnradio2">无法出车</label>
+
+                                            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                                            <label class="btn btn-outline-secondary" for="btnradio3">休假</label>
+                                        </div>
+                                        <div class="m-3">
+                                            <label for="reason" class="mb-2">备注</label>
+                                            <div class="mt-2">
+                                                <textarea class="form-control" id="reason" rows="5"></textarea>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <input class="btn btn-primary text-center" type="submit" value="切换状态">
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div> <!-- end card -->
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-xl-4">
+                        <div class="card text-center">
+                            <h4 class="mt-4">我的通知</h4>
+                            <div class="card-body">
+                                <div>
+                                    <div class="collapse show" id="todayTasks">
+                                        <!-- task -->
+                                        <div class="row justify-content-sm-between">
+                                            <div class="col-lg-4 mb-2 mt-1">
+                                                <label class="form-check-label">保养通知</label>
+                                                <!-- end checkbox -->
+                                            </div>
+                                            <!-- end col -->
+                                            <div class="col-lg-8 mb-2">
+                                                <div class="d-sm-flex justify-content-between">
+                                                    <div class="mt-3 mt-sm-0">
+                                                        <ul class="list-inline font-13 text-sm-end">
+                                                            <li class="list-inline-item pe-1">
+                                                                <i class="mdi font-16 me-1"></i>
+                                                                2021-11-14
+                                                            </li>
+                                                            <li class="list-inline-item pe-1">
+                                                                <i class="mdi mdi-tune font-16 me-1"></i>
+                                                                车辆管理部
+                                                            </li>
+                                                            <li class="list-inline-item">
+                                                                <span class="badge badge-soft-danger p-1">High</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <!-- end .d-flex-->
+                                            </div>
+                                            <!-- end col -->
+                                        </div>
+                                        <!-- end task -->
+                                        <div class="row justify-content-sm-between">
+                                            <div class="col-lg-4 mb-2 mt-1">
+                                                <label class="form-check-label">保养通知</label>
+                                                <!-- end checkbox -->
+                                            </div>
+                                            <!-- end col -->
+                                            <div class="col-lg-8 mb-2">
+                                                <div class="d-sm-flex justify-content-between">
+                                                    <div class="mt-3 mt-sm-0">
+                                                        <ul class="list-inline font-13 text-sm-end">
+                                                            <li class="list-inline-item pe-1">
+                                                                <i class="mdi font-16 me-1"></i>
+                                                                2021-11-14
+                                                            </li>
+                                                            <li class="list-inline-item pe-1">
+                                                                <i class="mdi mdi-tune font-16 me-1"></i>
+                                                                车辆管理部
+                                                            </li>
+                                                            <li class="list-inline-item">
+                                                                <span class="badge badge-soft-danger p-1">High</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <!-- end .d-flex-->
+                                            </div>
+                                            <!-- end col -->
+                                        </div>
+                                    </div>
+                                    <!--end list-->
+                                </div>
+                                <a href="myindex.html"
+                                   class="dropdown-item text-center text-primary notify-item notify-all">
+                                    查看通知详情
+                                    <i class="fe-arrow-right"></i>
+                                </a>
+                            </div> <!-- end card -->
+                        </div>
+                    </div>
                 </div>
                 <!-- end row-->
 
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="dropdown float-end">
-                                    <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown"
-                                       aria-expanded="false">
-                                        <i class="mdi mdi-dots-vertical"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-end">
-                                        <!-- item-->
-                                        <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-                                        <!-- item-->
-                                        <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                                        <!-- item-->
-                                        <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-                                        <!-- item-->
-                                        <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                    </div>
-                                </div>
 
-                                <h4 class="header-title mb-0">Total Revenue</h4>
-
-                                <div class="widget-chart text-center" dir="ltr">
-
-                                    <div id="total-revenue" class="mt-0" data-colors="#f86262"></div>
-
-                                    <h5 class="text-muted mt-0">Total sales made today</h5>
-                                    <h2>$178</h2>
-
-                                    <p class="text-muted w-75 mx-auto sp-line-2">Traditional heading elements are
-                                        designed to work best in the meat of your page content.</p>
-
-                                    <div class="row mt-3">
-                                        <div class="col-4">
-                                            <p class="text-muted font-15 mb-1 text-truncate">Target</p>
-                                            <h4><i class="fe-arrow-down text-danger me-1"></i>$7.8k</h4>
-                                        </div>
-                                        <div class="col-4">
-                                            <p class="text-muted font-15 mb-1 text-truncate">Last week</p>
-                                            <h4><i class="fe-arrow-up text-success me-1"></i>$1.4k</h4>
-                                        </div>
-                                        <div class="col-4">
-                                            <p class="text-muted font-15 mb-1 text-truncate">Last Month</p>
-                                            <h4><i class="fe-arrow-down text-danger me-1"></i>$15k</h4>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div> <!-- end card -->
-                    </div> <!-- end col-->
-
-                    <div class="col-lg-8">
-                        <div class="card">
-                            <div class="card-body pb-2">
-                                <div class="float-end d-none d-md-inline-block">
-                                    <div class="btn-group mb-2">
-                                        <button type="button" class="btn btn-xs btn-light">Today</button>
-                                        <button type="button" class="btn btn-xs btn-light">Weekly</button>
-                                        <button type="button" class="btn btn-xs btn-secondary">Monthly</button>
-                                    </div>
-                                </div>
-
-                                <h4 class="header-title mb-3">Sales Analytics</h4>
-
-                                <div dir="ltr">
-                                    <div id="sales-analytics" class="mt-4" data-colors="#3283f6,#43bee1"></div>
-                                </div>
-                            </div>
-                        </div> <!-- end card -->
-                    </div> <!-- end col-->
-                </div>
-                <!-- end row -->
-
-                <div class="row">
-                    <div class="col-xl-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="dropdown float-end">
-                                    <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown"
-                                       aria-expanded="false">
-                                        <i class="mdi mdi-dots-vertical"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-end">
-                                        <!-- item-->
-                                        <a href="javascript:void(0);" class="dropdown-item">Edit Report</a>
-                                        <!-- item-->
-                                        <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                                        <!-- item-->
-                                        <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                    </div>
-                                </div>
-
-                                <h4 class="header-title mb-3">Top 5 Users Balances</h4>
-
-                                <div class="table-responsive">
-                                    <table class="table table-borderless table-hover table-nowrap table-centered m-0">
-
-                                        <thead class="table-light">
-                                        <tr>
-                                            <th colspan="2">Profile</th>
-                                            <th>Currency</th>
-                                            <th>Balance</th>
-                                            <th>Reserved in orders</th>
-                                            <th>Action</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td style="width: 36px;">
-                                                <img src="../assets/images/users/user-2.jpg" alt="contact-img"
-                                                     title="contact-img" class="rounded-circle avatar-sm"/>
-                                            </td>
-
-                                            <td>
-                                                <h5 class="m-0 fw-normal">Tomaslau</h5>
-                                                <p class="mb-0 text-muted"><small>Member Since 2017</small></p>
-                                            </td>
-
-                                            <td>
-                                                <i class="mdi mdi-currency-btc text-primary"></i> BTC
-                                            </td>
-
-                                            <td>
-                                                0.00816117 BTC
-                                            </td>
-
-                                            <td>
-                                                0.00097036 BTC
-                                            </td>
-
-                                            <td>
-                                                <a href="javascript: void(0);" class="btn btn-xs btn-light"><i
-                                                        class="mdi mdi-plus"></i></a>
-                                                <a href="javascript: void(0);" class="btn btn-xs btn-secondary"><i
-                                                        class="mdi mdi-minus"></i></a>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td style="width: 36px;">
-                                                <img src="../assets/images/users/user-3.jpg" alt="contact-img"
-                                                     title="contact-img" class="rounded-circle avatar-sm"/>
-                                            </td>
-
-                                            <td>
-                                                <h5 class="m-0 fw-normal">Erwin E. Brown</h5>
-                                                <p class="mb-0 text-muted"><small>Member Since 2017</small></p>
-                                            </td>
-
-                                            <td>
-                                                <i class="mdi mdi-currency-eth text-primary"></i> ETH
-                                            </td>
-
-                                            <td>
-                                                3.16117008 ETH
-                                            </td>
-
-                                            <td>
-                                                1.70360009 ETH
-                                            </td>
-
-                                            <td>
-                                                <a href="javascript: void(0);" class="btn btn-xs btn-light"><i
-                                                        class="mdi mdi-plus"></i></a>
-                                                <a href="javascript: void(0);" class="btn btn-xs btn-secondary"><i
-                                                        class="mdi mdi-minus"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="width: 36px;">
-                                                <img src="../assets/images/users/user-4.jpg" alt="contact-img"
-                                                     title="contact-img" class="rounded-circle avatar-sm"/>
-                                            </td>
-
-                                            <td>
-                                                <h5 class="m-0 fw-normal">Margeret V. Ligon</h5>
-                                                <p class="mb-0 text-muted"><small>Member Since 2017</small></p>
-                                            </td>
-
-                                            <td>
-                                                <i class="mdi mdi-currency-eur text-primary"></i> EUR
-                                            </td>
-
-                                            <td>
-                                                25.08 EUR
-                                            </td>
-
-                                            <td>
-                                                12.58 EUR
-                                            </td>
-
-                                            <td>
-                                                <a href="javascript: void(0);" class="btn btn-xs btn-light"><i
-                                                        class="mdi mdi-plus"></i></a>
-                                                <a href="javascript: void(0);" class="btn btn-xs btn-secondary"><i
-                                                        class="mdi mdi-minus"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="width: 36px;">
-                                                <img src="../assets/images/users/user-5.jpg" alt="contact-img"
-                                                     title="contact-img" class="rounded-circle avatar-sm"/>
-                                            </td>
-
-                                            <td>
-                                                <h5 class="m-0 fw-normal">Jose D. Delacruz</h5>
-                                                <p class="mb-0 text-muted"><small>Member Since 2017</small></p>
-                                            </td>
-
-                                            <td>
-                                                <i class="mdi mdi-currency-cny text-primary"></i> CNY
-                                            </td>
-
-                                            <td>
-                                                82.00 CNY
-                                            </td>
-
-                                            <td>
-                                                30.83 CNY
-                                            </td>
-
-                                            <td>
-                                                <a href="javascript: void(0);" class="btn btn-xs btn-light"><i
-                                                        class="mdi mdi-plus"></i></a>
-                                                <a href="javascript: void(0);" class="btn btn-xs btn-secondary"><i
-                                                        class="mdi mdi-minus"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="width: 36px;">
-                                                <img src="../assets/images/users/user-6.jpg" alt="contact-img"
-                                                     title="contact-img" class="rounded-circle avatar-sm"/>
-                                            </td>
-
-                                            <td>
-                                                <h5 class="m-0 fw-normal">Luke J. Sain</h5>
-                                                <p class="mb-0 text-muted"><small>Member Since 2017</small></p>
-                                            </td>
-
-                                            <td>
-                                                <i class="mdi mdi-currency-btc text-primary"></i> BTC
-                                            </td>
-
-                                            <td>
-                                                2.00816117 BTC
-                                            </td>
-
-                                            <td>
-                                                1.00097036 BTC
-                                            </td>
-
-                                            <td>
-                                                <a href="javascript: void(0);" class="btn btn-xs btn-light"><i
-                                                        class="mdi mdi-plus"></i></a>
-                                                <a href="javascript: void(0);" class="btn btn-xs btn-secondary"><i
-                                                        class="mdi mdi-minus"></i></a>
-                                            </td>
-                                        </tr>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- end col -->
-
-                    <div class="col-xl-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="dropdown float-end">
-                                    <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown"
-                                       aria-expanded="false">
-                                        <i class="mdi mdi-dots-vertical"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-end">
-                                        <!-- item-->
-                                        <a href="javascript:void(0);" class="dropdown-item">Edit Report</a>
-                                        <!-- item-->
-                                        <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                                        <!-- item-->
-                                        <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                    </div>
-                                </div>
-
-                                <h4 class="header-title mb-3">Revenue History</h4>
-
-                                <div class="table-responsive">
-                                    <table class="table table-borderless table-nowrap table-hover table-centered m-0">
-
-                                        <thead class="table-light">
-                                        <tr>
-                                            <th>Marketplaces</th>
-                                            <th>Date</th>
-                                            <th>Payouts</th>
-                                            <th>Status</th>
-                                            <th>Action</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td>
-                                                <h5 class="m-0 fw-normal">Themes Market</h5>
-                                            </td>
-
-                                            <td>
-                                                Oct 15, 2018
-                                            </td>
-
-                                            <td>
-                                                $5848.68
-                                            </td>
-
-                                            <td>
-                                                <span class="badge bg-soft-warning text-warning">Upcoming</span>
-                                            </td>
-
-                                            <td>
-                                                <a href="javascript: void(0);" class="btn btn-xs btn-light"><i
-                                                        class="mdi mdi-pencil"></i></a>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <h5 class="m-0 fw-normal">Freelance</h5>
-                                            </td>
-
-                                            <td>
-                                                Oct 12, 2018
-                                            </td>
-
-                                            <td>
-                                                $1247.25
-                                            </td>
-
-                                            <td>
-                                                <span class="badge bg-soft-success text-success">Paid</span>
-                                            </td>
-
-                                            <td>
-                                                <a href="javascript: void(0);" class="btn btn-xs btn-light"><i
-                                                        class="mdi mdi-pencil"></i></a>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <h5 class="m-0 fw-normal">Share Holding</h5>
-                                            </td>
-
-                                            <td>
-                                                Oct 10, 2018
-                                            </td>
-
-                                            <td>
-                                                $815.89
-                                            </td>
-
-                                            <td>
-                                                <span class="badge bg-soft-success text-success">Paid</span>
-                                            </td>
-
-                                            <td>
-                                                <a href="javascript: void(0);" class="btn btn-xs btn-light"><i
-                                                        class="mdi mdi-pencil"></i></a>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <h5 class="m-0 fw-normal">Envato's Affiliates</h5>
-                                            </td>
-
-                                            <td>
-                                                Oct 03, 2018
-                                            </td>
-
-                                            <td>
-                                                $248.75
-                                            </td>
-
-                                            <td>
-                                                <span class="badge bg-soft-danger text-danger">Overdue</span>
-                                            </td>
-
-                                            <td>
-                                                <a href="javascript: void(0);" class="btn btn-xs btn-light"><i
-                                                        class="mdi mdi-pencil"></i></a>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <h5 class="m-0 fw-normal">Marketing Revenue</h5>
-                                            </td>
-
-                                            <td>
-                                                Sep 21, 2018
-                                            </td>
-
-                                            <td>
-                                                $978.21
-                                            </td>
-
-                                            <td>
-                                                <span class="badge bg-soft-warning text-warning">Upcoming</span>
-                                            </td>
-
-                                            <td>
-                                                <a href="javascript: void(0);" class="btn btn-xs btn-light"><i
-                                                        class="mdi mdi-pencil"></i></a>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <h5 class="m-0 fw-normal">Advertise Revenue</h5>
-                                            </td>
-
-                                            <td>
-                                                Sep 15, 2018
-                                            </td>
-
-                                            <td>
-                                                $358.10
-                                            </td>
-
-                                            <td>
-                                                <span class="badge bg-soft-success text-success">Paid</span>
-                                            </td>
-
-                                            <td>
-                                                <a href="javascript: void(0);" class="btn btn-xs btn-light"><i
-                                                        class="mdi mdi-pencil"></i></a>
-                                            </td>
-                                        </tr>
-
-                                        </tbody>
-                                    </table>
-                                </div> <!-- end .table-responsive-->
-                            </div>
-                        </div> <!-- end card-->
-                    </div> <!-- end col -->
-                </div>
                 <!-- end row -->
 
             </div> <!-- container -->
@@ -839,7 +424,8 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6">
-                        <script>document.write(new Date().getFullYear())</script> &copy; UBold theme by <a href="">Coderthemes</a>
+                        <script>document.write(new Date().getFullYear())</script> &copy; Mapping car management system
+                        by <a href="">第4小组</a>
                     </div>
                     <div class="col-md-6">
                         <div class="text-md-end footer-links d-none d-sm-block">
@@ -862,6 +448,7 @@
 
 </div>
 <!-- END wrapper -->
+
 
 
 <!-- Vendor js -->
