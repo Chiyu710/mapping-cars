@@ -66,8 +66,10 @@
                                                 <div class="row">
                                                     <div class="mb-3 col-md-4">
                                                         <label for="user" class="form-label">责任人</label>
-                                                        <input type="text" id="user" class="form-control">
+                                                        <input type="text" id="user" class="form-control"  value="理中客" disabled>
+                                                        <input type="text" id="userid" class="form-control" style="display: none">
                                                     </div>
+
                                                     <div class="mb-3 col-md-4">
                                                         <label for="time" class="form-label">申请时间</label>
                                                         <input type="date" id="time" class="form-control">

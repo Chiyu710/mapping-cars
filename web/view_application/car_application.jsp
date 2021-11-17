@@ -35,8 +35,6 @@
 
     }
 
-
-
     function submitForm() {
 
     if (validate()) {
@@ -132,6 +130,12 @@
                                                                         <label class="col-md-1 col-form-label" for="appTime1">申请时间</label>
                                                                         <div class="col-md-4">
                                                                             <input type="date" class="form-control " id="appTime1" name="appTime1" >
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row mb-3">
+                                                                        <label class="col-md-1 col-form-label" for="work">业务编号</label>
+                                                                        <div class="col-md-4">
+                                                                            <input type="text" id="work" name="work" class="form-control" >
                                                                         </div>
                                                                     </div>
                                                                     <div class="row mb-3">
