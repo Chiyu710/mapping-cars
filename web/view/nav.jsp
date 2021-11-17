@@ -176,7 +176,7 @@
                             <a href="apps-chat.html" class="dropdown-item"><i class="fa-tools me-1"></i>车辆出借</a>
 
                             <div class="dropdown">
-                                <a class="dropdown-item dropdown-toggle arrow-none" href="#" id="topnav-task"
+                                <a class="dropdown-item dropdown-toggle arrow-none" href="../view_application/car_status.jsp" id="topnav-task"
                                    role="button" data-bs-toggle="dropdown" aria-haspopup="true"
                                    aria-expanded="false">
                                     <i class="fe-clipboard me-1"></i> 申请情况查询
