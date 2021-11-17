@@ -18,59 +18,6 @@
                 </a>
             </li>
 
-            <!--通知栏-->
-            <li class="dropdown notification-list topbar-dropdown">
-                <a class="nav-link dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown" href="#"
-                   role="button" aria-haspopup="false" aria-expanded="false">
-                    <i class="fe-bell noti-icon"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-end dropdown-lg">
-
-                    <!-- item-->
-                    <div class="dropdown-item noti-title">
-                        <h5 class="m-0">
-                            <span class="float-end">
-                            </span>通知
-                        </h5>
-                    </div>
-
-                    <div class="noti-scroll" data-simplebar>
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item notify-item ">
-
-                            <p class="notify-details mt-1">
-                            <div>
-                                系统通知 <span class="badge badge-pill badge-outline-danger">重要</span>
-                            </div>
-                            </p>
-
-                            <p class="text-primary mb-0 ">
-                                <small>您有一份违规急需处理</small>
-                            </p>
-                        </a>
-
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item notify-item ">
-
-                            <p class="notify-details mt-1">
-                            <div>
-                                维修部-ALex <span class="badge badge-pill badge-outline-warning">警告</span>
-                            </div>
-                            </p>
-                            <p class="text-primary mb-0 ">
-                                <small>你的车已经需要保养了</small>
-                            </p>
-                        </a>
-                        <!-- All-->
-                        <a href="javascript:void(0);"
-                           class="dropdown-item text-center text-primary notify-item notify-all">
-                            View all
-                            <i class="fe-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </li>
-
             <!-- 用户信息-->
             <li class="dropdown notification-list topbar-dropdown">
                 <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown"
@@ -100,7 +47,7 @@
                     <div class="dropdown-divider"></div>
 
                     <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                    <a href="../view_auth/myindex.jsp" class="dropdown-item notify-item">
                         <i class="fe-log-out"></i>
                         <span>Logout</span>
                     </a>
@@ -114,7 +61,7 @@
         <!-- LOGO -->
         <div class="logo-box">
 
-            <a href="index.html" class="logo logo-light text-center">
+            <a href="../view_auth/myindex.jsp" class="logo logo-light text-center">
                 <span class="logo-sm">
                     <img src="../assets/images/logo-sm.png" alt="" height="22">
                 </span>
@@ -159,21 +106,21 @@
             <div class="collapse navbar-collapse" id="topnav-menu-content">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link " href="Logbook.html" role="button">
+                        <a class="nav-link " href="#" role="button">
                             <i class="fe-airplay me-1"></i>我的行程
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-apps" role="button"
+                        <a class="nav-link dropdown-toggle arrow-none"  id="topnav-apps" role="button"
                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fe-grid me-1"></i> 业务办理
                             <div class="arrow-down"></div>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="topnav-apps">
 
-                            <a href="apps-calendar.html" class="dropdown-item"><i class="ti-car me-1"></i>出车单填写</a>
-                            <a href="apps-chat.html" class="dropdown-item"><i class="ti-bell me-1"></i>故障申报</a>
-                            <a href="apps-chat.html" class="dropdown-item"><i class="fa-tools me-1"></i>车辆出借</a>
+                            <a href="../view_application/car_application.jsp" class="dropdown-item"><i class="ti-car me-1"></i>出车单填写</a>
+                            <a href="../view_application/fix_application.jsp" class="dropdown-item"><i class="ti-bell me-1"></i>故障申报</a>
+                            <a href="../view_application/lend-application.jsp" class="dropdown-item"><i class="fa-tools me-1"></i>车辆出借</a>
 
                             <div class="dropdown">
                                 <a class="dropdown-item dropdown-toggle arrow-none" href="../view_application/car_status.jsp" id="topnav-task"
@@ -183,9 +130,9 @@
                                     <div class="arrow-down"></div>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="topnav-task">
-                                    <a href="../tempo/task-list.html" class="dropdown-item">派车单</a>
-                                    <a href="task-details.html" class="dropdown-item">派修单</a>
-                                    <a href="task-kanban-board.html" class="dropdown-item">出借单</a>
+                                    <a href="../view_application/car_status.jsp" class="dropdown-item">派车单</a>
+                                    <a href="../view_application/fix_status.jsp" class="dropdown-item">派修单</a>
+                                    <a href="../view_application/lend_status.jsp" class="dropdown-item">出借单</a>
                                 </div>
                             </div>
 
@@ -194,15 +141,15 @@
 
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-components" role="button"
+                        <a class="nav-link dropdown-toggle arrow-none" id="topnav-components" role="button"
                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fe-layers me-1"></i> 行车记录
                             <div class="arrow-down"></div>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="topnav-components">
 
-                            <a href="widgets.html" class="dropdown-item"><i class="fe-map me-1"></i> 行车日志</a>
-                            <a href="widgets.html" class="dropdown-item"><i class="fe-bookmark me-1"></i> 违规记录</a>
+                            <a href="../viwe_log/Logbook.jsp" class="dropdown-item"><i class="fe-map me-1"></i> 行车日志</a>
+                            <a href="../viwe_log/Violation_record.jsp" class="dropdown-item"><i class="fe-bookmark me-1"></i> 违规记录</a>
 
                         </div>
                     </li>

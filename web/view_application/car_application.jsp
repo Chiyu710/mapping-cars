@@ -17,6 +17,35 @@
             margin-right: auto;
         }
     </style>
+    <script type="text/javascript">
+
+    function validate() {
+
+
+
+    if (confirm("提交表单?")) {
+
+    return true;
+
+    } else {
+
+    return false;
+
+    }
+
+    }
+
+
+
+    function submitForm() {
+
+    if (validate()) {
+    document.getElementById("commit").submit();
+    }
+
+    }
+    </script>
+
 </head>
 
 <!-- body start -->
@@ -50,7 +79,7 @@
                                             <h4 class="header-title mb-3">出车申请</h4>
 
                                             <form>
-                                                <div id="progressbarwizard">
+                                                <div id="table_wizard">
 
                                                     <ul class="nav nav-pills bg-light nav-justified form-wizard-header mb-3">
                                                         <li class="nav-item">
@@ -186,11 +215,15 @@
 
                                                         <ul class="list-inline mb-0 wizard">
                                                             <li class="previous list-inline-item">
-                                                                <a href="javascript: void(0);" class="btn btn-primary">Previous</a>
+                                                                <a href="javascript:void(0)" class="btn btn-primary" disabled="">上一步</a>
                                                             </li>
                                                             <li class="next list-inline-item float-end">
-                                                                <a href="javascript: void(0);" class="btn btn-primary">Next</a>
+                                                                <a href="javascript: void(0);" class="btn btn-primary">下一步</a>
                                                             </li>
+                                                            <li class="finish list-inline-item float-end " id="commit"  >
+                                                                <a onclick="submitForm();" class="btn btn-primary" type="submit">提交</a>
+                                                            </li>
+
                                                         </ul>
 
                                                     </div> <!-- tab-content -->
@@ -247,6 +280,51 @@
 
 <!-- App js-->
 <script src="../assets/js/app.min.js"></script>
+
+
+<script>
+    $(document).ready(
+        $(function () {
+            $('#table_wizard').bootstrapWizard({
+                tabClass: 'form-wizard-header',
+                nextSelector: '.next',
+                progressBarCurrent: true,
+                previousSelector: '.previous',
+                onTabClick: function (tab, navigation, index) {
+                    return false;
+                },
+                //下一步事件绑定 index 从0开始
+                onNext: function (tab, navigation, index) {
+                    if (index == 1) {
+                        //检验表单
+                    }
+                },
+                onPrevious: function () {
+
+                },
+                onTabShow: function (tab, navigation, index) {
+                    var $total = navigation.find('li').length;
+                    var $current = index + 1;
+                    var $percent = ($current / $total) * 100;
+                    var wdt = 100 / $total;
+                    var lft = wdt * index;
+                    $('#table_wizard').find('.progress-bar').css({width: $percent + '%'});
+
+                    // If it's the last tab then hide the last button and show the finish instead
+                    if ($current >= $total) {
+                        $('#table_wizard').find('.next').hide();
+                        $('#table_wizard').find('.finish').show();
+                    }
+                    else {
+                        $('#table_wizard').find('.finish').hide();
+                        $('#table_wizard').find('.next').show();
+                    }
+                }
+            });
+        })
+    );
+</script>
+
 
 </body>
 </html>
