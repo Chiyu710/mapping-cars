@@ -118,9 +118,9 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="topnav-apps">
 
-                            <a href="../view_application/car_application.jsp" class="dropdown-item"><i class="ti-car me-1"></i>出车单填写</a>
-                            <a href="../view_application/fix_application.jsp" class="dropdown-item"><i class="ti-bell me-1"></i>故障申报</a>
-                            <a href="../view_application/lend-application.jsp" class="dropdown-item"><i class="fa-tools me-1"></i>车辆出借</a>
+                            <a href="../view_application/car_application.jsp" class="dropdown-item"><i class="ti-car me-1"></i>出车申请</a>
+                            <a href="../view_application/fix_application.jsp" class="dropdown-item"><i class="ti-settings me-1"></i>维修保养</a>
+                            <a href="../view_application/lend-application.jsp" class="dropdown-item"><i class="ti-loop me-1"></i>车辆出借</a>
 
                             <div class="dropdown">
                                 <a class="dropdown-item dropdown-toggle arrow-none" href="../view_application/car_status.jsp" id="topnav-task"
