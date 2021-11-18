@@ -21,15 +21,15 @@ public class UserServiceImpl implements UserService {
         ActionContext ctx = ActionContext.getContext();
         session = (Map) ctx.getSession();
         request = (Map) ctx.get("request");
-        String account = loginUser.getId();
+        String id = loginUser.getId();
         String password = loginUser.getPassword();
-        String hql = "from Customer as user where account='" + account
+        String hql = "from User as user where id='" + id
                 + "' and password='" + password + "'";
         List list = userDao.getByHql(hql);
         if (list.isEmpty())
             return false;
         else {
-            session.put("user", account);
+            session.put("user", id);
             request.put("tip", "登录成功！");
             loginUser = (User) list.get(0);
             request.put("loginUser", loginUser);

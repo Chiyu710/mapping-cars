@@ -21,10 +21,10 @@
 
     <!-- myIndexService = new ssh_01.service.IndexServiceImpl() -->
     <bean id="userService" class="car.service.UserServiceImpl" scope="prototype">
-        <property name="userDao" ref="UserDao"/>
+        <property name="userDao" ref="userDao"/>
     </bean>
 
-    <bean id="UserDao" class="car.dao.UserDaoImpl" scope="prototype">
+    <bean id="userDao" class="car.dao.UserDaoImpl" scope="prototype">
         <!-- 把sessionFactory 注入给IndexDao -->
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
