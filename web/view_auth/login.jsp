@@ -61,18 +61,16 @@
                             </div>
                             <p class="text-muted mb-4 mt-3">Enter your account and password to access.</p>
                         </div>
-
-                        <form action="#">
-
+                       <s:form action="login" method="post">
                             <div class="mb-3">
-                                <label for="emailaddress" class="form-label">账号</label>
-                                <input class="form-control" type="email" id="emailaddress" required="" placeholder="Enter your account">
+                                <label for="account" class="form-label">账号</label>
+                                <input class="form-control" type="text" id="account" required="" placeholder="Enter your account" name="user.id">
                             </div>
 
                             <div class="mb-3">
                                 <label for="password" class="form-label">密码</label>
                                 <div class="input-group input-group-merge">
-                                    <input type="password" id="password" class="form-control" placeholder="Enter your password">
+                                    <input type="password" id="password" class="form-control" placeholder="Enter your password" name="user.password">
                                     <div class="input-group-text" data-password="false">
                                         <span class="password-eye"></span>
                                     </div>
@@ -84,7 +82,7 @@
                                 <button class="btn btn-primary" type="submit">登  陆 </button>
                             </div>
 
-                        </form>
+                       </s:form>
 
 
                     </div> <!-- end card-body -->

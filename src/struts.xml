@@ -5,6 +5,8 @@
         "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
+    <constant name="struts.objectFactory" value="spring" />
+
     <package name="User"  namespace="/" extends="struts-default">
     <action name="login" class="car.action.UserAction"
             method="login">

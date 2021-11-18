@@ -9,18 +9,18 @@ import java.util.Map;
 public class UserAction {
 
     private User user;
-
     public User getUser() {return user;}
-
     public void setUser(User user) {this.user = user;}
+
+    private UserService userService=null;
+
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
 
     public String login() {
 
-
-        UserService userServ = new UserService();
-
-
-        if (userServ.login(user)) {
+        if (userService.login(user)) {
             return "success";
         }
         else {

@@ -32,7 +32,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box">
-                            <h4 class="page-title">欢迎，理中客先生</h4>
+                            <h4 class="page-title">欢迎，<s:property value="#request.loginUser.name"/> 先生</h4>
                         </div>
                     </div>
                 </div>
@@ -41,8 +41,8 @@
                     <div class="col-lg-4 col-xl-4">
                         <div class="card text-center">
                             <div class="card-body">
-                                <h4 class="mb-0">理中客</h4>
-                                <p class="text-muted">001</p>
+                                <h4 class="mb-0"><s:property value="#request.loginUser.name"/></h4>
+                                <p class="text-muted"><s:property value="#request.loginUser.id"/></p>
 
                                 <button type="button" class="btn btn-success btn-xs waves-effect mb-2 waves-light">Follow</button>
                                 <button type="button" class="btn btn-danger btn-xs waves-effect mb-2 waves-light">Message</button>
@@ -52,13 +52,13 @@
                                     <p class="text-muted font-13 mb-3">
                                         Hi I'm Johnathn Deo,has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
                                     </p>
-                                    <p class="text-muted mb-2 font-13"><strong>姓名 :</strong> <span class="ms-2">理中客</span></p>
+                                    <p class="text-muted mb-2 font-13"><strong>姓名 :</strong> <span class="ms-2"><s:property value="#request.loginUser.name"/></span></p>
 
-                                    <p class="text-muted mb-2 font-13"><strong>电话 :</strong><span class="ms-2">(123) 123 1234</span></p>
+                                    <p class="text-muted mb-2 font-13"><strong>电话 :</strong><span class="ms-2"><s:property value="#request.loginUser.age"/></span></p>
 
-                                    <p class="text-muted mb-2 font-13"><strong>邮箱 :</strong> <span class="ms-2">user@email.domain</span></p>
+                                    <p class="text-muted mb-2 font-13"><strong>邮箱 :</strong> <span class="ms-2"><s:property value="#request.loginUser.email"/></span></p>
 
-                                    <p class="text-muted mb-1 font-13"><strong>所属部门 :</strong> <span class="ms-2">销售</span></p>
+                                    <p class="text-muted mb-1 font-13"><strong>所属部门 :</strong> <span class="ms-2"><s:property value="#request.loginUser.department"/></span></p>
                                 </div>
 
                             </div>
