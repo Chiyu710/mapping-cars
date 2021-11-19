@@ -323,53 +323,6 @@
                             </div>
                         </div> <!-- end card-->
                     </div> <!-- end col-->
-                    <div class="col-md-6 col-xl-3">
-                        <div class="card product-box">
-                            <div class="card-body">
-                                <div class="product-action">
-                                    <a href="javascript: void(0);" class="btn btn-success btn-xs waves-effect waves-light"><i class="mdi mdi-pencil"></i></a>
-                                    <a href="javascript: void(0);" class="btn btn-danger btn-xs waves-effect waves-light"><i class="mdi mdi-close"></i></a>
-                                </div>
-
-                                <div class="bg-light">
-                                    <img src="../assets/images/products/product-1.png" alt="product-pic" class="img-fluid" />
-                                </div>
-
-                                <div class="product-info">
-                                    <div class="row align-items-center">
-                                        <div class="col">
-                                            <h5 class="font-16 mt-2 sp-line-1"><a href="ecommerce-product-detail.html" class="text-dark">CK-01</a> </h5>
-                                            <div class="text-warning mb-2 font-13">
-                                                <span class="badge bg-soft-danger text-danger">工作中</span>
-                                            </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <div class="product-price-tag">
-                                                浙A 888888
-                                            </div>
-                                        </div>
-                                    </div> <!-- end row -->
-                                    <h5 class="mt-2"> <span class="text-muted"> Porsche 911 Turbo S</span></h5>
-                                    <h5 class="mt-2"> <span class="text-muted"> 使用年数: 9年</span></h5>
-                                    <h5 class="mt-2"> <span class="text-muted"> 距离上次保养里程数: 2000KM</span></h5>
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <h5> <span class="text-muted"> 维修次数：0</span></h5>
-                                            <h5> <span class="text-muted"> 违规记录：0</span></h5>
-                                        </div>
-                                        <div class="col-6">
-                                            <form>
-                                                <input class="btn btn-outline-primary rounded-pill mt-2 ms-4"  type="submit" value="详细信息"> </input>
-                                            </form>
-                                        </div>
-                                    </div>
-
-                                </div> <!-- end product info-->
-
-
-                            </div>
-                        </div> <!-- end card-->
-                    </div> <!-- end col-->
                 </div>
                 <!-- end row-->
                 <!-- end row-->
