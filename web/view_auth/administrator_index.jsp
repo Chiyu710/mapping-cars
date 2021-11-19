@@ -37,6 +37,7 @@
                 </div>
                 <!-- end page title -->
                 <div class="row">
+                    <div class="col-xl-1"></div>
                     <div class="col-lg-4 col-xl-4">
                         <div class="card text-center">
                             <div class="card-body">
@@ -63,115 +64,94 @@
                             </div>
                         </div> <!-- end card -->
                     </div> <!-- end col-->
-                    <div class="col-lg-4 col-xl-4">
+                    <div class="col-xl-1"></div>
+                    <div class="col-lg-4 col-xl-6">
                         <div class="card text-center">
-                            <h4 class="mt-4">状态切换</h4>
                             <div class="card-body">
-                                <div>
-                                    <form>
-                                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                                            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-                                            <label class="btn btn-outline-success" for="btnradio1">可以出车</label>
 
-                                            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                                            <label class="btn btn-outline-danger" for="btnradio2">无法出车</label>
+                                <h4 class="header-title mb-0">未审核业务</h4>
 
-                                            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-                                            <label class="btn btn-outline-secondary" for="btnradio3">休假</label>
-                                        </div>
-                                        <div class="m-3">
-                                            <label for="reason" class="mb-2">备注</label>
-                                            <div class="mt-2">
-                                                <textarea class="form-control" id="reason" rows="5"></textarea>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <input class="btn btn-primary text-center" type="submit" value="切换状态">
-                                        </div>
-                                    </form>
-                                </div>
+                                <div id="cardCollpase4" class="collapse pt-3 show">
+                                    <div class="table-responsive">
+                                        <table class="table table-centered table-nowrap table-borderless mb-0">
+                                            <thead class="table-light">
+                                            <tr>
+                                                <th>审核类型</th>
+                                                <th>申请日期</th>
+                                                <th>详情查看</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>出车审核</td>
+                                                <td>2021/11/19<br>14：01</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-info waves-effect waves-light">
+                                                    <i class="mdi mdi-alert-circle-outline"></i>
+                                                    </button>
+                                                </td>
 
-                            </div> <!-- end card -->
+                                            </tr>
+                                            <tr>
+                                                <td>出借审核</td>
+                                                <td>2021/11/19<br>13：59</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-info waves-effect waves-light">
+                                                        <i class="mdi mdi-alert-circle-outline"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div> <!-- .table-responsive -->
+                                </div> <!-- end collapse-->
+                            </div> <!-- end card-body-->
                         </div>
                     </div>
-                    <div class="col-lg-4 col-xl-4">
-                        <div class="card text-center">
-                            <h4 class="mt-4">我的通知</h4>
-                            <div class="card-body">
-                                <div>
-                                    <div class="collapse show" id="todayTasks">
-                                        <!-- task -->
-                                        <div class="row justify-content-sm-between">
-                                            <div class="col-lg-4 mb-2 mt-1">
-                                                <label class="form-check-label">保养通知</label>
-                                                <!-- end checkbox -->
-                                            </div>
-                                            <!-- end col -->
-                                            <div class="col-lg-8 mb-2">
-                                                <div class="d-sm-flex justify-content-between">
-                                                    <div class="mt-3 mt-sm-0">
-                                                        <ul class="list-inline font-13 text-sm-end">
-                                                            <li class="list-inline-item pe-1">
-                                                                <i class="mdi font-16 me-1"></i>
-                                                                2021-11-14
-                                                            </li>
-                                                            <li class="list-inline-item pe-1">
-                                                                <i class="mdi mdi-tune font-16 me-1"></i>
-                                                                车辆管理部
-                                                            </li>
-                                                            <li class="list-inline-item">
-                                                                <span class="badge badge-soft-danger p-1">High</span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <!-- end .d-flex-->
-                                            </div>
-                                            <!-- end col -->
-                                        </div>
-                                        <!-- end task -->
-                                        <div class="row justify-content-sm-between">
-                                            <div class="col-lg-4 mb-2 mt-1">
-                                                <label class="form-check-label">保养通知</label>
-                                                <!-- end checkbox -->
-                                            </div>
-                                            <!-- end col -->
-                                            <div class="col-lg-8 mb-2">
-                                                <div class="d-sm-flex justify-content-between">
-                                                    <div class="mt-3 mt-sm-0">
-                                                        <ul class="list-inline font-13 text-sm-end">
-                                                            <li class="list-inline-item pe-1">
-                                                                <i class="mdi font-16 me-1"></i>
-                                                                2021-11-14
-                                                            </li>
-                                                            <li class="list-inline-item pe-1">
-                                                                <i class="mdi mdi-tune font-16 me-1"></i>
-                                                                车辆管理部
-                                                            </li>
-                                                            <li class="list-inline-item">
-                                                                <span class="badge badge-soft-danger p-1">High</span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <!-- end .d-flex-->
-                                            </div>
-                                            <!-- end col -->
-                                        </div>
-                                    </div>
-                                    <!--end list-->
-                                </div>
-                                <a href="../view_notification/notification_detail.jsp"
-                                   class="dropdown-item text-center text-primary notify-item notify-all">
-                                    查看通知详情
-                                    <i class="fe-arrow-right"></i>
-                                </a>
-                            </div> <!-- end card -->
-                        </div>
-                    </div>
+                    <div class="col-xl-1"></div>
                 </div>
                 <!-- end row-->
 
+                <div class="row">
+                    <div class="col-xl-4"></div>
+                    <div class="col-xl-4 col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+
+                                <h4 class="header-title mb-0">出车单数</h4>
+
+                                <div id="cardCollpase3" class="collapse pt-3 show">
+                                    <div class="text-center">
+
+                                        <div class="row mt-2">
+                                            <div class="col-6">
+                                                <h3 data-plugin="counterup">1280</h3>
+                                                <p class="text-muted font-13 mb-0 text-truncate">今日出车单数</p>
+                                            </div>
+                                            <div class="col-6">
+                                                <h3 data-plugin="counterup">1500</h3>
+                                                <p class="text-muted font-13 mb-0 text-truncate">平均出车单数</p>
+                                            </div>
+                                        </div> <!-- end row -->
+
+                                        <div  dir="ltr">
+                                            <div id="statistics-chart" data-colors="#44cf9c" style="height: 270px;" class="morris-chart mt-3"></div>
+                                        </div>
+
+                                    </div>
+                                </div> <!-- end collapse-->
+                            </div> <!-- end card-body-->
+                        </div> <!-- end card-->
+                    </div> <!-- end col-->
+
+
+
+
+
+
+
+                </div>
+                <!-- end row -->
 
                 <!-- end row -->
 
@@ -197,11 +177,13 @@
 <!-- Plugins js-->
 <script src="../assets/libs/flatpickr/flatpickr.min.js"></script>
 <script src="../assets/libs/apexcharts/apexcharts.min.js"></script>
+<script src="../assets/libs/morris.js06/morris.min.js"></script>
+<script src="../assets/libs/raphael/raphael.min.js"></script>
 
 <script src="../assets/libs/selectize/js/standalone/selectize.min.js"></script>
 
 <!-- Dashboar 1 init js-->
-<script src="../assets/js/pages/dashboard-1.init.js"></script>
+<script src="../assets/js/pages/dashboard-4.init.js"></script>
 
 <!-- App js-->
 <script src="../assets/js/app.min.js"></script>
