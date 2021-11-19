@@ -161,7 +161,7 @@
                                     </div>
                                     <!--end list-->
                                 </div>
-                                <a href="myindex.html"
+                                <a href="../view_info/info.jsp"
                                    class="dropdown-item text-center text-primary notify-item notify-all">
                                     查看通知详情
                                     <i class="fe-arrow-right"></i>
