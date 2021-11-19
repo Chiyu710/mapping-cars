@@ -24,3 +24,12 @@
 
     <!-- icons -->
     <link href="../assets/css/icons.min.css" rel="stylesheet" type="text/css"/>
+
+    <style>
+        .mmmd {
+            float: none;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
