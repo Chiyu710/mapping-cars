@@ -34,7 +34,7 @@
                     </div>
 
                     <!-- item-->
-                    <a href="javascript:void(0);"  class="dropdown-item notify-item">
+                    <a href="../view_auth/staff_index.jsp"  class="dropdown-item notify-item">
                         <i class="fe-user"></i>My Account
                     </a>
 
@@ -47,7 +47,7 @@
                     <div class="dropdown-divider"></div>
 
                     <!-- item-->
-                    <a href="../view_auth/myindex.jsp" class="dropdown-item notify-item">
+                    <a href="../view_auth/staff_index.jsp" class="dropdown-item notify-item">
                         <i class="fe-log-out"></i>
                         <span>Logout</span>
                     </a>
@@ -61,7 +61,7 @@
         <!-- LOGO -->
         <div class="logo-box">
 
-            <a href="../view_auth/myindex.jsp" class="logo logo-light text-center">
+            <a href="../view_auth/staff_index.jsp" class="logo logo-light text-center">
                 <span class="logo-sm">
                     <img src="../assets/images/logo-sm.png" alt="" height="22">
                 </span>

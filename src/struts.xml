@@ -10,7 +10,7 @@
     <package name="User"  namespace="/" extends="struts-default">
     <action name="login" class="UserAction"
             method="login">
-        <result name="success">/view_auth/myindex.jsp</result>
+        <result name="success">/view_auth/staff_index.jsp"</result>
         <result name="fail">/view_auth/login.jsp</result>
     </action>
     </package>

@@ -41,7 +41,7 @@
                     </div>
 
                     <!-- item-->
-                    <a href="javascript:void(0);"  class="dropdown-item notify-item">
+                    <a href="../view_auth/administrator_index.jsp"  class="dropdown-item notify-item">
                         <i class="fe-user"></i>My Account
                     </a>
 
@@ -54,7 +54,7 @@
                     <div class="dropdown-divider"></div>
 
                     <!-- item-->
-                    <a href="../view_auth/myindex.jsp" class="dropdown-item notify-item">
+                    <a href="../view_auth/login.jsp" class="dropdown-item notify-item">
                         <i class="fe-log-out"></i>
                         <span>Logout</span>
                     </a>
@@ -68,7 +68,7 @@
         <!-- LOGO -->
         <div class="logo-box">
 
-            <a href="../view_auth/myindex.jsp" class="logo logo-light text-center">
+            <a href="../view_auth/administrator_index.jsp" class="logo logo-light text-center">
                 <span class="logo-sm">
                     <img src="../assets/images/logo-sm.png" alt="" height="22">
                 </span>
@@ -113,12 +113,12 @@
             <div class="collapse navbar-collapse" id="topnav-menu-content">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link " href="#" role="button">
+                        <a class="nav-link " href="../view_check/check.jsp" role="button">
                             <i class="ti-write me-1"></i>申请审核
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link"  href="#" role="button">
+                        <a class="nav-link"  href="../view_car/car_info.jsp" role="button">
                             <i class="ti-car me-1"></i>部门车辆
                         </a>
                     </li>
@@ -146,33 +146,8 @@
                             <div class="arrow-down"></div>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="topnav-apps">
-
-                            <a href="../view_application/car_application.jsp" class="dropdown-item"><i class="ti-car me-1"></i>已发布通知</a>
-                            <div class="dropdown">
-                                <a class="dropdown-item dropdown-toggle arrow-none" href="../view_application/car_status.jsp" id="topnav-task"
-                                   role="button" data-bs-toggle="dropdown" aria-haspopup="true"
-                                   aria-expanded="false">
-                                    <i class="fe-briefcase me-1"></i> 事务发布
-                                    <div class="arrow-down"></div>
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="topnav-task">
-                                    <a href="../view_application/car_status.jsp" class="dropdown-item">保险定损</a>
-                                    <a href="../view_application/lend_status.jsp" class="dropdown-item">普通事务</a>
-                                </div>
-                            </div>
-                            <div class="dropdown">
-                                <a class="dropdown-item dropdown-toggle arrow-none" href="../view_application/car_status.jsp" id="topnav-info"
-                                   role="button" data-bs-toggle="dropdown" aria-haspopup="true"
-                                   aria-expanded="false">
-                                    <i class="fe-monitor me-1"></i> 信息发布
-                                    <div class="arrow-down"></div>
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="topnav-task">
-                                    <a href="../view_application/car_status.jsp" class="dropdown-item">车辆改动</a>
-                                    <a href="../view_application/fix_status.jsp" class="dropdown-item">违规信息</a>
-                                    <a href="../view_application/lend_status.jsp" class="dropdown-item">普通信息</a>
-                                </div>
-                            </div>
+                            <a href="../view_notification/notification_detail_admin.jsp" class="dropdown-item"><i class="ti-car me-1"></i>已发布通知</a>
+                            <a href="../view_notification/notification_release.jsp" class="dropdown-item"><i class="fe-monitor"></i>通知发布</a>
                         </div>
                     </li>
 
