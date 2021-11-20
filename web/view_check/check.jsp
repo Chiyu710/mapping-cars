@@ -16,7 +16,7 @@
 <!-- Begin page -->
 <div id="wrapper">
 
-    <jsp:include page="../view/nav.jsp"></jsp:include>
+    <jsp:include page="../view/nav_admin.jsp"></jsp:include>
     <!-- ============================================================== -->
     <!-- Start Page Content here -->
     <!-- ============================================================== -->

@@ -148,8 +148,8 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="topnav-components">
 
-                            <a href="../viwe_log/Logbook.jsp" class="dropdown-item"><i class="fe-map me-1"></i> 行车日志</a>
-                            <a href="../viwe_log/Violation_record.jsp" class="dropdown-item"><i class="fe-bookmark me-1"></i> 违规记录</a>
+                            <a href="../view_log/Logbook.jsp" class="dropdown-item"><i class="fe-map me-1"></i> 行车日志</a>
+                            <a href="../view_log/Violation_record.jsp" class="dropdown-item"><i class="fe-bookmark me-1"></i> 违规记录</a>
 
                         </div>
                     </li>
