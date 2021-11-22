@@ -5,18 +5,14 @@
         "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-    <constant name="struts.objectFactory" value="spring"/>
-
     <package name="User" namespace="/" extends="struts-default">
-        <action name="login" class="UserAction"
-                method="login">
-            <result name="success">staff_index.jsp"</result>
+        <action name="login" class="userAction" method="login">
+            <result name="success">staff_index.jsp</result>
             <result name="fail">login.jsp</result>
         </action>
 
-        <action name="register" class="UserAction"
-                method="register">
-            <result name="success">suuccess.jsp"</result>
+        <action name="register" class="userAction" method="register">
+            <result name="success">suuccess.jsp</result>
             <result name="fail">Failed.jsp</result>
         </action>
     </package>

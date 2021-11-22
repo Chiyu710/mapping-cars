@@ -46,7 +46,7 @@
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
 
-    <bean id="UserAction" class="car.action.UserAction" scope="prototype">
+    <bean id="userAction" class="car.action.UserAction" scope="prototype">
         <!-- setIs(myIndexService) -->
         <property name="userService" ref="userService"/>
     </bean>
