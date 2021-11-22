@@ -27,4 +27,14 @@ public class UserAction {
             return "fail";
         }
     }
+
+    public String register() {
+
+        if (userService.register(user)) {
+            return "success";
+        }
+        else {
+            return "fail";
+        }
+    }
 }

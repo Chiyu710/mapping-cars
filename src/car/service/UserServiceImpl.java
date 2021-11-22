@@ -36,4 +36,14 @@ public class UserServiceImpl implements UserService {
             return true;
         }
     }
+
+    @Override
+    public boolean register(User registerUser){
+        try {
+            userDao.save(registerUser);
+            return true;
+        }catch (Exception e) {
+            return false;
+        }
+    }
 }
