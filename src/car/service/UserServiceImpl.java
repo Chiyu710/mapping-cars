@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService {
             session.put("user", id);
             request.put("tip", "登录成功！");
             loginUser = (User) list.get(0);
-            request.put("loginUser", loginUser);
+            session.put("user", loginUser);
             return true;
         }
     }

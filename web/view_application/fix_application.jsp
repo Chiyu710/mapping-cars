@@ -60,30 +60,28 @@
 
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <form>
-
-
+                                            <s:form action="sendFix" method="POST">
                                                 <div class="row">
                                                     <div class="mb-3 col-md-4">
                                                         <label for="user" class="form-label">责任人</label>
-                                                        <input type="text" id="user" class="form-control"  value="理中客" disabled>
-                                                        <input type="text" id="userid" class="form-control" style="display: none">
+                                                        <input type="text" id="user" class="form-control"  name="fixApplication.userName" value=${session.user.name} disabled>
+                                                        <input type="text" id="userid" class="form-control" style="display: none" name="fixApplication.userId" value=${session.user.id}>
                                                     </div>
 
                                                     <div class="mb-3 col-md-4">
                                                         <label for="time" class="form-label">申请时间</label>
-                                                        <input type="date" id="time" class="form-control">
+                                                        <input type="date" id="time" class="form-control" name="fixApplication.applicationDate">
                                                     </div>
 
                                                 </div>
                                                 <div class="row">
                                                     <div class="mb-3 col-md-4">
                                                         <label for="Carid" class="form-label">车辆号</label>
-                                                        <input type="text" id="Carid" class="form-control">
+                                                        <input type="text" id="Carid" class="form-control" name="fixApplication.carID">
                                                     </div>
                                                     <div class="mb-3 col-md-4">
                                                         <label for="Carid1" class="form-label">车牌号</label>
-                                                        <input type="text" id="Carid1" class="form-control">
+                                                        <input type="text" id="Carid1" class="form-control" name="fixApplication.LicensePlate">
                                                     </div>
                                                 </div>
 
@@ -94,14 +92,14 @@
                                                     </div>
                                                     <div class="mb-3 col-md-4">
                                                         <label for="mileage" class="form-label">保养间隔里程数</label>
-                                                        <input type="text" id="mileage" class="form-control">
+                                                        <input type="text" id="mileage" class="form-control" name="fixApplication.mileage">
                                                     </div>
                                                     <div class="mb-3 col-md-4">
                                                         <label for="fix_t" class="form-label">维修类型</label>
-                                                        <select class="form-select" id="fix_t">
-                                                            <option>正常维修</option>
-                                                            <option>事故维修</option>
-                                                            <option>保养</option>
+                                                        <select class="form-select" id="fix_t" name="fixApplication.type">
+                                                            <option value="正常维修">正常维修</option>
+                                                            <option value="事故维修">事故维修</option>
+                                                            <option value="保养">保养</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -110,7 +108,7 @@
                                                 <div class="row">
                                                     <div class="mb-3 col-md-12">
                                                         <label for="fix_d" class="form-label">维修地点</label>
-                                                        <input type="text" id="fix_d" class="form-control">
+                                                        <input type="text" id="fix_d" class="form-control" name="fixApplication.location">
                                                     </div>
                                                 </div>
 
@@ -118,7 +116,7 @@
                                                 <div class="row">
                                                     <div class="mb-3 col-md-12">
                                                         <label for="extra_t" class="form-label">情况说明</label>
-                                                        <textarea class="form-control" id="extra_t" rows="5"></textarea>
+                                                        <textarea class="form-control" id="extra_t" rows="5" name="fixApplication.remarks"></textarea>
                                                     </div>
                                                 </div>
 
@@ -131,7 +129,7 @@
                                                     </div>
                                                 </div>
 
-                                            </form>
+                                            </s:form>
                                         </div> <!-- end col -->
 
                                     </div>

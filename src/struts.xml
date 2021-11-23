@@ -16,4 +16,11 @@
             <result name="fail">Failed.jsp</result>
         </action>
     </package>
+
+    <package name="Application" namespace="/" extends="struts-default">
+        <action name="sendFix" class="applicationAction" method="sendFix">
+            <result name="success">../view_auth/staff_index.jsp</result>
+            <result name="fail">../view_auth/Failed.jsp</result>
+        </action>
+    </package>
 </struts>

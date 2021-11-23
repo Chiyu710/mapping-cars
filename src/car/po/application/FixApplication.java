@@ -3,6 +3,7 @@ package car.po.application;
 import java.util.Date;
 
 public class FixApplication extends Application{
+    String location;
     int mileage;
     String type;
     String LicensePlate;
@@ -15,4 +16,11 @@ public class FixApplication extends Application{
     public void setType(String type) {this.type = type;}
     public void setMileage(int mileage) {this.mileage = mileage;}
 
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
 }

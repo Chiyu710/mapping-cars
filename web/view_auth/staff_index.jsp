@@ -31,7 +31,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box">
-                            <h4 class="page-title">欢迎，<s:property value="#request.loginUser.name"/> 先生</h4>
+                            <h4 class="page-title">欢迎，<s:property value="#session.user.name"/> 先生</h4>
                         </div>
                     </div>
                 </div>
@@ -40,8 +40,8 @@
                     <div class="col-lg-4 col-xl-4">
                         <div class="card text-center">
                             <div class="card-body">
-                                <h4 class="mb-0"><s:property value="#request.loginUser.name"/></h4>
-                                <p class="text-muted"><s:property value="#request.loginUser.id"/></p>
+                                <h4 class="mb-0"><s:property value="#rsession.user.name"/></h4>
+                                <p class="text-muted"><s:property value="#session.user.id"/></p>
 
                                 <button type="button" class="btn btn-success btn-xs waves-effect mb-2 waves-light">Follow</button>
                                 <button type="button" class="btn btn-danger btn-xs waves-effect mb-2 waves-light">Message</button>

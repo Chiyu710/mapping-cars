@@ -9,7 +9,6 @@ public class Application {
     String carID;
     String remarks;
     String handler;
-
     int status;
     Date applicationDate;
 

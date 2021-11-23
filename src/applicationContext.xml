@@ -45,7 +45,6 @@
 
     <bean id="userDao" class="car.dao.UserDaoImpl" scope="prototype" parent="baseDAO"/>
     <bean id="userAction" class="car.action.UserAction" scope="prototype">
-        <!-- setIs(myIndexService) -->
         <property name="userService" ref="userService"/>
     </bean>
     <bean id="userService" class="car.service.UserServiceImpl" scope="prototype">
@@ -54,7 +53,6 @@
 
     <bean id="applicationDao" class="car.dao.ApplicationDaoImpl" scope="prototype" parent="baseDAO"/>
     <bean id="applicationAction" class="car.action.ApplicationAction" scope="prototype">
-        <!-- setIs(myIndexService) -->
         <property name="applicationService" ref="applicationService"/>
     </bean>
     <bean id="applicationService" class="car.service.ApplicationServiceImpl" scope="prototype">

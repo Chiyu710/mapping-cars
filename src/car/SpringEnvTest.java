@@ -1,5 +1,8 @@
 package car;
+import car.action.ApplicationAction;
+import car.dao.ApplicationDao;
 import car.po.User;
+import car.po.application.FixApplication;
 import org.springframework.context.ApplicationContext;
 import
         org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -10,11 +13,8 @@ public class SpringEnvTest {
         ApplicationContext ctx = new ClassPathXmlApplicationContext(
                 "applicationContext.xml");
 //获取 CustomerDAO 实例
-        UserDao userDao = (UserDao) ctx.getBean("userDao");
-        User user = new User();
-        user.setId("2");
-        user.setPassword("2123123");
-        user.setName("123");
-        userDao.save(user);
+        ApplicationDao applicationDao = (ApplicationDao) ctx.getBean("applicationDao");
+        FixApplication fixApplication = new FixApplication();
+        applicationDao.saveFix(fixApplication);
     }
 }

@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+
 <!-- Topbar Start -->
 <div class="navbar-custom">
     <div class="container-fluid">
@@ -24,7 +26,7 @@
                    href="#" role="button" aria-haspopup="false" aria-expanded="false">
 
                         <span class="pro-user-name ms-1">
-                      <s:property value="#request.loginUser.name"/> <i class="mdi mdi-chevron-down"></i>
+                      <s:property value="session.user.name"/> <i class="mdi mdi-chevron-down"></i>
                     </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
