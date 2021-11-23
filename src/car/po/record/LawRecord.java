@@ -1,4 +1,4 @@
-package car.po;
+package car.po.record;
 
 public class LawRecord {
 }

@@ -2,7 +2,7 @@ package car.po.application;
 
 import java.util.Date;
 
-public class lendApplication {
+public class LendApplication {
     String BorrowerName;
     String BorrowerDepartment;
     Date ScheduledD;

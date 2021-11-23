@@ -21,7 +21,6 @@
         <property name="username" value="root"/>
         <property name="password" value="root"/>
     </bean>
-
     <!-- 添加sessionFactory bane ，注意，该类是Spring提供的 -->
     <bean id="sessionFactory"
           class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
@@ -36,24 +35,30 @@
         <property name="mappingResources">
             <list>
                 <value>car/po/User.hbm.xml</value>
+                <value>car/po/application/FixApplication.hbm.xml</value>
             </list>
         </property>
     </bean>
-
-    <bean id="userDao" class="car.dao.UserDaoImpl" scope="prototype" parent="baseDAO"/>
-
     <bean id="baseDAO" class="car.dao.BaseHibernateDao">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
 
+    <bean id="userDao" class="car.dao.UserDaoImpl" scope="prototype" parent="baseDAO"/>
     <bean id="userAction" class="car.action.UserAction" scope="prototype">
         <!-- setIs(myIndexService) -->
         <property name="userService" ref="userService"/>
     </bean>
-
-    <!-- myIndexService = new ssh_01.service.IndexServiceImpl() -->
     <bean id="userService" class="car.service.UserServiceImpl" scope="prototype">
         <property name="userDao" ref="userDao"/>
+    </bean>
+
+    <bean id="applicationDao" class="car.dao.ApplicationDaoImpl" scope="prototype" parent="baseDAO"/>
+    <bean id="applicationAction" class="car.action.ApplicationAction" scope="prototype">
+        <!-- setIs(myIndexService) -->
+        <property name="applicationService" ref="applicationService"/>
+    </bean>
+    <bean id="applicationService" class="car.service.ApplicationServiceImpl" scope="prototype">
+        <property name="applicationDao" ref="applicationDao"/>
     </bean>
 
 
