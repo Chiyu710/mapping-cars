@@ -16,6 +16,49 @@
             margin-right: auto;
         }
     </style>
+    <script src="../assets/libs/toastr/node_modules/jquery/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            const cars = document.getElementById("carSelect");
+            $.ajax({
+                url:"getFreeCarsAjax",
+                type:"Get",
+                dataType:"JSON",
+                success:function (data){
+                    for (var i=0;i<data.length;i++){
+                        cars.innerHTML+='<option value=" '+data[i].id+ '"' + '>'+data[i].name+'</option>';
+                    }
+                    $("#CarName").val(data[0].name);
+                    $("#CarType").val(data[0].model);
+                    $("#LP").val(data[0].licensePlate);
+                    $("#bsx").val(data[0].transmissionCase);
+                }
+            })
+            $("#carSelect").change(function(){
+                var carId = $(this).find("option:selected").attr("value"); //获取当前下拉框name属性的值
+                $.ajax({
+                    type : "POST",
+                    url:"getCarInfoAjax",
+                    dataType:"JSON",
+                    data : {
+                        carId:carId
+                    },
+                    success : function(data) {
+                        $("#CarName").val(data.name);
+                        $("#CarType").val(data.model);
+                        $("#LP").val(data.licensePlate);
+                        $("#bsx").val(data.transmissionCase);
+                    },
+                    error :function() {
+                        alert("error!");
+                    },
+                });
+            });
+        })
+
+
+
+    </script>
     <script type="text/javascript">
 
     function validate() {
@@ -33,7 +76,6 @@
     }
 
     }
-
     function submitForm() {
 
     if (validate()) {
@@ -104,6 +146,8 @@
                                                         <div id="bar" class="progress mb-3" style="height: 7px;">
                                                             <div class="bar progress-bar progress-bar-striped progress-bar-animated bg-success"></div>
                                                         </div>
+<%--                                                        <s:form action="sendCar" method="POST">--%>
+
 
                                                         <div class="tab-pane" id="account-2">
                                                             <div class="row ms-3">
@@ -158,37 +202,34 @@
                                                             <div class="row">
                                                                 <div class="col-12">
                                                                     <div class="row mb-3">
-                                                                        <label class="col-md-3 col-form-label" for="select"> 车辆选择</label>
-                                                                        <select id="select" class="form-select col-5">
-                                                                            <option value="1">查勘车1</option>
-                                                                            <option value="2">查勘车2</option>
-                                                                            <option value="3">查勘车3</option>
+                                                                        <label class="col-md-3 col-form-label" for="carSelect"> 车辆选择</label>
+                                                                        <select id="carSelect" class="form-select col-5">
                                                                         </select>
                                                                     </div>
 
                                                                     <hr>
                                                                     <h3 class="text-center mb-2">车辆信息</h3>
                                                                     <div class="row mb-3 ">
-                                                                        <label class="col-md-1 col-form-label" for="CarId">车辆编号</label>
+                                                                        <label class="col-md-1 col-form-label" for="CarName">车辆编号</label>
                                                                         <div class="col-md-4">
-                                                                            <input type="text" class="form-control " id="CarId" name="CarId" value="查勘车01" readonly>
+                                                                            <input type="text" class="form-control " id="CarName" name="CarId"  readonly>
                                                                         </div>
                                                                         <div class="col-md-2">
                                                                         </div>
-                                                                        <label class="col-md-1 col-form-label" for="CarId02">车牌号</label>
+                                                                        <label class="col-md-1 col-form-label" for="LP">车牌号</label>
                                                                         <div class="col-md-4">
-                                                                            <input type="text" class="form-control " id="CarId02" name="CarId02" value="浙A88888" readonly>
+                                                                            <input type="text" class="form-control " id="LP" name="CarId02"  readonly>
                                                                         </div>
                                                                     </div>
                                                                     <div class="row mb-3">
                                                                         <label class="col-md-1 col-form-label" for="CarType" >车辆型号</label>
                                                                         <div class="col-md-4">
-                                                                            <input type="text" class="form-control " id="CarType" name="CarType" value=" 911 Turbo s" readonly>
+                                                                            <input type="text" class="form-control " id="CarType" name="CarType"  readonly>
                                                                         </div>
                                                                         <div class="col-md-2"></div>
-                                                                        <label class="col-md-1 col-form-label" for="CarStatus" >车辆状况</label>
+                                                                        <label class="col-md-1 col-form-label" for="bsx" >变速箱</label>
                                                                         <div class="col-md-4">
-                                                                            <input type="text" class="form-control " id="CarStatus" name="CarStatus" value="良好" readonly>
+                                                                            <input type="text" class="form-control " id="bsx" name="CarStatus"  readonly>
                                                                         </div>
                                                                     </div>
                                                                 </div> <!-- end col -->
@@ -228,7 +269,7 @@
                                                             </li>
 
                                                         </ul>
-
+<%--                                                        </s:form>--%>
                                                     </div> <!-- tab-content -->
                                                 </div> <!-- end #progressbarwizard-->
                                             </form>

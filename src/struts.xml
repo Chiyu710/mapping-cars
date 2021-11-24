@@ -37,6 +37,21 @@
                 <!-- 设置对象中哪些属性需要的，支持正则表达式, 语法必须转义  [  ]  .   \d表示匹配下标 -->
             </result>
         </action>
+        <action name="getCarInfoAjax" class="carAction" method="getCarInfoAjax">
+            <result name="ajax" type="json">
+                <!-- 设置值栈名称，让struts获得数据 -->
+                <param name="root">car</param>
+                <!-- 设置对象中哪些属性需要的，支持正则表达式, 语法必须转义  [  ]  .   \d表示匹配下标 -->
+            </result>
+        </action>
+
+        <action name="getFreeCarsAjax" class="carAction" method="getFreeCarsAjax">
+            <result name="ajax" type="json">
+                <!-- 设置值栈名称，让struts获得数据 -->
+                <param name="root">allCarsInfo</param>
+                <!-- 设置对象中哪些属性需要的，支持正则表达式, 语法必须转义  [  ]  .   \d表示匹配下标 -->
+            </result>
+        </action>
     </package>
 
 
