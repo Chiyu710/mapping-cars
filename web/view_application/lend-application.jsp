@@ -59,50 +59,49 @@
 
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <form>
-
-
-                                                <div class="row">
+                                                <s:form action="sendLend" method="POST">
+                                                    <div class="row">
                                                     <div class="mb-3 col-md-4">
                                                         <label for="user" class="form-label">出借人</label>
-                                                        <input type="text" id="user" class="form-control">
+                                                        <input type="text" id="user"   class="form-control" name="lendApplication.userName" disabled value=${session.user.name} >
+                                                        <input type="text" id="userid" class="form-control" name="lendApplication.userID" style="display: none" value=${session.user.id} >
                                                     </div>
                                                     <div class="mb-3 col-md-4">
                                                         <label for="time" class="form-label">申请时间</label>
-                                                        <input type="date" id="time" class="form-control">
+                                                        <input type="date" id="time" class="form-control" name="lendApplication.applicationDate">
                                                     </div>
                                                 </div>
 
                                                 <div class="row">
                                                     <div class="mb-3 col-md-4">
                                                         <label for="Carid" class="form-label">车辆号</label>
-                                                        <input type="text" id="Carid" class="form-control">
+                                                        <input type="text" id="Carid" class="form-control" name="lendApplication.carID">
                                                     </div>
                                                     <div class="mb-3 col-md-4">
                                                         <label for="Carid1" class="form-label">车牌号</label>
-                                                        <input type="text" id="Carid1" class="form-control">
+                                                        <input type="text" id="Carid1" class="form-control" name="lendApplication.LicensePlate">
                                                     </div>
                                                 </div>
 
                                                 <div class="row">
                                                     <div class="mb-3 col-md-4">
                                                         <label for="user2" class="form-label">借用人</label>
-                                                        <input type="text" id="user2" class="form-control">
+                                                        <input type="text" id="user2" class="form-control" name="lendApplication.borrowerName">
                                                     </div>
                                                     <div class="mb-3 col-md-4">
                                                         <label for="department" class="form-label">借用人所属部门</label>
-                                                        <input type="text" id="department" class="form-control">
+                                                        <input type="text" id="department" class="form-control" name="lendApplication.borrowerDepartment">
                                                     </div>
                                                     <div class="mb-3 col-md-4">
                                                         <label for="back_time" class="form-label">预定归还日期</label>
-                                                        <input type="date" id="back_time" class="form-control">
+                                                        <input type="date" id="back_time" class="form-control" name="lendApplication.scheduledD">
                                                     </div>
                                                 </div>
 
                                                 <div class="row">
                                                     <div class="mb-3 col-md-12">
                                                         <label for="extra_t" class="form-label">情况说明</label>
-                                                        <textarea class="form-control" id="extra_t" rows="5"></textarea>
+                                                        <textarea class="form-control" id="extra_t" rows="5" name="lendApplication.remarks"></textarea>
                                                     </div>
                                                 </div>
 
@@ -114,8 +113,7 @@
                                                     <input class="btn btn-primary text-center" type="submit" value="提交">
                                                     </div>
                                                 </div>
-
-                                            </form>
+                                                </s:form>
                                         </div> <!-- end col -->
 
                                     </div>

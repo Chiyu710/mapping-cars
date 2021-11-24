@@ -33,4 +33,13 @@ public class ApplicationAction {
             return "fail";
         }
     }
+
+    public  String sendLend(){
+        if (applicationService.sendLend(lendApplication)){
+            return "success";
+        }
+        else {
+            return "fail";
+        }
+    }
 }

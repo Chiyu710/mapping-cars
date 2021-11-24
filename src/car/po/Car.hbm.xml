@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="car.po.Car" table="car">
+        <id name="id" column="id">
+            <generator class="increment"/>
+        </id>
+        <property name="licensePlate" column="LicensePlate"/>
+        <property name="name" column="name"/>
+        <property name="brand" column="brand"/>
+        <property name="age" column="age"/>
+        <property name="model" column="model"/>
+        <property name="department" column="department"/>
+        <property name="purchase" column="purchase"/>
+        <property name="pic" column="pic"/>
+        <property name="status" column="status"/>
+        <property name="transmissionCase" column="transmissionCase"/>
+        <property name="maintenanceTimes" column="maintenanceTimes"/>
+        <property name="fixTimes" column="fixtimes"/>
+        <property name="mileage" column="mileage"/>
+    </class>
+</hibernate-mapping>

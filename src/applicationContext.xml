@@ -35,7 +35,9 @@
         <property name="mappingResources">
             <list>
                 <value>car/po/User.hbm.xml</value>
+                <value>car/po/Car.hbm.xml</value>
                 <value>car/po/application/FixApplication.hbm.xml</value>
+                <value>car/po/application/LendApplication.hbm.xml</value>
             </list>
         </property>
     </bean>
@@ -57,6 +59,14 @@
     </bean>
     <bean id="applicationService" class="car.service.ApplicationServiceImpl" scope="prototype">
         <property name="applicationDao" ref="applicationDao"/>
+    </bean>
+
+    <bean id="carDao" class="car.dao.CarDaoImpl" scope="prototype" parent="baseDAO"/>
+    <bean id="carAction" class="car.action.CarAction" scope="prototype">
+        <property name="carService" ref="carService"/>
+    </bean>
+    <bean id="carService" class="car.service.CarServiceImpl" scope="prototype">
+        <property name="carDao" ref="carDao"/>
     </bean>
 
 

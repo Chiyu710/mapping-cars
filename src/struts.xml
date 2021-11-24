@@ -22,5 +22,23 @@
             <result name="success">../view_auth/staff_index.jsp</result>
             <result name="fail">../view_auth/Failed.jsp</result>
         </action>
+
+        <action name="sendLend" class="applicationAction" method="sendLend">
+            <result name="success">../view_auth/staff_index.jsp</result>
+            <result name="fail">../view_auth/Failed.jsp</result>
+        </action>
     </package>
+
+    <package name="Car" namespace="/" extends="json-default">
+        <action name="getAllCars" class="carAction" method="getAllCars">
+            <result name="ajax" type="json">
+                <!-- 设置值栈名称，让struts获得数据 -->
+                <param name="root">allCarsInfo</param>
+                <!-- 设置对象中哪些属性需要的，支持正则表达式, 语法必须转义  [  ]  .   \d表示匹配下标 -->
+            </result>
+        </action>
+    </package>
+
+
+
 </struts>

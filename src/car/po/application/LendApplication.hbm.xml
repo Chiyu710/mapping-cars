@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="car.po.application.LendApplication" table="lendapplication">
+        <id name="id" column="id">
+            <generator class="native"/>
+        </id>
+        <property name="remarks" column="remarks"/>
+        <property name="scheduledD" column="SD"/>
+        <property name="userID" column="userid"/>
+        <property name="userName" column="username"/>
+        <property name="carID" column="carid"/>
+        <property name="handler" column="adminid"/>
+        <property name="applicationDate" column="date"/>
+        <property name="status" column="status"/>
+        <property name="borrowerName" column="Bname"/>
+        <property name="borrowerDepartment" column="BDepartment"/>
+        <property name="licensePlate" column="LP"/>
+    </class>
+</hibernate-mapping>

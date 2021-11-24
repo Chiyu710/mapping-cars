@@ -14,7 +14,20 @@
     <meta charset="utf-8"/>
     <title>MAPPING CARS MANAGE INDEX</title>
     <jsp:include page="../view/header.jsp"></jsp:include>
+    <script src="../assets/libs/toastr/node_modules/jquery/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            const cars = document.getElementById("allcars");
+            $.ajax({
+                url:"#",
+                type:"POST",
+                dataType:"JSON",
+                success:function (data){
+                }
+            })
 
+        })
+    </script>
 </head>
 
 <!-- body start -->
@@ -29,6 +42,8 @@
     <!-- Start Page Content here -->
     <!-- ============================================================== -->
 
+
+
     <div class="content-page">
         <div class="content">
 
@@ -40,6 +55,9 @@
                     <div class="col-12">
                         <div class="page-title-box">
                             <h4 class="page-title">部门现有车辆</h4>
+                            <div id="allcars">
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -87,195 +105,51 @@
                 </div>
                 <!-- end row-->
 
-                <div class="row">
-                    <div class="col-md-6 col-xl-3">
-                        <div class="card product-box">
-                            <div class="card-body">
-                                <div class="product-action">
-                                    <a href="javascript: void(0);" class="btn btn-success btn-xs waves-effect waves-light"><i class="mdi mdi-pencil"></i></a>
-                                    <a href="javascript: void(0);" class="btn btn-danger btn-xs waves-effect waves-light"><i class="mdi mdi-close"></i></a>
-                                </div>
+                <div class="row" >
+                    <s:iterator value="#request.cars" status="car">
+                            <div class="col-md-6 col-xl-3">
+                                <div class="card product-box">
+                                    <div class="card-body">
+                                        <div class="bg-light">
+                                            <img src="../assets/images/products/product-1.png" alt="product-pic" class="img-fluid" />
+                                        </div>
 
-                                <div class="bg-light">
-                                    <img src="../assets/images/products/product-1.png" alt="product-pic" class="img-fluid" />
-                                </div>
+                                        <div class="product-info">
+                                            <div class="row align-items-center">
+                                                <div class="col">
+                                                    <h5 class="font-16 mt-2 sp-line-1"><a href="#" class="text-dark"><s:property value="#car.id"/></a> </h5>
+                                                    <div class="text-warning mb-2 font-13">
+                                                        <span class="badge bg-soft-danger text-danger"><s:property value="#car.status"/></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <div class="product-price-tag">
+                                                        <s:property value="#car.licensePlate"/>
+                                                    </div>
+                                                </div>
+                                            </div> <!-- end row -->
+                                            <h5 class="mt-2"> <span class="text-muted"> <s:property value="#car.model"/></span></h5>
+                                            <h5 class="mt-2"> <span class="text-muted"> 使用年数: <s:property value="#car.age"/></span></h5>
+                                            <h5 class="mt-2"> <span class="text-muted"> 距离上次保养里程数: <s:property value="#car.mileage"/>KM</span></h5>
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <h5> <span class="text-muted"> 维修次数：<s:property value="#car.fixTimes"/></span></h5>
+                                                    <h5> <span class="text-muted"> 违规记录：<s:property value="#car.maintenanceTimes"/></span></h5>
+                                                </div>
+                                                <div class="col-6">
+                                                    <form>
+                                                        <input class="btn btn-outline-primary rounded-pill mt-2 ms-4"  type="submit" value="详细信息"> </input>
+                                                    </form>
+                                                </div>
+                                            </div>
 
-                                <div class="product-info">
-                                    <div class="row align-items-center">
-                                        <div class="col">
-                                            <h5 class="font-16 mt-2 sp-line-1"><a href="ecommerce-product-detail.html" class="text-dark">CK-01</a> </h5>
-                                            <div class="text-warning mb-2 font-13">
-                                                <span class="badge bg-soft-danger text-danger">工作中</span>
-                                            </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <div class="product-price-tag">
-                                                浙A 888888
-                                            </div>
-                                        </div>
-                                    </div> <!-- end row -->
-                                        <h5 class="mt-2"> <span class="text-muted"> Porsche 911 Turbo S</span></h5>
-                                        <h5 class="mt-2"> <span class="text-muted"> 使用年数: 9年</span></h5>
-                                        <h5 class="mt-2"> <span class="text-muted"> 距离上次保养里程数: 2000KM</span></h5>
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <h5> <span class="text-muted"> 维修次数：0</span></h5>
-                                            <h5> <span class="text-muted"> 违规记录：0</span></h5>
-                                        </div>
-                                        <div class="col-6">
-                                            <form>
-                                                <input class="btn btn-outline-primary rounded-pill mt-2 ms-4"  type="submit" value="详细信息"> </input>
-                                            </form>
-                                        </div>
+                                        </div> <!-- end product info-->
+
+
                                     </div>
-
-                                </div> <!-- end product info-->
-
-
-                            </div>
-                        </div> <!-- end card-->
-                    </div> <!-- end col-->
-                    <div class="col-md-6 col-xl-3">
-                        <div class="card product-box">
-                            <div class="card-body">
-                                <div class="product-action">
-                                    <a href="javascript: void(0);" class="btn btn-success btn-xs waves-effect waves-light"><i class="mdi mdi-pencil"></i></a>
-                                    <a href="javascript: void(0);" class="btn btn-danger btn-xs waves-effect waves-light"><i class="mdi mdi-close"></i></a>
-                                </div>
-
-                                <div class="bg-light">
-                                    <img src="../assets/images/products/product-1.png" alt="product-pic" class="img-fluid" />
-                                </div>
-
-                                <div class="product-info">
-                                    <div class="row align-items-center">
-                                        <div class="col">
-                                            <h5 class="font-16 mt-2 sp-line-1"><a href="ecommerce-product-detail.html" class="text-dark">CK-01</a> </h5>
-                                            <div class="text-warning mb-2 font-13">
-                                                <span class="badge bg-soft-danger text-danger">工作中</span>
-                                            </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <div class="product-price-tag">
-                                                浙A 888888
-                                            </div>
-                                        </div>
-                                    </div> <!-- end row -->
-                                    <h5 class="mt-2"> <span class="text-muted"> Porsche 911 Turbo S</span></h5>
-                                    <h5 class="mt-2"> <span class="text-muted"> 使用年数: 9年</span></h5>
-                                    <h5 class="mt-2"> <span class="text-muted"> 距离上次保养里程数: 2000KM</span></h5>
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <h5> <span class="text-muted"> 维修次数：0</span></h5>
-                                            <h5> <span class="text-muted"> 违规记录：0</span></h5>
-                                        </div>
-                                        <div class="col-6">
-                                            <form>
-                                                <input class="btn btn-outline-primary rounded-pill mt-2 ms-4"  type="submit" value="详细信息"> </input>
-                                            </form>
-                                        </div>
-                                    </div>
-
-                                </div> <!-- end product info-->
-
-
-                            </div>
-                        </div> <!-- end card-->
-                    </div> <!-- end col-->
-                    <div class="col-md-6 col-xl-3">
-                        <div class="card product-box">
-                            <div class="card-body">
-                                <div class="product-action">
-                                    <a href="javascript: void(0);" class="btn btn-success btn-xs waves-effect waves-light"><i class="mdi mdi-pencil"></i></a>
-                                    <a href="javascript: void(0);" class="btn btn-danger btn-xs waves-effect waves-light"><i class="mdi mdi-close"></i></a>
-                                </div>
-
-                                <div class="bg-light">
-                                    <img src="../assets/images/products/product-1.png" alt="product-pic" class="img-fluid" />
-                                </div>
-
-                                <div class="product-info">
-                                    <div class="row align-items-center">
-                                        <div class="col">
-                                            <h5 class="font-16 mt-2 sp-line-1"><a href="ecommerce-product-detail.html" class="text-dark">CK-01</a> </h5>
-                                            <div class="text-warning mb-2 font-13">
-                                                <span class="badge bg-soft-danger text-danger">工作中</span>
-                                            </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <div class="product-price-tag">
-                                                浙A 888888
-                                            </div>
-                                        </div>
-                                    </div> <!-- end row -->
-                                    <h5 class="mt-2"> <span class="text-muted"> Porsche 911 Turbo S</span></h5>
-                                    <h5 class="mt-2"> <span class="text-muted"> 使用年数: 9年</span></h5>
-                                    <h5 class="mt-2"> <span class="text-muted"> 距离上次保养里程数: 2000KM</span></h5>
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <h5> <span class="text-muted"> 维修次数：0</span></h5>
-                                            <h5> <span class="text-muted"> 违规记录：0</span></h5>
-                                        </div>
-                                        <div class="col-6">
-                                            <form>
-                                                <input class="btn btn-outline-primary rounded-pill mt-2 ms-4"  type="submit" value="详细信息"> </input>
-                                            </form>
-                                        </div>
-                                    </div>
-
-                                </div> <!-- end product info-->
-
-
-                            </div>
-                        </div> <!-- end card-->
-                    </div> <!-- end col-->
-                    <div class="col-md-6 col-xl-3">
-                        <div class="card product-box">
-                            <div class="card-body">
-                                <div class="product-action">
-                                    <a href="javascript: void(0);" class="btn btn-success btn-xs waves-effect waves-light"><i class="mdi mdi-pencil"></i></a>
-                                    <a href="javascript: void(0);" class="btn btn-danger btn-xs waves-effect waves-light"><i class="mdi mdi-close"></i></a>
-                                </div>
-
-                                <div class="bg-light">
-                                    <img src="../assets/images/products/product-1.png" alt="product-pic" class="img-fluid" />
-                                </div>
-
-                                <div class="product-info">
-                                    <div class="row align-items-center">
-                                        <div class="col">
-                                            <h5 class="font-16 mt-2 sp-line-1"><a href="ecommerce-product-detail.html" class="text-dark">CK-01</a> </h5>
-                                            <div class="text-warning mb-2 font-13">
-                                                <span class="badge bg-soft-danger text-danger">工作中</span>
-                                            </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <div class="product-price-tag">
-                                                浙A 888888
-                                            </div>
-                                        </div>
-                                    </div> <!-- end row -->
-                                    <h5 class="mt-2"> <span class="text-muted"> Porsche 911 Turbo S</span></h5>
-                                    <h5 class="mt-2"> <span class="text-muted"> 使用年数: 9年</span></h5>
-                                    <h5 class="mt-2"> <span class="text-muted"> 距离上次保养里程数: 2000KM</span></h5>
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <h5> <span class="text-muted"> 维修次数：0</span></h5>
-                                            <h5> <span class="text-muted"> 违规记录：0</span></h5>
-                                        </div>
-                                        <div class="col-6">
-                                            <form>
-                                                <input class="btn btn-outline-primary rounded-pill mt-2 ms-4"  type="submit" value="详细信息"> </input>
-                                            </form>
-                                        </div>
-                                    </div>
-
-                                </div> <!-- end product info-->
-
-
-                            </div>
-                        </div> <!-- end card-->
-                    </div> <!-- end col-->
+                                </div> <!-- end card-->
+                            </div> <!-- end col-->
+                        </s:iterator>
                     <div class="col-md-6 col-xl-3">
                         <div class="card product-box">
                             <div class="card-body">
