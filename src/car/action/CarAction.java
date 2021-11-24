@@ -19,13 +19,20 @@ public class CarAction {
     public void setCarService(CarService carService) {this.carService = carService;}
     public CarService getCarService() {return carService;}
 
-    public String getAllCars(){
+    public String getAllCars_ajax(){
         System.out.println("getCars");
-        allCarsInfo = carService.getAllCars();
+        allCarsInfo = carService.getAllCarsAjax();
         System.out.println(allCarsInfo.get(0).getLicensePlate());
         return "ajax";
     }
 
+    public String getAllCars(){
+
+        if(carService.getAllCars()){
+            return "success";
+        }
+       else return "fail";
+    }
 
 
 }

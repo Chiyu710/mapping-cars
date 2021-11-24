@@ -29,7 +29,7 @@
         </action>
     </package>
 
-    <package name="Car" namespace="/" extends="json-default">
+    <package name="AjaxCar" namespace="/" extends="json-default">
         <action name="getAllCars" class="carAction" method="getAllCars">
             <result name="ajax" type="json">
                 <!-- 设置值栈名称，让struts获得数据 -->
@@ -39,6 +39,14 @@
         </action>
     </package>
 
+
+    <package name="Car" namespace="/" extends="struts-default">
+        <action name="getAllCars" class="carAction" method="getAllCars">
+            <result name="success">../view_car/car_info.jsp</result>
+            <result name="fail">../view_auth/Failed.jsp</result>
+        </action>
+
+    </package>
 
 
 </struts>

@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: 10102
@@ -118,9 +119,11 @@
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link"  href="../view_car/car_info.jsp" role="button">
-                            <i class="ti-car me-1"></i>部门车辆
-                        </a>
+                        <s:form action="getAllCars" method="POST" id="carInfo">
+                            <a class="nav-link"    onclick="document:carInfo.submit()" role="button">
+                                <i class="ti-car me-1"></i>部门车辆
+                            </a>
+                        </s:form>
                     </li>
 
 

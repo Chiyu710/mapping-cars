@@ -16,7 +16,7 @@ public class CarServiceImpl implements CarService{
 
 
     @Override
-    public List<Car> getAllCars(){
+    public List<Car> getAllCarsAjax(){
         ActionContext ctx = ActionContext.getContext();
         session = (Map) ctx.getSession();
         request = (Map) ctx.get("request");
@@ -30,5 +30,18 @@ public class CarServiceImpl implements CarService{
         }
 
 
+    }
+    public boolean getAllCars(){
+        ActionContext ctx = ActionContext.getContext();
+        session = (Map) ctx.getSession();
+        request = (Map) ctx.get("request");
+        String hql = "from Car as car" ;
+        List<Car> list = carDao.findByHql(hql);
+        if (list.isEmpty())
+            return false;
+        else {
+            request.put("cars", list);
+            return true;
+        }
     }
 }
