@@ -19,16 +19,16 @@
 
     <package name="Application" namespace="/" extends="struts-default">
         <action name="sendFix" class="applicationAction" method="sendFix">
-            <result name="success">../view_auth/staff_index.jsp</result>
-            <result name="fail">../view_auth/Failed.jsp</result>
+            <result name="success">../view_feedback/submit_success_staff.jsp</result>
+            <result name="fail">../view_feedback/error.jsp</result>
         </action>
         <action name="sendLend" class="applicationAction" method="sendLend">
-            <result name="success">../view_auth/staff_index.jsp</result>
-            <result name="fail">../view_auth/Failed.jsp</result>
+            <result name="success">../view_feedback/submit_success_staff.jsp</result>
+            <result name="fail">../view_feedback/error.jsp</result>
         </action>
         <action name="sendCommute" class="applicationAction" method="sendCommute">
-            <result name="success">../view_auth/staff_index.jsp</result>
-            <result name="fail">../view_auth/Failed.jsp</result>
+            <result name="success">../view_feedback/submit_success_staff.jsp</result>
+            <result name="fail">../view_feedback/error.jsp</result>
         </action>
 
     </package>
@@ -62,7 +62,7 @@
     <package name="Car" namespace="/" extends="struts-default">
         <action name="getAllCars" class="carAction" method="getAllCars">
             <result name="success">../view_car/car_info.jsp</result>
-            <result name="fail">../view_auth/Failed.jsp</result>
+            <result name="fail">../view_feedback/error.jsp</result>
         </action>
 
     </package>
