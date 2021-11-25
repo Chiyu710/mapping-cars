@@ -4,6 +4,9 @@ package car.dao;
 import car.po.application.*;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+
+import java.util.List;
 
 public class ApplicationDaoImpl extends BaseHibernateDao implements ApplicationDao{
     @Override
@@ -56,5 +59,43 @@ public class ApplicationDaoImpl extends BaseHibernateDao implements ApplicationD
             session.close();
         }
     }
-
+    public List<CarApplication> findByHqlCar(String hql){
+        Session session = null;
+        try {
+            session = getSession();
+            String queryString = hql;
+            Query queryObject=session.createQuery(queryString);
+            return queryObject.list();
+        } catch (RuntimeException re) {
+            throw re;
+        } finally {
+            session.close();
+        }
+    }
+    public List<LendApplication> findByHqlLend(String hql){
+        Session session = null;
+        try {
+            session = getSession();
+            String queryString = hql;
+            Query queryObject=session.createQuery(queryString);
+            return queryObject.list();
+        } catch (RuntimeException re) {
+            throw re;
+        } finally {
+            session.close();
+        }
+    }
+    public List<FixApplication> findByHqlFix(String hql){
+        Session session = null;
+        try {
+            session = getSession();
+            String queryString = hql;
+            Query queryObject=session.createQuery(queryString);
+            return queryObject.list();
+        } catch (RuntimeException re) {
+            throw re;
+        } finally {
+            session.close();
+        }
+    }
 }

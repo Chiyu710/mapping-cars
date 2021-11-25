@@ -20,7 +20,6 @@ public class ApplicationAction {
     public void setLendApplication(LendApplication lendApplication) {this.lendApplication = lendApplication;}
 
     private ApplicationService applicationService =null;
-
     public void setApplicationService(ApplicationService applicationService) {
         this.applicationService = applicationService;
     }
@@ -46,6 +45,34 @@ public class ApplicationAction {
     public String sendCommute(){
         if (applicationService.sendCommute(carApplication)){
             System.out.println("carAPP!");
+            return "success";
+        }
+        else {
+            return "fail";
+        }
+    }
+
+    public String getFixAP(){
+        if (applicationService.getFixAP()){
+            System.out.println("getFixAP!");
+            return "success";
+        }
+        else {
+            return "fail";
+        }
+    }
+    public String getLendAP(){
+        if (applicationService.getLendAP()){
+            System.out.println("getLendAP!");
+            return "success";
+        }
+        else {
+            return "fail";
+        }
+    }
+    public String getCommuteAP(){
+        if (applicationService.getCommuteAP()){
+            System.out.println("getCarAP!");
             return "success";
         }
         else {

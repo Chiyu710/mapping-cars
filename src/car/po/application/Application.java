@@ -9,7 +9,7 @@ public class Application {
     String carID;
     String remarks;
     String handler;
-    int status;
+    String status;
     Date applicationDate;
 
 
@@ -61,11 +61,11 @@ public class Application {
         this.handler = handler;
     }
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 

@@ -40,6 +40,7 @@
                 <!-- end page title -->
 
                 <div class="row">
+                    <s:iterator value="#request.lendAPP" var="ap">
                     <div class="card d-block">
                         <div class="card-body">
                             <div class="dropdown float-end">
@@ -62,9 +63,15 @@
                             <!-- end dropdown-->
                             <!-- end form-check-->
                             <div class="clearfix"></div>
-
-                            <h4><button type="button" class="btn btn-success me-2">已通过</button>申请单号：fa-12345</h4>
-
+                            <s:if test='#ap.status=="审核中"'>
+                                <h4><button type="button" class="btn btn-warning me-2">审核中</button>申请单号：car-<s:property value="#ap.id"/></h4>
+                            </s:if>
+                            <s:elseif test='#ap.status=="未通过"'>
+                                <h4><button type="button" class="btn btn-danger me-2">未通过</button>申请单号：car-<s:property value="#ap.id"/></h4>
+                            </s:elseif>
+                            <s:else>
+                                <h4><button type="button" class="btn btn-success me-2">已通过</button>申请单号：car-<s:property value="#ap.id"/></h4>
+                            </s:else>
                             <div class="row">
                                 <div class="col-md-4">
                                     <!-- assignee -->
@@ -72,7 +79,7 @@
                                     <div class="d-flex align-items-start">
                                         <div class="w-100">
                                             <h5 class="mt-1 font-size-14">
-                                                理中客
+                                                <s:property value="#ap.userName"/>
                                             </h5>
                                         </div>
                                     </div>
@@ -86,7 +93,7 @@
                                     <div class="d-flex align-items-start">
                                         <div class="w-100">
                                             <h5 class="mt-1 font-size-14">
-                                                12345
+                                                <s:property value="#ap.carID"/>
                                             </h5>
                                         </div>
                                     </div>
@@ -99,7 +106,7 @@
                                         <i class="mdi mdi-calendar-month-outline font-18 text-success me-1"></i>
                                         <div class="w-100">
                                             <h5 class="mt-1 font-size-14">
-                                                2021-11-14
+                                                <s:property value="#ap.applicationDate"/>
                                             </h5>
                                         </div>
                                     </div>
@@ -113,7 +120,7 @@
                                     <div class="d-flex align-items-start">
                                         <div class="w-100">
                                             <h5 class="mt-1 font-size-14">
-                                                孙孙孙
+                                                <s:property value="#ap.BorrowerName"/>
                                             </h5>
                                         </div>
                                     </div>
@@ -127,7 +134,7 @@
                                     <div class="d-flex align-items-start">
                                         <div class="w-100">
                                             <h5 class="mt-1 font-size-14">
-                                                技术部
+                                                <s:property value="#ap.BorrowerDepartment"/>
                                             </h5>
                                         </div>
                                     </div>
@@ -140,7 +147,7 @@
                                         <i class="mdi mdi-calendar-month-outline font-18 text-danger me-1"></i>
                                         <div class="w-100">
                                             <h5 class="mt-1 font-size-14">
-                                                2021-11-24
+                                                <s:property value="#ap.ScheduledD"/>
                                             </h5>
                                         </div>
                                     </div>
@@ -152,7 +159,7 @@
                                     <div class="d-flex align-items-start">
                                         <div class="w-100">
                                             <h5 class="mt-1 font-size-14">
-                                                沈河
+                                                manage-<s:property value="#ap.handler"/>
                                             </h5>
                                         </div>
                                     </div>
@@ -166,12 +173,14 @@
                                 <h5 class="mt-3">备注:</h5>
 
                                 <p class="text-muted mb-4">
+                                    <s:property value="#ap.remarks"/>
                                 </p>
                             </div>
 
                         </div>
                         <!-- end card-body-->
                     </div>
+                    </s:iterator>
                 </div>
 
             </div> <!-- container -->

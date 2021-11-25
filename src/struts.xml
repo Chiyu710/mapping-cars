@@ -30,6 +30,18 @@
             <result name="success">../view_feedback/submit_success_staff.jsp</result>
             <result name="fail">../view_feedback/error.jsp</result>
         </action>
+        <action name="getFixAP" class="applicationAction" method="getFixAP">
+            <result name="success">../view_application/fix_status.jsp</result>
+            <result name="fail">../view_feedback/error.jsp</result>
+        </action>
+        <action name="getLendAP" class="applicationAction" method="getLendAP">
+            <result name="success">../view_application/lend_status.jsp</result>
+            <result name="fail">../view_feedback/error.jsp</result>
+        </action>
+        <action name="getCommuteAP" class="applicationAction" method="getCommuteAP">
+            <result name="success">../view_application/car_status.jsp</result>
+            <result name="fail">../view_feedback/error.jsp</result>
+        </action>
 
     </package>
 

@@ -131,9 +131,17 @@
                                     <div class="arrow-down"></div>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="topnav-task">
-                                    <a href="../view_application/car_status.jsp" class="dropdown-item">派车单</a>
-                                    <a href="../view_application/fix_status.jsp" class="dropdown-item">派修单</a>
-                                    <a href="../view_application/lend_status.jsp" class="dropdown-item">出借单</a>
+                                    <s:form action="getCommuteAP" method="POST" id="carAP">
+                                        <a onclick="document:carAP.submit()" class="dropdown-item">派车单</a>
+                                    </s:form>
+
+                                    <s:form action="getFixAP" method="POST" id="fixAP">
+                                        <a onclick="document:fixAP.submit()" class="dropdown-item">派修单</a>
+                                    </s:form>
+
+                                    <s:form action="getLendAP" method="POST" id="lendAP">
+                                        <a onclick="document:lendAP.submit()" class="dropdown-item">出借单</a>
+                                    </s:form>
                                 </div>
                             </div>
 

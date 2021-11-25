@@ -40,24 +40,27 @@
                     <div class="col-lg-4 col-xl-4">
                         <div class="card text-center">
                             <div class="card-body">
-                                <h4 class="mb-0"><s:property value="#rsession.user.name"/></h4>
-                                <p class="text-muted"><s:property value="#session.user.id"/></p>
+                                <h3 class="mb-2"><s:property value="#session.user.name"/></h3>
+                                <p class="text-muted">Staff-ID-<s:property value="#session.user.id"/></p>
 
-                                <button type="button" class="btn btn-success btn-xs waves-effect mb-2 waves-light">Follow</button>
-                                <button type="button" class="btn btn-danger btn-xs waves-effect mb-2 waves-light">Message</button>
-
+                                <s:if test='#session.user.status=="无法出车"'>
+                                    <button type="button" class="btn btn-danger btn waves-effect mb-2 waves-light" style="width: 350px">无法出车</button>
+                                </s:if>
+                                <s:elseif test='#session.user.status=="休假"'>
+                                    <button type="button" class="btn btn-secondary btn waves-effect mb-2 waves-light " style="width: 350px">休假中</button>
+                                </s:elseif>
+                                <s:else>
+                                    <button type="button" class="btn btn-success btn waves-effect mb-2 waves-light " style="width: 350px">可以出车</button>
+                                </s:else>
                                 <div class="text-start mt-3">
-                                    <h4 class="font-13 text-uppercase">About Me :</h4>
-                                    <p class="text-muted font-13 mb-3">
-                                        Hi I'm Johnathn Deo,has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
-                                    </p>
-                                    <p class="text-muted mb-2 font-13"><strong>姓名 :</strong> <span class="ms-2"><s:property value="#request.loginUser.name"/></span></p>
+                                    <h4 class="font-17 text-uppercase">About Me :</h4>
+                                    <p class="text-muted mb-2 font-17"><strong>姓名 :</strong> <span class="ms-2"><s:property value="#session.user.name"/></span></p>
 
-                                    <p class="text-muted mb-2 font-13"><strong>电话 :</strong><span class="ms-2"><s:property value="#request.loginUser.age"/></span></p>
+                                    <p class="text-muted mb-2 font-17"><strong>电话 :</strong><span class="ms-2"><s:property value="#session.user.age"/></span></p>
 
-                                    <p class="text-muted mb-2 font-13"><strong>邮箱 :</strong> <span class="ms-2"><s:property value="#request.loginUser.email"/></span></p>
+                                    <p class="text-muted mb-2 font-17"><strong>邮箱 :</strong> <span class="ms-2"><s:property value="#session.user.email"/></span></p>
 
-                                    <p class="text-muted mb-1 font-13"><strong>所属部门 :</strong> <span class="ms-2"><s:property value="#request.loginUser.department"/></span></p>
+                                    <p class="text-muted mb-1 font-17"><strong>所属部门 :</strong> <span class="ms-2"><s:property value="#session.user.department"/></span></p>
                                 </div>
 
                             </div>

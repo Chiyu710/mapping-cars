@@ -46,17 +46,7 @@
 
                         <div class="text-center w-75 m-auto">
                             <div class="auth-logo">
-                                <a href="index.html" class="logo logo-dark text-center">
-                                            <span class="logo-lg">
-                                                <img src="../assets/images/logo-dark.png" alt="" height="100">
-                                            </span>
-                                </a>
-
-                                <a href="index.html" class="logo logo-light text-center">
-                                            <span class="logo-lg">
-                                                <img src="../assets/images/logo-light.png" alt="" height="22">
-                                            </span>
-                                </a>
+                               <h3>查勘车管理系统</h3>
                             </div>
                             <p class="text-muted mb-4 mt-3">Enter your account and password to access.</p>
                         </div>
