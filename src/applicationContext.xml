@@ -38,6 +38,7 @@
                 <value>car/po/Car.hbm.xml</value>
                 <value>car/po/application/FixApplication.hbm.xml</value>
                 <value>car/po/application/LendApplication.hbm.xml</value>
+                <value>car/po/application/CarApplication.hbm.xml</value>
             </list>
         </property>
     </bean>

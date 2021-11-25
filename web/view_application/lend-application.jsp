@@ -63,8 +63,8 @@
                                                     <div class="row">
                                                     <div class="mb-3 col-md-4">
                                                         <label for="user" class="form-label">出借人</label>
-                                                        <input type="text" id="user"   class="form-control" name="lendApplication.userName" disabled value=${session.user.name} >
-                                                        <input type="text" id="userid" class="form-control" name="lendApplication.userID" style="display: none" value=${session.user.id} >
+                                                        <input type="text" id="user"   class="form-control" name="lendApplication.userName" disabled value="${session.user.name}" />
+                                                        <input type="text" id=userid   class="form-control" name="lendApplication.userID" style="display: none" value="${session.user.id}" >
                                                     </div>
                                                     <div class="mb-3 col-md-4">
                                                         <label for="time" class="form-label">申请时间</label>

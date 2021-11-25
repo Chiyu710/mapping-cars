@@ -22,11 +22,15 @@
             <result name="success">../view_auth/staff_index.jsp</result>
             <result name="fail">../view_auth/Failed.jsp</result>
         </action>
-
         <action name="sendLend" class="applicationAction" method="sendLend">
             <result name="success">../view_auth/staff_index.jsp</result>
             <result name="fail">../view_auth/Failed.jsp</result>
         </action>
+        <action name="sendCommute" class="applicationAction" method="sendCommute">
+            <result name="success">../view_auth/staff_index.jsp</result>
+            <result name="fail">../view_auth/Failed.jsp</result>
+        </action>
+
     </package>
 
     <package name="AjaxCar" namespace="/" extends="json-default">

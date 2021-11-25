@@ -40,4 +40,21 @@ public class ApplicationDaoImpl extends BaseHibernateDao implements ApplicationD
         }
 
     }
+    public void saveCommute(CarApplication carApplication){
+        Transaction tran = null;
+        Session session = null;
+        try {
+            session = getSession();
+            tran = session.beginTransaction();
+            session.save(carApplication);
+            tran.commit();
+        } catch (RuntimeException re) {
+
+            if(tran != null) tran.rollback();
+            throw re;
+        } finally {
+            session.close();
+        }
+    }
+
 }

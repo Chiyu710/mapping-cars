@@ -1,6 +1,7 @@
 package car.service;
 
 import car.dao.ApplicationDao;
+import car.po.application.CarApplication;
 import car.po.application.FixApplication;
 import car.po.application.LendApplication;
 
@@ -26,6 +27,14 @@ public class ApplicationServiceImpl implements ApplicationService{
     public boolean sendLend(LendApplication lendApplication){
         try {
             applicationDao.saveLend(lendApplication);
+            return true;
+        }catch (Exception e) {
+            return false;
+        }
+    }
+    public boolean sendCommute(CarApplication carApplication){
+        try {
+            applicationDao.saveCommute(carApplication);
             return true;
         }catch (Exception e) {
             return false;

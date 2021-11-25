@@ -42,4 +42,14 @@ public class ApplicationAction {
             return "fail";
         }
     }
+
+    public String sendCommute(){
+        if (applicationService.sendCommute(carApplication)){
+            System.out.println("carAPP!");
+            return "success";
+        }
+        else {
+            return "fail";
+        }
+    }
 }

@@ -64,8 +64,8 @@
                                                 <div class="row">
                                                     <div class="mb-3 col-md-4">
                                                         <label for="user" class="form-label">责任人</label>
-                                                        <input type="text" id="user" class="form-control"  name="fixApplication.userName" value=${session.user.name} disabled>
-                                                        <input type="text" id="userid" class="form-control" style="display: none" name="fixApplication.userId" value=${session.user.id}>
+                                                        <input type="text" id="user" class="form-control"  name="fixApplication.userName" value="${session.user.name}" disabled>
+                                                        <input type="text" id="userid" class="form-control" style="display: none" name="fixApplication.userId" value="${session.user.id}">
                                                     </div>
 
                                                     <div class="mb-3 col-md-4">
