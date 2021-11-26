@@ -14,13 +14,15 @@
     http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
     <!-- 类似于财务部门一样，类就是钱，所有需要类的实例都由spring去管理 -->
-
+    <context:property-placeholder location="classpath:jdbc.properties"/>
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3307/mappingcar"/>
-        <property name="username" value="root"/>
-        <property name="password" value="root"/>
+        <property name="driverClassName" value="${jdbc.driverClassName}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.user}"/>
+        <property name="password" value="${jdbc.password}"/>
     </bean>
+
+
     <!-- 添加sessionFactory bane ，注意，该类是Spring提供的 -->
     <bean id="sessionFactory"
           class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
