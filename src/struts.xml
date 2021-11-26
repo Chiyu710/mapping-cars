@@ -19,63 +19,67 @@
 
     <package name="Application" namespace="/" extends="struts-default">
         <action name="sendFix" class="applicationAction" method="sendFix">
-            <result name="success">../view_feedback/submit_success_staff.jsp</result>
-            <result name="fail">../view_feedback/error.jsp</result>
+            <result name="success">/view_feedback/submit_success_staff.jsp</result>
+            <result name="fail">/view_feedback/error.jsp</result>
         </action>
         <action name="sendLend" class="applicationAction" method="sendLend">
-            <result name="success">../view_feedback/submit_success_staff.jsp</result>
-            <result name="fail">../view_feedback/error.jsp</result>
+            <result name="success">/view_feedback/submit_success_staff.jsp</result>
+            <result name="fail">/view_feedback/error.jsp</result>
         </action>
         <action name="sendCommute" class="applicationAction" method="sendCommute">
-            <result name="success">../view_feedback/submit_success_staff.jsp</result>
-            <result name="fail">../view_feedback/error.jsp</result>
+            <result name="success">/view_feedback/submit_success_staff.jsp</result>
+            <result name="fail">/view_feedback/error.jsp</result>
         </action>
         <action name="getFixAP" class="applicationAction" method="getFixAP">
-            <result name="success">../view_application/fix_status.jsp</result>
-            <result name="fail">../view_feedback/error.jsp</result>
+            <result name="success">/view_application/fix_status.jsp</result>
+            <result name="fail">/view_feedback/error.jsp</result>
         </action>
         <action name="getLendAP" class="applicationAction" method="getLendAP">
-            <result name="success">../view_application/lend_status.jsp</result>
-            <result name="fail">../view_feedback/error.jsp</result>
+            <result name="success">/view_application/lend_status.jsp</result>
+            <result name="fail">/view_feedback/error.jsp</result>
         </action>
         <action name="getCommuteAP" class="applicationAction" method="getCommuteAP">
-            <result name="success">../view_application/car_status.jsp</result>
-            <result name="fail">../view_feedback/error.jsp</result>
+            <result name="success">/view_application/car_status.jsp</result>
+            <result name="fail">/view_feedback/error.jsp</result>
         </action>
 
     </package>
 
-    <package name="AjaxCar" namespace="/" extends="json-default">
+
+    <package name="Car" namespace="/" extends="struts-default">
+        <action name="getAllCars" class="carAction" method="getAllCars">
+            <result name="success">/view_car/car_info.jsp</result>
+            <result name="fail">/view_feedback/error.jsp</result>
+        </action>
+
+    </package>
+
+    <package name="Ajax" namespace="/" extends="json-default">
         <action name="getAllCars" class="carAction" method="getAllCars">
             <result name="ajax" type="json">
-                <!-- 设置值栈名称，让struts获得数据 -->
                 <param name="root">allCarsInfo</param>
                 <!-- 设置对象中哪些属性需要的，支持正则表达式, 语法必须转义  [  ]  .   \d表示匹配下标 -->
             </result>
         </action>
         <action name="getCarInfoAjax" class="carAction" method="getCarInfoAjax">
             <result name="ajax" type="json">
-                <!-- 设置值栈名称，让struts获得数据 -->
                 <param name="root">car</param>
                 <!-- 设置对象中哪些属性需要的，支持正则表达式, 语法必须转义  [  ]  .   \d表示匹配下标 -->
             </result>
         </action>
-
         <action name="getFreeCarsAjax" class="carAction" method="getFreeCarsAjax">
             <result name="ajax" type="json">
-                <!-- 设置值栈名称，让struts获得数据 -->
                 <param name="root">allCarsInfo</param>
                 <!-- 设置对象中哪些属性需要的，支持正则表达式, 语法必须转义  [  ]  .   \d表示匹配下标 -->
             </result>
         </action>
-    </package>
-
-
-    <package name="Car" namespace="/" extends="struts-default">
-        <action name="getAllCars" class="carAction" method="getAllCars">
-            <result name="success">../view_car/car_info.jsp</result>
-            <result name="fail">../view_feedback/error.jsp</result>
+        <action name="getBrief" class="logAction" method="getBrief">
+            <result name="ajax" type="json">
+                <param name="root">briefNotifications</param>
+                <!-- 设置对象中哪些属性需要的，支持正则表达式, 语法必须转义  [  ]  .   \d表示匹配下标 -->
+            </result>
         </action>
+
 
     </package>
 

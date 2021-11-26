@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="car.po.record.Notification" table="notification">
+        <id name="id" column="id">
+            <generator class="increment"/>
+        </id>
+        <property name="title" column="title"/>
+        <property name="level" column="level"/>
+        <property name="type" column="type"/>
+        <property name="remarks" column="remarks"/>
+        <property name="recipient" column="recipient"/>
+        <property name="sender" column="sender"/>
+        <property name="time" column="time"/>
+    </class>
+</hibernate-mapping>

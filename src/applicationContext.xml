@@ -41,6 +41,7 @@
                 <value>car/po/application/FixApplication.hbm.xml</value>
                 <value>car/po/application/LendApplication.hbm.xml</value>
                 <value>car/po/application/CarApplication.hbm.xml</value>
+                <value>car/po/record/Notification.hbm.xml</value>
             </list>
         </property>
     </bean>
@@ -72,5 +73,12 @@
         <property name="carDao" ref="carDao"/>
     </bean>
 
+    <bean id="logDao" class="car.dao.LogDaoImpl" scope="prototype" parent="baseDAO"/>
+    <bean id="logAction" class="car.action.LogAction" scope="prototype">
+        <property name="logService" ref="logService"/>
+    </bean>
+    <bean id="logService" class="car.service.LogServiceImpl" scope="prototype">
+        <property name="logDao" ref="logDao"/>
+    </bean>
 
 </beans>

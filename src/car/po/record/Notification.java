@@ -12,6 +12,13 @@ public class Notification{
     String sender;
     Date time;
 
+    public String DateToString(){
+        String d= time.toLocaleString();
+        d=d.substring(3,7);
+        return d;
+    }
+
+
     public String getTitle() {
         return title;
     }

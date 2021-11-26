@@ -6,6 +6,42 @@
     <meta charset="utf-8"/>
     <title>MAPPING CARS MANAGE INDEX</title>
     <jsp:include page="../view/header.jsp"></jsp:include>
+    <script src="../assets/libs/toastr/node_modules/jquery/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function (){
+            const NF = document.getElementById("NF");
+            let size = 0;
+            $.ajax({
+                url:"getBrief",
+                type:"POST",
+                dataType:"JSON",
+                success:function (data){
+                    size=data.length;
+                    if(data.length>5) {size=5;}
+                    var s1=' <div class="row"><div class="col-3"><label>';
+                    var level='';
+                    var date='';
+                    var s2='  </label></div><div class="col-9 mb-2"><ul class="list-inline"><li class="list-inline-item pe-2"><i class="mdi font-16 me-1"></i>';
+                    var s3=' </li><li class="list-inline-item"><i class="mdi mdi-tune font-16 me-1"></i>';
+                    var s4='</li><li class="list-inline-item">';
+                    var s5='</li></ul></div></div>';
+                    for (var i=0;i<size;i++){
+
+                        if(data[i].level=="High"){level='<span class="badge badge-soft-danger">High</span>';}
+                        else if(data[i].level=="Low"){level='<span class="badge badge-soft-success">Low</span>';}
+                        else {level='<span class="badge badge-soft-info">Medium</span>';}
+                        date=data[i].time;
+                        date=date.substring(5,10)+' '+date.substring(11,16);
+                        NF.innerHTML+=s1+data[i].type+s2+date+s3+data[i].sender+s4+level+s5;
+                    }
+                }
+            })
+            }
+
+        )
+    </script>
+
+
 </head>
 
 <!-- body start -->
@@ -102,65 +138,8 @@
                             <h4 class="mt-4">我的通知</h4>
                             <div class="card-body">
                                 <div>
-                                    <div class="collapse show" id="todayTasks">
-                                        <!-- task -->
-                                        <div class="row justify-content-sm-between">
-                                            <div class="col-lg-4 mb-2 mt-1">
-                                                <label class="form-check-label">保养通知</label>
-                                                <!-- end checkbox -->
-                                            </div>
-                                            <!-- end col -->
-                                            <div class="col-lg-8 mb-2">
-                                                <div class="d-sm-flex justify-content-between">
-                                                    <div class="mt-3 mt-sm-0">
-                                                        <ul class="list-inline font-13 text-sm-end">
-                                                            <li class="list-inline-item pe-1">
-                                                                <i class="mdi font-16 me-1"></i>
-                                                                2021-11-14
-                                                            </li>
-                                                            <li class="list-inline-item pe-1">
-                                                                <i class="mdi mdi-tune font-16 me-1"></i>
-                                                                车辆管理部
-                                                            </li>
-                                                            <li class="list-inline-item">
-                                                                <span class="badge badge-soft-danger p-1">High</span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <!-- end .d-flex-->
-                                            </div>
-                                            <!-- end col -->
-                                        </div>
-                                        <!-- end task -->
-                                        <div class="row justify-content-sm-between">
-                                            <div class="col-lg-4 mb-2 mt-1">
-                                                <label class="form-check-label">保养通知</label>
-                                                <!-- end checkbox -->
-                                            </div>
-                                            <!-- end col -->
-                                            <div class="col-lg-8 mb-2">
-                                                <div class="d-sm-flex justify-content-between">
-                                                    <div class="mt-3 mt-sm-0">
-                                                        <ul class="list-inline font-13 text-sm-end">
-                                                            <li class="list-inline-item pe-1">
-                                                                <i class="mdi font-16 me-1"></i>
-                                                                2021-11-14
-                                                            </li>
-                                                            <li class="list-inline-item pe-1">
-                                                                <i class="mdi mdi-tune font-16 me-1"></i>
-                                                                车辆管理部
-                                                            </li>
-                                                            <li class="list-inline-item">
-                                                                <span class="badge badge-soft-danger p-1">High</span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <!-- end .d-flex-->
-                                            </div>
-                                            <!-- end col -->
-                                        </div>
+                                    <div class="collapse show" id="NF">
+                                    <%--notification--%>
                                     </div>
                                     <!--end list-->
                                 </div>
