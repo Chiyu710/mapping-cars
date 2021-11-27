@@ -27,6 +27,14 @@ public class UserAction {
             return "fail";
         }
     }
+    public String changeStatus(){
+        if (userService.changeStatus(user)) {
+            return "success";
+        }
+        else {
+            return "fail";
+        }
+    }
 
     public String register() {
 
@@ -37,4 +45,6 @@ public class UserAction {
             return "fail";
         }
     }
+
+
 }

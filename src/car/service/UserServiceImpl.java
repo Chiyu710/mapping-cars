@@ -36,8 +36,6 @@ public class UserServiceImpl implements UserService {
             return true;
         }
     }
-
-    @Override
     public boolean register(User registerUser){
         try {
             userDao.save(registerUser);
@@ -46,4 +44,19 @@ public class UserServiceImpl implements UserService {
             return false;
         }
     }
+    public boolean changeStatus(User user) {
+        ActionContext ctx = ActionContext.getContext();
+        session = (Map) ctx.getSession();
+        try {
+            User u=userDao.get(user);
+            u.setStatus(user.getStatus());
+            //更新用户
+            userDao.save(u);
+            session.put("user",u);
+            return true;
+        }catch (Exception e) {
+            return false;
+        }
+    }
+
 }

@@ -14,6 +14,10 @@
             <result name="success">suuccess.jsp</result>
             <result name="fail">Failed.jsp</result>
         </action>
+        <action name="changeStatus" class="userAction" method="changeStatus">
+            <result name="success">/view_feedback/submit_success_staff.jsp</result>
+            <result name="fail">/view_feedback/error.jsp</result>
+        </action>
     </package>
 
     <package name="Application" namespace="/" extends="struts-default">

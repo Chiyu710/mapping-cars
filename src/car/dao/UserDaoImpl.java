@@ -1,10 +1,7 @@
 package car.dao;
 
 import car.po.User;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
@@ -14,7 +11,6 @@ public class UserDaoImpl extends BaseHibernateDao implements UserDao {
 
     @Override
     public List<User> getByHql(String hql) {
-
         Transaction tran = null;
         Session session = null;
         try {
@@ -42,7 +38,7 @@ public class UserDaoImpl extends BaseHibernateDao implements UserDao {
         try {
             session = getSession();
             tran = session.beginTransaction();
-            session.save(registerUser);
+            session.saveOrUpdate(registerUser);
             tran.commit();
         } catch (RuntimeException re) {
 
@@ -52,6 +48,24 @@ public class UserDaoImpl extends BaseHibernateDao implements UserDao {
             session.close();
         }
     }
+    public User get(User user){
+        Transaction tran = null;
+        Session session = null;
+        try {
+            session = getSession();
+            tran = session.beginTransaction();
+            User u =session.get(car.po.User.class,user.getId());
+            tran.commit();
+            return u;
+        } catch (RuntimeException re) {
+
+            if(tran != null) tran.rollback();
+            throw re;
+        } finally {
+            session.close();
+        }
+    }
+
 }
 
 

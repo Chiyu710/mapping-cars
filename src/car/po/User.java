@@ -8,7 +8,7 @@ public class User {
     int age;
     String email;
     String department;
-    int status;
+    String status;
 
 
     public String getDepartment() {return department;}
@@ -18,10 +18,10 @@ public class User {
     public String getPassword() {return password;}
     public String getName() {return name;}
     public String getSex() {return sex;}
-    public int getStatus() {return status;}
+    public String getStatus() {return status;}
 
     public void setId(String id) {this.id = id;}
-    public void setStatus(int status) {this.status = status;}
+    public void setStatus(String status) {this.status = status;}
     public void setDepartment(String department) {this.department = department;}
     public void setAge(int age) {this.age = age;}
     public void setEmail(String email) {this.email = email;}

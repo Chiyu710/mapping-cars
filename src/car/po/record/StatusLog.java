@@ -1,13 +1,14 @@
 package car.po.record;
 
 import javax.xml.crypto.Data;
+import java.util.Date;
 
 public class StatusLog {
     String id;
     String staffId;
     String oldStatus;
     String newStatus;
-    Data changeTime;
+    Date changeTime;
     String remarks;
 
     public String getId() {return id;}
@@ -18,10 +19,9 @@ public class StatusLog {
     public void setOldStatus(String oldStatus) {this.oldStatus = oldStatus;}
     public String getNewStatus() {return newStatus;}
     public void setNewStatus(String newStatus) {this.newStatus = newStatus;}
-    public Data getChangeTime() {return changeTime;}
-    public void setChangeTime(Data changeTime) {this.changeTime = changeTime;}
     public String getRemarks() {return remarks;}
     public void setRemarks(String remarks) {this.remarks = remarks;}
 
-
+    public Date getChangeTime() {return changeTime;}
+    public void setChangeTime(Date changeTime) {this.changeTime = changeTime;}
 }

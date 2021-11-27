@@ -112,15 +112,16 @@
                             <h4 class="mt-4">状态切换</h4>
                             <div class="card-body">
                                 <div>
-                                    <form>
+                                    <s:form action="changeStatus" method="POST">
                                         <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                                            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                                            <input   name="user.id" value="${session.user.id}" style="display: none">
+                                            <input type="radio" class="btn-check" name="user.status" id="btnradio1" value="可以出车" autocomplete="off" checked>
                                             <label class="btn btn-outline-success" for="btnradio1">可以出车</label>
 
-                                            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                                            <input type="radio" class="btn-check" name="user.status" id="btnradio2" value="无法出车" autocomplete="off">
                                             <label class="btn btn-outline-danger" for="btnradio2">无法出车</label>
 
-                                            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                                            <input type="radio" class="btn-check" name="user.status" id="btnradio3"  value="休假" autocomplete="off">
                                             <label class="btn btn-outline-secondary" for="btnradio3">休假</label>
                                         </div>
                                         <div class="m-3">
@@ -132,7 +133,7 @@
                                         <div>
                                             <input class="btn btn-primary text-center" type="submit" value="切换状态">
                                         </div>
-                                    </form>
+                                    </s:form>
                                 </div>
 
                             </div> <!-- end card -->
