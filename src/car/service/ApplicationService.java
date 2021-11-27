@@ -6,7 +6,7 @@ public interface ApplicationService {
     boolean sendFix(FixApplication fixApplication);
     boolean sendLend(LendApplication lendApplication);
     boolean sendCommute(CarApplication carApplication);
-    boolean getFixAP();
-    boolean getLendAP();
-    boolean getCommuteAP();
+    boolean getFixAP(String userID);
+    boolean getLendAP(String userID);
+    boolean getCommuteAP(String userID);
 }

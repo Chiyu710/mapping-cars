@@ -8,13 +8,18 @@
     <jsp:include page="../view/header.jsp"></jsp:include>
     <script src="../assets/libs/toastr/node_modules/jquery/jquery.min.js"></script>
     <script type="text/javascript">
-        $(document).ready(function (){
+
+    $(document).ready(function (){
             const NF = document.getElementById("NF");
             let size = 0;
+            var carID = ${session.user.id};
             $.ajax({
                 url:"getBrief",
                 type:"POST",
                 dataType:"JSON",
+                data : {
+                    userID:carID
+                },
                 success:function (data){
                     size=data.length;
                     if(data.length>5) {size=5;}
@@ -143,11 +148,13 @@
                                     </div>
                                     <!--end list-->
                                 </div>
-                                <a href="../view_notification/notification_detail.jsp"
-                                   class="dropdown-item text-center text-primary notify-item notify-all">
-                                    查看通知详情
-                                    <i class="fe-arrow-right"></i>
-                                </a>
+                                <form action="getAllNF.action" method="POST" id="GetAllNF">
+                                    <a onclick="document:GetAllNF.submit()" class="dropdown-item text-center text-primary notify-item notify-all">
+                                        <input value="${session.user.id}" name="userID" style="display: none">
+                                        查看通知详情
+                                        <i class="fe-arrow-right"></i>
+                                    </a>
+                                </form>
                             </div> <!-- end card -->
                         </div>
                     </div>

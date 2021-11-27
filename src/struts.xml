@@ -10,7 +10,6 @@
             <result name="success">staff_index.jsp</result>
             <result name="fail">login.jsp</result>
         </action>
-
         <action name="register" class="userAction" method="register">
             <result name="success">suuccess.jsp</result>
             <result name="fail">Failed.jsp</result>
@@ -45,13 +44,19 @@
 
     </package>
 
-
     <package name="Car" namespace="/" extends="struts-default">
         <action name="getAllCars" class="carAction" method="getAllCars">
             <result name="success">/view_car/car_info.jsp</result>
             <result name="fail">/view_feedback/error.jsp</result>
         </action>
 
+    </package>
+
+    <package name="Log" namespace="/" extends="struts-default">
+        <action name="getAllNF" class="logAction" method="getAllNF">
+            <result name="success">/view_notification/notification_detail.jsp</result>
+            <result name="fail">/view_feedback/error.jsp</result>
+        </action>
     </package>
 
     <package name="Ajax" namespace="/" extends="json-default">

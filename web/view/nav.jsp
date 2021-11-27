@@ -132,14 +132,17 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="topnav-task">
                                     <s:form action="getCommuteAP" method="POST" id="carAP">
+                                        <input name="user.id" value="${session.user.id}" style="display: none"/>
                                         <a onclick="document:carAP.submit()" class="dropdown-item">派车单</a>
                                     </s:form>
 
                                     <s:form action="getFixAP" method="POST" id="fixAP">
+                                        <input name="user.id" value="${session.user.id}" style="display: none"/>
                                         <a onclick="document:fixAP.submit()" class="dropdown-item">派修单</a>
                                     </s:form>
 
                                     <s:form action="getLendAP" method="POST" id="lendAP">
+                                        <input name="user.id" value="${session.user.id}" style="display: none"/>
                                         <a onclick="document:lendAP.submit()" class="dropdown-item">出借单</a>
                                     </s:form>
                                 </div>

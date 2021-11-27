@@ -13,7 +13,6 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
-    <!-- 类似于财务部门一样，类就是钱，所有需要类的实例都由spring去管理 -->
     <context:property-placeholder location="classpath:jdbc.properties"/>
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="${jdbc.driverClassName}"/>
@@ -42,6 +41,7 @@
                 <value>car/po/application/LendApplication.hbm.xml</value>
                 <value>car/po/application/CarApplication.hbm.xml</value>
                 <value>car/po/record/Notification.hbm.xml</value>
+                <value>car/po/record/StatusLog.hbm.xml</value>
             </list>
         </property>
     </bean>

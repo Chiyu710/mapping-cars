@@ -15,15 +15,15 @@ public class LogServiceImpl implements LogService{
 
     private Map<String, Object> request, session;
     @Override
-    public List<Notification> getNFBrief(){
+    public List<Notification> getNF(String recipientID){
         ActionContext ctx = ActionContext.getContext();
-        session = (Map) ctx.getSession();
         request = (Map) ctx.get("request");
-        String hql = "from Notification as notification" ;
+        String hql = "from Notification as notification where recipient='"+recipientID+"'" ;
         List<Notification> list = logDao.findByHqlNF(hql);
         if (list.isEmpty())
             return null;
         else {
+            request.put("NFS",list);
             return list;
         }
 

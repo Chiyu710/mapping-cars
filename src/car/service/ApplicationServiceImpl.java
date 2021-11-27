@@ -1,11 +1,8 @@
 package car.service;
 
 import car.dao.ApplicationDao;
-import car.po.Car;
-import car.po.application.Application;
-import car.po.application.CarApplication;
-import car.po.application.FixApplication;
-import car.po.application.LendApplication;
+
+import car.po.application.*;
 import com.opensymphony.xwork2.ActionContext;
 
 import java.util.List;
@@ -44,12 +41,11 @@ public class ApplicationServiceImpl implements ApplicationService{
             return false;
         }
     }
-
-    public boolean getFixAP(){
+    public boolean getFixAP(String userID){
         ActionContext ctx = ActionContext.getContext();
         session = (Map) ctx.getSession();
         request = (Map) ctx.get("request");
-        String hql = "from FixApplication as fixApplication" ;
+        String hql = "from FixApplication as fixApplication where userID='"+userID+"'";
         List<FixApplication> list = applicationDao.findByHqlFix(hql);
         if (list.isEmpty())
             return false;
@@ -58,11 +54,11 @@ public class ApplicationServiceImpl implements ApplicationService{
             return true;
         }
     }
-    public boolean getLendAP(){
+    public boolean getLendAP(String userID){
         ActionContext ctx = ActionContext.getContext();
         session = (Map) ctx.getSession();
         request = (Map) ctx.get("request");
-        String hql = "from LendApplication as lendApplication" ;
+        String hql = "from LendApplication as lendApplication where userID='"+userID+"'";
         List<LendApplication> list = applicationDao.findByHqlLend(hql);
         if (list.isEmpty())
             return false;
@@ -71,11 +67,11 @@ public class ApplicationServiceImpl implements ApplicationService{
             return true;
         }
     }
-    public boolean getCommuteAP(){
+    public boolean getCommuteAP(String userID){
         ActionContext ctx = ActionContext.getContext();
         session = (Map) ctx.getSession();
         request = (Map) ctx.get("request");
-        String hql = "from CarApplication as carApplication" ;
+        String hql = "from CarApplication as carApplication where userID='"+userID+"'";
         List<CarApplication> list = applicationDao.findByHqlCar(hql);
         if (list.isEmpty())
             return false;

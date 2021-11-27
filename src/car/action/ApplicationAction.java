@@ -1,23 +1,26 @@
 package car.action;
 
+import car.po.User;
 import car.po.application.*;
 import car.service.ApplicationService;
-import org.springframework.context.annotation.Bean;
 
 public class ApplicationAction {
 
     private CarApplication carApplication;
-    private FixApplication fixApplication;
-    private LendApplication lendApplication;
-
     public CarApplication getCarApplication() {return carApplication;}
     public void setCarApplication(CarApplication carApplication) {this.carApplication = carApplication;}
 
+    private FixApplication fixApplication;
     public FixApplication getFixApplication() {return fixApplication;}
     public void setFixApplication(FixApplication fixApplication) {this.fixApplication = fixApplication;}
 
+    private LendApplication lendApplication;
     public LendApplication getLendApplication() {return lendApplication;}
     public void setLendApplication(LendApplication lendApplication) {this.lendApplication = lendApplication;}
+
+    private User user;
+    public User getUser() {return user;}
+    public void setUser(User user) {this.user = user;}
 
     private ApplicationService applicationService =null;
     public void setApplicationService(ApplicationService applicationService) {
@@ -53,7 +56,7 @@ public class ApplicationAction {
     }
 
     public String getFixAP(){
-        if (applicationService.getFixAP()){
+        if (applicationService.getFixAP(user.getId())){
             System.out.println("getFixAP!");
             return "success";
         }
@@ -62,7 +65,7 @@ public class ApplicationAction {
         }
     }
     public String getLendAP(){
-        if (applicationService.getLendAP()){
+        if (applicationService.getLendAP(user.getId())){
             System.out.println("getLendAP!");
             return "success";
         }
@@ -71,7 +74,7 @@ public class ApplicationAction {
         }
     }
     public String getCommuteAP(){
-        if (applicationService.getCommuteAP()){
+        if (applicationService.getCommuteAP(user.getId())){
             System.out.println("getCarAP!");
             return "success";
         }

@@ -5,5 +5,5 @@ import car.po.record.Notification;
 import java.util.List;
 
 public interface LogService {
-      List<Notification> getNFBrief();
+      List<Notification> getNF(String recipientID);
 }
