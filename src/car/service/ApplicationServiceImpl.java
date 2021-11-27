@@ -43,12 +43,12 @@ public class ApplicationServiceImpl implements ApplicationService{
     }
     public boolean getFixAP(String userID){
         ActionContext ctx = ActionContext.getContext();
-        session = (Map) ctx.getSession();
         request = (Map) ctx.get("request");
         String hql = "from FixApplication as fixApplication where userID='"+userID+"'";
         List<FixApplication> list = applicationDao.findByHqlFix(hql);
-        if (list.isEmpty())
+        if (list.isEmpty()){
             return false;
+        }
         else {
             request.put("fixAPP", list);
             return true;
@@ -58,6 +58,7 @@ public class ApplicationServiceImpl implements ApplicationService{
         ActionContext ctx = ActionContext.getContext();
         session = (Map) ctx.getSession();
         request = (Map) ctx.get("request");
+        System.out.println("llledn");
         String hql = "from LendApplication as lendApplication where userID='"+userID+"'";
         List<LendApplication> list = applicationDao.findByHqlLend(hql);
         if (list.isEmpty())
@@ -69,7 +70,6 @@ public class ApplicationServiceImpl implements ApplicationService{
     }
     public boolean getCommuteAP(String userID){
         ActionContext ctx = ActionContext.getContext();
-        session = (Map) ctx.getSession();
         request = (Map) ctx.get("request");
         String hql = "from CarApplication as carApplication where userID='"+userID+"'";
         List<CarApplication> list = applicationDao.findByHqlCar(hql);
