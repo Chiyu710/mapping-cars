@@ -26,7 +26,7 @@ CREATE TABLE `administrator`(
   `email` varchar(45),
   `department` varchar(45),
   `status` int NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)  
+  PRIMARY KEY (`id`)
 )
 
 -- ----------------------------
@@ -34,10 +34,10 @@ CREATE TABLE `administrator`(
 -- ----------------------------
 CREATE TABLE `affairs`(
   `id` int NOT NULL,
-  `location` varchar(50)    ,
-  `remark` varchar(200)    ,
+  `location` varchar(50),
+  `remark` varchar(200),
   `expense` double NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)  
+  PRIMARY KEY (`id`)
 ) 
 -- ----------------------------
 -- Table structure for car
