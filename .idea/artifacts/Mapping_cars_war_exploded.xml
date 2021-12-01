@@ -9,6 +9,9 @@
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="ssh-lib" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/lib/aspectjweaver.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/lib/aspectjrt.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/lib/aopalliance.jar" />
         </element>
       </element>
     </root>

@@ -2,6 +2,7 @@ package car.service;
 
 import car.dao.UserDao;
 import car.po.User;
+import car.po.record.StatusLog;
 import com.opensymphony.xwork2.ActionContext;
 
 import java.util.List;
@@ -62,7 +63,7 @@ public class UserServiceImpl implements UserService {
             return false;
         }
     }
-    public boolean changeStatus(User user) {
+    public boolean changeStatus(User user, StatusLog statusLog) {
         ActionContext ctx = ActionContext.getContext();
         session = (Map) ctx.getSession();
         try {

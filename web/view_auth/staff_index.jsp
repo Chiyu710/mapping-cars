@@ -9,38 +9,38 @@
     <script src="../assets/libs/toastr/node_modules/jquery/jquery.min.js"></script>
     <script type="text/javascript">
 
-    $(document).ready(function (){
-            const NF = document.getElementById("NF");
-            let size = 0;
-            var carID = ${session.user.id};
-            $.ajax({
-                url:"getBrief",
-                type:"POST",
-                dataType:"JSON",
-                data : {
-                    userID:carID
-                },
-                success:function (data){
-                    size=data.length;
-                    if(data.length>5) {size=5;}
-                    var s1=' <div class="row"><div class="col-3"><label>';
-                    var level='';
-                    var date='';
-                    var s2='  </label></div><div class="col-9 mb-2"><ul class="list-inline"><li class="list-inline-item pe-2"><i class="mdi font-16 me-1"></i>';
-                    var s3=' </li><li class="list-inline-item"><i class="mdi mdi-tune font-16 me-1"></i>';
-                    var s4='</li><li class="list-inline-item">';
-                    var s5='</li></ul></div></div>';
-                    for (var i=0;i<size;i++){
+        $(document).ready(function (){
+                const NF = document.getElementById("NF");
+                let size = 0;
+                var carID = ${session.user.id};
+                $.ajax({
+                    url:"getBrief",
+                    type:"POST",
+                    dataType:"JSON",
+                    data : {
+                        userID:carID
+                    },
+                    success:function (data){
+                        size=data.length;
+                        if(data.length>5) {size=5;}
+                        var s1=' <div class="row"><div class="col-3"><label>';
+                        var level='';
+                        var date='';
+                        var s2='  </label></div><div class="col-9 mb-2"><ul class="list-inline"><li class="list-inline-item pe-2"><i class="mdi font-16 me-1"></i>';
+                        var s3=' </li><li class="list-inline-item"><i class="mdi mdi-tune font-16 me-1"></i>';
+                        var s4='</li><li class="list-inline-item">';
+                        var s5='</li></ul></div></div>';
+                        for (var i=0;i<size;i++){
 
-                        if(data[i].level=="High"){level='<span class="badge badge-soft-danger">High</span>';}
-                        else if(data[i].level=="Low"){level='<span class="badge badge-soft-success">Low</span>';}
-                        else {level='<span class="badge badge-soft-info">Medium</span>';}
-                        date=data[i].time;
-                        date=date.substring(5,10)+' '+date.substring(11,16);
-                        NF.innerHTML+=s1+data[i].type+s2+date+s3+data[i].sender+s4+level+s5;
+                            if(data[i].level=="High"){level='<span class="badge badge-soft-danger">High</span>';}
+                            else if(data[i].level=="Low"){level='<span class="badge badge-soft-success">Low</span>';}
+                            else {level='<span class="badge badge-soft-info">Medium</span>';}
+                            date=data[i].time;
+                            date=date.substring(5,10)+' '+date.substring(11,16);
+                            NF.innerHTML+=s1+data[i].type+s2+date+s3+data[i].sender+s4+level+s5;
+                        }
                     }
-                }
-            })
+                })
             }
 
         )
@@ -115,6 +115,7 @@
                                     <s:form action="changeStatus" method="POST">
                                         <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
                                             <input   name="user.id" value="${session.user.id}" style="display: none">
+                                            <input   name="statusLog.oldStatus" value="${session.user.status}" style="display: none">
                                             <input type="radio" class="btn-check" name="user.status" id="btnradio1" value="可以出车" autocomplete="off" checked>
                                             <label class="btn btn-outline-success" for="btnradio1">可以出车</label>
 
@@ -127,7 +128,7 @@
                                         <div class="m-3">
                                             <label for="reason" class="mb-2">备注</label>
                                             <div class="mt-2">
-                                                <textarea class="form-control" id="reason" rows="5"></textarea>
+                                                <textarea class="form-control" id="reason" rows="5" name="statusLog.remarks"></textarea>
                                             </div>
                                         </div>
                                         <div>
@@ -145,7 +146,7 @@
                             <div class="card-body">
                                 <div>
                                     <div class="collapse show" id="NF">
-                                    <%--notification--%>
+                                        <%--notification--%>
                                     </div>
                                     <!--end list-->
                                 </div>
@@ -169,7 +170,7 @@
 
         </div> <!-- content -->
 
-    <jsp:include page="../view/footer.jsp"></jsp:include>
+        <jsp:include page="../view/footer.jsp"></jsp:include>
 
     </div>
 

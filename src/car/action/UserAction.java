@@ -1,9 +1,11 @@
 package car.action;
 
 import car.po.User;
+import car.po.record.StatusLog;
 import car.service.UserService;
 import com.opensymphony.xwork2.ActionContext;
 
+import java.util.Date;
 import java.util.Map;
 
 public class UserAction {
@@ -12,8 +14,12 @@ public class UserAction {
     public User getUser() {return user;}
     public void setUser(User user) {this.user = user;}
 
-    private UserService userService=null;
+    private StatusLog statusLog;
+    public StatusLog getStatusLog() {return statusLog;}
+    public void setStatusLog(StatusLog statusLog) {this.statusLog = statusLog;}
 
+    private UserService userService=null;
+    public UserService getUserService() {return userService;}
     public void setUserService(UserService userService) {
         this.userService = userService;
     }
@@ -32,7 +38,11 @@ public class UserAction {
         }
     }
     public String changeStatus(){
-        if (userService.changeStatus(user)) {
+        statusLog.setStaffId(user.getId());
+        statusLog.setNewStatus(user.getStatus());
+        Date date = new Date ();
+        statusLog.setChangeTime(date);
+        if (userService.changeStatus(user,statusLog)) {
             return "success";
         }
         else {

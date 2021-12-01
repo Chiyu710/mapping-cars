@@ -36,6 +36,15 @@ public class LogServiceImpl implements LogService{
             return false;
         }
     }
+    public boolean saveStatusChange(StatusLog statusLog){
+        try {
+            System.out.println("状态变更已记录");
+            logDao.saveStatusLog(statusLog);
+            return true;
+        }catch (Exception e) {
+            return false;
+        }
+    }
     public boolean getNOT() {
         ActionContext ctx = ActionContext.getContext();
         request = (Map) ctx.get("request");
