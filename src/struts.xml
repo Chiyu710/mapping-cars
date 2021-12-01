@@ -66,6 +66,15 @@
             <result name="success">/view_notification/notification_detail.jsp</result>
             <result name="fail">/view_feedback/error.jsp</result>
         </action>
+        <action name="SaveNot" class="logAction" method="sendNot">
+            <result name="success">/view_feedback/submit_success_staff.jsp</result>
+            <result name="fail">/view_feedback/error.jsp</result>
+        </action>
+
+        <action name="getNot" class="logAction" method="getNOT">
+            <result name="success">/view_notification/notification_detail_admin.jsp</result>
+            <result name="fail">/view_feedback/error.jsp</result>
+        </action>
     </package>
 
     <package name="Ajax" namespace="/" extends="json-default">
@@ -112,17 +121,6 @@
         </action>
     </package>
 
-    <package name="Notification" namespace="/" extends="struts-default">
-        <action name="SaveNot" class="notificationAction" method="sendNot">
-            <result name="success">/view_feedback/submit_success_staff.jsp</result>
-            <result name="fail">/view_feedback/error.jsp</result>
-        </action>
-
-        <action name="getNot" class="notificationAction" method="getNOT">
-            <result name="success">/view_notification/notification_detail_admin.jsp</result>
-            <result name="fail">/view_feedback/error.jsp</result>
-        </action>
-    </package>
 
 
 </struts>

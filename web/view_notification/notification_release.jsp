@@ -46,7 +46,7 @@
                 </div>
                 <!-- end page title -->
 
-
+                <s:form action="SaveNot" method="POST" id="svNot">
                 <div class="row">
                     <div class="col-lg-10 mmmd">
                         <div class="card">
@@ -56,23 +56,23 @@
                                     <div class="mb-3 col-12">
                                         <label for="car-id" class="form-label">标题 <span
                                                 class="text-danger">*</span></label>
-                                        <input type="text" id="car-id" class="form-control">
+                                        <input type="text" id="car-id" class="form-control" name="notification.title">
                                     </div>
 
                                     <div class="mb-3 col-4">
                                         <label for="cph" class="form-label">接收部门 <span
                                                 class="text-danger">*</span></label>
-                                        <input type="text" id="cph" class="form-control">
+                                        <input type="text" id="cph" class="form-control" name="notification.recipient">
                                     </div>
 
                                     <div class="mb-3 col-4">
                                         <label for="de" class="form-label">重要程度 <span
                                                 class="text-danger">*</span></label>
                                         <div class="me-sm-3">
-                                            <select class="form-select my-1 my-lg-0" id="de">
-                                                <option value="1" class="text-danger">High</option>
-                                                <option value="2" class="text-warning">Medium</option>
-                                                <option value="3" class="text-info" >low</option>
+                                            <select class="form-select my-1 my-lg-0" id="de" name="notification.level">
+                                                <option value="High" class="text-danger" >High</option>
+                                                <option value="Medium" class="text-warning">Medium</option>
+                                                <option value="low" class="text-info" >low</option>
                                             </select>
                                         </div>
                                     </div>
@@ -81,17 +81,17 @@
                                         <label for="rt" class="form-label">通知类型 <span
                                                 class="text-danger">*</span></label>
                                         <div class="me-sm-3">
-                                            <select class="form-select my-1 my-lg-0" id="rt">
-                                                <option value="1" >车辆维护</option>
-                                                <option value="2" >业务信息</option>
-                                                <option value="3" >一般通知</option>
+                                            <select class="form-select my-1 my-lg-0" id="rt" name="notification.type">
+                                                <option value="车辆维护"  >车辆维护</option>
+                                                <option value="保养通知" >保养通知</option>
+                                                <option value="业务通知" >业务通知</option>
                                             </select>
                                         </div>
 
                                     </div>
                                     <div class="mb-3 col-12">
                                         <label for="example-textarea" class="form-label">通知内容</label>
-                                        <textarea class="form-control" id="example-textarea" rows="5"></textarea>
+                                        <textarea class="form-control" id="example-textarea" rows="5" name="notification.remarks"></textarea>
                                     </div>
 
                                 </div>
@@ -105,7 +105,7 @@
                                 <button type="button" class="btn w-sm btn-light waves-effect">Cancel</button>
 
 
-                                <s:form action="SaveNot" method="POST" id="svNot">
+
                                     <button type="button" class="btn w-sm btn-success waves-effect waves-light"
                                             onclick="document:svNot.submit()">Save
                                     </button>

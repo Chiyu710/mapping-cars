@@ -6,7 +6,7 @@
 <hibernate-mapping>
     <class name="car.po.record.Notification" table="notification">
         <id name="id" column="id">
-            <generator class="increment"/>
+            <generator class="native"/>
         </id>
         <property name="title" column="title"/>
         <property name="level" column="level"/>

@@ -41,4 +41,25 @@ public class LogAction {
         }
     }
 
+    public String sendNot(){
+        if(logService.sendNot(notification)){
+            System.out.println("succeess");
+            return "success";
+        }
+        else {
+            return "fail";
+        }
+    }
+
+    public String getNOT(){
+        if (logService.getNOT()){
+            System.out.println("getNOT!");
+            return "success";
+        }
+        else {
+            return "fail";
+        }
+    }
+
+
 }

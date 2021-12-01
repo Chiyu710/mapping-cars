@@ -28,5 +28,26 @@ public class LogServiceImpl implements LogService{
         }
 
     }
+    public boolean sendNot(Notification notification) {
+        try {
+            logDao.saveNot(notification);
+            return true;
+        }catch (Exception e) {
+            return false;
+        }
+    }
+    public boolean getNOT() {
+        ActionContext ctx = ActionContext.getContext();
+        request = (Map) ctx.get("request");
+        String hql = "from Notification as notification ";
+        List<Notification> list = logDao.findByHqlNF(hql);
+        if (list.isEmpty()){
+            return false;
+        }
+        else {
+            request.put("NFS", list);
+            return true;
+        }
+    }
 
 }

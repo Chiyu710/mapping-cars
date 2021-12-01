@@ -81,12 +81,5 @@
         <property name="logDao" ref="logDao"/>
     </bean>
 
-    <bean id="notificationDao" class="car.dao.NotificationDaoImpl" scope="prototype" parent="baseDAO"/>
-    <bean id="notificationAction" class="car.action.NotificationAction" scope="prototype">
-        <property name="notificationService" ref="notificationService"/>
-    </bean>
-    <bean id="notificationService" class="car.service.NotificationServiceImpl" scope="prototype">
-        <property name="notificationDao" ref="notificationDao"/>
-    </bean>
 
 </beans>

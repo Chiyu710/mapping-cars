@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface LogDao {
     List<Notification> findByHqlNF(String hql);
+    void saveNot(Notification notification);
+
 }
