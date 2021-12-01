@@ -50,5 +50,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="Tomcat 9.0.44" level="application_server_libraries" />
     <orderEntry type="library" name="ssh-lib" level="project" />
+    <orderEntry type="library" name="addToolbar" level="application" />
+    <orderEntry type="library" name="main1119" level="application" />
   </component>
 </module>

@@ -36,6 +36,24 @@ public class UserServiceImpl implements UserService {
             return true;
         }
     }
+    public boolean adminlogin(User loginUser) {
+        ActionContext ctx = ActionContext.getContext();
+        session = (Map) ctx.getSession();
+        String id = loginUser.getId();
+        String password = loginUser.getPassword();
+        String hql = "from User as user where id='" + id
+                + "' and password='" + password + "'";
+        List list = userDao.getByHql(hql);
+        if (list.isEmpty())
+            return false;
+        else {
+            session.put("user", id);
+            request.put("tip", "登录成功！");
+            loginUser = (User) list.get(0);
+            session.put("user", loginUser);
+            return true;
+        }
+    }
     public boolean register(User registerUser){
         try {
             userDao.save(registerUser);

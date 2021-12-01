@@ -107,7 +107,7 @@
             <div class="collapse navbar-collapse" id="topnav-menu-content">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link " href="#" role="button">
+                        <a class="nav-link " href="../view_business/staff_business.jsp" role="button">
                             <i class="fe-airplay me-1"></i>我的行程
                         </a>
                     </li>

@@ -65,8 +65,6 @@
                                     </div>
                                 </div>
                             </div>
-
-
                             <div class="text-center d-grid">
                                 <button class="btn btn-primary" type="submit">登  陆 </button>
                             </div>

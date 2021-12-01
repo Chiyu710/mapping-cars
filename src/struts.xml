@@ -69,7 +69,7 @@
     </package>
 
     <package name="Ajax" namespace="/" extends="json-default">
-        <action name="getAllCars" class="carAction" method="getAllCars">
+        <action name="getAllCarsAjax" class="carAction" method="getAllCars_ajax">
             <result name="ajax" type="json">
                 <param name="root">allCarsInfo</param>
                 <!-- 设置对象中哪些属性需要的，支持正则表达式, 语法必须转义  [  ]  .   \d表示匹配下标 -->

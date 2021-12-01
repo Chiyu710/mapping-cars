@@ -5,6 +5,7 @@
 <head>
 
     <meta charset="utf-8"/>
+
     <title>MAPPING CARS MANAGE INDEX</title>
     <jsp:include page="../view/header.jsp"></jsp:include>
 
@@ -17,7 +18,11 @@
         }
     </style>
     <script src="../assets/libs/toastr/node_modules/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=b0af08c849bbffa3cab92acc26b93ebc&plugin=AMap.Autocomplete,AMap.PlaceSearch"></script>
+    <script type="text/javascript" src="https://cache.amap.com/lbs/static/addToolbar.js"></script>
     <script type="text/javascript">
+
+
 
     $(document).ready(function() {
             const cars = document.getElementById("carSelect");
@@ -160,6 +165,23 @@
                                                                             <input type="text" id="destination" name="carApplication.destination" class="form-control" >
                                                                         </div>
                                                                     </div>
+                                                                    <div class="row mb-3" >
+                                                                    <div class="col-md-12" id="MAP">
+                                                                    </div>
+                                                                    </div>
+
+                                                                    <div class="row mb-3 ">
+                                                                        <label for="longitude" class="col-md-1 col-form-label">经度</label>
+                                                                        <div class="col-md-4">
+                                                                            <input id="longitude" name="carApplication.longitude" class="form-control" readonly>
+                                                                        </div>
+                                                                        <div class="col-md-1">
+                                                                        </div>
+                                                                        <label for="latitude" class="col-md-1 col-form-label">维度</label>
+                                                                        <div class="col-md-4">
+                                                                            <input  id="latitude" name="carApplication.latitude" class="form-control" readonly/>
+                                                                        </div>
+                                                                    </div>
 
                                                                     <div class="row mb-3">
                                                                         <label for="reason" class="mb-2">申请理由</label>
@@ -295,6 +317,50 @@
 
 <!-- App js-->
 <script src="../assets/js/app.min.js"></script>
+
+<script type="text/javascript">
+    //地图加载
+    var map = new AMap.Map("MAP", {
+        resizeEnable: true
+    });
+    //输入提示
+    var autoOptions = {
+        input: "destination"
+    };
+    var auto = new AMap.Autocomplete(autoOptions);
+    var placeSearch = new AMap.PlaceSearch({
+        map: map
+    });  //构造地点查询类
+    AMap.event.addListener(auto, "select", select);//注册监听，当选中某条记录时会触发
+    function select(e) {
+        placeSearch.setCity(e.poi.adcode);
+        placeSearch.search(e.poi.name);  //关键字查询查询
+        var location=e.poi.name;
+        var u='https://restapi.amap.com/v3/geocode/geo?address='+location+'&output=JSON&key=339a15662d31a06e116f97b7d8b4fae1';
+        //alert(location);
+        $.ajax({
+            url:u,
+            type:"GET",
+            dataType:"JSON",
+            success:function (data){
+                if(data.status=0){
+                    alert("error:"+data.info);
+                }
+                if(data.count==0){
+                    alert("查找不到该地址,请确认该地址真实性后提交!");
+                    $("#longitude").val("");
+                    $("#latitude").val("");
+                }
+                var l = data.geocodes[0].location.split(',');
+                var long = l[0];
+                var lat = l[1];
+                $("#longitude").val(long);
+                $("#latitude").val(lat);
+
+            }
+        })
+    }
+</script>
 
 
 <script>
