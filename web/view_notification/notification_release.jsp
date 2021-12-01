@@ -101,18 +101,10 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="text-center mb-3">
-
-                                <button type="button" class="btn w-sm btn-light waves-effect">Cancel</button>
-
-
-
                                     <button type="button" class="btn w-sm btn-success waves-effect waves-light"
                                             onclick="document:svNot.submit()">Save
                                     </button>
                                 </s:form>
-
-                                <button type="button" class="btn w-sm btn-danger waves-effect waves-light">Delete
-                                </button>
                             </div>
                         </div> <!-- end col -->
                     </div>
