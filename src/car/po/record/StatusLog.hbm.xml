@@ -6,7 +6,7 @@
 <hibernate-mapping>
     <class name="car.po.record.StatusLog" table="statuslog">
         <id name="id" column="id">
-            <generator class="increment"/>
+            <generator class="native"/>
         </id>
         <property name="staffId" column="staffId"/>
         <property name="oldStatus" column="oldStatus"/>

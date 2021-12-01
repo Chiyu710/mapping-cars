@@ -13,6 +13,11 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
+    <!-- 开启注解扫描 -->
+    <context:component-scan base-package="car.aspect"/>
+    <!-- 开启aop注解方式,默认为false -->
+    <aop:aspectj-autoproxy/>
+
     <context:property-placeholder location="classpath:jdbc.properties"/>
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="${jdbc.driverClassName}"/>
