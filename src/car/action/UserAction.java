@@ -23,6 +23,10 @@ public class UserAction {
         if (userService.login(user)) {
             return "success";
         }
+        else if(userService.adminlogin(user))
+        {
+            return "adminsuccess";
+        }
         else {
             return "fail";
         }
@@ -35,7 +39,6 @@ public class UserAction {
             return "fail";
         }
     }
-
     public String register() {
 
         if (userService.register(user)) {
