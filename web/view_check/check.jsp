@@ -36,6 +36,7 @@
                     </div>
                 </div>
                 <div class="row">
+
                     <div class="col-12">
                         <!-- Portlet card -->
                         <div class="card">
@@ -45,7 +46,13 @@
                                     <div class="">
                                         <span class="me-2">类型选择</span>
                                         <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
-                                        <label class="btn btn-outline-primary" for="btncheck1">出车申请</label>
+                                        <label class="btn btn-outline-primary" for="btncheck1">
+                                            <s:form action="getCommuteAP" method="POST" id="carAp">
+                                                <a   onclick="document:carAp.submit()" >
+                                                    出车申请
+                                                </a>
+                                            </s:form>
+                                        </label>
 
                                         <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
                                         <label class="btn btn-outline-primary" for="btncheck2">出借申请</label>
@@ -66,39 +73,45 @@
                                             </tr>
                                             </thead>
                                             <tbody>
+                                            <s:iterator value="#request.carAPP" var="ap">
                                             <tr>
                                                 <td>出车申请</td>
-                                                <td>2021/11/19<br>14:52</td>
-                                                <td>审核中</td>
-                                                <td>程璐<br>107569</td>
+                                                <td><s:property value="#ap.applicationDate"/> </td>
+                                                <td><s:property value="#ap.status"/></td>
+                                                <td><s:property value="#ap.userName"/><br><s:property value="#ap.userID"/></td>
                                                 <td>
                                                     <button type="button" class="btn btn-info waves-effect waves-light">
                                                     <i class="mdi mdi-alert-circle-outline"></i>
                                                     </button>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>出借申请</td>
-                                                <td>2021/11/19<br>14:49</td>
-                                                <td>已通过</td>
-                                                <td>程璐<br>107569</td>
-                                                <td>
-                                                    <button type="button" class="btn btn-info waves-effect waves-light">
-                                                        <i class="mdi mdi-alert-circle-outline"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>报修申请</td>
-                                                <td>2021/11/19<br>13:59</td>
-                                                <td>未通过</td>
-                                                <td>程璐<br>107569</td>
-                                                <td>
-                                                    <button type="button" class="btn btn-info waves-effect waves-light">
-                                                        <i class="mdi mdi-alert-circle-outline"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
+                                            </s:iterator>
+                                            <s:iterator value="#request.lendAPP" var="ap">
+                                                <tr>
+                                                    <td>出借申请</td>
+                                                    <td><s:property value="#ap.applicationDate"/> </td>
+                                                    <td><s:property value="#ap.status"/></td>
+                                                    <td><s:property value="#ap.userName"/><br><s:property value="#ap.userID"/></td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-info waves-effect waves-light">
+                                                            <i class="mdi mdi-alert-circle-outline"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </s:iterator>
+                                            <s:iterator value="#request.fixAPP" var="ap">
+                                                <tr>
+                                                    <td>报修申请</td>
+                                                    <td><s:property value="#ap.applicationDate"/> </td>
+                                                    <td><s:property value="#ap.status"/></td>
+                                                    <td><s:property value="#ap.userName"/><br><s:property value="#ap.userID"/></td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-info waves-effect waves-light">
+                                                            <i class="mdi mdi-alert-circle-outline"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </s:iterator>
 
 
                                             </tbody>
@@ -108,6 +121,7 @@
                             </div> <!-- end card-body-->
                         </div> <!-- end card-->
                     </div> <!-- end col-->
+
                 </div>
                 <!-- end row -->
                 </div> <!-- container -->

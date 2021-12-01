@@ -45,6 +45,11 @@
             <result name="success">/view_application/car_status.jsp</result>
             <result name="fail">/view_feedback/error.jsp</result>
         </action>
+        
+        <action name="getAllApp" class="applicationAction" method="getAllAP">
+            <result name="success">/view_check/check.jsp</result>
+            <result name="fail">/view_feedback/error.jsp</result>
+        </action>
 
     </package>
 
@@ -90,6 +95,33 @@
         </action>
 
 
+    </package>
+
+    <package name="Admin" namespace="/" extends="struts-default">
+        <action name="login" class="userAction" method="login">
+            <result name="success">staff_index.jsp</result>
+            <result name="fail">login.jsp</result>
+        </action>
+        <action name="register" class="userAction" method="register">
+            <result name="success">suuccess.jsp</result>
+            <result name="fail">Failed.jsp</result>
+        </action>
+        <action name="changeStatus" class="userAction" method="changeStatus">
+            <result name="success">/view_feedback/submit_success_staff.jsp</result>
+            <result name="fail">/view_feedback/error.jsp</result>
+        </action>
+    </package>
+
+    <package name="Notification" namespace="/" extends="struts-default">
+        <action name="SaveNot" class="notificationAction" method="sendNot">
+            <result name="success">/view_feedback/submit_success_staff.jsp</result>
+            <result name="fail">/view_feedback/error.jsp</result>
+        </action>
+
+        <action name="getNot" class="notificationAction" method="getNOT">
+            <result name="success">/view_notification/notification_detail_admin.jsp</result>
+            <result name="fail">/view_feedback/error.jsp</result>
+        </action>
     </package>
 
 

@@ -9,4 +9,5 @@ public interface ApplicationService {
     boolean getFixAP(String userID);
     boolean getLendAP(String userID);
     boolean getCommuteAP(String userID);
+    boolean getAllAP();
 }

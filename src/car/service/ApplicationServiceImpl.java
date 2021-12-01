@@ -81,4 +81,23 @@ public class ApplicationServiceImpl implements ApplicationService{
         }
     }
 
+    public boolean getAllAP(){
+        ActionContext ctx = ActionContext.getContext();
+        request = (Map) ctx.get("request");
+        String hql1 = "from CarApplication as carApplication ";
+        List<CarApplication> list1 = applicationDao.findByHqlCar(hql1);
+        String hql2 = "from LendApplication as lendApplication";
+        List<LendApplication> list2 = applicationDao.findByHqlLend(hql2);
+        String hql3 = "from FixApplication as fixApplication";
+        List<FixApplication> list3 = applicationDao.findByHqlFix(hql3);
+        if (list1.isEmpty() && list2.isEmpty() && list3.isEmpty())
+            return false;
+        else {
+            request.put("carAPP", list1);
+            request.put("lendAPP", list2);
+            request.put("fixAPP", list3);
+            return true;
+        }
+    }
+
 }

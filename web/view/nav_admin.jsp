@@ -114,9 +114,11 @@
             <div class="collapse navbar-collapse" id="topnav-menu-content">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link " href="../view_check/check.jsp" role="button">
-                            <i class="ti-write me-1"></i>申请审核
-                        </a>
+                        <s:form action="getAllApp" method="POST" id="allInfo">
+                            <a class="nav-link"    onclick="document:allInfo.submit()" role="button">
+                                <i class="ti-write me-1"></i>申请审核
+                            </a>
+                        </s:form>
                     </li>
                     <li class="nav-item dropdown">
                         <s:form action="getAllCars" method="POST" id="carInfo">
@@ -149,8 +151,12 @@
                             <div class="arrow-down"></div>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="topnav-apps">
-                            <a href="../view_notification/notification_detail_admin.jsp" class="dropdown-item"><i class="ti-car me-1"></i>已发布通知</a>
-                            <a href="../view_notification/notification_release.jsp" class="dropdown-item"><i class="fe-monitor"></i>通知发布</a>
+                            <s:form action="getNot" method="POST" id="NOT">
+                                <a  class="dropdown-item" onclick="document:NOT.submit()">
+                                <i class="ti-car me-1"></i>已发布通知
+                                </a>
+                            </s:form>
+                                <a href="../view_notification/notification_release.jsp" class="dropdown-item"><i class="fe-monitor"></i>通知发布</a>
                         </div>
                     </li>
 

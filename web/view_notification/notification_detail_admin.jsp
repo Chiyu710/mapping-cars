@@ -65,24 +65,46 @@
                                     </div>
                                 </div> <!-- end card-body-->
                             </div> <!-- end card-->
-
-                            <div class="card mb-2">
-                                <div class="card-body">
-                                    <div class="row align-items-center">
-                                        <div class="col-sm-11 ">
-                                            <div class="d-flex align-items-start mb-2">
-                                                <div class="w-100">
-                                                    <b class="mt-2 mb-4 me-2 font-16">车辆保养提醒</b> <text class="mb-0 me-2 text-muted">2021年11月19日11：30</text>
-                                                        <div class="badge font-14 bg-soft-danger text-danger p-1">High</div>
+                            <s:iterator var="NF" value="#request.NFS">
+                                <div class="card mb-2">
+                                    <div class="card-body mb-2">
+                                        <div class="row align-items-center">
+                                            <div class="col-sm-11">
+                                                <div class="d-flex align-items-start">
+                                                    <div class="w-100">
+                                                        <b class="mt-0 mb-1 me-2 font-18 text-dark"><s:property value="#NF.title"/></b> <text class="mb-0 me-2 text-muted"><s:property value="#NF.time"/></text>
+                                                        <s:if test='#NF.level=="High"'>
+                                                            <div class="badge font-14 bg-soft-danger text-danger p-1">High</div>
+                                                        </s:if>
+                                                        <s:elseif test='#NF.level=="Medium"'>
+                                                            <div class="badge font-14 bg-soft-warning text-warning p-1">Medium</div>
+                                                        </s:elseif>
+                                                        <s:elseif test='#NF.level=="Low"'>
+                                                            <div class="badge font-14 bg-soft-success text-success p-1">Low</div>
+                                                        </s:elseif>
+                                                        <h5 class="font-13 ">发送人: <ss class="text-info"><s:property value="#NF.sender"/></ss></h5>
+                                                    </div>
                                                 </div>
+                                                <hr class="mt-0">
+                                                <p class="mb-0 font-15"><s:property value="#NF.remarks"/>
+                                                    <s:if test='#NF.type=="保养通知"'>
+                                                    <a href="../view_application/fix_application.jsp"> &nbsp;>>申请保养</a></p>
+                                                </s:if>
+                                                <s:elseif test='#NF.type=="业务通知"'>
+                                                    <a href="../view_application/car_application.jsp"> &nbsp;>>立即出车</a></p>
+                                                </s:elseif>
+                                                <s:else>
+                                                </s:else>
                                             </div>
-                                            <span class="mb-2 mt-2 me-2 text-primary">收件人:staff-1</span>
-                                            <p class="mt-2">1234号机动车驾驶人您驾驶的机动车已经n年n月n天没有进行保养维修了，请尽快申请车辆保养维修
-                                                ，以免车辆发生故障。出于安全考虑，若您于n年n月n日前还没有进行车辆维修，您的出车申请将被冻结
-                                        </div>
-                                    </div> <!-- end row -->
-                                </div>
-                            </div> <!-- end card-->
+                                            <div class="text-sm-end col-sm-1">
+                                                <div class="text-sm-end text-center mt-2 mt-sm-0">
+                                                    <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-delete"></i></a>
+                                                </div>
+                                            </div> <!-- end col-->
+                                        </div> <!-- end row -->
+                                    </div>
+                                </div> <!-- end card-->
+                            </s:iterator>
 
 
 

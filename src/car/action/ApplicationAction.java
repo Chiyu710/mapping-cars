@@ -55,6 +55,8 @@ public class ApplicationAction {
         }
     }
 
+
+
     public String getFixAP(){
         if (applicationService.getFixAP(user.getId())){
             System.out.println("getFixAP!");
@@ -81,5 +83,16 @@ public class ApplicationAction {
         else {
             return "fail";
         }
+    }
+
+    public String getAllAP(){
+        if(applicationService.getAllAP()){
+            System.out.println("getAllAP!");
+            return "success";
+        }
+        else{
+            return "fail";
+        }
+
     }
 }

@@ -34,8 +34,8 @@ CREATE TABLE `administrator`(
 -- ----------------------------
 CREATE TABLE `affairs`(
   `id` int NOT NULL,
-  `location` varchar(50)    ,
-  `remark` varchar(200)    ,
+  `location` varchar(50),
+  `remark` varchar(200),
   `expense` double NULL DEFAULT NULL,
   PRIMARY KEY (`id`)  
 ) 
