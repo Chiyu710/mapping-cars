@@ -35,24 +35,20 @@ public class CarAction {
     }
 
     public String getAllCars(){
-
         if(carService.getAllCars()){
+            System.out.println("get all cars info");
             return "success";
         }
-       else return "fail";
+        else return "fail";
     }
 
     public String getCarInfoAjax(){
-        System.out.println(carId);
         car=carService.getCarInfoAjax(carId);
-        System.out.println(car.getLicensePlate());
         return "ajax";
     }
 
     public String getFreeCarsAjax(){
-        System.out.println("getFreeCars");
         allCarsInfo = carService.getFreeCarsAjax();
-        System.out.println(allCarsInfo.get(0).getLicensePlate());
         return "ajax";
 
     }
