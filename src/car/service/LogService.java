@@ -10,4 +10,5 @@ public interface LogService {
       boolean sendNot(Notification notification);
       boolean getNOT();
       boolean saveStatusChange(StatusLog statusLog);
+      boolean getBusiness(String userID);
 }

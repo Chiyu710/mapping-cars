@@ -58,5 +58,18 @@ public class LogServiceImpl implements LogService{
             return true;
         }
     }
+    public boolean getBusiness(String userID){
+        ActionContext ctx = ActionContext.getContext();
+        request = (Map) ctx.get("request");
+        String hql = "from DriveLog as drivelog where userid='"+userID+"' and status='前往目的地'";
+        List<DriveLog> list = logDao.findByHqlDL(hql);
+        if (list.isEmpty()){
+            return false;
+        }
+        else {
+            request.put("myBusiness", list);
+            return true;
+        }
+    }
 
 }

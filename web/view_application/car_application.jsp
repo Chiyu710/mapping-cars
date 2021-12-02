@@ -177,7 +177,7 @@
                                                                         </div>
                                                                         <div class="col-md-1">
                                                                         </div>
-                                                                        <label for="latitude" class="col-md-1 col-form-label">维度</label>
+                                                                        <label for="latitude" class="col-md-1 col-form-label">纬度</label>
                                                                         <div class="col-md-4">
                                                                             <input  id="latitude" name="carApplication.latitude" class="form-control" readonly/>
                                                                         </div>

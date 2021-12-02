@@ -47,6 +47,7 @@
                 <value>car/po/application/CarApplication.hbm.xml</value>
                 <value>car/po/record/Notification.hbm.xml</value>
                 <value>car/po/record/StatusLog.hbm.xml</value>
+                <value>car/po/record/DriveLog.hbm.xml</value>
             </list>
         </property>
     </bean>

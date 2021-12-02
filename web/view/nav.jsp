@@ -107,9 +107,15 @@
             <div class="collapse navbar-collapse" id="topnav-menu-content">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link " href="../view_business/staff_business.jsp" role="button">
-                            <i class="fe-airplay me-1"></i>我的行程
-                        </a>
+
+                        <s:form action="getBusiness" method="POST" id="getBusiness">
+                            <input name="userID" value="${session.user.id}" style="display: none"/>
+                            <a class="nav-link " onclick="document:getBusiness.submit()" role="button">
+                                <i class="fe-airplay me-1"></i>我的行程
+                            </a>
+                        </s:form>
+
+
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle arrow-none"  id="topnav-apps" role="button"

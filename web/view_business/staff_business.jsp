@@ -58,19 +58,18 @@
                                                     <div class="d-flex align-items-start">
                                                         <div class="w-100">
                                                             <h5 class="mt-1 font-16 text-warning">
-                                                                未到达在路上<input class="btn btn-success text-center font-16 ms-2" type="submit" value="我已到达事故地点">
-                                                            </h5>
+                                                                <s:property value="#request.myBusiness[0].status"/>
                                                         </div>
                                                     </div>
                                                     <!-- end assignee -->
                                                 </div>
                                                 <div class="col-md-4">
                                                     <!-- start due date -->
-                                                    <p class="mt-2 mb-1 text-muted font-20">业务号</p>
+                                                    <p class="mt-2 mb-1 text-muted font-20">出车号</p>
                                                     <div class="d-flex align-items-start">
                                                         <div class="w-100">
                                                             <h5 class="mt-1 font-16">
-                                                                yw-125
+                                                                ${request.myBusiness[0].applicationid}
                                                             </h5>
                                                         </div>
                                                     </div>
@@ -83,7 +82,7 @@
                                                         <i class="mdi mdi-map-marker font-18 text-primary me-1"></i>
                                                         <div class="w-100">
                                                             <h5 class="mt-1 font-20">
-                                                                浙江省杭州市西湖区留和路288号
+                                                                ${request.myBusiness[0].destination}
                                                             </h5>
                                                         </div>
                                                     </div>
@@ -146,6 +145,7 @@
 <script type="text/javascript"
         src="https://webapi.amap.com/maps?v=1.4.15&key=b0af08c849bbffa3cab92acc26b93ebc&plugin=AMap.Driving"></script>
 <script type="text/javascript">
+    //考虑到出发地都是公司 可以考虑写死
     var map = new AMap.Map('MAP', {
         resizeEnable: true, //是否监控地图容器尺寸变化
         zoom:13, //初始化地图层级
@@ -161,9 +161,13 @@
             map:map,
             policy: AMap.DrivingPolicy.LEAST_TIME
         })
-
+        var eLo=${request.myBusiness[0].elongitude};
+        var ela=${request.myBusiness[0].elatitude};
+        parseFloat(eLo);
+        parseFloat(ela);
         var startLngLat = [120.041549,30.2251]
-        var endLngLat = [120.165838,30.292783]
+
+        var endLngLat = [eLo,ela]
 
         driving.search(startLngLat, endLngLat, function (status, result) {
             // 未出错时，result即是对应的路线规划方案

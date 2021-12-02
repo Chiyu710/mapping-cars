@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="car.po.record.DriveLog" table="drivelog">
+        <id name="id" column="id">
+            <generator class="native"/>
+        </id>
+        <property name="applicationid" column="applicationid"/>
+        <property name="userid" column="userid"/>
+        <property name="carid" column="carid"/>
+        <property name="starttime" column="starttime"/>
+        <property name="endtime" column="endtime"/>
+        <property name="trackID" column="trackID"/>
+        <property name="username" column="username"/>
+        <property name="destination" column="destination"/>
+        <property name="startlocatoin" column="startlocatoin"/>
+        <property name="broke" column="broke"/>
+        <property name="illegel" column="illegel"/>
+        <property name="status" column="status"/>
+        <property name="slongitude" column="slongitude"/>
+        <property name="slatitude" column="slatitude"/>
+        <property name="elongitude" column="elongitude"/>
+        <property name="elatitude" column="elatitude"/>
+        <property name="mileage" column="mileage" type="java.lang.Integer"/>
+    </class>
+</hibernate-mapping>

@@ -35,6 +35,8 @@ public class ApplicationServiceImpl implements ApplicationService{
     }
     public boolean sendCommute(CarApplication carApplication){
         try {
+            //默认值
+            carApplication.setStatus("审核中");
             applicationDao.saveCommute(carApplication);
             return true;
         }catch (Exception e) {

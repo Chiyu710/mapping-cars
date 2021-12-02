@@ -70,11 +70,15 @@
             <result name="success">/view_feedback/submit_success_staff.jsp</result>
             <result name="fail">/view_feedback/error.jsp</result>
         </action>
-
         <action name="getNot" class="logAction" method="getNOT">
             <result name="success">/view_notification/notification_detail_admin.jsp</result>
             <result name="fail">/view_feedback/error.jsp</result>
         </action>
+        <action name="getBusiness" class="logAction" method="getBusiness">
+            <result name="success">/view_business/staff_business.jsp</result>
+            <result name="fail">/view_feedback/error.jsp</result>
+        </action>
+
     </package>
 
     <package name="Ajax" namespace="/" extends="json-default">

@@ -61,5 +61,13 @@ public class LogAction {
         }
     }
 
+    public String getBusiness(){
+        if (logService.getBusiness(userID)){
+            return "success";
+        }
+        else {
+            return "fail";
+        }
+    }
 
 }
