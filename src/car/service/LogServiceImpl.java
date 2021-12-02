@@ -5,6 +5,7 @@ import car.dao.LogDaoImpl;
 import car.po.record.*;
 import com.opensymphony.xwork2.ActionContext;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -70,6 +71,22 @@ public class LogServiceImpl implements LogService{
             request.put("myBusiness", list);
             return true;
         }
+    }
+    public boolean saveDriveLog(DriveLog driveLog){
+        DriveLog ODL=logDao.getDL(driveLog);
+        ODL.setStatus(driveLog.getStatus());
+        ODL.setBroke(driveLog.getBroke());
+        ODL.setIllegel(driveLog.getIllegel());
+        Date date = new Date ();
+        ODL.setEndtime(date);
+        try {
+            System.out.println("log saved");
+            logDao.saveDL(ODL);
+            return true;
+        }catch (Exception e) {
+            return false;
+        }
+
     }
 
 }

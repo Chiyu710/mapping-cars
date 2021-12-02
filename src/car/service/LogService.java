@@ -1,5 +1,6 @@
 package car.service;
 
+import car.po.record.DriveLog;
 import car.po.record.Notification;
 import car.po.record.StatusLog;
 
@@ -11,4 +12,5 @@ public interface LogService {
       boolean getNOT();
       boolean saveStatusChange(StatusLog statusLog);
       boolean getBusiness(String userID);
+      boolean saveDriveLog(DriveLog driveLog);
 }

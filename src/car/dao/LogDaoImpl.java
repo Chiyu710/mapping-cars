@@ -1,5 +1,6 @@
 package car.dao;
 
+import car.po.User;
 import car.po.record.*;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -67,5 +68,37 @@ public class LogDaoImpl extends BaseHibernateDao implements LogDao{
         }
 
     }
+    public DriveLog getDL(DriveLog driveLog){
+        Transaction tran = null;
+        Session session = null;
+        try {
+            session = getSession();
+            tran = session.beginTransaction();
+            DriveLog dl =session.get(car.po.record.DriveLog.class,driveLog.getId());
+            tran.commit();
+            return dl;
+        } catch (RuntimeException re) {
 
+            if(tran != null) tran.rollback();
+            throw re;
+        } finally {
+            session.close();
+        }
+    }
+    public void saveDL(DriveLog driveLog){
+        Transaction tran = null;
+        Session session = null;
+        try {
+            session = getSession();
+            tran = session.beginTransaction();
+            session.saveOrUpdate(driveLog);
+            tran.commit();
+        } catch (RuntimeException re) {
+
+            if(tran != null) tran.rollback();
+            throw re;
+        } finally {
+            session.close();
+        }
+    }
 }

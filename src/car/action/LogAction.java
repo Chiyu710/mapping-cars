@@ -12,6 +12,10 @@ public class LogAction {
     public Notification getNotification() {return notification;}
     public void setNotification(Notification notification) {this.notification = notification;}
 
+    private DriveLog driveLog;
+    public void setDriveLog(DriveLog driveLog) {this.driveLog = driveLog;}
+    public DriveLog getDriveLog() {return driveLog;}
+
     List<Notification> briefNotifications;
     public List<Notification> getBriefNotifications() {return briefNotifications;}
     public void setBriefNotifications(List<Notification> briefNotifications) {this.briefNotifications = briefNotifications;}
@@ -63,6 +67,15 @@ public class LogAction {
 
     public String getBusiness(){
         if (logService.getBusiness(userID)){
+            return "success";
+        }
+        else {
+            return "fail";
+        }
+    }
+
+    public String saveDL(){
+        if (logService.saveDriveLog(driveLog)){
             return "success";
         }
         else {

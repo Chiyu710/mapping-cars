@@ -70,6 +70,10 @@
             <result name="success">/view_feedback/submit_success_staff.jsp</result>
             <result name="fail">/view_feedback/error.jsp</result>
         </action>
+        <action name="SaveDL" class="logAction" method="saveDL">
+            <result name="success">/view_feedback/submit_success_staff.jsp</result>
+            <result name="fail">/view_feedback/error.jsp</result>
+        </action>
         <action name="getNot" class="logAction" method="getNOT">
             <result name="success">/view_notification/notification_detail_admin.jsp</result>
             <result name="fail">/view_feedback/error.jsp</result>

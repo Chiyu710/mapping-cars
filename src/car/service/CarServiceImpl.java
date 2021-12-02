@@ -2,8 +2,10 @@ package car.service;
 
 import car.dao.CarDao;
 import car.po.Car;
+import car.po.record.DriveLog;
 import com.opensymphony.xwork2.ActionContext;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -64,5 +66,21 @@ public class CarServiceImpl implements CarService{
             return list;
         }
     }
+    public boolean saveCar(Car car){
+        Car c = carDao.getCar(car.getId());
+        c.setStatus(car.getStatus());
+        //有就加 没有就不加
+        c.setFixTimes(c.getFixTimes()+car.getFixTimes());
+        c.setMileage(c.getMileage()+car.getMileage());
+        try {
+            System.out.println("car status changed");
+            carDao.saveCar(c);
+            return true;
+        }catch (Exception e) {
+            return false;
+        }
+
+    }
+
 
 }

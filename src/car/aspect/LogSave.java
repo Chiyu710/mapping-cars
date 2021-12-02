@@ -1,7 +1,11 @@
 package car.aspect;
 
+import car.po.Car;
+import car.po.record.DriveLog;
 import car.po.record.StatusLog;
+import car.service.CarService;
 import car.service.LogService;
+import org.apache.commons.lang3.ObjectUtils;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
@@ -15,6 +19,13 @@ public class LogSave {
 
     @Autowired
     private LogService logService;
+    @Autowired
+    private CarService carService;
+
+    @Autowired
+    private Car car;
+
+    private DriveLog driveLog;
 
 
     @Pointcut("execution(* car.service.UserService.changeStatus(..))")
@@ -28,6 +39,22 @@ public class LogSave {
 //        }
         logService.saveStatusChange((StatusLog) args[1]);
         System.out.println("Status change log save success");
+    }
+
+
+    @Pointcut("execution(* car.service.LogService.saveDriveLog(..))")
+    public void driveEnd(){}
+
+    @After("driveEnd()")
+    public void CarChange(JoinPoint joinPoint){
+        Object[] args = joinPoint.getArgs();
+        driveLog=(DriveLog) args[0];
+        car.setStatus("空闲");
+        car.setId(driveLog.getId());
+        if(driveLog.getBroke()!= null) car.setFixTimes(1);
+        else car.setFixTimes(0);
+        carService.saveCar(car);
+        System.out.println("after drive car status change");
     }
 
 

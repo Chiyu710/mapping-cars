@@ -6,8 +6,13 @@ import car.po.Car;
 import java.util.List;
 
 public interface CarService {
-    public List<Car> getAllCarsAjax();
-    public boolean getAllCars();
-    public Car getCarInfoAjax(int carId);
-    public List<Car> getFreeCarsAjax();
+    List<Car> getAllCarsAjax();
+
+    boolean getAllCars();
+
+    Car getCarInfoAjax(int carId);
+
+    List<Car> getFreeCarsAjax();
+
+    boolean saveCar(Car car);
 }

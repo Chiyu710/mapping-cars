@@ -12,7 +12,6 @@
 <head>
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
   <title>MAPPING CARS MANAGE INDEX</title>
   <jsp:include page="../view/header.jsp"/>
   <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css"/>
@@ -32,7 +31,34 @@
     <!-- ============================================================== -->
     <!-- Start Page Content here -->
     <!-- ============================================================== -->
+    <div id="savelog-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog mmmd">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="text-center mt-2 mb-2">
+                      <h2>出车情况报告</h2>
+                    </div>
+                    <s:form action="SaveDL" class="px-3" method="post">
+                        <input name="driveLog.id" value="${request.myBusiness[0].id}" style="display: none">
+                        <input name="driveLog.status" value="已完成" style="display: none">
+                        <div class="mb-3 font-18">
+                            <label for="emailaddress1" class="form-label">车辆损坏情况(无损坏无需填写)</label>
+                            <input class="form-control" type="text" id="emailaddress1"  name="driveLog.broke">
+                        </div>
+                        <div class="mb-3 font-18">
+                            <label for="password1" class="form-label">车辆违规情况(无违规无需填写)</label>
+                            <input class="form-control" type="text"  id="password1"  name="driveLog.illegel">
+                        </div>
+                        <div class="mb-2 text-center">
+                            <button class="btn rounded-pill btn-primary" type="submit" style="width: 200px; height: 40px;">提交</button>
+                        </div>
 
+                    </s:form>
+
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
     <div class="content-page">
         <div class="content">
 
@@ -98,7 +124,7 @@
                                                 </div> <!-- end col-->
                                                 <!-- end row -->
                                                 <div>
-                                                    <input class="btn btn-primary text-center" type="submit" value="出车完毕" style="width: 500px; height: 40px; font-size: 20px;float: none;display: block;margin-left: auto;margin-right: auto;">
+                                                    <input class="btn btn-primary text-center" data-bs-toggle="modal" data-bs-target="#savelog-modal" type="submit" value="出车完毕" style="width: 500px; height: 40px; font-size: 20px;float: none;display: block;margin-left: auto;margin-right: auto;">
                                                 </div>
                                             </div>
                                     </div>
