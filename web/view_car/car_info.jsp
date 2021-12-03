@@ -14,20 +14,6 @@
     <meta charset="utf-8"/>
     <title>MAPPING CARS MANAGE INDEX</title>
     <jsp:include page="../view/header.jsp"></jsp:include>
-    <script src="../assets/libs/toastr/node_modules/jquery/jquery.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            const cars = document.getElementById("allcars");
-            $.ajax({
-                url:"#",
-                type:"POST",
-                dataType:"JSON",
-                success:function (data){
-                }
-            })
-
-        })
-    </script>
 </head>
 
 <!-- body start -->
@@ -95,7 +81,7 @@
                                     </div>
                                     <div class="col-auto">
                                         <div class="text-lg-end my-1 my-lg-0">
-                                            <a href="ecommerce-product-edit.html" class="btn btn-danger waves-effect waves-light"><i class="mdi mdi-plus-circle me-1"></i> Add New</a>
+                                            <a href="javascript: void(0);" class="btn btn-danger waves-effect waves-light"><i class="mdi mdi-plus-circle me-1"></i> Add New</a>
                                         </div>
                                     </div><!-- end col-->
                                 </div> <!-- end row -->
@@ -116,7 +102,7 @@
                                         <div class="product-info">
                                             <div class="row align-items-center">
                                                 <div class="col">
-                                                    <h5 class="font-16 mt-2 sp-line-1"><a href="#" class="text-dark"></a><s:property value="#car.name"/></h5>
+                                                    <h5 class="font-16 mt-2 sp-line-1"><a href="javascript: void(0);" class="text-dark"></a><s:property value="#car.name"/></h5>
                                                     <div class="text-warning mb-2 font-13">
                                                         <s:if test='#car.status=="工作中"'>
                                                             <span class="badge bg-soft-danger text-danger"><s:property value="#car.status"/></span>
@@ -146,7 +132,7 @@
                                                 <div class="col-6">
                                                         <form  action="gotCarInfo.action" method="POST">
                                                             <input name="car.id" value="<s:property value="#car.id"/>" style="display: none">
-                                                            <input class="btn btn-outline-primary rounded-pill mt-2 ms-4" type="submit" role="button" value="详细信息"/>
+                                                            <button class="btn btn-outline-primary rounded-pill mt-2 ms-4" type="submit">INFO</button>
                                                         </form>
                                                 </div>
                                             </div>

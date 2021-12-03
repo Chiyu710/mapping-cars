@@ -43,7 +43,7 @@ public class CarAction {
 
     public String gotCarInfo(){
         System.out.println("gggggggggggg");
-        if (carService.getCarInfo(car.getId())){
+        if (carService.gotCarInfo(car.getId())){
             return "success";
         }
         else return "fail";

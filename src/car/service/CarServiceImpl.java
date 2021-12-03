@@ -86,7 +86,7 @@ public class CarServiceImpl implements CarService{
         }
 
     }
-    public boolean getCarInfo(String carID){
+    public boolean gotCarInfo(String carID){
         ActionContext ctx = ActionContext.getContext();
         request = (Map) ctx.get("request");
         Car c = carDao.getCar(carID);
