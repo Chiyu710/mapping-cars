@@ -42,7 +42,7 @@ public class CarAction {
     }
 
     public String gotCarInfo(){
-        System.out.println("gggggggggggg");
+        System.out.println("getCarDetail");
         if (carService.gotCarInfo(car.getId())){
             return "success";
         }
@@ -56,6 +56,11 @@ public class CarAction {
         }
         else return "fail";
     }
-
+    public String saveOrUpdateCars(){
+        if(carService.saveOrUpdateCar(car)){
+            return "success";
+        }
+        else return "fail";
+    }
 
 }

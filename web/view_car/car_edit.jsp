@@ -48,6 +48,7 @@
 
 
                 <div class="row">
+                    <form action="saveOrUpdateCars.action" method="POST" id="carsave">
                     <div class="col-lg-10 mmmd">
                         <div class="card">
                             <div class="card-body">
@@ -56,6 +57,7 @@
                                     <div class="mb-3 col-4">
                                         <label for="car-id" class="form-label">查勘车号 <span class="text-danger">*</span></label>
                                         <input type="text" id="car-id" class="form-control" name="car.id" value="<s:property value="#request.car.id"/>">
+                                        <input  name="car.pic" value="<s:property value="#request.car.pic"/>" style="display: none">
                                     </div>
 
                                     <div class="mb-3 col-4">
@@ -69,12 +71,27 @@
                                     </div>
 
                                     <div class="mb-3 col-4">
-                                        <label for="rt" class="form-label">入库时间 <span class="text-danger">*</span></label>
-                                        <input type="date" id="rt" class="form-control" name="car.purchase ">
+                                        <label for="e" class="form-label">当前状态 <span class="text-danger">*</span></label>
+                                        <select class="form-select my-1 my-lg-0" id="e" name="car.status" value="<s:property value="#request.car.status"/>">
+                                            <option value="空闲" class="text-success" >空闲</option>
+                                            <option value="工作中" class="text-danger">工作中</option>
+                                            <option value="停用" class="text-secondary" >停用</option>
+                                        </select>
                                     </div>
 
                                     <div class="mb-3 col-4">
-                                        <label for="cl" class="form-label">车龄 <span class="text-danger">*</span></label>
+                                        <label for="nm" class="form-label">别名</label>
+                                        <input type="text" id="nm" class="form-control" name="car.name" value="<s:property value="#request.car.name"/>">
+                                    </div>
+                                    <div class="mb-3 col-4">
+                                    </div>
+                                    <div class="mb-3 col-4">
+                                        <label for="rt" class="form-label">入库时间 <span class="text-danger">*</span></label>
+                                        <input type="text" id="rt" class="form-control" name="car.purchase" value="<s:property value="#request.car.Purchase"/>">
+                                    </div>
+
+                                    <div class="mb-3 col-4">
+                                        <label for="cl" class="form-label">车龄<span class="text-danger">*</span></label>
                                         <input type="text" id="cl" class="form-control" name="car.age" value="<s:property value="#request.car.age"/>">
                                     </div>
 
@@ -89,14 +106,14 @@
                                         <input type="text" id="xh" class="form-control"name="car.model" value="<s:property value="#request.car.model"/>">
                                     </div>
                                     <div class="mb-3 col-4">
-                                        <label for="xhd" class="form-label">车辆品牌 <span
-                                                class="text-danger">*</span></label>
+                                        <label for="xhd" class="form-label">车辆品牌</label>
                                         <input type="text" id="xhd" class="form-control"name="car.brand" value="<s:property value="#request.car.brand"/>">
                                     </div>
                                 </div>
                             </div> <!-- end card -->
                         </div> <!-- end col -->
                     </div>
+                    </form>
                     <div class="col-lg-10 mmmd">
                         <div class="card">
                             <div class="card-body">
@@ -117,14 +134,13 @@
                                                 <tbody>
                                                 <s:iterator value="#request.fixlog" var="f">
                                                     <tr>
-                                                        <th><s:property value="f.fixapplicationid"/></th>
-                                                        <td><s:property value="f.username"/></td>
-                                                        <td><s:property value="f.time"/></td>
-                                                        <th><s:property value="f.remarks"/></th>
-                                                        <td><s:property value="f.cost"/></td>
+                                                        <th><s:property value="#f.fixapplicationid"/></th>
+                                                        <td><s:property value="#f.username"/></td>
+                                                        <td><s:property value="#f.time"/></td>
+                                                        <th><s:property value="#f.remarks"/></th>
+                                                        <td><s:property value="#f.cost"/></td>
                                                     </tr>
                                                 </s:iterator>
-
                                                 </tbody>
                                             </table>
                                         </div> <!-- end .table-responsive -->
@@ -154,17 +170,15 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
+                                                <s:iterator value="#request.Mlog" var="m">
                                                 <tr>
-                                                    <s:iterator value="#request.Mlog" var="m">
-                                                <tr>
-                                                    <th><s:property value="m.fixapplicationid"/></th>
-                                                    <td><s:property value="m.username"/></td>
-                                                    <td><s:property value="m.time"/></td>
-                                                    <th><s:property value="m.remarks"/></th>
-                                                    <td><s:property value="m.cost"/></td>
+                                                    <th><s:property value="#m.fixapplicationid"/></th>
+                                                    <td><s:property value="#m.username"/></td>
+                                                    <td><s:property value="#m.time"/></td>
+                                                    <th><s:property value="#m.remarks"/></th>
+                                                    <td><s:property value="#m.cost"/></td>
                                                 </tr>
                                                 </s:iterator>
-                                                </tr>
                                                 </tbody>
                                             </table>
                                         </div> <!-- end .table-responsive -->
@@ -179,11 +193,8 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="text-center mb-3">
-                                <button type="button" class="btn w-sm btn-light waves-effect">Cancel</button>
-                                <button type="button" class="btn w-sm btn-success waves-effect waves-light">Save
-                                </button>
-                                <button type="button" class="btn w-sm btn-danger waves-effect waves-light">Delete
-                                </button>
+                                <button onclick="document:carsave.submit()" class="btn w-sm btn-success waves-effect waves-light" >Save</button>
+                                <button type="button" class="btn w-sm btn-danger waves-effect waves-light">Delete</button>
                             </div>
                         </div> <!-- end col -->
                     </div>

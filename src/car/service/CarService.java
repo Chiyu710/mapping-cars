@@ -17,4 +17,6 @@ public interface CarService {
     boolean saveCarAfterDrive(Car car);
 
     boolean  gotCarInfo(String carId);
+
+    boolean saveOrUpdateCar(Car car);
 }

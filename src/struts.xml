@@ -62,6 +62,10 @@
             <result name="success">/view_car/car_edit.jsp</result>
             <result name="fail">/view_feedback/error.jsp</result>
         </action>
+        <action name="saveOrUpdateCars" class="carAction" method="saveOrUpdateCars">
+            <result name="success">/view_auth/administrator_index.jsp</result>
+            <result name="fail">/view_feedback/error.jsp</result>
+        </action>
     </package>
 
     <package name="Log" namespace="/" extends="struts-default">

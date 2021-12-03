@@ -86,6 +86,15 @@ public class CarServiceImpl implements CarService{
         }
 
     }
+    public boolean saveOrUpdateCar(Car car){
+        try {
+            System.out.println("car status changed");
+            carDao.saveCar(car);
+            return true;
+        }catch (Exception e) {
+            return false;
+        }
+    }
     public boolean gotCarInfo(String carID){
         ActionContext ctx = ActionContext.getContext();
         request = (Map) ctx.get("request");

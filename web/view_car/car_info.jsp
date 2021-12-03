@@ -81,7 +81,7 @@
                                     </div>
                                     <div class="col-auto">
                                         <div class="text-lg-end my-1 my-lg-0">
-                                            <a href="javascript: void(0);" class="btn btn-danger waves-effect waves-light"><i class="mdi mdi-plus-circle me-1"></i> Add New</a>
+                                            <a href="../view_car/car_edit.jsp" class="btn btn-danger waves-effect waves-light"><i class="mdi mdi-plus-circle me-1"></i> Add New</a>
                                         </div>
                                     </div><!-- end col-->
                                 </div> <!-- end row -->
