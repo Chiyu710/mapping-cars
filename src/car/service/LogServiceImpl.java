@@ -88,5 +88,32 @@ public class LogServiceImpl implements LogService{
         }
 
     }
+    public boolean getFixLog(String carID) {
+        ActionContext ctx = ActionContext.getContext();
+        request = (Map) ctx.get("request");
+        String hql = "from FixLog as fixLog where carid='"+carID+"'";
+        List<FixLog> list = logDao.findByHqlFixLog(hql);
+        if (list.isEmpty()){
+            return false;
+        }
+        else {
+            request.put("fixlog", list);
+            return true;
+        }
+    }
+    public boolean getMLog(String carID) {
+        ActionContext ctx = ActionContext.getContext();
+        request = (Map) ctx.get("request");
+        String hql = "from DriveLog as drivelog where carid='"+carID+"'";
+        List<MaintenanceLog> list = logDao.findByHqlML(hql);
+        if (list.isEmpty()){
+            return false;
+        }
+        else {
+            request.put("Mlog", list);
+            return true;
+        }
+    }
+
 
 }

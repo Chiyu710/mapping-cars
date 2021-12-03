@@ -53,8 +53,8 @@ public class CarDaoImpl extends BaseHibernateDao implements  CarDao{
             tran.commit();
             return c;
         } catch (RuntimeException re) {
-
             if(tran != null) tran.rollback();
+            System.out.println("tran null");
             throw re;
         } finally {
             session.close();

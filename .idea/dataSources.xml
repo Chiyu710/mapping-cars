@@ -30,5 +30,12 @@ D:/project/Mapping cars/src/applicationContext.xml</remarks>
       <jdbc-url>jdbc:mysql://localhost:3307/mappingcar</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="car [2]" uuid="41865c66-63d5-4f6d-a190-0ed37ee209ef">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://121.40.76.90:3306</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

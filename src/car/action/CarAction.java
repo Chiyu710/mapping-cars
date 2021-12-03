@@ -3,7 +3,7 @@ package car.action;
 import car.po.Car;
 import car.service.CarService;
 import com.opensymphony.xwork2.ActionContext;
-
+import com.opensymphony.xwork2.ActionSupport;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,9 +16,13 @@ public class CarAction {
     public Car getCar() {return car;}
     public void setCar(Car car) {this.car = car;}
 
-    private CarService carService = null;
-    public void setCarService(CarService carService) {this.carService = carService;}
-    public CarService getCarService() {return carService;}
+    private CarService carService;
+    public CarService getCarService() {
+        return carService;
+    }
+    public void setCarService(CarService carService) {
+        this.carService = carService;
+    }
 
     int carId;
     public int getCarId() {return carId;}
@@ -26,31 +30,31 @@ public class CarAction {
 
 
 
-
-    public String getAllCars_ajax(){
-        System.out.println("getCars");
-        allCarsInfo = carService.getAllCarsAjax();
-        System.out.println(allCarsInfo.get(0).getLicensePlate());
+    public String takeCarInfoAjax(){
+        car=carService.getCarInfoAjax(carId);
         return "ajax";
     }
 
-    public String getAllCars(){
-        if(carService.getAllCars()){
-            System.out.println("get all cars info");
+    public String takeFreeCarsAjax(){
+        allCarsInfo = carService.getFreeCarsAjax();
+        return "ajax";
+
+    }
+
+    public String gotCarInfo(){
+        System.out.println("gggggggggggg");
+        if (carService.getCarInfo(car.getId())){
             return "success";
         }
         else return "fail";
     }
 
-    public String getCarInfoAjax(){
-        car=carService.getCarInfoAjax(carId);
-        return "ajax";
-    }
-
-    public String getFreeCarsAjax(){
-        allCarsInfo = carService.getFreeCarsAjax();
-        return "ajax";
-
+    public String takeAllCars(){
+        System.out.println("get all cars info");
+        if(carService.takeAllCars()){
+            return "success";
+        }
+        else return "fail";
     }
 
 

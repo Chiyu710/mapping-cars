@@ -54,49 +54,44 @@
                                 <h5 class="text-uppercase bg-light p-2 mt-0 mb-3">General</h5>
                                 <div class="row">
                                     <div class="mb-3 col-4">
-                                        <label for="car-id" class="form-label">查勘车号 <span
-                                                class="text-danger">*</span></label>
-                                        <input type="text" id="car-id" class="form-control">
+                                        <label for="car-id" class="form-label">查勘车号 <span class="text-danger">*</span></label>
+                                        <input type="text" id="car-id" class="form-control" name="car.id" value="<s:property value="#request.car.id"/>">
                                     </div>
 
                                     <div class="mb-3 col-4">
-                                        <label for="cph" class="form-label">车牌号 <span
-                                                class="text-danger">*</span></label>
-                                        <input type="text" id="cph" class="form-control">
+                                        <label for="cph" class="form-label">车牌号 <span class="text-danger">*</span></label>
+                                        <input type="text" id="cph" class="form-control" name="car.licensePlate" value="<s:property value="#request.car.licensePlate"/>">
                                     </div>
 
                                     <div class="mb-3 col-4">
-                                        <label for="de" class="form-label">所属部门 <span
-                                                class="text-danger">*</span></label>
-                                        <input type="text" id="de" class="form-control">
+                                        <label for="de" class="form-label">所属部门 <span class="text-danger">*</span></label>
+                                        <input type="text" id="de" class="form-control" name="car.department" value="<s:property value="#request.car.department"/>">
                                     </div>
 
                                     <div class="mb-3 col-4">
-                                        <label for="rt" class="form-label">入库时间 <span
-                                                class="text-danger">*</span></label>
-                                        <input type="date" id="rt" class="form-control">
+                                        <label for="rt" class="form-label">入库时间 <span class="text-danger">*</span></label>
+                                        <input type="date" id="rt" class="form-control" name="car.purchase ">
                                     </div>
 
                                     <div class="mb-3 col-4">
                                         <label for="cl" class="form-label">车龄 <span class="text-danger">*</span></label>
-                                        <input type="text" id="cl" class="form-control">
+                                        <input type="text" id="cl" class="form-control" name="car.age" value="<s:property value="#request.car.age"/>">
                                     </div>
 
                                     <div class="mb-3 col-4">
                                         <label for="bs" class="form-label">变速箱类型 <span
                                                 class="text-danger">*</span></label>
-                                        <input type="text" id="bs" class="form-control">
+                                        <input type="text" id="bs" class="form-control"name="car.transmissionCase" value="<s:property value="#request.car.transmissionCase"/>">
                                     </div>
 
                                     <div class="mb-3 col-8">
-                                        <label for="xh" class="form-label">车辆型号 <span
-                                                class="text-danger">*</span></label>
-                                        <input type="text" id="xh" class="form-control">
+                                        <label for="xh" class="form-label">车辆型号 <span class="text-danger">*</span></label>
+                                        <input type="text" id="xh" class="form-control"name="car.model" value="<s:property value="#request.car.model"/>">
                                     </div>
                                     <div class="mb-3 col-4">
                                         <label for="xhd" class="form-label">车辆品牌 <span
                                                 class="text-danger">*</span></label>
-                                        <input type="text" id="xhd" class="form-control">
+                                        <input type="text" id="xhd" class="form-control"name="car.brand" value="<s:property value="#request.car.brand"/>">
                                     </div>
                                 </div>
                             </div> <!-- end card -->
@@ -115,18 +110,21 @@
                                                     <th>维修单号</th>
                                                     <th data-priority="1">责任人</th>
                                                     <th data-priority="3">送修时间</th>
-                                                    <th data-priority="3">送修地址</th>
+                                                    <th data-priority="3">内容</th>
                                                     <th data-priority="3">维修金额</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr>
-                                                    <th>123</th>
-                                                    <td>lee</td>
-                                                    <td>2021-11-11 12:12PM</td>
-                                                    <th>daxiu</th>
-                                                    <td>1123</td>
-                                                </tr>
+                                                <s:iterator value="#request.fixlog" var="f">
+                                                    <tr>
+                                                        <th><s:property value="f.fixapplicationid"/></th>
+                                                        <td><s:property value="f.username"/></td>
+                                                        <td><s:property value="f.time"/></td>
+                                                        <th><s:property value="f.remarks"/></th>
+                                                        <td><s:property value="f.cost"/></td>
+                                                    </tr>
+                                                </s:iterator>
+
                                                 </tbody>
                                             </table>
                                         </div> <!-- end .table-responsive -->
@@ -151,17 +149,21 @@
                                                     <th>保养单号</th>
                                                     <th data-priority="1">责任人</th>
                                                     <th data-priority="3">保养时间</th>
-                                                    <th data-priority="3">保养前里程</th>
+                                                    <th data-priority="3">保养内容</th>
                                                     <th data-priority="3">保养金额</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
                                                 <tr>
-                                                    <th>123</th>
-                                                    <td>lee</td>
-                                                    <td>2021-11-11 12:12PM</td>
-                                                    <th>daxiu</th>
-                                                    <td>1123</td>
+                                                    <s:iterator value="#request.Mlog" var="m">
+                                                <tr>
+                                                    <th><s:property value="m.fixapplicationid"/></th>
+                                                    <td><s:property value="m.username"/></td>
+                                                    <td><s:property value="m.time"/></td>
+                                                    <th><s:property value="m.remarks"/></th>
+                                                    <td><s:property value="m.cost"/></td>
+                                                </tr>
+                                                </s:iterator>
                                                 </tr>
                                                 </tbody>
                                             </table>

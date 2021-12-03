@@ -144,9 +144,10 @@
                                                     <h5> <span class="text-muted"> 违规记录：<s:property value="#car.maintenanceTimes"/></span></h5>
                                                 </div>
                                                 <div class="col-6">
-                                                    <form>
-                                                        <input class="btn btn-outline-primary rounded-pill mt-2 ms-4"  type="submit" value="详细信息"> </input>
-                                                    </form>
+                                                        <form  action="gotCarInfo.action" method="POST">
+                                                            <input name="car.id" value="<s:property value="#car.id"/>" style="display: none">
+                                                            <input class="btn btn-outline-primary rounded-pill mt-2 ms-4" type="submit" role="button" value="详细信息"/>
+                                                        </form>
                                                 </div>
                                             </div>
 

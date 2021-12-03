@@ -2,7 +2,7 @@ package car.po.record;
 
 import java.util.Date;
 
-public class FixLog {
+public class MaintenanceLog {
     String id;
     String fixapplicationid;
     String username;
@@ -18,7 +18,6 @@ public class FixLog {
     public void setCarid(String carid) {
         this.carid = carid;
     }
-
     public String getId() {
         return id;
     }

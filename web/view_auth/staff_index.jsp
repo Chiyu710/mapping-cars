@@ -14,7 +14,7 @@
                 let size = 0;
                 var carID = ${session.user.id};
                 $.ajax({
-                    url:"getBrief",
+                    url:"takeBrief",
                     type:"POST",
                     dataType:"JSON",
                     data : {

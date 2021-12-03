@@ -29,7 +29,7 @@ public class LogAction {
     public String getUserID() {return userID;}
     public void setUserID(String userID) {this.userID = userID;}
 
-    public String getBrief(){
+    public String takeBrief(){
         briefNotifications= logService.getNF(userID);
         System.out.println("通知获取");
         return "ajax";

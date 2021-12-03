@@ -10,6 +10,8 @@ public interface LogService {
       List<Notification> getNF(String recipientID);
       boolean sendNot(Notification notification);
       boolean getNOT();
+      boolean getFixLog(String carID);
+      boolean getMLog(String carID);
       boolean saveStatusChange(StatusLog statusLog);
       boolean getBusiness(String userID);
       boolean saveDriveLog(DriveLog driveLog);

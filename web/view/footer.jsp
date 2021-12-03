@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-md-6">
                 <script>document.write(new Date().getFullYear())</script> &copy; Mapping car management system
-                by <a href="">第4小组</a>
+                by <a>第4小组</a>
             </div>
             <div class="col-md-6">
                 <div class="text-md-end footer-links d-none d-sm-block">

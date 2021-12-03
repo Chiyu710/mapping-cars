@@ -54,11 +54,14 @@
     </package>
 
     <package name="Car" namespace="/" extends="struts-default">
-        <action name="getAllCars" class="carAction" method="getAllCars">
+        <action name="takeAllCars" class="carAction" method="takeAllCars">
             <result name="success">/view_car/car_info.jsp</result>
             <result name="fail">/view_feedback/error.jsp</result>
         </action>
-
+        <action name="gotCarInfo" class="carAction" method="gotCarInfo">
+            <result name="success">/view_car/car_edit.jsp</result>
+            <result name="fail">/view_feedback/error.jsp</result>
+        </action>
     </package>
 
     <package name="Log" namespace="/" extends="struts-default">
@@ -86,25 +89,25 @@
     </package>
 
     <package name="Ajax" namespace="/" extends="json-default">
-        <action name="getAllCarsAjax" class="carAction" method="getAllCars_ajax">
+        <action name="takeAllCarsAjax" class="carAction" method="takeAllCars_ajax">
             <result name="ajax" type="json">
                 <param name="root">allCarsInfo</param>
                 <!-- 设置对象中哪些属性需要的，支持正则表达式, 语法必须转义  [  ]  .   \d表示匹配下标 -->
             </result>
         </action>
-        <action name="getCarInfoAjax" class="carAction" method="getCarInfoAjax">
+        <action name="takeCarInfoAjax" class="carAction" method="takeCarInfoAjax">
             <result name="ajax" type="json">
                 <param name="root">car</param>
                 <!-- 设置对象中哪些属性需要的，支持正则表达式, 语法必须转义  [  ]  .   \d表示匹配下标 -->
             </result>
         </action>
-        <action name="getFreeCarsAjax" class="carAction" method="getFreeCarsAjax">
+        <action name="takeFreeCarsAjax" class="carAction" method="takeFreeCarsAjax">
             <result name="ajax" type="json">
                 <param name="root">allCarsInfo</param>
                 <!-- 设置对象中哪些属性需要的，支持正则表达式, 语法必须转义  [  ]  .   \d表示匹配下标 -->
             </result>
         </action>
-        <action name="getBrief" class="logAction" method="getBrief">
+        <action name="takeBrief" class="logAction" method="takeBrief">
             <result name="ajax" type="json">
                 <param name="root">briefNotifications</param>
                 <!-- 设置对象中哪些属性需要的，支持正则表达式, 语法必须转义  [  ]  .   \d表示匹配下标 -->

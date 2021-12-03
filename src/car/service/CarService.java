@@ -8,11 +8,13 @@ import java.util.List;
 public interface CarService {
     List<Car> getAllCarsAjax();
 
-    boolean getAllCars();
+    boolean takeAllCars();
 
     Car getCarInfoAjax(int carId);
 
     List<Car> getFreeCarsAjax();
 
-    boolean saveCar(Car car);
+    boolean saveCarAfterDrive(Car car);
+
+    boolean  getCarInfo(String carId);
 }

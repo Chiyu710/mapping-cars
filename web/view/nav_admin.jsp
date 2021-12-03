@@ -12,10 +12,8 @@
     <div class="container-fluid">
         <ul class="list-unstyled topnav-menu float-end mb-0">
             <li class="d-none d-lg-block">
-
                 <div class="app-search-box dropdown">
                 </div>
-                </form>
             </li>
 
             <!--icon-->
@@ -98,8 +96,6 @@
                 <!-- End mobile menu toggle-->
             </li>
 
-
-
         </ul>
         <div class="clearfix"></div>
     </div>
@@ -121,11 +117,11 @@
                         </s:form>
                     </li>
                     <li class="nav-item dropdown">
-                        <s:form action="getAllCars" method="POST" id="carInfo">
+                        <form action="takeAllCars.action" method="POST" id="carInfo">
                             <a class="nav-link"    onclick="document:carInfo.submit()" role="button">
                                 <i class="ti-car me-1"></i>部门车辆
                             </a>
-                        </s:form>
+                        </form>
                     </li>
 
 

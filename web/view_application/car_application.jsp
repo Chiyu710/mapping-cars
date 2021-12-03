@@ -27,7 +27,7 @@
     $(document).ready(function() {
             const cars = document.getElementById("carSelect");
             $.ajax({
-                url:"getFreeCarsAjax",
+                url:"takeFreeCarsAjax",
                 type:"POST",
                 dataType:"JSON",
                 success:function (data){
@@ -43,7 +43,7 @@
             $("#carSelect").change(function(){
                 var carId = $(this).find("option:selected").attr("value"); //获取当前下拉框name属性的值
                 $.ajax({
-                    url:"getCarInfoAjax",
+                    url:"takeCarInfoAjax",
                     type : "POST",
                     dataType:"JSON",
                     data : {
