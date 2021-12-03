@@ -65,6 +65,13 @@
                                     </div>
                                 </div>
                             </div>
+                           <div class="btn-group mb-2" role="group" aria-label="Basic radio toggle button group">
+                               <input type="radio" class="btn-check" name="p" value="0" id="btnradio1" autocomplete="off" checked>
+                               <label class="btn btn-outline-primary" for="btnradio1" >员工</label>
+                               <input type="radio" class="btn-check" name="p" value="1" id="btnradio2" autocomplete="off">
+                               <label class="btn btn-outline-primary" for="btnradio2">管理员</label>
+                           </div>
+
                             <div class="text-center d-grid">
                                 <button class="btn btn-primary" type="submit">登  陆 </button>
                             </div>

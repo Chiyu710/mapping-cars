@@ -23,8 +23,9 @@ public class LogSave {
     @Autowired
     private CarService carService;
 
-
+    @Autowired
     private Car car ;
+
     private DriveLog driveLog;
 
 

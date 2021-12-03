@@ -71,6 +71,7 @@
                             <h4 class="page-title">我的行程</h4>
                         </div>
                     </div>
+                    <s:if test='#request.myBusiness[0]!=null'>
                     <div class="row">
                         <div class="col-12">
                             <!-- Portlet card -->
@@ -134,6 +135,10 @@
                             </div>
                         </div> <!-- end card-->
                     </div> <!-- end col-->
+                    </s:if>
+                    <s:else>
+                        <h4 class="text-center mb-5 text-primary">当前好像没有出车哦!</h4>
+                    </s:else>
                 </div>
 
             </div>

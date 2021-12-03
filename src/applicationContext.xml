@@ -15,6 +15,7 @@
 
     <!-- 开启注解扫描 -->
     <context:component-scan base-package="car.aspect"/>
+    <bean class="car.po.Car" id="car" scope="prototype"/>
     <!-- 开启aop注解方式,默认为false -->
     <aop:aspectj-autoproxy/>
 
@@ -42,6 +43,7 @@
         <property name="mappingResources">
             <list>
                 <value>car/po/User.hbm.xml</value>
+                <value>car/po/Admin.hbm.xml</value>
                 <value>car/po/Car.hbm.xml</value>
                 <value>car/po/application/FixApplication.hbm.xml</value>
                 <value>car/po/application/LendApplication.hbm.xml</value>

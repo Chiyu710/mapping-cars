@@ -1,6 +1,7 @@
 package car.service;
 
 import car.dao.UserDao;
+import car.po.Admin;
 import car.po.User;
 import car.po.record.StatusLog;
 import com.opensymphony.xwork2.ActionContext;
@@ -42,16 +43,15 @@ public class UserServiceImpl implements UserService {
         session = (Map) ctx.getSession();
         String id = loginUser.getId();
         String password = loginUser.getPassword();
-        String hql = "from User as user where id='" + id
+        String hql = "from Admin as admin where id='" + id
                 + "' and password='" + password + "'";
-        List list = userDao.getByHql(hql);
+        List list = userDao.getByHqlA(hql);
+
         if (list.isEmpty())
             return false;
         else {
-            session.put("user", id);
-            request.put("tip", "登录成功！");
-            loginUser = (User) list.get(0);
-            session.put("user", loginUser);
+            Admin admin = (Admin) list.get(0);
+            session.put("loginUser", admin);
             return true;
         }
     }

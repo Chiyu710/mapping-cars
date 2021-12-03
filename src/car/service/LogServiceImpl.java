@@ -65,13 +65,9 @@ public class LogServiceImpl implements LogService{
         request = (Map) ctx.get("request");
         String hql = "from DriveLog as drivelog where userid='"+userID+"' and status='前往目的地'";
         List<DriveLog> list = logDao.findByHqlDL(hql);
-        if (list.isEmpty()){
-            return false;
-        }
-        else {
-            request.put("myBusiness", list);
-            return true;
-        }
+        request.put("myBusiness", list);
+        return true;
+
     }
     public boolean saveDriveLog(DriveLog driveLog){
         DriveLog ODL=logDao.getDL(driveLog);
@@ -115,8 +111,6 @@ public class LogServiceImpl implements LogService{
             return true;
         }
     }
-
-
     public boolean getDRIVELOG(){
         ActionContext ctx = ActionContext.getContext();
         request = (Map) ctx.get("request");
@@ -143,7 +137,6 @@ public class LogServiceImpl implements LogService{
             return true;
         }
     }
-
     public boolean getVIO(){
         ActionContext ctx = ActionContext.getContext();
         request = (Map) ctx.get("request");
@@ -170,7 +163,6 @@ public class LogServiceImpl implements LogService{
             return true;
         }
     }
-
     public boolean saveVio(Violation violation){
         try {
             logDao.saveVio(violation);

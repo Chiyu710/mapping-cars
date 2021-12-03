@@ -75,7 +75,6 @@ public class LogAction {
         }
     }
 
-
     public String getBusiness(){
         if (logService.getBusiness(userID)){
             return "success";
@@ -120,6 +119,7 @@ public class LogAction {
             return "fail";
         }
     }
+
     public String getStaffVIO(){
         if (logService.getStaffVIO(userID)){
             return "success";
@@ -128,6 +128,7 @@ public class LogAction {
             return "fail";
         }
     }
+
     public String saveVIO(){
         System.out.println(violation);
         if (logService.saveVio(violation)){

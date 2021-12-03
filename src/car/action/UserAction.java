@@ -24,18 +24,22 @@ public class UserAction {
         this.userService = userService;
     }
 
-    public String login() {
+    private int p;
+    public int getP() {return p;}
+    public void setP(int p) {this.p = p;}
 
-        if (userService.login(user)) {
-            return "success";
-        }
-        else if(userService.adminlogin(user))
-        {
-            return "adminsuccess";
+    public String login() {
+        if(p==0){
+            if (userService.login(user)) {
+                return "success";
+            }
         }
         else {
-            return "fail";
+            if(userService.adminlogin(user)){
+                return "adminsuccess";
+            }
         }
+        return "fail";
     }
     public String changeStatus(){
         statusLog.setStaffId(user.getId());
