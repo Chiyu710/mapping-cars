@@ -2,6 +2,7 @@ package car.service;
 
 import car.dao.LogDao;
 import car.dao.LogDaoImpl;
+import car.po.User;
 import car.po.record.*;
 import com.opensymphony.xwork2.ActionContext;
 
@@ -129,11 +130,37 @@ public class LogServiceImpl implements LogService{
             return true;
         }
     }
+    public boolean getStaffDRIVELOG(String userid){
+        ActionContext ctx = ActionContext.getContext();
+        request = (Map) ctx.get("request");
+        String hql = "from DriveLog as drivelog where userid='"+userid+"'";
+        List<DriveLog> list = logDao.findByHqlDL(hql);
+        if (list.isEmpty()){
+            return false;
+        }
+        else {
+            request.put("myDriveLog", list);
+            return true;
+        }
+    }
 
     public boolean getVIO(){
         ActionContext ctx = ActionContext.getContext();
         request = (Map) ctx.get("request");
         String hql = "from Violation as violation";
+        List<Violation> list = logDao.findByHqlVio(hql);
+        if (list.isEmpty()){
+            return false;
+        }
+        else {
+            request.put("myViolation", list);
+            return true;
+        }
+    }
+    public boolean getStaffVIO(String userid){
+        ActionContext ctx = ActionContext.getContext();
+        request = (Map) ctx.get("request");
+        String hql = "from Violation as violation where userid='"+userid+"'";
         List<Violation> list = logDao.findByHqlVio(hql);
         if (list.isEmpty()){
             return false;

@@ -76,7 +76,6 @@ public class LogAction {
     }
 
 
-
     public String getBusiness(){
         if (logService.getBusiness(userID)){
             return "success";
@@ -95,9 +94,17 @@ public class LogAction {
         }
     }
 
+    public String getStaffDriveLog(){
+        if (logService.getStaffDRIVELOG(userID)){
+            return "success";
+        }
+        else {
+            return "fail";
+        }
+    }
+
     public String getDRIVELOG(){
         if (logService.getDRIVELOG()){
-            System.out.println("123");
             return "success";
         }
         else {
@@ -113,7 +120,14 @@ public class LogAction {
             return "fail";
         }
     }
-
+    public String getStaffVIO(){
+        if (logService.getStaffVIO(userID)){
+            return "success";
+        }
+        else {
+            return "fail";
+        }
+    }
     public String saveVIO(){
         System.out.println(violation);
         if (logService.saveVio(violation)){

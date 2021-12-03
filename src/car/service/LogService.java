@@ -16,7 +16,9 @@ public interface LogService {
       boolean saveStatusChange(StatusLog statusLog);
       boolean getBusiness(String userID);
       boolean getDRIVELOG();
+      boolean getStaffDRIVELOG(String userid);
       boolean getVIO();
+      boolean getStaffVIO(String userid);
       boolean saveDriveLog(DriveLog driveLog);
       boolean saveVio(Violation violation);
 }

@@ -93,6 +93,15 @@
             <result name="success">/view_log/Logbook_admin.jsp</result>
             <result name="fail">/view_feedback/error.jsp</result>
         </action>
+        <action name="getStaffDriveLog" class="logAction" method="getStaffDriveLog">
+            <result name="success">/view_log/Logbook.jsp</result>
+            <result name="fail">/view_feedback/error.jsp</result>
+        </action>
+
+        <action name="getStaffVIO" class="logAction" method="getStaffVIO">
+            <result name="success">/view_log/Violation_record.jsp</result>
+            <result name="fail">/view_feedback/error.jsp</result>
+        </action>
         <action name="getVio" class="logAction" method="getVIO">
             <result name="success">/view_log/Violation_record_admin.jsp</result>
             <result name="fail">/view_feedback/error.jsp</result>

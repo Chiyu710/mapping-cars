@@ -166,9 +166,14 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="topnav-components">
 
-                            <a href="../view_log/Logbook.jsp" class="dropdown-item"><i class="fe-map me-1"></i> 行车日志</a>
-                            <a href="../view_log/Violation_record.jsp" class="dropdown-item"><i class="fe-bookmark me-1"></i> 违规记录</a>
-
+                            <s:form action="getStaffDriveLog" method="POST" id="DLog">
+                                <input name="userID" value="${session.user.id}" style="display: none">
+                                <a onclick="document:DLog.submit()" class="dropdown-item"><i class="fe-map me-1"></i>行车日志</a>
+                            </s:form>
+                            <s:form action="getStaffVIO" method="POST" id="VLog">
+                                <input name="userID" value="${session.user.id}" style="display: none">
+                                <a onclick="document:VLog.submit()" class="dropdown-item"><i class="fe-bookmark me-1"></i> 违规记录</a>
+                            </s:form>
                         </div>
                     </li>
 

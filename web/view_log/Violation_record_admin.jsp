@@ -40,6 +40,7 @@
                 <!-- end page title -->
 
                 <div class="row">
+                    <s:iterator var="VIO" value="#request.myViolation">
                     <div class="card d-block">
                         <div class="card-body">
                             <div class="dropdown float-end">
@@ -62,7 +63,7 @@
                             <!-- end dropdown-->
                             <!-- end form-check-->
                             <div class="clearfix"></div>
-                            <s:iterator var="VIO" value="#request.myViolation">
+
                             <h4><button type="button" class="btn btn-outline-danger me-2">
                                 <s:property value="#VIO.type"/>
                                 </button>
@@ -169,7 +170,7 @@
 
                             </div>
                             <!-- end row -->
-                            </s:iterator>
+
                             <div>
                                 <h5 class="mt-3">违规明细:</h5>
 
@@ -181,6 +182,7 @@
                         </div>
                         <!-- end card-body-->
                     </div>
+                    </s:iterator>
                 </div>
 
             </div> <!-- container -->
