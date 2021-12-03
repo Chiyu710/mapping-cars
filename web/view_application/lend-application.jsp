@@ -7,7 +7,29 @@
     <meta charset="utf-8"/>
     <title>MAPPING CARS MANAGE INDEX</title>
     <jsp:include page="../view/header.jsp"></jsp:include>
-
+    <script src="../assets/libs/toastr/node_modules/jquery/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            const cars = document.getElementById("carID");
+            $("#carID").change(function(){
+                var carId = $(carID).val(); //获取当前下拉框name属性的值
+                $.ajax({
+                    url:"takeCarInfoAjax",
+                    type : "POST",
+                    dataType:"JSON",
+                    data : {
+                        carId:carId
+                    },
+                    success : function(data) {
+                        $("#mile").val(data.mileage);
+                        $("#LP").val(data.licensePlate);
+                    },
+                    error :function() {
+                        alert("未找到车辆");
+                    },
+                });
+            });});
+    </script>
     <style>
         #appCard {
             float: none;
@@ -61,28 +83,20 @@
                                         <div class="col-lg-12">
                                                 <s:form action="sendLend" method="POST">
                                                     <div class="row">
-                                                    <div class="mb-3 col-md-4">
-                                                        <label for="user" class="form-label">出借人</label>
-                                                        <input type="text" id="user"   class="form-control" name="lendApplication.userName" disabled value="${session.user.name}" />
-                                                        <input type="text" id=userid   class="form-control" name="lendApplication.userID" style="display: none" value="${session.user.id}" >
+                                                        <div class="mb-3 col-md-4">
+                                                            <label for="user" class="form-label">出借人</label>
+                                                            <input type="text" id="user" class="form-control" name="lendApplication.userName" readonly value="${session.user.name}"/>
+                                                            <input type="text" id=userid class="form-control" name="lendApplication.userID" style="display: none" value="${session.user.id}">
+                                                        </div>
+                                                        <div class="mb-3 col-md-4">
+                                                            <label for="carID" class="form-label">车辆号</label>
+                                                            <input type="text" id="carID" class="form-control" name="lendApplication.carID">
+                                                        </div>
+                                                        <div class="mb-3 col-md-4">
+                                                            <label for="LP" class="form-label">车牌号</label>
+                                                            <input type="text" id="LP" class="form-control" name="lendApplication.LicensePlate" readonly>
+                                                        </div>
                                                     </div>
-                                                    <div class="mb-3 col-md-4">
-                                                        <label for="time" class="form-label">申请时间</label>
-                                                        <input type="date" id="time" class="form-control" name="lendApplication.applicationDate">
-                                                    </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="mb-3 col-md-4">
-                                                        <label for="Carid" class="form-label">车辆号</label>
-                                                        <input type="text" id="Carid" class="form-control" name="lendApplication.carID">
-                                                    </div>
-                                                    <div class="mb-3 col-md-4">
-                                                        <label for="Carid1" class="form-label">车牌号</label>
-                                                        <input type="text" id="Carid1" class="form-control" name="lendApplication.LicensePlate">
-                                                    </div>
-                                                </div>
-
                                                 <div class="row">
                                                     <div class="mb-3 col-md-4">
                                                         <label for="user2" class="form-label">借用人</label>

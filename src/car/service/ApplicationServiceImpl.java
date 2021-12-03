@@ -5,6 +5,7 @@ import car.dao.ApplicationDao;
 import car.po.application.*;
 import com.opensymphony.xwork2.ActionContext;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -18,6 +19,10 @@ public class ApplicationServiceImpl implements ApplicationService{
     @Override
     public boolean sendFix(FixApplication fixApplication){
         try {
+            Date date = new Date ();
+            fixApplication.setApplicationDate(date);
+            //System.out.println(fixApplication.toString());
+            fixApplication.setStatus("审核中");
             applicationDao.saveFix(fixApplication);
             return true;
         }catch (Exception e) {
@@ -27,6 +32,10 @@ public class ApplicationServiceImpl implements ApplicationService{
     }
     public boolean sendLend(LendApplication lendApplication){
         try {
+            Date date = new Date ();
+            lendApplication.setApplicationDate(date);
+            //System.out.println(fixApplication.toString());
+            lendApplication.setStatus("审核中");
             applicationDao.saveLend(lendApplication);
             return true;
         }catch (Exception e) {
@@ -36,6 +45,8 @@ public class ApplicationServiceImpl implements ApplicationService{
     public boolean sendCommute(CarApplication carApplication){
         try {
             //默认值
+            Date date = new Date ();
+            carApplication.setApplicationDate(date);
             carApplication.setStatus("审核中");
             applicationDao.saveCommute(carApplication);
             return true;
@@ -46,39 +57,51 @@ public class ApplicationServiceImpl implements ApplicationService{
     public boolean getFixAP(String userID){
         ActionContext ctx = ActionContext.getContext();
         request = (Map) ctx.get("request");
-        String hql = "from FixApplication as fixApplication where userID='"+userID+"'";
-        List<FixApplication> list = applicationDao.findByHqlFix(hql);
-        if (list.isEmpty()){
+        String hql = "from FixApplication as fixApplication where userID='"+userID+"' and (status='审核中' or status='已通过')";
+        List<FixApplication> onGongingList = applicationDao.findByHqlFix(hql);
+        hql = "from FixApplication as fixApplication where userID='"+userID+"' and (status<>'审核中' and status<>'已通过')";
+        List<FixApplication> finishedList = applicationDao.findByHqlFix(hql);
+        //System.out.println(onGongingList.get(0));
+        //System.out.println(finishedList.get(0));
+        if (onGongingList.isEmpty()&&finishedList.isEmpty()){
             return false;
         }
         else {
-            request.put("fixAPP", list);
+            request.put("finishedFA", finishedList);
+            request.put("ongoingFA", onGongingList);
             return true;
         }
     }
     public boolean getLendAP(String userID){
         ActionContext ctx = ActionContext.getContext();
-        session = (Map) ctx.getSession();
         request = (Map) ctx.get("request");
         System.out.println("llledn");
-        String hql = "from LendApplication as lendApplication where userID='"+userID+"'";
-        List<LendApplication> list = applicationDao.findByHqlLend(hql);
-        if (list.isEmpty())
+        //分状态获取
+        String hql = "from LendApplication as lendApplication where userID='"+userID+"' and (status='审核中' or status='已通过')";
+        List<LendApplication> onGongingList = applicationDao.findByHqlLend(hql);
+        hql = "from LendApplication as lendApplication where userID='"+userID+"' and  (status<>'审核中' and status<>'已通过')";
+        List<LendApplication> finishedList = applicationDao.findByHqlLend(hql);
+
+        if (onGongingList.isEmpty()&&finishedList.isEmpty() )
             return false;
         else {
-            request.put("lendAPP", list);
+            request.put("finishedLA", finishedList);
+            request.put("ongoingLA", onGongingList);
             return true;
         }
     }
     public boolean getCommuteAP(String userID){
         ActionContext ctx = ActionContext.getContext();
         request = (Map) ctx.get("request");
-        String hql = "from CarApplication as carApplication where userID='"+userID+"'";
-        List<CarApplication> list = applicationDao.findByHqlCar(hql);
-        if (list.isEmpty())
+        String hql = "from CarApplication as carApplication where userID='"+userID+"' and (status='审核中' or status='已通过')";
+        List<CarApplication> onGongingList = applicationDao.findByHqlCar(hql);
+        hql = "from CarApplication as carApplication where userID='"+userID+"' and (status<>'审核中' and status<>'已通过')";
+        List<CarApplication> finishedList = applicationDao.findByHqlCar(hql);
+        if (onGongingList.isEmpty()&&finishedList.isEmpty())
             return false;
         else {
-            request.put("carAPP", list);
+            request.put("finishedCA", finishedList);
+            request.put("ongoingCA", onGongingList);
             return true;
         }
     }

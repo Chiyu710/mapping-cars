@@ -148,12 +148,6 @@
                                                                             <input type="date" class="form-control " id="useTime1" name="carApplication.usingDate">
                                                                         </div>
                                                                         <div class="col-md-1"></div>
-                                                                        <label class="col-md-1 col-form-label" for="appTime1">申请时间</label>
-                                                                        <div class="col-md-4">
-                                                                            <input type="date" class="form-control " id="appTime1" name="carApplication.applicationDate" >
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="row mb-3">
                                                                         <label class="col-md-1 col-form-label" for="work">业务编号</label>
                                                                         <div class="col-md-4">
                                                                             <input type="text" id="work" name="carApplication.workID" class="form-control" >

@@ -4,6 +4,9 @@ import car.po.User;
 import car.po.application.*;
 import car.service.ApplicationService;
 
+import javax.xml.crypto.Data;
+import java.util.Date;
+
 public class ApplicationAction {
 
     private CarApplication carApplication;
@@ -35,7 +38,6 @@ public class ApplicationAction {
             return "fail";
         }
     }
-
     public  String sendLend(){
         if (applicationService.sendLend(lendApplication)){
             return "success";
@@ -44,7 +46,6 @@ public class ApplicationAction {
             return "fail";
         }
     }
-
     public String sendCommute(){
         if (applicationService.sendCommute(carApplication)){
             System.out.println("carAPP!");

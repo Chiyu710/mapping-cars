@@ -1,6 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +10,29 @@
     <meta charset="utf-8"/>
     <title>MAPPING CARS MANAGE INDEX</title>
    <jsp:include page="../view/header.jsp"></jsp:include>
-
+    <script src="../assets/libs/toastr/node_modules/jquery/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            const cars = document.getElementById("carID");
+            $("#carID").change(function(){
+                var carId = $(carID).val(); //获取当前下拉框name属性的值
+                $.ajax({
+                    url:"takeCarInfoAjax",
+                    type : "POST",
+                    dataType:"JSON",
+                    data : {
+                        carId:carId
+                    },
+                    success : function(data) {
+                        $("#mile").val(data.mileage);
+                        $("#LP").val(data.licensePlate);
+                    },
+                    error :function() {
+                        alert("未找到车辆");
+                    },
+                });
+            });});
+    </script>
     <style>
         #appCard {
             float: none;
@@ -64,35 +88,11 @@
                                                 <div class="row">
                                                     <div class="mb-3 col-md-4">
                                                         <label for="user" class="form-label">责任人</label>
-                                                        <input type="text" id="user" class="form-control"  name="fixApplication.userName" value="${session.user.name}" disabled>
-                                                        <input type="text" id="userid" class="form-control" style="display: none" name="fixApplication.userId" value="${session.user.id}">
-                                                    </div>
-
-                                                    <div class="mb-3 col-md-4">
-                                                        <label for="time" class="form-label">申请时间</label>
-                                                        <input type="date" id="time" class="form-control" name="fixApplication.applicationDate">
-                                                    </div>
-
-                                                </div>
-                                                <div class="row">
-                                                    <div class="mb-3 col-md-4">
-                                                        <label for="Carid" class="form-label">车辆号</label>
-                                                        <input type="text" id="Carid" class="form-control" name="fixApplication.carID">
+                                                        <input type="text" id="user" class="form-control"  name="fixApplication.userName" value="${session.user.name}" readonly>
                                                     </div>
                                                     <div class="mb-3 col-md-4">
-                                                        <label for="Carid1" class="form-label">车牌号</label>
-                                                        <input type="text" id="Carid1" class="form-control" name="fixApplication.LicensePlate">
-                                                    </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="mb-3 col-md-4">
-                                                        <label for="fix_time" class="form-label">上次维修日期</label>
-                                                        <input type="date" id="fix_time" class="form-control">
-                                                    </div>
-                                                    <div class="mb-3 col-md-4">
-                                                        <label for="mileage" class="form-label">保养间隔里程数</label>
-                                                        <input type="text" id="mileage" class="form-control" name="fixApplication.mileage">
+                                                        <label for="userid" class="form-label">工号</label>
+                                                        <input type="text" id="userid" class="form-control" name="fixApplication.userID" value="${session.user.id}" readonly>
                                                     </div>
                                                     <div class="mb-3 col-md-4">
                                                         <label for="fix_t" class="form-label">维修类型</label>
@@ -103,8 +103,20 @@
                                                         </select>
                                                     </div>
                                                 </div>
-
-
+                                                <div class="row">
+                                                    <div class="mb-3 col-md-4">
+                                                        <label for="carID" class="form-label">车辆号</label>
+                                                        <input type="text" id="carID" class="form-control" name="fixApplication.carID">
+                                                    </div>
+                                                    <div class="mb-3 col-md-4">
+                                                        <label for="LP" class="form-label">车牌号</label>
+                                                        <input type="text" id="LP" class="form-control" name="fixApplication.LicensePlate" readonly>
+                                                    </div>
+                                                    <div class="mb-3 col-md-4">
+                                                        <label for="mile" class="form-label">保养间隔里程数</label>
+                                                        <input type="text" id="mile" class="form-control" name="fixApplication.mileage" readonly>
+                                                    </div>
+                                                </div>
                                                 <div class="row">
                                                     <div class="mb-3 col-md-12">
                                                         <label for="fix_d" class="form-label">维修地点</label>
