@@ -62,8 +62,12 @@
                             <!-- end dropdown-->
                             <!-- end form-check-->
                             <div class="clearfix"></div>
-
-                            <h4><button type="button" class="btn btn-outline-danger me-2">交通违规</button>4785号</h4>
+                            <s:iterator var="VIO" value="#request.myViolation">
+                            <h4><button type="button" class="btn btn-outline-danger me-2">
+                                <s:property value="#VIO.type"/>
+                                </button>
+                                <s:property value="#VIO.id"/>
+                            </h4>
 
                             <div class="row">
                                 <div class="col-md-4">
@@ -72,7 +76,7 @@
                                     <div class="d-flex align-items-start">
                                         <div class="w-100">
                                             <h5 class="mt-1 font-size-14">
-                                                理中客
+                                                <s:property value="#VIO.username"/>
                                             </h5>
                                         </div>
                                     </div>
@@ -86,7 +90,7 @@
                                     <div class="d-flex align-items-start">
                                         <div class="w-100">
                                             <h5 class="mt-1 font-size-14">
-                                                12345
+                                                <s:property value="#VIO.applicationid"/>
                                             </h5>
                                         </div>
                                     </div>
@@ -100,7 +104,7 @@
                                         <i class="mdi mdi-calendar-month-outline font-18 text-success me-1"></i>
                                         <div class="w-100">
                                             <h5 class="mt-1 font-size-14">
-                                                2021-11-14
+                                                <s:property value="#VIO.vioDate"/>
                                             </h5>
                                         </div>
                                     </div>
@@ -113,7 +117,7 @@
                                         <i class="mdi mdi-calendar-month-outline font-18 text-danger me-1"></i>
                                         <div class="w-100">
                                             <h5 class="mt-1 font-size-14">
-                                                2021-11-21
+                                                <s:property value="#VIO.endDate"/>
                                             </h5>
                                         </div>
                                     </div>
@@ -127,7 +131,7 @@
                                     <div class="d-flex align-items-start">
                                         <div class="w-100">
                                             <h5 class="mt-1 font-size-14">
-                                                3分
+                                                <s:property value="#VIO.depoint"/>
                                             </h5>
                                         </div>
                                     </div>
@@ -141,7 +145,7 @@
                                     <div class="d-flex align-items-start">
                                         <div class="w-100">
                                             <h5 class="mt-1 font-size-14">
-                                                50元
+                                                <s:property value="#VIO.fine"/>
                                             </h5>
                                         </div>
                                     </div>
@@ -155,7 +159,7 @@
                                         <i class="mdi mdi-map-marker font-18 text-primary me-1"></i>
                                         <div class="w-100">
                                             <h5 class="mt-1 font-size-14">
-                                                浙江省杭州市西湖区留和路288号
+                                                <s:property value="#VIO.location"/>
                                             </h5>
                                         </div>
                                     </div>
@@ -165,11 +169,12 @@
 
                             </div>
                             <!-- end row -->
+                            </s:iterator>
                             <div>
                                 <h5 class="mt-3">违规明细:</h5>
 
                                 <p class="text-muted mb-4">
-                                    1234号机动车驾驶人您驾驶的机动车于年月日在侵占人行道停车(现场已录像，机动车已被锁)，违反了《城市道路管理条例》第二十七条第一项、第七项之规定，依据《城市道路管理条例》第四十二条之规定，我局将对您上述违法行为依法进行处罚。请您持本通知书三日内，到x城市管理局接受处罚。地点：x城市管理局告知您：对损坏所剧者，将追究法律责任，并赔偿损失。擅自移动车辆易扎胎，后果自负。
+                                    <s:property value="#VIO.details"/>
                                 </p>
                             </div>
 

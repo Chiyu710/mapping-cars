@@ -24,7 +24,17 @@ public class LogAction {
     public LogService getLogService() {return logService;}
     public void setLogService(LogService logService) {this.logService = logService;}
 
-//    for Ajax
+    private Violation violation;
+
+    public Violation getViolation() {
+        return violation;
+    }
+
+    public void setViolation(Violation violation) {
+        this.violation = violation;
+    }
+
+    //    for Ajax
     private String userID;
     public String getUserID() {return userID;}
     public void setUserID(String userID) {this.userID = userID;}
@@ -46,8 +56,8 @@ public class LogAction {
     }
 
     public String sendNot(){
+        System.out.println(notification);
         if(logService.sendNot(notification)){
-            System.out.println("succeess");
             return "success";
         }
         else {
@@ -65,6 +75,8 @@ public class LogAction {
         }
     }
 
+
+
     public String getBusiness(){
         if (logService.getBusiness(userID)){
             return "success";
@@ -76,6 +88,35 @@ public class LogAction {
 
     public String saveDL(){
         if (logService.saveDriveLog(driveLog)){
+            return "success";
+        }
+        else {
+            return "fail";
+        }
+    }
+
+    public String getDRIVELOG(){
+        if (logService.getDRIVELOG()){
+            System.out.println("123");
+            return "success";
+        }
+        else {
+            return "fail";
+        }
+    }
+
+    public String getVIO(){
+        if (logService.getVIO()){
+            return "success";
+        }
+        else {
+            return "fail";
+        }
+    }
+
+    public String saveVIO(){
+        System.out.println(violation);
+        if (logService.saveVio(violation)){
             return "success";
         }
         else {

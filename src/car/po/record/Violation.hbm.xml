@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="car.po.record.Violation" table="violation">
+        <id name="id" column="id">
+            <generator class="native"/>
+        </id>
+        <property name="applicationid" column="applicationid"/>
+        <property name="userid" column="userid"/>
+        <property name="carid" column="carid"/>
+        <property name="type" column="type"/>
+        <property name="location" column="location"/>
+        <property name="username" column="username"/>
+        <property name="status" column="status"/>
+        <property name="details" column="details"/>
+        <property name="vioDate" column="vioDate"/>
+        <property name="endDate" column="endDate"/>
+        <property name="fine" column="fine"/>
+        <property name="depoint" column="depoint"/>
+    </class>
+</hibernate-mapping>

@@ -134,8 +134,12 @@
                         <div class="dropdown-menu" aria-labelledby="topnav-components">
                             <a href="../view_business/order.jsp" class="dropdown-item"><i class="ti-pulse me-1"></i>今日业务</a>
                             <a href="../view_business/order_statiscs.jsp" class="dropdown-item"><i class="ti-stats-up me-1"></i>业务统计</a>
-                            <a href="../view_log/Violation_record_admin.jsp" class="dropdown-item"><i class="fe-map me-1"></i>行车日志</a>
-                            <a href="../view_log/Violation_record_admin.jsp" class="dropdown-item"><i class="fe-bookmark me-1"></i>违规记录</a>
+                            <s:form action="getDriveLog" method="POST" id="DRILOG">
+                            <a onclick="document:DRILOG.submit()" class="dropdown-item"><i class="fe-map me-1"></i>行车日志</a>
+                            </s:form>
+                            <s:form action="getVio" method="POST" id="VIO">
+                            <a onclick="document:VIO.submit()" class="dropdown-item"><i class="fe-bookmark me-1"></i>违规记录</a>
+                            </s:form>
                         </div>
                     </li>
 
@@ -154,6 +158,14 @@
                             </s:form>
                                 <a href="../view_notification/notification_release.jsp" class="dropdown-item"><i class="fe-monitor"></i>通知发布</a>
                         </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <s:form action="SaveVio" method="POST" id="svVio">
+                            <a class="nav-link"    href="../view_log/violation_release.jsp" role="button">
+                                <i class="ti-car me-1"></i>违规记录发布
+                            </a>
+                        </s:form>
                     </li>
 
                 </ul> <!-- end navbar-->

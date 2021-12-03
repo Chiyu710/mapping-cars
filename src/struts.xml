@@ -89,7 +89,18 @@
             <result name="success">/view_business/staff_business.jsp</result>
             <result name="fail">/view_feedback/error.jsp</result>
         </action>
-
+        <action name="getDriveLog" class="logAction" method="getDRIVELOG">
+            <result name="success">/view_log/Logbook_admin.jsp</result>
+            <result name="fail">/view_feedback/error.jsp</result>
+        </action>
+        <action name="getVio" class="logAction" method="getVIO">
+            <result name="success">/view_log/Violation_record_admin.jsp</result>
+            <result name="fail">/view_feedback/error.jsp</result>
+        </action>
+        <action name="SaveVio" class="logAction" method="saveVIO">
+            <result name="success">/view_feedback/submit_success_staff.jsp</result>
+            <result name="fail">/view_feedback/error.jsp</result>
+        </action>
     </package>
 
     <package name="Ajax" namespace="/" extends="json-default">
@@ -134,6 +145,8 @@
             <result name="success">/view_feedback/submit_success_staff.jsp</result>
             <result name="fail">/view_feedback/error.jsp</result>
         </action>
+
+
     </package>
 
 

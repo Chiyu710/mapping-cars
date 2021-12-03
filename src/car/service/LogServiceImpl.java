@@ -116,4 +116,41 @@ public class LogServiceImpl implements LogService{
     }
 
 
+    public boolean getDRIVELOG(){
+        ActionContext ctx = ActionContext.getContext();
+        request = (Map) ctx.get("request");
+        String hql = "from DriveLog as drivelog ";
+        List<DriveLog> list = logDao.findByHqlDL(hql);
+        if (list.isEmpty()){
+            return false;
+        }
+        else {
+            request.put("myDriveLog", list);
+            return true;
+        }
+    }
+
+    public boolean getVIO(){
+        ActionContext ctx = ActionContext.getContext();
+        request = (Map) ctx.get("request");
+        String hql = "from Violation as violation";
+        List<Violation> list = logDao.findByHqlVio(hql);
+        if (list.isEmpty()){
+            return false;
+        }
+        else {
+            request.put("myViolation", list);
+            return true;
+        }
+    }
+
+    public boolean saveVio(Violation violation){
+        try {
+            logDao.saveVio(violation);
+            return true;
+        }catch (Exception e) {
+            return false;
+        }
+    }
+
 }

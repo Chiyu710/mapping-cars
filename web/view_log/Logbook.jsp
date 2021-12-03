@@ -66,7 +66,7 @@
                                                         <div class="d-flex align-items-start">
                                                             <div class="w-100">
                                                                 <h5 class="mt-1 font-size-14" id="userName">
-                                                                   123
+
                                                                 </h5>
                                                             </div>
                                                         </div>

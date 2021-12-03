@@ -52,6 +52,140 @@
                                         </div>
                                     </form>
                                 </div>
+
+
+                                <div id="full-width-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="fullWidthModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-full-width">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h2 class="modal-title" id="fullWidthModalLabel">出车详情</h2>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <!-- assignee -->
+                                                        <p class=" mb-1">驾驶员姓名</p>
+                                                        <div class="d-flex align-items-start">
+                                                            <div class="w-100">
+                                                                <h5 class="mt-1 font-size-14" id="userName">
+                                                                    ${request.myDriveLog[0].username}
+                                                                </h5>
+                                                            </div>
+                                                        </div>
+                                                        <!-- end assignee -->
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <!-- start due date -->
+                                                        <p class=" mb-1">驾驶员工号</p>
+                                                        <div class="d-flex align-items-start">
+                                                            <div class="w-100">
+                                                                <h5 class="mt-1 font-size-14" id="userID">
+                                                                    123
+                                                                </h5>
+                                                            </div>
+                                                        </div>
+                                                        <!-- end due date -->
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <!-- start due date -->
+                                                        <p class=" mb-1">出车时间:</p>
+                                                        <div class="d-flex align-items-start">
+                                                            <div class="w-100">
+                                                                <h5 class="mt-1 font-size-14" id="starttime">
+                                                                    123
+                                                                </h5>
+                                                            </div>
+                                                        </div>
+                                                        <!-- end due date -->
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <!-- assignee -->
+                                                        <p class=" mb-1">出车地址</p>
+                                                        <div class="d-flex align-items-start">
+                                                            <div class="w-100">
+                                                                <h5 class="mt-1 font-size-14" id="startlocation">
+                                                                    123
+                                                                </h5>
+                                                            </div>
+                                                        </div>
+                                                        <!-- end assignee -->
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <!-- start due date -->
+                                                        <p class=" mb-1">定损目的地</p>
+                                                        <div class="d-flex align-items-start">
+                                                            <div class="w-100">
+                                                                <h5 class="mt-1 font-size-14" id="destination">
+                                                                    123
+                                                                </h5>
+                                                            </div>
+                                                        </div>
+                                                        <!-- end due date -->
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <!-- start due date -->
+                                                        <p class=" mb-1">结束时间</p>
+                                                        <div class="d-flex align-items-start">
+                                                            <div class="w-100">
+                                                                <h5 class="mt-1 font-size-14" id="endtime">
+                                                                    123
+                                                                </h5>
+                                                            </div>
+                                                        </div>
+                                                        <!-- end due date -->
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <!-- assignee -->
+                                                        <p class=" mb-1">驾驶车辆</p>
+                                                        <div class="d-flex align-items-start">
+                                                            <div class="w-100">
+                                                                <h5 class="mt-1 font-size-14" id="carid">
+                                                                    123
+                                                                </h5>
+                                                            </div>
+                                                        </div>
+                                                        <!-- end assignee -->
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <!-- start due date -->
+                                                        <p class=" mb-1">车辆损坏情况</p>
+                                                        <div class="d-flex align-items-start">
+                                                            <div class="w-100">
+                                                                <h5 class="mt-1 font-size-14" id=“broke">
+                                                                    123
+                                                                </h5>
+                                                            </div>
+                                                        </div>
+                                                        <!-- end due date -->
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <!-- start due date -->
+                                                        <p class=" mb-1">违规情况</p>
+                                                        <div class="d-flex align-items-start">
+                                                            <div class="w-100">
+                                                                <h5 class="mt-1 font-size-14" id="illegal">
+                                                                    123
+                                                                </h5>
+                                                            </div>
+                                                        </div>
+                                                        <!-- end due date -->
+                                                    </div>
+                                                </div>
+                                                <p></p>
+                                                <hr>
+                                                <h6>轨迹回放</h6>
+                                                <div id="MAP">
+
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <input type="button" class="btn" value="开始动画" id="start" onclick="startAnimation()"/>
+                                                <input type="button" class="btn" value="暂停动画" id="pause" onclick="pauseAnimation()"/>
+                                            </div>
+                                        </div><!-- /.modal-content -->
+                                    </div><!-- /.modal-dialog -->
+                                </div><!-- /.modal -->
                                 <div class="responsive-table-plugin">
                                     <div class="table-rep-plugin">
                                         <div class="table-responsive" data-pattern="priority-columns">
@@ -70,55 +204,23 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
+                                                <s:iterator var="DRIL" value="#request.myDriveLog">
                                                 <tr>
-                                                    <th>GOOG <span class="co-name">Google Inc.</span></th>
-                                                    <td>597.74</td>
-                                                    <td>12:12PM</td>
-                                                    <td>14.81 (2.54%)</td>
-                                                    <td>582.93</td>
-                                                    <td>597.95</td>
-                                                    <td>597.73 x 100</td>
-                                                    <td>597.91 x 300</td>
+                                                    <th><s:property value="#DRIL.id"/></th>
+                                                    <td><s:property value="#DRIL.carid"/></td>
+                                                    <td><s:property value="#DRIL.username"/></td>
+                                                    <td><s:property value="#DRIL.starttime"/></td>
+                                                    <td><s:property value="#DRIL.endtime"/></td>
+                                                    <td><s:property value="#DRIL.illegal"/></td>
+                                                    <td><s:property value="#DRIL.broke"/></td>
+                                                    <td><s:property value="#DRIL.applicationid"/></td>
                                                     <td>
-                                                        <form>  <input class="btn-xs btn-primary text-center" type="submit" value="查看详情"></form>
+                                                        <form>  <input class="btn-xs btn-primary text-center" type="button" value="查看详情"data-bs-toggle="modal" data-bs-target="#full-width-modal"></form>
                                                     </td>
 
 
                                                 </tr>
-                                                <tr>
-                                                    <th>AAPL <span class="co-name">Apple Inc.</span></th>
-                                                    <td>378.94</td>
-                                                    <td>12:22PM</td>
-                                                    <td>5.74 (1.54%)</td>
-                                                    <td>373.20</td>
-                                                    <td>381.02</td>
-                                                    <td>378.92 x 300</td>
-                                                    <td>378.99 x 100</td>
-                                                    <td>505.94</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>AMZN <span class="co-name">Amazon.com Inc.</span></th>
-                                                    <td>191.55</td>
-                                                    <td>12:23PM</td>
-                                                    <td>3.16 (1.68%)</td>
-                                                    <td>188.39</td>
-                                                    <td>194.99</td>
-                                                    <td>191.52 x 300</td>
-                                                    <td>191.58 x 100</td>
-                                                    <td>240.32</td>
-                                                </tr>
-                                                <!-- Repeat -->
-                                                <tr>
-                                                    <th>GOOG <span class="co-name">Google Inc.</span></th>
-                                                    <td>597.74</td>
-                                                    <td>12:12PM</td>
-                                                    <td>14.81 (2.54%)</td>
-                                                    <td>582.93</td>
-                                                    <td>597.95</td>
-                                                    <td>597.73 x 100</td>
-                                                    <td>597.91 x 300</td>
-                                                    <td>731.10</td>
-                                                </tr>
+                                                </s:iterator>
                                                 </tbody>
                                             </table>
                                         </div> <!-- end .table-responsive -->
