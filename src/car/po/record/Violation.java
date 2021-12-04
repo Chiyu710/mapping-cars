@@ -5,7 +5,6 @@ import java.util.Date;
 public class Violation {
     String id;
     String userid;
-    String type;
     String applicationid;
     String carid;
     String location;
@@ -31,14 +30,6 @@ public class Violation {
 
     public void setUserid(String userid) {
         this.userid = userid;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
     public String getApplicationid() {

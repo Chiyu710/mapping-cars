@@ -98,7 +98,7 @@
             <result name="fail">/view_feedback/error.jsp</result>
         </action>
         <action name="SaveNot" class="logAction" method="sendNot">
-            <result name="success">/view_feedback/submit_success_staff.jsp</result>
+            <result name="success">/view_feedback/submit_success_admin.jsp</result>
             <result name="fail">/view_feedback/error.jsp</result>
         </action>
         <action name="SaveDL" class="logAction" method="saveDL">
@@ -131,7 +131,7 @@
             <result name="fail">/view_feedback/error.jsp</result>
         </action>
         <action name="SaveVio" class="logAction" method="saveVIO">
-            <result name="success">/view_feedback/submit_success_staff.jsp</result>
+            <result name="success">/view_feedback/submit_success_admin.jsp</result>
             <result name="fail">/view_feedback/error.jsp</result>
         </action>
     </package>

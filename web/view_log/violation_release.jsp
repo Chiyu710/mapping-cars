@@ -52,22 +52,17 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="mb-3 col-3">
-                                        <label for="type" class="form-label">违规类型 <span
-                                                class="text-danger">*</span></label>
-                                        <input type="text" id="type" class="form-control" name="violation.type">
-                                    </div>
-                                    <div class="mb-3 col-3">
+                                    <div class="mb-3 col-4">
                                         <label for="userid" class="form-label">违规人id <span
                                                 class="text-danger">*</span></label>
                                         <input type="text" id="userid" class="form-control" name="violation.userid">
                                     </div>
-                                    <div class="mb-3 col-3">
+                                    <div class="mb-3 col-4">
                                         <label for="appId" class="form-label">派车单号 <span
                                                 class="text-danger">*</span></label>
                                         <input type="text" id="appId" class="form-control" name="violation.applicationid">
                                     </div>
-                                    <div class="mb-3 col-3">
+                                    <div class="mb-3 col-4">
                                         <label for="fine" class="form-label">罚款金额 <span
                                                 class="text-danger">*</span></label>
                                         <input type="text" id="fine" class="form-control" name="violation.fine">
@@ -107,8 +102,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="text-center mb-3">
-                                    <button type="button" class="btn w-sm btn-success waves-effect waves-light"
-                                            onclick="document:svVio.submit()">Save
+                                    <button type="submit" class="btn w-sm btn-success waves-effect waves-light">Save
                                     </button>
                                 </s:form>
                             </div>
@@ -118,27 +112,6 @@
 
 
                     <!-- file preview template -->
-                    <div class="d-none" id="uploadPreviewTemplate">
-                        <div class="card mt-1 mb-0 shadow-none border">
-                            <div class="p-2">
-                                <div class="row align-items-center">
-                                    <div class="col-auto">
-                                        <img data-dz-thumbnail src="#" class="avatar-sm rounded bg-light" alt="">
-                                    </div>
-                                    <div class="col ps-0">
-                                        <a href="javascript:void(0);" class="text-muted fw-bold" data-dz-name></a>
-                                        <p class="mb-0" data-dz-size></p>
-                                    </div>
-                                    <div class="col-auto">
-                                        <!-- Button -->
-                                        <a href="" class="btn btn-link btn-lg text-muted" data-dz-remove>
-                                            <i class="dripicons-cross"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
 
                 </div> <!-- container -->

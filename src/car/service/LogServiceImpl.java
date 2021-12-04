@@ -168,6 +168,7 @@ public class LogServiceImpl implements LogService{
         request = (Map) ctx.get("request");
         String hql = "from Violation as violation";
         List<Violation> list = logDao.findByHqlVio(hql);
+        System.out.println(list.get(0));
         if (list.isEmpty()){
             return false;
         }

@@ -11,7 +11,6 @@
         <property name="applicationid" column="applicationid"/>
         <property name="userid" column="userid"/>
         <property name="carid" column="carid"/>
-        <property name="type" column="type"/>
         <property name="location" column="location"/>
         <property name="username" column="username"/>
         <property name="status" column="status"/>
