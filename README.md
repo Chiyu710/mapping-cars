@@ -1,7 +1,11 @@
 查勘车辆管理系统
 ===
-you should work on dev branch
-
+      you should work on dev branch
+      一次迭代后的优化需求
+      1.算法支撑的验证流程
+      2.组织架构优化--功能分解
+      3.轨迹追踪
+      4.输入验证
 Schedule
 ---
 >Before 11.21
