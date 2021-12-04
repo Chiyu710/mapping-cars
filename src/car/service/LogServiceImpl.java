@@ -3,6 +3,7 @@ package car.service;
 import car.dao.LogDao;
 import car.dao.LogDaoImpl;
 import car.po.User;
+import car.po.application.CarApplication;
 import car.po.record.*;
 import com.opensymphony.xwork2.ActionContext;
 
@@ -67,6 +68,31 @@ public class LogServiceImpl implements LogService{
         List<DriveLog> list = logDao.findByHqlDL(hql);
         request.put("myBusiness", list);
         return true;
+
+    }
+    public boolean startDriveLog(CarApplication carApplication){
+        DriveLog dl = new DriveLog();
+        dl.setStatus("前往目的地");
+        dl.setApplicationid(carApplication.getId());
+        dl.setCarid(carApplication.getCarID());
+        dl.setDestination(carApplication.getDestination());
+        //出发点固定为公司
+        dl.setUserid(carApplication.getUserID());
+        dl.setUsername(carApplication.getUserName());
+        dl.setSlatitude(30.2251);
+        dl.setSlongitude(120.041549);
+        dl.setElatitude(carApplication.getLatitude());
+        dl.setElongitude(carApplication.getLongitude());
+        Date date = new Date ();
+        dl.setStarttime(date);
+
+        try {
+            System.out.println("log start");
+            logDao.saveDL(dl);
+            return true;
+        }catch (Exception e) {
+            return false;
+        }
 
     }
     public boolean saveDriveLog(DriveLog driveLog){

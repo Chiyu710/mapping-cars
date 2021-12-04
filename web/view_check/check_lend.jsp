@@ -151,6 +151,7 @@
                             <s:form action="checkLend" method="POST">
                             <div class="row mt-3 mb-1">
                                 <input name="lendApplication.id" value="${request.LAP.id}" style="display: none">
+                                <input name="lendApplication.carID" value="${request.LAP.carID}" style="display: none">
                                 <label class="col-md-1 col-form-label" for="handler">管理员签名</label>
                                 <div class="col-md-2">
                                     <input type="text" class="form-control " id="handler" name="lendApplication.handler" placeholder="请输入你的名字">

@@ -1,5 +1,6 @@
 package car.service;
 
+import car.po.application.CarApplication;
 import car.po.record.DriveLog;
 import car.po.record.Notification;
 import car.po.record.StatusLog;
@@ -21,4 +22,5 @@ public interface LogService {
       boolean getStaffVIO(String userid);
       boolean saveDriveLog(DriveLog driveLog);
       boolean saveVio(Violation violation);
+      boolean startDriveLog(CarApplication carApplication);
 }

@@ -151,13 +151,14 @@
                             <s:form action="checkCommute" method="POST">
                             <div class="row mt-3 mb-1">
                                 <input name="carApplication.id" value="${request.CAP.id}" style="display: none">
+                                <input name="carApplication.carID" value="${request.CAP.carID}" style="display: none">
                                 <label class="col-md-1 col-form-label" for="handler">管理员签名</label>
                                 <div class="col-md-2">
                                     <input type="text" class="form-control " id="handler" name="carApplication.handler" placeholder="请输入你的名字">
                                 </div>
                                 <div class="col-md-1"></div>
                                 <div class="btn-group col-md-3" role="group" aria-label="Basic radio toggle button group">
-                                    <input type="radio" class="btn-check" name="carApplication.status" value="已通过" id="btnradio1"  checked>
+                                    <input type="radio" class="btn-check" name="carApplication.status" value="已完成" id="btnradio1"  checked>
                                     <label class="btn btn-outline-primary" for="btnradio1" >通过</label>
                                     <input type="radio" class="btn-check" name="carApplication.status" value="未通过" id="btnradio2" autocomplete="off">
                                     <label class="btn btn-outline-primary" for="btnradio2">不予通过</label>

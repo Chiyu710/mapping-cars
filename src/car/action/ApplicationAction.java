@@ -79,6 +79,7 @@ public class ApplicationAction {
         }
     }
     public String checkFix(){
+        System.out.println(fixApplication.toString());
         if (applicationService.checkFix(fixApplication)){
             System.out.println("CheckFixAP!");
             return "success";

@@ -106,5 +106,18 @@ public class CarServiceImpl implements CarService{
             return true;
         }
     }
-
+    public boolean carStatusChange(String carID,int status) {
+        Car c = carDao.getCar(carID);
+        if(c==null) System.out.println("cant get car info!");
+        if(status==0) c.setStatus("空闲");
+        else if(status==1) c.setStatus("工作中");
+        else if(status==2) c.setStatus("停用");
+        try {
+            System.out.println("car status change to"+status);
+            carDao.saveCar(c);
+            return true;
+        }catch (Exception e) {
+            return false;
+        }
+    }
 }

@@ -19,4 +19,7 @@ public interface CarService {
     boolean  gotCarInfo(String carId);
 
     boolean saveOrUpdateCar(Car car);
+
+    //0-free 1-busy 2-abandoned
+    boolean carStatusChange(String carID,int status);
 }
