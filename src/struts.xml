@@ -114,12 +114,6 @@
     </package>
 
     <package name="Ajax" namespace="/" extends="json-default">
-        <action name="takeAllCarsAjax" class="carAction" method="takeAllCars_ajax">
-            <result name="ajax" type="json">
-                <param name="root">allCarsInfo</param>
-                <!-- 设置对象中哪些属性需要的，支持正则表达式, 语法必须转义  [  ]  .   \d表示匹配下标 -->
-            </result>
-        </action>
         <action name="takeCarInfoAjax" class="carAction" method="takeCarInfoAjax">
             <result name="ajax" type="json">
                 <param name="root">car</param>
@@ -138,8 +132,21 @@
                 <!-- 设置对象中哪些属性需要的，支持正则表达式, 语法必须转义  [  ]  .   \d表示匹配下标 -->
             </result>
         </action>
-
-
+        <action name="takeCAPAjax" class="applicationAction" method="takeCAPAjax">
+            <result name="ajax" type="json">
+                <param name="root">carApplication</param>
+            </result>
+        </action>
+        <action name="takeLAPAjax" class="applicationAction" method="takeLAPAjax">
+            <result name="ajax" type="json">
+                <param name="root">lendApplication</param>
+            </result>
+        </action>
+        <action name="takeFAPAjax" class="applicationAction" method="takeFAPAjax">
+            <result name="ajax" type="json">
+                <param name="root">fixApplication</param>
+            </result>
+        </action>
     </package>
 
 <!--    <package name="Admin" namespace="/" extends="struts-default">-->

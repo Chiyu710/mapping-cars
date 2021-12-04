@@ -2,6 +2,8 @@ package car.service;
 
 import car.po.application.*;
 
+import java.util.List;
+
 public interface ApplicationService {
     boolean sendFix(FixApplication fixApplication);
     boolean sendLend(LendApplication lendApplication);
@@ -10,4 +12,10 @@ public interface ApplicationService {
     boolean getLendAP(String userID);
     boolean getCommuteAP(String userID);
     boolean getAllAP();
+    boolean getSingelFixAP(String appid);
+    boolean getSingelLendAP(String appid);
+    boolean getSingelCommuteAP(String appid);
+    CarApplication getCAPAjax(String appid);
+    LendApplication getLAPAjax(String appid);
+    FixApplication getFAPAjax(String appid);
 }

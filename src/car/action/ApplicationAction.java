@@ -29,6 +29,11 @@ public class ApplicationAction {
     public void setApplicationService(ApplicationService applicationService) {
         this.applicationService = applicationService;
     }
+    public ApplicationService getApplicationService() {return applicationService;}
+
+    String appid;
+    public String getAppid() {return appid;}
+    public void setAppid(String appid) {this.appid = appid;}
 
     public  String sendFix(){
         if (applicationService.sendFix(fixApplication)){
@@ -55,9 +60,6 @@ public class ApplicationAction {
             return "fail";
         }
     }
-
-
-
     public String getFixAP(){
         if (applicationService.getFixAP(user.getId())){
             System.out.println("getFixAP!");
@@ -85,7 +87,6 @@ public class ApplicationAction {
             return "fail";
         }
     }
-
     public String getAllAP(){
         if(applicationService.getAllAP()){
             System.out.println("getAllAP!");
@@ -95,5 +96,45 @@ public class ApplicationAction {
             return "fail";
         }
 
+    }
+    public String getSingleLendAP(){
+        if (applicationService.getSingelLendAP(appid)){
+            System.out.println("getLendAP!");
+            return "success";
+        }
+        else {
+            return "fail";
+        }
+    }
+    public String getSingleCommuteAP(){
+        if (applicationService.getSingelCommuteAP(appid)){
+            System.out.println("getCarAP!");
+            return "success";
+        }
+        else {
+            return "fail";
+        }
+    }
+    public String getSingleFixAP(){
+        if(applicationService.getSingelFixAP(appid)){
+            System.out.println("getfixAP!");
+            return "success";
+        }
+        else{
+            return "fail";
+        }
+
+    }
+    public String takeCAPAjax(){
+        carApplication=applicationService.getCAPAjax(appid);
+        return "ajax";
+    }
+    public String takeLAPAjax(){
+        lendApplication=applicationService.getLAPAjax(appid);
+        return "ajax";
+    }
+    public String takeFAPAjax(){
+        fixApplication=applicationService.getFAPAjax(appid);
+        return "ajax";
     }
 }

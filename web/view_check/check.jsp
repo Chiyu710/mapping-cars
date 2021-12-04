@@ -20,13 +20,11 @@
     <!-- ============================================================== -->
     <!-- Start Page Content here -->
     <!-- ============================================================== -->
-
     <div class="content-page">
         <div class="content">
 
             <!-- Start Content-->
             <div class="container-fluid">
-
                 <!-- start page title -->
                 <div class="row">
                     <div class="col-12">
@@ -45,20 +43,14 @@
                                 <div id="cardCollpase4" class="collapse pt-3 show">
                                     <div class="">
                                         <span class="me-2">类型选择</span>
-                                        <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
-                                        <label class="btn btn-outline-primary" for="btncheck1">
-                                            <s:form action="getCommuteAP" method="POST" id="carAp">
-                                                <a   onclick="document:carAp.submit()" >
-                                                    出车申请
-                                                </a>
-                                            </s:form>
-                                        </label>
 
-                                        <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
-                                        <label class="btn btn-outline-primary" for="btncheck2">出借申请</label>
+                                        <label class="btn btn-outline-primary" ><a href="#car">出车申请</a></label>
 
-                                        <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off">
-                                        <label class="btn btn-outline-primary" for="btncheck3">报修申请</label>
+
+                                        <label class="btn btn-outline-primary"><a href="#lend">出借申请</a></label>
+
+
+                                        <label class="btn btn-outline-primary" ><a href="#fix">报修申请</a></label>
                                     </div>
                                     <br>
                                     <div class="table-responsive">
@@ -73,6 +65,9 @@
                                             </tr>
                                             </thead>
                                             <tbody>
+                                            <tr id="car">
+                                                <td><button class="btn btn-primary btn-sm">出车申请</button></td>
+                                            </tr>
                                             <s:iterator value="#request.carAPP" var="ap">
                                             <tr>
                                                 <td>出车申请</td>
@@ -80,12 +75,16 @@
                                                 <td><s:property value="#ap.status"/></td>
                                                 <td><s:property value="#ap.userName"/><br><s:property value="#ap.userID"/></td>
                                                 <td>
-                                                    <button type="button" class="btn btn-info waves-effect waves-light">
-                                                    <i class="mdi mdi-alert-circle-outline"></i>
-                                                    </button>
+                                                    <form action="getCommuteAP.action">
+
+                                                        <button class="btn btn-info waves-effect waves-light" type="submit"><i class="mdi mdi-alert-circle-outline"></i></button>
+                                                    </form>
                                                 </td>
                                             </tr>
                                             </s:iterator>
+                                            <tr id="lend">
+                                                <td><button class="btn btn-primary btn-sm" >出借申请</button></td>
+                                            </tr>
                                             <s:iterator value="#request.lendAPP" var="ap">
                                                 <tr>
                                                     <td>出借申请</td>
@@ -99,6 +98,9 @@
                                                     </td>
                                                 </tr>
                                             </s:iterator>
+                                            <tr id="fix">
+                                                <td><button class="btn btn-primary btn-sm">报修申请</button></td>
+                                            </tr>
                                             <s:iterator value="#request.fixAPP" var="ap">
                                                 <tr>
                                                     <td>报修申请</td>

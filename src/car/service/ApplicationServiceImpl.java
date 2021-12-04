@@ -105,15 +105,14 @@ public class ApplicationServiceImpl implements ApplicationService{
             return true;
         }
     }
-
     public boolean getAllAP(){
         ActionContext ctx = ActionContext.getContext();
         request = (Map) ctx.get("request");
-        String hql1 = "from CarApplication as carApplication ";
+        String hql1 = "from CarApplication as carApplication where status='审核中' ORDER BY applicationDate DESC";
         List<CarApplication> list1 = applicationDao.findByHqlCar(hql1);
-        String hql2 = "from LendApplication as lendApplication";
+        String hql2 = "from LendApplication as lendApplication where status='审核中' ORDER BY applicationDate DESC";
         List<LendApplication> list2 = applicationDao.findByHqlLend(hql2);
-        String hql3 = "from FixApplication as fixApplication";
+        String hql3 = "from FixApplication as fixApplication where status='审核中' ORDER BY applicationDate DESC";
         List<FixApplication> list3 = applicationDao.findByHqlFix(hql3);
         if (list1.isEmpty() && list2.isEmpty() && list3.isEmpty())
             return false;
@@ -124,5 +123,54 @@ public class ApplicationServiceImpl implements ApplicationService{
             return true;
         }
     }
+    public boolean getSingelFixAP(String appid){
+        String hql = "from FixApplication as fixApplication where id='"+appid+"'";
+        List<FixApplication> list = applicationDao.findByHqlFix(hql);
+        if (list.isEmpty()){
+            return false;
+        }
+        else {
+            request.put("FAP", list.get(0));
+            return true;
+        }
+    }
+    public boolean getSingelLendAP(String appid){
+        String hql = "from LendApplication as lendApplication where id='"+appid+"'";
+        List<LendApplication> list = applicationDao.findByHqlLend(hql);
+        if (list.isEmpty()){
+            return false;
+        }
+        else {
+            request.put("LAP", list.get(0));
+            return true;
+        }
+    }
+    public boolean getSingelCommuteAP(String appid){
+        String hql = "from CarApplication as carApplication where id='"+appid+"'";
+        List<CarApplication> list = applicationDao.findByHqlCar(hql);
+        if (list.isEmpty()){
+            return false;
+        }
+        else {
+            request.put("CAP", list.get(0));
+            return true;
+        }
+    }
+    public CarApplication getCAPAjax(String appid){
+        String hql = "from CarApplication as carApplication where id='"+appid+"'";
+        List<CarApplication> list = applicationDao.findByHqlCar(hql);
+        return list.get(0);
+    }
+    public LendApplication getLAPAjax(String appid) {
+        String hql = "from LendApplication as lendApplication where id='"+appid+"'";
+        List<LendApplication> list = applicationDao.findByHqlLend(hql);
+        return list.get(0);
+    }
+    public FixApplication getFAPAjax(String appid) {
+        String hql = "from FixApplication as fixApplication where id='"+appid+"'";
+        List<FixApplication> list = applicationDao.findByHqlFix(hql);
+        return list.get(0);
+    }
+
 
 }
