@@ -60,6 +60,33 @@ public class ApplicationAction {
             return "fail";
         }
     }
+    public String checkCommute(){
+        if (applicationService.checkCommute(carApplication)){
+            System.out.println("CheckCarAP!");
+            return "success";
+        }
+        else {
+            return "fail";
+        }
+    }
+    public String checkLend(){
+        if (applicationService.checkLend(lendApplication)){
+            System.out.println("CheckLendAP!");
+            return "success";
+        }
+        else {
+            return "fail";
+        }
+    }
+    public String checkFix(){
+        if (applicationService.checkFix(fixApplication)){
+            System.out.println("CheckFixAP!");
+            return "success";
+        }
+        else {
+            return "fail";
+        }
+    }
     public String getFixAP(){
         if (applicationService.getFixAP(user.getId())){
             System.out.println("getFixAP!");

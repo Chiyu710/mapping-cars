@@ -75,8 +75,8 @@
                                                 <td><s:property value="#ap.status"/></td>
                                                 <td><s:property value="#ap.userName"/><br><s:property value="#ap.userID"/></td>
                                                 <td>
-                                                    <form action="getCommuteAP.action">
-
+                                                    <form action="getSingleCAP.action">
+                                                        <input value="<s:property value="#ap.id"/>" name="appid" style="display: none">
                                                         <button class="btn btn-info waves-effect waves-light" type="submit"><i class="mdi mdi-alert-circle-outline"></i></button>
                                                     </form>
                                                 </td>
@@ -92,9 +92,10 @@
                                                     <td><s:property value="#ap.status"/></td>
                                                     <td><s:property value="#ap.userName"/><br><s:property value="#ap.userID"/></td>
                                                     <td>
-                                                        <button type="button" class="btn btn-info waves-effect waves-light">
-                                                            <i class="mdi mdi-alert-circle-outline"></i>
-                                                        </button>
+                                                        <form action="getSingleLAP.action">
+                                                            <input value="<s:property value="#ap.id"/>" name="appid" style="display: none">
+                                                            <button class="btn btn-info waves-effect waves-light" type="submit"><i class="mdi mdi-alert-circle-outline"></i></button>
+                                                        </form>
                                                     </td>
                                                 </tr>
                                             </s:iterator>
@@ -108,9 +109,10 @@
                                                     <td><s:property value="#ap.status"/></td>
                                                     <td><s:property value="#ap.userName"/><br><s:property value="#ap.userID"/></td>
                                                     <td>
-                                                        <button type="button" class="btn btn-info waves-effect waves-light">
-                                                            <i class="mdi mdi-alert-circle-outline"></i>
-                                                        </button>
+                                                        <form action="getSingleFAP.action">
+                                                            <input value="<s:property value="#ap.id"/>" name="appid" style="display: none">
+                                                            <button class="btn btn-info waves-effect waves-light" type="submit"><i class="mdi mdi-alert-circle-outline"></i></button>
+                                                        </form>
                                                     </td>
                                                 </tr>
                                             </s:iterator>

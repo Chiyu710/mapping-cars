@@ -17,7 +17,7 @@
 <!-- Begin page -->
 <div id="wrapper">
 
-    <jsp:include page="../view/nav.jsp"></jsp:include>
+    <jsp:include page="../view/nav_admin.jsp"></jsp:include>
     <!-- ============================================================== -->
     <!-- Start Page Content here -->
     <!-- ============================================================== -->
@@ -37,7 +37,6 @@
                     </div>
                 </div>
                 <!-- end page title -->
-
                 <div class="row">
                     <div class="card d-block">
                         <div class="card-body">
@@ -61,9 +60,7 @@
                             <!-- end dropdown-->
                             <!-- end form-check-->
                             <div class="clearfix"></div>
-
-                            <h4><button type="button" class="btn btn-warning me-2">审核中</button>申请单号：ca-12345</h4>
-
+                                <h4><button type="button" class="btn btn-warning me-2">审核中</button>申请单号：car-<s:property value="#request.CAP.id"/></h4>
                             <div class="row">
                                 <div class="col-md-4">
                                     <!-- assignee -->
@@ -71,7 +68,7 @@
                                     <div class="d-flex align-items-start">
                                         <div class="w-100">
                                             <h5 class="mt-1 font-size-14">
-                                                理中客
+                                                <s:property value="#request.CAP.userName"/>
                                             </h5>
                                         </div>
                                     </div>
@@ -85,7 +82,7 @@
                                     <div class="d-flex align-items-start">
                                         <div class="w-100">
                                             <h5 class="mt-1 font-size-14">
-                                                12345
+                                                <s:property value="#request.CAP.carID"/>
                                             </h5>
                                         </div>
                                     </div>
@@ -99,7 +96,7 @@
                                         <i class="mdi mdi-calendar-month-outline font-18 text-success me-1"></i>
                                         <div class="w-100">
                                             <h5 class="mt-1 font-size-14">
-                                                2021-11-14
+                                                <s:property value="#request.CAP.applicationDate"/>
                                             </h5>
                                         </div>
                                     </div>
@@ -109,11 +106,11 @@
 
                                 <div class="col-md-4">
                                     <!-- assignee -->
-                                    <p class="mt-2 mb-1 text-muted">审核员</p>
+                                    <p class="mt-2 mb-1 text-muted">理由</p>
                                     <div class="d-flex align-items-start">
                                         <div class="w-100">
                                             <h5 class="mt-1 font-size-14">
-                                                沈河
+                                                <s:property value="#request.CAP.remarks"/>
                                             </h5>
                                         </div>
                                     </div>
@@ -127,7 +124,7 @@
                                     <div class="d-flex align-items-start">
                                         <div class="w-100">
                                             <h5 class="mt-1 font-size-14">
-                                                yw-125
+                                                yw-<s:property value="#request.CAP.workID"/>
                                             </h5>
                                         </div>
                                     </div>
@@ -141,27 +138,45 @@
                                         <i class="mdi mdi-map-marker font-18 text-primary me-1"></i>
                                         <div class="w-100">
                                             <h5 class="mt-1 font-size-14">
-                                                浙江省杭州市西湖区留和路288号
+                                                <s:property value="#request.CAP.destination"/>
                                             </h5>
                                         </div>
                                     </div>
                                     <!-- end due date -->
                                 </div>
                                 <!-- end col -->
-
                             </div>
                             <!-- end row -->
-                            <div>
-                                <h5 class="mt-3">备注:</h5>
-
-                                <p class="text-muted mb-4">
-                                </p>
+                            <hr class="mt-3">
+                            <s:form action="checkCommute" method="POST">
+                            <div class="row mt-3 mb-1">
+                                <input name="carApplication.id" value="${request.CAP.id}" style="display: none">
+                                <label class="col-md-1 col-form-label" for="handler">管理员签名</label>
+                                <div class="col-md-2">
+                                    <input type="text" class="form-control " id="handler" name="carApplication.handler" placeholder="请输入你的名字">
+                                </div>
+                                <div class="col-md-1"></div>
+                                <div class="btn-group col-md-3" role="group" aria-label="Basic radio toggle button group">
+                                    <input type="radio" class="btn-check" name="carApplication.status" value="已通过" id="btnradio1"  checked>
+                                    <label class="btn btn-outline-primary" for="btnradio1" >通过</label>
+                                    <input type="radio" class="btn-check" name="carApplication.status" value="未通过" id="btnradio2" autocomplete="off">
+                                    <label class="btn btn-outline-primary" for="btnradio2">不予通过</label>
+                                </div>
+                                <div class="col-md-1"></div>
+                                <label class="col-md-1 col-form-label" for="work">管理员意见</label>
+                                <div class="col-md-3">
+                                    <input type="text" id="work" name="123" class="form-control" >
+                                </div>
+                                <hr class="mt-3">
+                                <div class="mt-2">
+                                    <input class="btn btn-primary text-center" type="submit" value="提交" style="width: 500px; height: 40px; font-size: 20px;float: none;display: block;margin-left: auto;margin-right: auto;">
+                                </div>
+                                </s:form>
                             </div>
-
                         </div>
                         <!-- end card-body-->
                     </div>
-                </div>
+            </div>
 
             </div> <!-- container -->
 

@@ -1,6 +1,7 @@
 package car.dao;
 
 
+import car.po.Car;
 import car.po.application.*;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -16,7 +17,7 @@ public class ApplicationDaoImpl extends BaseHibernateDao implements ApplicationD
         try {
             session = getSession();
             tran = session.beginTransaction();
-            session.save(fixApplication);
+            session.saveOrUpdate(fixApplication);
             tran.commit();
         } catch (RuntimeException re) {
 
@@ -32,7 +33,7 @@ public class ApplicationDaoImpl extends BaseHibernateDao implements ApplicationD
         try {
             session = getSession();
             tran = session.beginTransaction();
-            session.save(lendApplication);
+            session.saveOrUpdate(lendApplication);
             tran.commit();
         } catch (RuntimeException re) {
 
@@ -49,7 +50,7 @@ public class ApplicationDaoImpl extends BaseHibernateDao implements ApplicationD
         try {
             session = getSession();
             tran = session.beginTransaction();
-            session.save(carApplication);
+            session.saveOrUpdate(carApplication);
             tran.commit();
         } catch (RuntimeException re) {
 
@@ -59,6 +60,57 @@ public class ApplicationDaoImpl extends BaseHibernateDao implements ApplicationD
             session.close();
         }
     }
+    public CarApplication getCAP(String appid) {
+        Transaction tran = null;
+        Session session = null;
+        try {
+            session = getSession();
+            tran = session.beginTransaction();
+            CarApplication c =session.get(car.po.application.CarApplication.class,appid);
+            System.out.println(c);
+            tran.commit();
+            return c;
+        } catch (RuntimeException re) {
+            if(tran != null) tran.rollback();
+            System.out.println("tran null");
+            throw re;
+        } finally {
+            session.close();
+        }
+    }
+    public LendApplication getLAP(String appid){
+        Transaction tran = null;
+        Session session = null;
+        try {
+            session = getSession();
+            tran = session.beginTransaction();
+            LendApplication c =session.get(car.po.application.LendApplication.class,appid);
+            tran.commit();
+            return c;
+        } catch (RuntimeException re) {
+            if(tran != null) tran.rollback();
+            System.out.println("tran null");
+            throw re;
+        } finally {
+            session.close();
+        }
+    }
+    public FixApplication getFAP(String appid){
+        Transaction tran = null;
+        Session session = null;
+        try {
+            session = getSession();
+            tran = session.beginTransaction();
+            FixApplication c =session.get(car.po.application.FixApplication.class,appid);
+            tran.commit();
+            return c;
+        } catch (RuntimeException re) {
+            if(tran != null) tran.rollback();
+            System.out.println("tran null");
+            throw re;
+        } finally {
+            session.close();
+        }}
     public List<CarApplication> findByHqlCar(String hql){
         Session session = null;
         try {

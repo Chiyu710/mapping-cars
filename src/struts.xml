@@ -7,9 +7,9 @@
 <struts>
     <package name="User" namespace="/" extends="struts-default">
         <action name="login" class="userAction" method="login">
-            <result name="success">staff_index.jsp</result>
-            <result name="adminsuccess">administrator_index.jsp</result>
-            <result name="fail">login.jsp</result>
+            <result name="success">/view_auth/staff_index.jsp</result>
+            <result name="adminsuccess">/view_auth/administrator_index.jsp</result>
+            <result name="fail">/view_auth/login.jsp</result>
         </action>
         <action name="register" class="userAction" method="register">
             <result name="success">suuccess.jsp</result>
@@ -34,6 +34,18 @@
             <result name="success">/view_feedback/submit_success_staff.jsp</result>
             <result name="fail">/view_feedback/error.jsp</result>
         </action>
+        <action name="checkCommute" class="applicationAction" method="checkCommute">
+            <result name="success">/view_feedback/submit_success_admin.jsp</result>
+            <result name="fail">/view_feedback/error.jsp</result>
+        </action>
+        <action name="checkLend" class="applicationAction" method="checkLend">
+            <result name="success">/view_feedback/submit_success_admin.jsp</result>
+            <result name="fail">/view_feedback/error.jsp</result>
+        </action>
+        <action name="checkFix" class="applicationAction" method="checkFix">
+            <result name="success">/view_feedback/submit_success_admin.jsp</result>
+            <result name="fail">/view_feedback/error.jsp</result>
+        </action>
         <action name="getFixAP" class="applicationAction" method="getFixAP">
             <result name="success">/view_application/fix_status.jsp</result>
             <result name="fail">/view_feedback/error.jsp</result>
@@ -46,7 +58,18 @@
             <result name="success">/view_application/car_status.jsp</result>
             <result name="fail">/view_feedback/error.jsp</result>
         </action>
-        
+        <action name="getSingleCAP" class="applicationAction" method="getSingleCommuteAP">
+            <result name="success">/view_check/check_car.jsp</result>
+            <result name="fail">/view_feedback/error.jsp</result>
+        </action>
+        <action name="getSingleFAP" class="applicationAction" method="getSingleFixAP">
+            <result name="success">/view_check/check_fix.jsp</result>
+            <result name="fail">/view_feedback/error.jsp</result>
+        </action>
+        <action name="getSingleLAP" class="applicationAction" method="getSingleLendAP">
+            <result name="success">/view_check/check_lend.jsp</result>
+            <result name="fail">/view_feedback/error.jsp</result>
+        </action>
         <action name="getAllApp" class="applicationAction" method="getAllAP">
             <result name="success">/view_check/check.jsp</result>
             <result name="fail">/view_feedback/error.jsp</result>

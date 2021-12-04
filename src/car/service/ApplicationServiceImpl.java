@@ -54,6 +54,46 @@ public class ApplicationServiceImpl implements ApplicationService{
             return false;
         }
     }
+    public boolean checkFix(FixApplication fixApplication){
+        try {
+            FixApplication c=applicationDao.getFAP(fixApplication.getId());
+            if(c!=null){
+                c.setHandler(fixApplication.getHandler());
+                c.setStatus(fixApplication.getStatus());
+                applicationDao.saveFix(c);
+            }
+            return true;
+        }catch (Exception e) {
+            return false;
+        }
+
+    }
+    public boolean checkLend(LendApplication lendApplication){
+        try {
+            LendApplication c=applicationDao.getLAP(lendApplication.getId());
+            if(c!=null){
+                c.setHandler(lendApplication.getHandler());
+                c.setStatus(lendApplication.getStatus());
+                applicationDao.saveLend(c);
+            }
+            return true;
+        }catch (Exception e) {
+            return false;
+        }
+    }
+    public boolean checkCommute(CarApplication carApplication){
+        try {
+            CarApplication c=applicationDao.getCAP(carApplication.getId());
+            if(c!=null){
+                c.setHandler(carApplication.getHandler());
+                c.setStatus(carApplication.getStatus());
+                applicationDao.saveCommute(c);
+            }
+            return true;
+        }catch (Exception e) {
+            return false;
+        }
+    }
     public boolean getFixAP(String userID){
         ActionContext ctx = ActionContext.getContext();
         request = (Map) ctx.get("request");
@@ -124,6 +164,8 @@ public class ApplicationServiceImpl implements ApplicationService{
         }
     }
     public boolean getSingelFixAP(String appid){
+        ActionContext ctx = ActionContext.getContext();
+        request = (Map) ctx.get("request");
         String hql = "from FixApplication as fixApplication where id='"+appid+"'";
         List<FixApplication> list = applicationDao.findByHqlFix(hql);
         if (list.isEmpty()){
@@ -135,6 +177,8 @@ public class ApplicationServiceImpl implements ApplicationService{
         }
     }
     public boolean getSingelLendAP(String appid){
+        ActionContext ctx = ActionContext.getContext();
+        request = (Map) ctx.get("request");
         String hql = "from LendApplication as lendApplication where id='"+appid+"'";
         List<LendApplication> list = applicationDao.findByHqlLend(hql);
         if (list.isEmpty()){
@@ -146,8 +190,11 @@ public class ApplicationServiceImpl implements ApplicationService{
         }
     }
     public boolean getSingelCommuteAP(String appid){
+        ActionContext ctx = ActionContext.getContext();
+        request = (Map) ctx.get("request");
         String hql = "from CarApplication as carApplication where id='"+appid+"'";
         List<CarApplication> list = applicationDao.findByHqlCar(hql);
+        System.out.println(list);
         if (list.isEmpty()){
             return false;
         }
