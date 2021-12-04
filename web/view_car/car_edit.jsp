@@ -52,7 +52,6 @@
                     <div class="col-lg-10 mmmd">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="text-uppercase bg-light p-2 mt-0 mb-3">General</h5>
                                 <div class="row">
                                     <div class="mb-3 col-4">
                                         <label for="car-id" class="form-label">查勘车号 <span class="text-danger">*</span></label>
@@ -194,7 +193,6 @@
                         <div class="col-12">
                             <div class="text-center mb-3">
                                 <button onclick="document:carsave.submit()" class="btn w-sm btn-success waves-effect waves-light" >Save</button>
-                                <button type="button" class="btn w-sm btn-danger waves-effect waves-light">Delete</button>
                             </div>
                         </div> <!-- end col -->
                     </div>

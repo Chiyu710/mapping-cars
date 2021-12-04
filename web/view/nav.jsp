@@ -168,7 +168,7 @@
 
                             <s:form action="getStaffDriveLog" method="POST" id="DLog">
                                 <input name="userID" value="${session.user.id}" style="display: none">
-                                <a onclick="document:DLog.submit()" class="dropdown-item"><i class="fe-map me-1"></i>行车日志</a>
+                                <a onclick="document:DLog.submit()" class="dropdown-item"><i class="fe-map me-1"></i> 行车日志</a>
                             </s:form>
                             <s:form action="getStaffVIO" method="POST" id="VLog">
                                 <input name="userID" value="${session.user.id}" style="display: none">

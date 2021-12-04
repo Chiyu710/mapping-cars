@@ -153,17 +153,17 @@
                         <div class="dropdown-menu" aria-labelledby="topnav-apps">
                             <s:form action="getNot" method="POST" id="NOT">
                                 <a  class="dropdown-item" onclick="document:NOT.submit()">
-                                <i class="ti-car me-1"></i>已发布通知
+                                <i class="fe-clipboard me-1"></i> 已发布通知
                                 </a>
                             </s:form>
-                                <a href="../view_notification/notification_release.jsp" class="dropdown-item"><i class="fe-monitor"></i>通知发布</a>
+                                <a href="../view_notification/notification_release.jsp" class="dropdown-item"><i class="fe-clipboard"></i>  &nbsp;&nbsp;通知发布</a>
                         </div>
                     </li>
 
                     <li class="nav-item dropdown">
                         <s:form action="SaveVio" method="POST" id="svVio">
                             <a class="nav-link"    href="../view_log/violation_release.jsp" role="button">
-                                <i class="ti-car me-1"></i>违规记录发布
+                                <i class="ti-bookmark me-1"></i>违规记录发布
                             </a>
                         </s:form>
                     </li>

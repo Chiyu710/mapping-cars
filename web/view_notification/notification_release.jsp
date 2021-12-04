@@ -51,7 +51,6 @@
                     <div class="col-lg-10 mmmd">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="text-uppercase bg-light p-2 mt-0 mb-3">General</h5>
                                 <div class="row">
                                     <div class="mb-3 col-12">
                                         <label for="car-id" class="form-label">标题 <span
