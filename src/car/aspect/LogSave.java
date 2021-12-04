@@ -62,7 +62,7 @@ public class LogSave {
         carService.saveCarAfterDrive(car);
         System.out.println("after drive car status change");
     }
-
+    
     @Pointcut("execution(* car.service.CarService.gotCarInfo(..))")
     public void carinfoget(){}
     @After("carinfoget()")
