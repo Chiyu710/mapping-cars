@@ -7,19 +7,61 @@
     <title>MAPPING CARS MANAGE INDEX</title>
     <jsp:include page="../view/header.jsp"></jsp:include>
     <script src="../assets/libs/toastr/node_modules/jquery/jquery.min.js"></script>
-    <script src="../assets/js/echarts.js"></script>
+    <script src="../assets/js/echarts.js">
+    </script>
     <script type="text/javascript">
-        $(document).ready(function() {
-            //var staffChart = echarts.init(document.getElementById('staffChart'));
-            //staffChart.showLoading();
+        $(document).ready(function () {
+            var staffchartDom = document.getElementById('staffChart');
+            var staffChart = echarts.init(staffchartDom);
+            var option;
+            staffChart.showLoading();
             $.ajax({
-                url:"getUserStaAjax",
-                type:"POST",
-                dataType:"JSON",
-                success:function (data){
-                    $("#free_staff").val(data[0].freeStaff_num);
-                    $("#busy_staff").val(data[0].busyStaff_num);
-                    $("#vac_staff").val(data[0].closeStaff_num);
+                url: "getUserStaAjax",
+                type: "POST",
+                dataType: "JSON",
+                success: function (data) {
+                    staffChart.hideLoading();
+                    $('#free_staff').text(data.freeStaff_num);
+                    $("#busy_staff").text(data.busyStaff_num);
+                    $("#vac_staff").text(data.closeStaff_num);
+                    option = {
+                        tooltip: {
+                            trigger: 'item'
+                        },
+                        legend: {
+                            top: '5%',
+                            left: 'center'
+                        },
+                        color: ['#FF4500', '#3CB371', '#708090'],
+                        series: [
+                            {
+                                name: '',
+                                type: 'pie',
+                                radius: ['40%', '70%'],
+                                avoidLabelOverlap: false,
+                                label: {
+                                    show: false,
+                                    position: 'center'
+                                },
+                                emphasis: {
+                                    label: {
+                                        show: true,
+                                        fontSize: '20',
+                                        fontWeight: 'bold'
+                                    }
+                                },
+                                labelLine: {
+                                    show: false
+                                },
+                                data: [
+                                    {value: data.busyStaff_num, name: '工作中人员'},
+                                    {value: data.freeStaff_num, name: '空闲人员'},
+                                    {value: data.closeStaff_num, name: '休假人员'},
+                                ]
+                            }
+                        ]
+                    };
+                    option && staffChart.setOption(option);
                 }
             })
         })
@@ -163,8 +205,9 @@
                                             </div>
                                         </div> <!-- end row -->
 
-                                        <div>
-                                            <div id="staffChart" class="morris-chart mt-3"></div>
+                                        <div class="ms-3">
+                                            <div id="staffChart" class="morris-chart mt-3 ms-3"
+                                                 style="width: 300px;height:350px;"></div>
                                         </div>
 
                                     </div>
@@ -239,6 +282,7 @@
 
         </div> <!-- content -->
 
+
         <jsp:include page="../view/footer.jsp"></jsp:include>
 
     </div>
@@ -257,13 +301,11 @@
 <!-- Plugins js-->
 <script src="../assets/libs/flatpickr/flatpickr.min.js"></script>
 <script src="../assets/libs/apexcharts/apexcharts.min.js"></script>
-<script src="../assets/libs/morris.js06/morris.min.js"></script>
 <script src="../assets/libs/raphael/raphael.min.js"></script>
 
 <script src="../assets/libs/selectize/js/standalone/selectize.min.js"></script>
 
 <!-- Dashboar 1 init js-->
-<script src="../assets/js/pages/dashboard-4.init.js"></script>
 
 <!-- App js-->
 <script src="../assets/js/app.min.js"></script>
