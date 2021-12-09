@@ -26,15 +26,11 @@ public class LogSave {
     private LogService logService;
     @Autowired
     private CarService carService;
-
     @Autowired
     private ApplicationService applicationService;
-
     @Autowired
     private Car car ;
-
     private DriveLog driveLog;
-
 
     @Pointcut("execution(* car.service.UserService.changeStatus(..))")
     public void statuschange(){}

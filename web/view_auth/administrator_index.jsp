@@ -6,6 +6,24 @@
     <meta charset="utf-8"/>
     <title>MAPPING CARS MANAGE INDEX</title>
     <jsp:include page="../view/header.jsp"></jsp:include>
+    <script src="../assets/libs/toastr/node_modules/jquery/jquery.min.js"></script>
+    <script src="../assets/js/echarts.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            //var staffChart = echarts.init(document.getElementById('staffChart'));
+            //staffChart.showLoading();
+            $.ajax({
+                url:"getUserStaAjax",
+                type:"POST",
+                dataType:"JSON",
+                success:function (data){
+                    $("#free_staff").val(data[0].freeStaff_num);
+                    $("#busy_staff").val(data[0].busyStaff_num);
+                    $("#vac_staff").val(data[0].closeStaff_num);
+                }
+            })
+        })
+    </script>
 </head>
 
 <!-- body start -->
@@ -37,8 +55,7 @@
                 </div>
                 <!-- end page title -->
                 <div class="row">
-                    <div class="col-xl-1"></div>
-                    <div class="col-lg-4 col-xl-4">
+                    <div class="col-4 ">
                         <div class="card text-center">
                             <div class="card-body">
                                 <h4 class="mb-0"><s:property value="#session.loginUser.name"/></h4>
@@ -60,14 +77,20 @@
                             </div>
                         </div> <!-- end card -->
                     </div> <!-- end col-->
-                    <div class="col-xl-1"></div>
-                    <div class="col-lg-4 col-xl-6">
+                    <div class="col-3 ">
+                            <div class="card">
+                                <img class="card-img-top img-fluid" src="../assets/images/small/img-2.jpg" alt="Card image cap">
+                                <div class="card-body btn mb-1">
+                                    <h5 class="mt-1 card-title text-center font-20 mb-1"><a href="../view_notification/notification_release.jsp">通知发布</a></h5>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="col-5 ">
                         <div class="card text-center">
                             <div class="card-body">
 
                                 <h4 class="header-title mb-0">未审核业务</h4>
-
-                                <div id="cardCollpase4" class="collapse pt-3 show">
+                                <div id="cardCollpase4" class="collapse pt-2 show">
                                     <div class="table-responsive">
                                         <table class="table table-centered table-nowrap table-borderless mb-0">
                                             <thead class="table-light">
@@ -98,18 +121,86 @@
                                                 </td>
                                             </tr>
                                             </tbody>
+
                                         </table>
+                                        <form action="getAllNF.action" method="POST" id="GetAllNF">
+                                            <a onclick="document:GetAllNF.submit()" class="dropdown-item text-center text-primary notify-item notify-all">
+                                                <input value="${session.user.id}" name="userID" style="display: none">
+                                                立即审核
+                                                <i class="fe-arrow-right"></i>
+                                            </a>
+                                        </form>
                                     </div> <!-- .table-responsive -->
                                 </div> <!-- end collapse-->
                             </div> <!-- end card-body-->
                         </div>
                     </div>
-                    <div class="col-xl-1"></div>
                 </div>
                 <!-- end row-->
 
                 <div class="row">
-                    <div class="col-xl-4"></div>
+                    <div class="col-xl-4 col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+
+                                <h4 class="header-title mb-0">员工状态分布</h4>
+
+                                <div id="cardCollpase1" class="collapse pt-3 show">
+                                    <div class="text-center">
+
+                                        <div class="row mt-2">
+                                            <div class="col-4">
+                                                <h3 data-plugin="counterup" id="busy_staff"></h3>
+                                                <p class="text-muted font-13 mb-0 text-truncate">工作中人数</p>
+                                            </div>
+                                            <div class="col-4">
+                                                <h3 data-plugin="counterup" id="free_staff"></h3>
+                                                <p class="text-muted font-13 mb-0 text-truncate">空闲人数</p>
+                                            </div>
+                                            <div class="col-4">
+                                                <h3 data-plugin="counterup" id="vac_staff"></h3>
+                                                <p class="text-muted font-13 mb-0 text-truncate">休假人数</p>
+                                            </div>
+                                        </div> <!-- end row -->
+
+                                        <div>
+                                            <div id="staffChart" class="morris-chart mt-3"></div>
+                                        </div>
+
+                                    </div>
+                                </div> <!-- end collapse-->
+                            </div> <!-- end card-body-->
+                        </div> <!-- end card-->
+                    </div> <!-- end col-->
+                    <div class="col-xl-4 col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+
+                                <h4 class="header-title mb-0">出车单数</h4>
+
+                                <div id="cardCollpase2" class="collapse pt-3 show">
+                                    <div class="text-center">
+
+                                        <div class="row mt-2">
+                                            <div class="col-6">
+                                                <h3 data-plugin="counterup">1280</h3>
+                                                <p class="text-muted font-13 mb-0 text-truncate">今日出车单数</p>
+                                            </div>
+                                            <div class="col-6">
+                                                <h3 data-plugin="counterup">1500</h3>
+                                                <p class="text-muted font-13 mb-0 text-truncate">平均出车单数</p>
+                                            </div>
+                                        </div> <!-- end row -->
+
+                                        <div  dir="ltr">
+                                            <div id="statistics-chart2" data-colors="#44cf9c" style="height: 270px;" class="morris-chart mt-3"></div>
+                                        </div>
+
+                                    </div>
+                                </div> <!-- end collapse-->
+                            </div> <!-- end card-body-->
+                        </div> <!-- end card-->
+                    </div> <!-- end col-->
                     <div class="col-xl-4 col-md-6">
                         <div class="card">
                             <div class="card-body">
@@ -131,7 +222,7 @@
                                         </div> <!-- end row -->
 
                                         <div  dir="ltr">
-                                            <div id="statistics-chart" data-colors="#44cf9c" style="height: 270px;" class="morris-chart mt-3"></div>
+                                            <div id="statistics-chart3" data-colors="#44cf9c" style="height: 270px;" class="morris-chart mt-3"></div>
                                         </div>
 
                                     </div>
@@ -139,13 +230,6 @@
                             </div> <!-- end card-body-->
                         </div> <!-- end card-->
                     </div> <!-- end col-->
-
-
-
-
-
-
-
                 </div>
                 <!-- end row -->
 

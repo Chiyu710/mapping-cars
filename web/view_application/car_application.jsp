@@ -21,9 +21,6 @@
     <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=b0af08c849bbffa3cab92acc26b93ebc&plugin=AMap.Autocomplete,AMap.PlaceSearch"></script>
     <script type="text/javascript" src="https://cache.amap.com/lbs/static/addToolbar.js"></script>
     <script type="text/javascript">
-
-
-
     $(document).ready(function() {
             const cars = document.getElementById("carSelect");
             $.ajax({
@@ -61,9 +58,6 @@
                 });
             });
         })
-
-
-
     </script>
 
 </head>

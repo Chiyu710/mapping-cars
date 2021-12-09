@@ -1,5 +1,6 @@
 package car.action;
 
+import car.po.Statistics;
 import car.po.User;
 import car.po.record.StatusLog;
 import car.service.UserService;
@@ -27,6 +28,10 @@ public class UserAction {
     private int p;
     public int getP() {return p;}
     public void setP(int p) {this.p = p;}
+
+    Statistics statistics;
+    public Statistics getStatistics() {return statistics;}
+    public void setStatistics(Statistics statistics) {this.statistics = statistics;}
 
     public String login() {
         if(p==0){
@@ -63,5 +68,9 @@ public class UserAction {
         }
     }
 
+    public String getUserSta(){
+        statistics=userService.getUserStatistics();
+        return "ajax";
+    }
 
 }

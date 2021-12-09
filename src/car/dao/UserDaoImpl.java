@@ -1,11 +1,9 @@
 package car.dao;
 
-import car.po.Admin;
-import car.po.User;
+import car.po.*;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
-
 import java.util.List;
 
 public class UserDaoImpl extends BaseHibernateDao implements UserDao {
@@ -83,7 +81,27 @@ public class UserDaoImpl extends BaseHibernateDao implements UserDao {
             session.close();
         }
     }
+    public long getUserStatistic(String hql){
+        Transaction tran = null;
+        Session session = null;
+        try {
+            session = getSession();
+            tran = session.beginTransaction();
+            String queryString = hql;
+            Query query=session.createQuery(queryString);
+            long count = (long)query.uniqueResult();
+            System.out.println(count);
+            tran.commit();
+            return count;
 
+        } catch (RuntimeException re) {
+
+            if(tran != null) tran.rollback();
+            throw re;
+        } finally {
+            session.close();
+        }
+    }
 }
 
 

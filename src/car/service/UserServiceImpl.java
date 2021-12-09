@@ -2,6 +2,7 @@ package car.service;
 
 import car.dao.UserDao;
 import car.po.Admin;
+import car.po.Statistics;
 import car.po.User;
 import car.po.record.StatusLog;
 import com.opensymphony.xwork2.ActionContext;
@@ -76,6 +77,16 @@ public class UserServiceImpl implements UserService {
         }catch (Exception e) {
             return false;
         }
+    }
+    public Statistics getUserStatistics(){
+        Statistics statistics = new Statistics();
+        String hql = "select count(id) from User where status='可以出车'";
+        statistics.setFreeStaff_num(userDao.getUserStatistic(hql));
+        hql = "select count(id) from User where status='无法出车'";
+        statistics.setBusyStaff_num(userDao.getUserStatistic(hql));
+        hql = "select count(id) from User where status='休假'";
+        statistics.setCloseStaff_num(userDao.getUserStatistic(hql));
+        return statistics;
     }
 
 }

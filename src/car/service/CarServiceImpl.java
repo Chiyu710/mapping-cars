@@ -2,6 +2,7 @@ package car.service;
 
 import car.dao.CarDao;
 import car.po.Car;
+import car.po.Statistics;
 import car.po.record.DriveLog;
 import com.opensymphony.xwork2.ActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -120,4 +121,5 @@ public class CarServiceImpl implements CarService{
             return false;
         }
     }
+
 }

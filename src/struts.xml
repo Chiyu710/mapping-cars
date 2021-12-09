@@ -170,6 +170,13 @@
                 <param name="root">fixApplication</param>
             </result>
         </action>
+
+        <action name="getUserStaAjax" class="userAction" method="getUserSta">
+            <result name="ajax" type="json">
+                <param name="root">statistics</param>
+            </result>
+        </action>
+
     </package>
 
 <!--    <package name="Admin" namespace="/" extends="struts-default">-->
