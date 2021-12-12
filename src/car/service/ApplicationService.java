@@ -1,5 +1,6 @@
 package car.service;
 
+import car.po.Statistics;
 import car.po.application.*;
 
 import java.util.Date;
@@ -19,6 +20,7 @@ public interface ApplicationService {
     boolean getSingelFixAP(String appid);
     boolean getSingelLendAP(String appid);
     boolean getSingelCommuteAP(String appid);
+    Statistics getAppStatistics();
     CarApplication getCAPAjax(String appid);
     LendApplication getLAPAjax(String appid);
     FixApplication getFAPAjax(String appid);

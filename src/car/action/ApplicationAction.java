@@ -1,5 +1,6 @@
 package car.action;
 
+import car.po.Statistics;
 import car.po.User;
 import car.po.application.*;
 import car.service.ApplicationService;
@@ -20,6 +21,9 @@ public class ApplicationAction {
     private LendApplication lendApplication;
     public LendApplication getLendApplication() {return lendApplication;}
     public void setLendApplication(LendApplication lendApplication) {this.lendApplication = lendApplication;}
+    Statistics statistics;
+    public Statistics getStatistics() {return statistics;}
+    public void setStatistics(Statistics statistics) {this.statistics = statistics;}
 
     private User user;
     public User getUser() {return user;}
@@ -163,6 +167,10 @@ public class ApplicationAction {
     }
     public String takeFAPAjax(){
         fixApplication=applicationService.getFAPAjax(appid);
+        return "ajax";
+    }
+    public String getAppStatistics(){
+        statistics=applicationService.getAppStatistics();
         return "ajax";
     }
 }

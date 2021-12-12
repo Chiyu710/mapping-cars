@@ -13,7 +13,7 @@
         $(document).ready(function () {
             var staffchartDom = document.getElementById('staffChart');
             var staffChart = echarts.init(staffchartDom);
-            var option;
+            var staffOption;
             staffChart.showLoading();
             $.ajax({
                 url: "getUserStaAjax",
@@ -24,7 +24,7 @@
                     $('#free_staff').text(data.freeStaff_num);
                     $("#busy_staff").text(data.busyStaff_num);
                     $("#vac_staff").text(data.closeStaff_num);
-                    option = {
+                    staffOption = {
                         tooltip: {
                             trigger: 'item'
                         },
@@ -61,9 +61,141 @@
                             }
                         ]
                     };
-                    option && staffChart.setOption(option);
+                    staffOption && staffChart.setOption(staffOption);
                 }
             })
+
+            var appchartDom = document.getElementById('AppChart');
+            var appChart = echarts.init(appchartDom);
+            var appOption;
+            appChart.showLoading();
+            $.ajax({
+                url: "getAppStaAjax",
+                type: "POST",
+                dataType: "JSON",
+                success: function (data) {
+                    appChart.hideLoading();
+                    var carAppNum=0+data.carApp_num1+data.carApp_num3;
+                    var fixAppNum=0+data.fixApp_num1+data.fixApp_num2+data.fixApp_num3;
+                    var lendAppNum=0+data.lendApp_num1+data.lendApp_num2+data.lendApp_num3;
+                    $('#carAp').text(carAppNum);
+                    $("#fixAP").text(fixAppNum);
+                    $("#lendAP").text(lendAppNum);
+                    appOption= {
+                        tooltip: {
+                            trigger: 'axis',
+                            axisPointer: {
+                                type: 'shadow'
+                            }
+                        },
+                        legend: {},
+                        grid: {
+                            left: '3%',
+                            right: '4%',
+                            bottom: '3%',
+                            containLabel: true
+                        },
+                        xAxis: [
+                            {
+                                type: 'category',
+                                data: ['派车单', '派修单', '借车单']
+                            }
+                        ],
+                        yAxis: [
+                            {
+                                type: 'value'
+                            }
+                        ],
+                        series: [
+                            {
+                                name: '已完成',
+                                type: 'bar',
+                                stack: 'Ad',
+                                emphasis: {
+                                    focus: 'series'
+                                },
+                                data: [data.carApp_num1, data.fixApp_num1, data.lendApp_num1]
+                            },
+                            {
+                                name: '进行中',
+                                type: 'bar',
+                                stack: 'Ad',
+                                emphasis: {
+                                    focus: 'series'
+                                },
+                                data: [data.carApp_num2, data.fixApp_num2, data.lendApp_num2]
+                            },
+                            {
+                                name: '待审核',
+                                type: 'bar',
+                                stack: 'Ad',
+                                emphasis: {
+                                    focus: 'series'
+                                },
+                                data: [data.carApp_num3, data.fixApp_num3, data.lendApp_num3]
+                            },
+                        ]
+                    };
+                    appOption && appChart.setOption(appOption);
+                }
+            })
+
+            var carchartDom = document.getElementById('CarChart');
+            var carChart = echarts.init(carchartDom);
+            var carOption;
+            carChart.showLoading();
+            $.ajax({
+                url: "getCarStaAjax",
+                type: "POST",
+                dataType: "JSON",
+                success: function (data) {
+                    carChart.hideLoading();
+                    $('#free_car').text(data.freeCar_num);
+                    $("#busy_car").text(data.busyCar_num);
+                    $("#close_car").text(data.closeCar_num);
+                    carOption = {
+                        tooltip: {
+                            trigger: 'item'
+                        },
+                        legend: {
+                            top: '5%',
+                            left: 'center'
+                        },
+                        color: ['#FF4500', '#3CB371', '#708090'],
+                        series: [
+                            {
+                                name: '',
+                                type: 'pie',
+                                radius: ['40%', '70%'],
+                                avoidLabelOverlap: false,
+                                label: {
+                                    show: false,
+                                    position: 'center'
+                                },
+                                emphasis: {
+                                    label: {
+                                        show: true,
+                                        fontSize: '20',
+                                        fontWeight: 'bold'
+                                    }
+                                },
+                                labelLine: {
+                                    show: false
+                                },
+                                data: [
+                                    {value: data.busyCar_num, name: '运行车辆'},
+                                    {value: data.freeCar_num, name: '空闲车辆'},
+                                    {value: data.closeCar_num, name: '停用车辆'},
+                                ]
+                            }
+                        ]
+                    };
+                    carOption && carChart.setOption(carOption);
+                }
+            })
+
+
+
         })
     </script>
 </head>
@@ -219,24 +351,29 @@
                         <div class="card">
                             <div class="card-body">
 
-                                <h4 class="header-title mb-0">出车单数</h4>
+                                <h4 class="header-title mb-0">今日业务</h4>
 
                                 <div id="cardCollpase2" class="collapse pt-3 show">
                                     <div class="text-center">
 
                                         <div class="row mt-2">
-                                            <div class="col-6">
-                                                <h3 data-plugin="counterup">1280</h3>
-                                                <p class="text-muted font-13 mb-0 text-truncate">今日出车单数</p>
+                                            <div class="col-4">
+                                                <h3 data-plugin="counterup" id="carAp"></h3>
+                                                <p class="text-muted font-13 mb-0 text-truncate">今日派车单数</p>
                                             </div>
-                                            <div class="col-6">
-                                                <h3 data-plugin="counterup">1500</h3>
-                                                <p class="text-muted font-13 mb-0 text-truncate">平均出车单数</p>
+                                            <div class="col-4">
+                                                <h3 data-plugin="counterup" id="fixAP"></h3>
+                                                <p class="text-muted font-13 mb-0 text-truncate">今日派修单数</p>
+                                            </div>
+                                            <div class="col-4">
+                                                <h3 data-plugin="counterup" id="lendAP"></h3>
+                                                <p class="text-muted font-13 mb-0 text-truncate">今日借车单数</p>
                                             </div>
                                         </div> <!-- end row -->
 
-                                        <div  dir="ltr">
-                                            <div id="statistics-chart2" data-colors="#44cf9c" style="height: 270px;" class="morris-chart mt-3"></div>
+                                        <div class="ms-3">
+                                            <div id="AppChart" class="morris-chart mt-3 ms-3"
+                                                 style="width: 300px;height:350px;"></div>
                                         </div>
 
                                     </div>
@@ -247,25 +384,28 @@
                     <div class="col-xl-4 col-md-6">
                         <div class="card">
                             <div class="card-body">
-
-                                <h4 class="header-title mb-0">出车单数</h4>
-
+                                <h4 class="header-title mb-0">部门车辆</h4>
                                 <div id="cardCollpase3" class="collapse pt-3 show">
                                     <div class="text-center">
 
                                         <div class="row mt-2">
-                                            <div class="col-6">
-                                                <h3 data-plugin="counterup">1280</h3>
-                                                <p class="text-muted font-13 mb-0 text-truncate">今日出车单数</p>
+                                            <div class="col-4">
+                                                <h3 data-plugin="counterup" id="busy_car"></h3>
+                                                <p class="text-muted font-13 mb-0 text-truncate">运行中车辆</p>
                                             </div>
-                                            <div class="col-6">
-                                                <h3 data-plugin="counterup">1500</h3>
-                                                <p class="text-muted font-13 mb-0 text-truncate">平均出车单数</p>
+                                            <div class="col-4">
+                                                <h3 data-plugin="counterup" id="free_car"></h3>
+                                                <p class="text-muted font-13 mb-0 text-truncate">可用车辆</p>
+                                            </div>
+                                            <div class="col-4">
+                                                <h3 data-plugin="counterup" id="close_car"></h3>
+                                                <p class="text-muted font-13 mb-0 text-truncate">停用车辆</p>
                                             </div>
                                         </div> <!-- end row -->
 
-                                        <div  dir="ltr">
-                                            <div id="statistics-chart3" data-colors="#44cf9c" style="height: 270px;" class="morris-chart mt-3"></div>
+                                        <div class="ms-3">
+                                            <div id="CarChart" class="morris-chart mt-3 ms-3"
+                                                 style="width: 300px;height:350px;"></div>
                                         </div>
 
                                     </div>

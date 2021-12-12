@@ -1,6 +1,7 @@
 package car.action;
 
 import car.po.Car;
+import car.po.Statistics;
 import car.service.CarService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -27,6 +28,10 @@ public class CarAction {
     int carId;
     public int getCarId() {return carId;}
     public void setCarId(int carId) {this.carId = carId;}
+
+    Statistics statistics;
+    public Statistics getStatistics() {return statistics;}
+    public void setStatistics(Statistics statistics) {this.statistics = statistics;}
 
 
 
@@ -61,6 +66,11 @@ public class CarAction {
             return "success";
         }
         else return "fail";
+    }
+
+    public String getCarStatistics(){
+        statistics=carService.getCarStatistics();
+        return "ajax";
     }
 
 }

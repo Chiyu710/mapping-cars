@@ -8,4 +8,5 @@ public interface CarDao {
     List<Car> findByHql(String hql);
     void saveCar(Car car);
     Car getCar(String carid);
+    long getCarStatistic(String hql);
 }

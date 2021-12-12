@@ -2,6 +2,7 @@ package car.service;
 
 import car.dao.ApplicationDao;
 
+import car.po.Statistics;
 import car.po.application.*;
 import com.opensymphony.xwork2.ActionContext;
 
@@ -217,6 +218,29 @@ public class ApplicationServiceImpl implements ApplicationService{
         String hql = "from FixApplication as fixApplication where id='"+appid+"'";
         List<FixApplication> list = applicationDao.findByHqlFix(hql);
         return list.get(0);
+    }
+    public Statistics getAppStatistics(){
+        Statistics statistics = new Statistics();
+        String hql = "select count(id) from CarApplication where status='已完成' and date = curdate()";
+        statistics.setCarApp_num1(applicationDao.getAppStatistic(hql));
+        hql = "select count(id) from CarApplication where status='审核中' and date = curdate()";
+        statistics.setCarApp_num3(applicationDao.getAppStatistic(hql));
+
+        hql = "select count(id) from FixApplication where status='已完成' and date = curdate()";
+        statistics.setFixApp_num1(applicationDao.getAppStatistic(hql));
+        hql = "select count(id) from FixApplication where status='已通过' and date = curdate()";
+        statistics.setFixApp_num2(applicationDao.getAppStatistic(hql));
+        hql = "select count(id) from FixApplication where status='审核中' and date = curdate()";
+        statistics.setFixApp_num3(applicationDao.getAppStatistic(hql));
+
+        hql = "select count(id) from LendApplication where status='已完成' and date = curdate()";
+        statistics.setLendApp_num1(applicationDao.getAppStatistic(hql));
+        hql = "select count(id) from LendApplication where status='已通过' and date = curdate()";
+        statistics.setLendApp_num2(applicationDao.getAppStatistic(hql));
+        hql = "select count(id) from LendApplication where status='审核中' and date = curdate()";
+        statistics.setLendApp_num3(applicationDao.getAppStatistic(hql));
+
+        return statistics;
     }
 
 

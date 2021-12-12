@@ -177,6 +177,17 @@
             </result>
         </action>
 
+        <action name="getCarStaAjax" class="carAction" method="getCarStatistics">
+            <result name="ajax" type="json">
+                <param name="root">statistics</param>
+            </result>
+        </action>
+
+        <action name="getAppStaAjax" class="applicationAction" method="getAppStatistics">
+            <result name="ajax" type="json">
+                <param name="root">statistics</param>
+            </result>
+        </action>
     </package>
 
 <!--    <package name="Admin" namespace="/" extends="struts-default">-->

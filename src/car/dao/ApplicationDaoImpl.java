@@ -150,4 +150,25 @@ public class ApplicationDaoImpl extends BaseHibernateDao implements ApplicationD
             session.close();
         }
     }
+    public long getAppStatistic(String hql){
+        Transaction tran = null;
+        Session session = null;
+        try {
+            session = getSession();
+            tran = session.beginTransaction();
+            String queryString = hql;
+            Query query=session.createQuery(queryString);
+            long count = (long)query.uniqueResult();
+            tran.commit();
+            return count;
+
+        } catch (RuntimeException re) {
+
+            if(tran != null) tran.rollback();
+            throw re;
+        } finally {
+            session.close();
+        }
+    }
+
 }

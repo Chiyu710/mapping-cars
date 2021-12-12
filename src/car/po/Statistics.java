@@ -9,9 +9,16 @@ public class Statistics {
     long freeCar_num;
     long busyCar_num;
     long closeCar_num;
-    long carApp_num;
-    long fixApp_num;
-    long lenApp_num;
+    //1-已完成 2-进行中 3-待审核
+    long carApp_num1;
+    long carApp_num2;
+    long carApp_num3;
+    long fixApp_num1;
+    long fixApp_num2;
+    long fixApp_num3;
+    long lendApp_num1;
+    long lendApp_num2;
+    long lendApp_num3;
     Date date;
 
     public long getFreeStaff_num() {
@@ -62,28 +69,76 @@ public class Statistics {
         this.closeCar_num = closeCar_num;
     }
 
-    public long getCarApp_num() {
-        return carApp_num;
+    public long getCarApp_num1() {
+        return carApp_num1;
     }
 
-    public void setCarApp_num(long carApp_num) {
-        this.carApp_num = carApp_num;
+    public void setCarApp_num1(long carApp_num1) {
+        this.carApp_num1 = carApp_num1;
     }
 
-    public long getFixApp_num() {
-        return fixApp_num;
+    public long getCarApp_num2() {
+        return carApp_num2;
     }
 
-    public void setFixApp_num(long fixApp_num) {
-        this.fixApp_num = fixApp_num;
+    public void setCarApp_num2(long carApp_num2) {
+        this.carApp_num2 = carApp_num2;
     }
 
-    public long getLenApp_num() {
-        return lenApp_num;
+    public long getCarApp_num3() {
+        return carApp_num3;
     }
 
-    public void setLenApp_num(long lenApp_num) {
-        this.lenApp_num = lenApp_num;
+    public void setCarApp_num3(long carApp_num3) {
+        this.carApp_num3 = carApp_num3;
+    }
+
+    public long getFixApp_num1() {
+        return fixApp_num1;
+    }
+
+    public void setFixApp_num1(long fixApp_num1) {
+        this.fixApp_num1 = fixApp_num1;
+    }
+
+    public long getFixApp_num2() {
+        return fixApp_num2;
+    }
+
+    public void setFixApp_num2(long fixApp_num2) {
+        this.fixApp_num2 = fixApp_num2;
+    }
+
+    public long getFixApp_num3() {
+        return fixApp_num3;
+    }
+
+    public void setFixApp_num3(long fixApp_num3) {
+        this.fixApp_num3 = fixApp_num3;
+    }
+
+    public long getLendApp_num1() {
+        return lendApp_num1;
+    }
+
+    public void setLendApp_num1(long lendApp_num1) {
+        this.lendApp_num1 = lendApp_num1;
+    }
+
+    public long getLendApp_num2() {
+        return lendApp_num2;
+    }
+
+    public void setLendApp_num2(long lendApp_num2) {
+        this.lendApp_num2 = lendApp_num2;
+    }
+
+    public long getLendApp_num3() {
+        return lendApp_num3;
+    }
+
+    public void setLendApp_num3(long lendApp_num3) {
+        this.lendApp_num3 = lendApp_num3;
     }
 
     public Date getDate() {

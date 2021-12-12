@@ -2,6 +2,7 @@ package car.service;
 
 
 import car.po.Car;
+import car.po.Statistics;
 
 import java.util.List;
 
@@ -22,4 +23,6 @@ public interface CarService {
 
     //0-free 1-busy 2-abandoned
     boolean carStatusChange(String carID,int status);
+
+    Statistics getCarStatistics();
 }

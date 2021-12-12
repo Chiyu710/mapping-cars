@@ -90,7 +90,6 @@ public class UserDaoImpl extends BaseHibernateDao implements UserDao {
             String queryString = hql;
             Query query=session.createQuery(queryString);
             long count = (long)query.uniqueResult();
-            System.out.println(count);
             tran.commit();
             return count;
 

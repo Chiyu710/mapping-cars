@@ -121,5 +121,15 @@ public class CarServiceImpl implements CarService{
             return false;
         }
     }
+    public Statistics getCarStatistics(){
+        Statistics statistics = new Statistics();
+        String hql = "select count(id) from Car where status='空闲'";
+        statistics.setFreeCar_num(carDao.getCarStatistic(hql));
+        hql = "select count(id) from Car where status='工作中'";
+        statistics.setBusyCar_num(carDao.getCarStatistic(hql));
+        hql = "select count(id) from Car where status='停用'";
+        statistics.setCloseCar_num(carDao.getCarStatistic(hql));
+        return statistics;
+    }
 
 }

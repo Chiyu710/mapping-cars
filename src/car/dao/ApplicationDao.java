@@ -18,4 +18,5 @@ public interface ApplicationDao {
     List<CarApplication> findByHqlCar(String hql);
     List<LendApplication> findByHqlLend(String hql);
     List<FixApplication> findByHqlFix(String hql);
+    long getAppStatistic(String hql);
 }
