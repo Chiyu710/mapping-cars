@@ -154,7 +154,7 @@
                                 <input name="carApplication.carID" value="${request.CAP.carID}" style="display: none">
                                 <label class="col-md-1 col-form-label" for="handler">管理员签名</label>
                                 <div class="col-md-2">
-                                    <input type="text" class="form-control " id="handler" name="carApplication.handler" placeholder="请输入你的名字">
+                                    <input type="text" class="form-control " id="handler" name="carApplication.handler" placeholder="请输入你的名字" maxlength="10" required>
                                 </div>
                                 <div class="col-md-1"></div>
                                 <div class="btn-group col-md-3" role="group" aria-label="Basic radio toggle button group">

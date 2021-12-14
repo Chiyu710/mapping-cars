@@ -55,13 +55,13 @@
                                     <div class="mb-3 col-12">
                                         <label for="car-id" class="form-label">标题 <span
                                                 class="text-danger">*</span></label>
-                                        <input type="text" id="car-id" class="form-control" name="notification.title">
+                                        <input type="text" id="car-id" class="form-control" name="notification.title" maxlength="20" required>
                                     </div>
 
                                     <div class="mb-3 col-4">
                                         <label for="cph" class="form-label">接收部门 <span
                                                 class="text-danger">*</span></label>
-                                        <input type="text" id="cph" class="form-control" name="notification.recipient">
+                                        <input type="text" id="cph" class="form-control" name="notification.recipient" maxlength="10" required>
                                     </div>
 
                                     <div class="mb-3 col-4">
@@ -90,7 +90,7 @@
                                     </div>
                                     <div class="mb-3 col-12">
                                         <label for="example-textarea" class="form-label">通知内容</label>
-                                        <textarea class="form-control" id="example-textarea" rows="5" name="notification.remarks"></textarea>
+                                        <textarea class="form-control" id="example-textarea" rows="5" name="notification.remarks" maxlength="200" required></textarea>
                                     </div>
 
                                 </div>

@@ -128,7 +128,7 @@
                                         <div class="m-3">
                                             <label for="reason" class="mb-2">备注</label>
                                             <div class="mt-2">
-                                                <textarea class="form-control" id="reason" rows="5" name="statusLog.remarks"></textarea>
+                                                <textarea class="form-control" id="reason" rows="3" name="statusLog.remarks" placeholder="简单描述切换理由(不超过30字)" maxlength="30"></textarea>
                                             </div>
                                         </div>
                                         <div>

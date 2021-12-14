@@ -127,30 +127,30 @@
                                                                     <div class="row mb-3 ">
                                                                         <label class="col-md-1 col-form-label" for="userName1">用车人</label>
                                                                         <div class="col-md-4">
-                                                                            <input type="text" class="form-control " id="userName1" name="carApplication.userName" value="${session.user.name}" readonly>
+                                                                            <input type="text" class="form-control " id="userName1" name="carApplication.userName" value="${session.user.name}" readonly required>
                                                                         </div>
                                                                         <div class="col-md-1">
                                                                         </div>
                                                                         <label class="col-md-1 col-form-label" for="userID1">工号</label>
                                                                         <div class="col-md-4">
-                                                                            <input type="text" class="form-control " id="userID1" name="carApplication.userID" value="${session.user.id}" readonly>
+                                                                            <input type="text" class="form-control " id="userID1" name="carApplication.userID" value="${session.user.id}" readonly required>
                                                                         </div>
                                                                     </div>
                                                                     <div class="row mb-3">
                                                                         <label class="col-md-1 col-form-label" for="useTime1">用车时间</label>
                                                                         <div class="col-md-4">
-                                                                            <input type="date" class="form-control " id="useTime1" name="carApplication.usingDate">
+                                                                            <input type="date" class="form-control " id="useTime1" name="carApplication.usingDate" required>
                                                                         </div>
                                                                         <div class="col-md-1"></div>
                                                                         <label class="col-md-1 col-form-label" for="work">业务编号</label>
                                                                         <div class="col-md-4">
-                                                                            <input type="text" id="work" name="carApplication.workID" class="form-control" >
+                                                                            <input type="number" id="work" name="carApplication.workID" class="form-control"  placeholder="请输入业务编号"  oninput="if(value.length>4) value=value.slice(0,4)" >
                                                                         </div>
                                                                     </div>
                                                                     <div class="row mb-3">
                                                                         <label class="col-md-1 col-form-label" for="destination">目的地</label>
                                                                         <div class="col-md-10">
-                                                                            <input type="text" id="destination" name="carApplication.destination" class="form-control" >
+                                                                            <input type="text" id="destination" name="carApplication.destination" class="form-control" placeholder="请务必在搜索后在框中选中目的地" required>
                                                                         </div>
                                                                     </div>
                                                                     <div class="row mb-3" >
@@ -174,7 +174,7 @@
                                                                     <div class="row mb-3">
                                                                         <label for="reason" class="mb-2">申请理由</label>
                                                                         <div class="col-md-11">
-                                                                        <textarea class="form-control" id="reason" rows="5" name="carApplication.remarks"></textarea>
+                                                                        <textarea class="form-control" id="reason" rows="3" name="carApplication.remarks" maxlength="30" placeholder="请简述申请理由(30字)" ></textarea>
                                                                         </div>
                                                                     </div>
                                                                 </div> <!-- end col -->

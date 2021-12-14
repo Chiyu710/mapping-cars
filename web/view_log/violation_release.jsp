@@ -55,29 +55,29 @@
                                     <div class="mb-3 col-4">
                                         <label for="userid" class="form-label">违规人id <span
                                                 class="text-danger">*</span></label>
-                                        <input type="text" id="userid" class="form-control" name="violation.userid">
+                                        <input type="text" id="userid" class="form-control" name="violation.userid" required>
                                     </div>
                                     <div class="mb-3 col-4">
                                         <label for="appId" class="form-label">派车单号 <span
                                                 class="text-danger">*</span></label>
-                                        <input type="text" id="appId" class="form-control" name="violation.applicationid">
+                                        <input type="text" id="appId" class="form-control" name="violation.applicationid" required>
                                     </div>
                                     <div class="mb-3 col-4">
                                         <label for="fine" class="form-label">罚款金额 <span
                                                 class="text-danger">*</span></label>
-                                        <input type="text" id="fine" class="form-control" name="violation.fine">
+                                        <input type="text" id="fine" class="form-control" name="violation.fine" required>
                                     </div>
                                     <div class="mb-3 col-4">
                                         <label for="location" class="form-label">违规地点 <span
                                                 class="text-danger">*</span></label>
-                                        <input type="text" id="location" class="form-control" name="violation.location">
+                                        <input type="text" id="location" class="form-control" name="violation.location" required>
                                     </div>
 
                                     <div class="mb-3 col-4">
                                         <label for="vioDate" class="form-label">违规时间 <span
                                                 class="text-danger">*</span></label>
                                         <div class="me-sm-3">
-                                            <input type="date" id="vioDate" class="form-control" name="violation.vioDate">
+                                            <input type="date" id="vioDate" class="form-control" name="violation.vioDate" required>
                                         </div>
                                     </div>
 
@@ -85,14 +85,14 @@
                                         <label for="endDate" class="form-label">违规截止时间 <span
                                                 class="text-danger">*</span></label>
                                         <div class="me-sm-3">
-                                            <input type="date" id="endDate" class="form-control" name="violation.endDate">
+                                            <input type="date" id="endDate" class="form-control" name="violation.endDate" required>
                                         </div>
                                     </div>
 
                                     </div>
                                     <div class="mb-3 col-12">
                                         <label for="details" class="form-label">违规内容</label>
-                                        <textarea class="form-control" id="details" rows="5" name="violation.details"></textarea>
+                                        <textarea class="form-control" id="details" rows="5" name="violation.details" required></textarea>
                                     </div>
 
                                 </div>
@@ -102,7 +102,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="text-center mb-3">
-                                    <button type="submit" class="btn w-sm btn-success waves-effect waves-light">Save
+                                    <button type="submit" class="btn w-sm btn-success waves-effect waves-light">发布
                                     </button>
                                 </s:form>
                             </div>

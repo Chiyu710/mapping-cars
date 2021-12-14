@@ -155,7 +155,7 @@
                                 <input name="fixApplication.carID" value="${request.FAP.carID}" style="display: none">
                                 <label class="col-md-1 col-form-label" for="handler">管理员签名</label>
                                 <div class="col-md-2">
-                                    <input type="text" class="form-control " id="handler" name="fixApplication.handler" placeholder="请输入你的名字">
+                                    <input type="text" class="form-control " id="handler" name="fixApplication.handler" placeholder="请输入你的名字" maxlength="10" required>
                                 </div>
                                 <div class="col-md-1"></div>
                                 <div class="btn-group col-md-3" role="group" aria-label="Basic radio toggle button group">
@@ -167,7 +167,7 @@
                                 <div class="col-md-1"></div>
                                 <label class="col-md-1 col-form-label" for="work">管理员意见</label>
                                 <div class="col-md-3">
-                                    <input type="text" id="work" name="123" class="form-control" >
+                                    <input type="text" id="work" name="123" class="form-control"  >
                                 </div>
                                 <hr class="mt-3">
                                 <div class="mt-2">

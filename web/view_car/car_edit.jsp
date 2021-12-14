@@ -71,7 +71,8 @@
 
                                     <div class="mb-3 col-4">
                                         <label for="e" class="form-label">当前状态 <span class="text-danger">*</span></label>
-                                        <select class="form-select my-1 my-lg-0" id="e" name="car.status" value="<s:property value="#request.car.status"/>">
+                                        <select class="form-select my-1 my-lg-0" id="e" name="car.status" >
+                                            <option value="<s:property value="#request.car.status"/>" selected><s:property value="#request.car.status"/></option>
                                             <option value="空闲" class="text-success" >空闲</option>
                                             <option value="工作中" class="text-danger">工作中</option>
                                             <option value="停用" class="text-secondary" >停用</option>

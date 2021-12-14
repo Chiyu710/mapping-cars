@@ -129,6 +129,7 @@ public class LogServiceImpl implements LogService{
         String hql = "from FixLog as fixLog where carid='"+carID+"'";
         List<FixLog> list = logDao.findByHqlFixLog(hql);
         if (list.isEmpty()){
+            System.out.println("没有该车的保养记录\t"+carID);
             return false;
         }
         else {
@@ -139,9 +140,10 @@ public class LogServiceImpl implements LogService{
     public boolean getMLog(String carID) {
         ActionContext ctx = ActionContext.getContext();
         request = (Map) ctx.get("request");
-        String hql = "from DriveLog as drivelog where carid='"+carID+"'";
+        String hql = "from MaintenanceLog where carid='"+carID+"'";
         List<MaintenanceLog> list = logDao.findByHqlML(hql);
         if (list.isEmpty()){
+            System.out.println("没有该车的保养记录\t"+carID);
             return false;
         }
         else {

@@ -55,14 +55,14 @@
                                <div class="text-danger">
                                    <s:actionerror/>
                                </div>
-                                <label for="account" class="form-label">账号</label>
-                                <input class="form-control" type="text" id="account" required="" placeholder="Enter your account" name="user.id">
+                                <label for="account" class="form-label" >账号</label>
+                                <input class="form-control" type="text" id="account" required="" placeholder="Enter your account" name="user.id" maxlength="10">
                             </div>
 
                             <div class="mb-3">
-                                <label for="password" class="form-label">密码</label>
+                                <label for="password" class="form-label" size="16">密码</label>
                                 <div class="input-group input-group-merge">
-                                    <input type="password" id="password" class="form-control" placeholder="Enter your password" name="user.password">
+                                    <input type="password" id="password" class="form-control" placeholder="Enter your password" name="user.password" maxlength="16">
                                     <div class="input-group-text" data-password="false">
                                         <span class="password-eye"></span>
                                     </div>

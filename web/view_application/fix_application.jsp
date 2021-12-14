@@ -24,8 +24,17 @@
                         carId:carId
                     },
                     success : function(data) {
-                        $("#mile").val(data.mileage);
-                        $("#LP").val(data.licensePlate);
+                        //alert(data.status);
+                        if (!(data.status==="空闲") ){
+                            alert("该车目前无法使用,请检查车辆信息");
+                            $("#carID").val("");
+                            $("#mile").val("");
+                            $("#LP").val("");
+                        }
+                        else {
+                            $("#mile").val(data.mileage);
+                            $("#LP").val(data.licensePlate);
+                        }
                     },
                     error :function() {
                         alert("未找到车辆");
@@ -106,21 +115,21 @@
                                                 <div class="row">
                                                     <div class="mb-3 col-md-4">
                                                         <label for="carID" class="form-label">车辆号</label>
-                                                        <input type="text" id="carID" class="form-control" name="fixApplication.carID">
+                                                        <input type="text" id="carID" class="form-control" name="fixApplication.carID" required>
                                                     </div>
                                                     <div class="mb-3 col-md-4">
                                                         <label for="LP" class="form-label">车牌号</label>
-                                                        <input type="text" id="LP" class="form-control" name="fixApplication.LicensePlate" readonly>
+                                                        <input type="text" id="LP" class="form-control" name="fixApplication.LicensePlate" readonly required>
                                                     </div>
                                                     <div class="mb-3 col-md-4">
                                                         <label for="mile" class="form-label">保养间隔里程数</label>
-                                                        <input type="text" id="mile" class="form-control" name="fixApplication.mileage" readonly>
+                                                        <input type="text" id="mile" class="form-control" name="fixApplication.mileage" readonly required>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="mb-3 col-md-12">
                                                         <label for="fix_d" class="form-label">维修地点</label>
-                                                        <input type="text" id="fix_d" class="form-control" name="fixApplication.location">
+                                                        <input type="text" id="fix_d" class="form-control" name="fixApplication.location" maxlength="30" required>
                                                     </div>
                                                 </div>
 
@@ -128,7 +137,7 @@
                                                 <div class="row">
                                                     <div class="mb-3 col-md-12">
                                                         <label for="extra_t" class="form-label">情况说明</label>
-                                                        <textarea class="form-control" id="extra_t" rows="5" name="fixApplication.remarks"></textarea>
+                                                        <textarea class="form-control" id="extra_t" rows="5" name="fixApplication.remarks" maxlength="100"></textarea>
                                                     </div>
                                                 </div>
 

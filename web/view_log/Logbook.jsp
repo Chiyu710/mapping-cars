@@ -289,6 +289,8 @@
                         userID:trackID
                     },
                     success : function(tracks) {
+                        //防止重复读写时上一次数据冗余 先进行清除
+                        lineArr.splice(0,lineArr.length);
                         for (var i=0;i<tracks.length;i++){
                             lineArr.push([tracks[i].longitude,tracks[i].latitude]);
                         }
