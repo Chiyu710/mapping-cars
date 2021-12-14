@@ -40,6 +40,9 @@
                 <!-- end page title -->
 
                 <div class="row">
+                    <s:if test="#request.myDriveLog==null">
+                        <h4 class="text-center mb-5 text-primary">似乎还没有出车日志哦...</h4>
+                    </s:if>
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">

@@ -54,6 +54,7 @@
                 <value>car/po/record/FixLog.hbm.xml</value>
                 <value>car/po/record/MaintenanceLog.hbm.xml</value>
                 <value>car/po/record/Violation.hbm.xml</value>
+                <value>car/po/record/Track.hbm.xml</value>
             </list>
         </property>
     </bean>

@@ -12,7 +12,7 @@
             <result name="fail">/view_auth/login.jsp</result>
         </action>
         <action name="register" class="userAction" method="register">
-            <result name="success">suuccess.jsp</result>
+            <result name="success">success.jsp</result>
             <result name="fail">Failed.jsp</result>
         </action>
         <action name="changeStatus" class="userAction" method="changeStatus">
@@ -186,6 +186,18 @@
         <action name="getAppStaAjax" class="applicationAction" method="getAppStatistics">
             <result name="ajax" type="json">
                 <param name="root">statistics</param>
+            </result>
+        </action>
+
+        <action name="getDLAjax" class="logAction" method="getDLAjax">
+            <result name="ajax" type="json">
+                <param name="root">driveLog</param>
+            </result>
+        </action>
+
+        <action name="getTrackAjax" class="logAction" method="getTrackAjax">
+            <result name="ajax" type="json">
+                <param name="root">tracks</param>
             </result>
         </action>
     </package>

@@ -1,14 +1,12 @@
 package car.service;
 
 import car.po.application.CarApplication;
-import car.po.record.DriveLog;
-import car.po.record.Notification;
-import car.po.record.StatusLog;
-import car.po.record.Violation;
+import car.po.record.*;
 
 import java.util.List;
 
 public interface LogService {
+      List<Track> getTrack(String trackID);
       List<Notification> getNF(String recipientID);
       boolean sendNot(Notification notification);
       boolean getNOT();
@@ -23,4 +21,5 @@ public interface LogService {
       boolean saveDriveLog(DriveLog driveLog);
       boolean saveVio(Violation violation);
       boolean startDriveLog(CarApplication carApplication);
+      DriveLog getDLbyID(String id);
 }

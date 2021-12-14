@@ -17,8 +17,6 @@
             font-size: 10px;
         }
     </style>
-  <script src="../assets/libs/toastr/node_modules/jquery/jquery.min.js"></script>
-
 </head>
 
 
@@ -48,6 +46,9 @@
                 <!-- end page title -->
 
                 <div class="row">
+                    <s:if test="#request.myDriveLog==null">
+                        <h4 class="text-center mb-5 text-primary">似乎还没有出车日志哦...</h4>
+                    </s:if>
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
@@ -74,11 +75,10 @@
                                                     </div>
                                                     <div class="col-4">
                                                         <!-- start due date -->
-                                                        <p class=" mb-1">驾驶员工号</p>
+                                                        <p class="mb-1">驾驶员工号</p>
                                                         <div class="d-flex align-items-start">
                                                             <div class="w-100">
                                                                 <h5 class="mt-1 font-size-14" id="userID">
-                                                                   123
                                                                 </h5>
                                                             </div>
                                                         </div>
@@ -90,7 +90,7 @@
                                                         <div class="d-flex align-items-start">
                                                             <div class="w-100">
                                                                 <h5 class="mt-1 font-size-14" id="starttime">
-                                                                    123
+
                                                                 </h5>
                                                             </div>
                                                         </div>
@@ -102,7 +102,7 @@
                                                         <div class="d-flex align-items-start">
                                                             <div class="w-100">
                                                                 <h5 class="mt-1 font-size-14" id="startlocation">
-                                                                    123
+
                                                                 </h5>
                                                             </div>
                                                         </div>
@@ -114,7 +114,7 @@
                                                         <div class="d-flex align-items-start">
                                                             <div class="w-100">
                                                                 <h5 class="mt-1 font-size-14" id="destination">
-                                                                    123
+
                                                                 </h5>
                                                             </div>
                                                         </div>
@@ -126,7 +126,7 @@
                                                         <div class="d-flex align-items-start">
                                                             <div class="w-100">
                                                                 <h5 class="mt-1 font-size-14" id="endtime">
-                                                                    123
+
                                                                 </h5>
                                                             </div>
                                                         </div>
@@ -138,7 +138,7 @@
                                                         <div class="d-flex align-items-start">
                                                             <div class="w-100">
                                                                 <h5 class="mt-1 font-size-14" id="carid">
-                                                                    123
+
                                                                 </h5>
                                                             </div>
                                                         </div>
@@ -150,7 +150,7 @@
                                                         <div class="d-flex align-items-start">
                                                             <div class="w-100">
                                                                 <h5 class="mt-1 font-size-14" id=“broke">
-                                                                    123
+
                                                                 </h5>
                                                             </div>
                                                         </div>
@@ -162,7 +162,7 @@
                                                         <div class="d-flex align-items-start">
                                                             <div class="w-100">
                                                                 <h5 class="mt-1 font-size-14" id="illegal">
-                                                                    123
+
                                                                 </h5>
                                                             </div>
                                                         </div>
@@ -179,6 +179,8 @@
                                             <div class="modal-footer">
                                                 <input type="button" class="btn" value="开始动画" id="start" onclick="startAnimation()"/>
                                                 <input type="button" class="btn" value="暂停动画" id="pause" onclick="pauseAnimation()"/>
+                                                <input type="button" class="btn" value="继续动画" id="resume" onclick="resumeAnimation()"/>
+                                                <input type="button" class="btn" value="停止动画" id="stop" onclick="stopAnimation()"/>
                                             </div>
                                         </div><!-- /.modal-content -->
                                     </div><!-- /.modal-dialog -->
@@ -190,7 +192,7 @@
                                                 <thead>
                                                 <tr>
                                                     <th>出车单号</th>
-                                                    <th data-priority="1">车牌号</th>
+                                                    <th data-priority="1">车辆号</th>
                                                     <th data-priority="1">驾驶员</th>
                                                     <th data-priority="3">开始时间</th>
                                                     <th data-priority="3">结束时间</th>
@@ -212,7 +214,7 @@
                                                         <td><s:property value="#DRIL.broke"/></td>
                                                         <td><s:property value="#DRIL.applicationid"/></td>
                                                         <td>
-                                                            <form>  <input class="btn-xs btn-primary text-center" type="button" value="查看详情"data-bs-toggle="modal" data-bs-target="#full-width-modal"></form>
+                                                            <button class="btn-xs btn-primary text-center" type="button" data-bs-toggle="modal" data-bs-target="#full-width-modal"  onclick="getDLInfo(this.value)" value="<s:property value="#DRIL.id"/>">查看详情</button>
                                                         </td>
 
                                                     </tr>
@@ -249,56 +251,104 @@
 
 </div>
 <!-- END wrapper -->
-
-<script type="text/javascript"
-        src="https://webapi.amap.com/maps?v=1.4.15&key=b0af08c849bbffa3cab92acc26b93ebc&plugin=AMap.Driving"></script>
+<script src="../assets/libs/toastr/node_modules/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=b0af08c849bbffa3cab92acc26b93ebc&plugin=AMap.Driving"></script>
 <script>
-    var marker, lineArr = [[116.478935,39.997761],[116.478939,39.997825],[116.478912,39.998549],[116.478912,39.998549],[116.478998,39.998555],[116.478998,39.998555],[116.479282,39.99856],[116.479658,39.998528],[116.480151,39.998453],[116.480784,39.998302],[116.480784,39.998302],[116.481149,39.998184],[116.481573,39.997997],[116.481863,39.997846],[116.482072,39.997718],[116.482362,39.997718],[116.483633,39.998935],[116.48367,39.998968],[116.484648,39.999861]];
 
-    var map = new AMap.Map("MAP", {
-        resizeEnable: true,
-        center: [116.478935,39.997761],
-        zoom: 14
-    });
+</script>
+<script type="text/javascript">
+    var marker, lineArr = [];
+    var map;
+    var passedPolyline;
+    function getDLInfo(value){
+        var userID=value;
 
-    marker = new AMap.Marker({
-        map: map,
-        position: [116.478935,39.997761],
-        icon: "https://webapi.amap.com/images/car.png",
-        offset: new AMap.Pixel(-26, -13),
-        autoRotation: true,
-        angle:-90,
-    });
+        $.ajax({
+            url:"getDLAjax",
+            type : "POST",
+            dataType:"JSON",
+            data : {
+                userID:userID
+            },
+            success : function(data) {
+                $("#userName").text(data.username);
+                $("#userID").text(data.userid);
+                $("#starttime").text(data.starttime);
+                $("#startlocation").text(data.startlocation);
+                $("#destination").text(data.destination);
+                $("#endtime").text(data.endtime);
+                $("#carid").text(data.carid);
+                $("#broke").text(data.broke);
+                $("#illegal").text(data.illegal);
+                var trackID=data.trackID;
+                $.ajax({
+                    url:"getTrackAjax",
+                    type : "POST",
+                    dataType:"JSON",
+                    data : {
+                        userID:trackID
+                    },
+                    success : function(tracks) {
+                        for (var i=0;i<tracks.length;i++){
+                            lineArr.push([tracks[i].longitude,tracks[i].latitude]);
+                        }
 
-    // 绘制轨迹
-    var polyline = new AMap.Polyline({
-        map: map,
-        path: lineArr,
-        showDir:true,
-        strokeColor: "#28F",  //线颜色
-        // strokeOpacity: 1,     //线透明度
-        strokeWeight: 6,      //线宽
-        // strokeStyle: "solid"  //线样式
-    });
+                         map = new AMap.Map("MAP", {
+                            resizeEnable: true,
+                            center: [tracks[0].longitude,tracks[0].latitude],
+                            zoom: 16
+                        });
 
-    var passedPolyline = new AMap.Polyline({
-        map: map,
-        // path: lineArr,
-        strokeColor: "#AF5",  //线颜色
-        // strokeOpacity: 1,     //线透明度
-        strokeWeight: 6,      //线宽
-        // strokeStyle: "solid"  //线样式
-    });
+                        marker = new AMap.Marker({
+                            map: map,
+                            position: [tracks[0].longitude,tracks[0].latitude],
+                            icon: "https://webapi.amap.com/images/car.png",
+                            offset: new AMap.Pixel(-26, -13),
+                            autoRotation: true,
+                            angle:-90,
+                        });
+
+                        // 绘制轨迹
+                        var polyline = new AMap.Polyline({
+                            map: map,
+                            path: lineArr,
+                            showDir:true,
+                            strokeColor: "#28F",  //线颜色
+                            // strokeOpacity: 1,     //线透明度
+                            strokeWeight: 6,      //线宽
+                            // strokeStyle: "solid"  //线样式
+                        });
+                        passedPolyline = new AMap.Polyline({
+                            map: map,
+                            //path: lineArr,
+                            strokeColor: "#AF5",  //线颜色
+                            // strokeOpacity: 1,     //线透明度
+                            strokeWeight: 6,      //线宽
+                            // strokeStyle: "solid"  //线样式
+                        });
+
+                        marker.on('moving', function (e) {
+                            passedPolyline.setPath(e.passedPath);
+                        });
+                        map.setFitView();
+                    },
+                    error :function(XMLHttpRequest, textStatus, errorThrown) {
+                        alert("轨迹查询失败");
+                        alert(XMLHttpRequest.status);
+                    },
+                });
+            },
+            error :function(XMLHttpRequest, textStatus, errorThrown) {
+                alert("行车日志查询失败");
+                alert(XMLHttpRequest.status);
+                alert(textStatus);
+            },
+        });
 
 
-    marker.on('moving', function (e) {
-        passedPolyline.setPath(e.passedPath);
-    });
-
-    map.setFitView();
-
+    }
     function startAnimation () {
-        marker.moveAlong(lineArr, 1500);
+        marker.moveAlong(lineArr, 1000);
     }
 
     function pauseAnimation () {
@@ -313,6 +363,7 @@
         marker.stopMove();
     }
 </script>
+
 <!-- Vendor js -->
 <script src="../assets/js/vendor.min.js"></script>
 

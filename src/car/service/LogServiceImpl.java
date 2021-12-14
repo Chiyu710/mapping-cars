@@ -31,6 +31,18 @@ public class LogServiceImpl implements LogService{
         }
 
     }
+    public List<Track> getTrack(String trackID){
+        ActionContext ctx = ActionContext.getContext();
+        request = (Map) ctx.get("request");
+        String hql = "from Track  where trackID='"+trackID+"'order by date asc" ;
+        List<Track> list = logDao.findByHqlTrack(hql);
+        if (list.isEmpty())
+            return null;
+        else {
+            return list;
+        }
+
+    }
     public boolean sendNot(Notification notification) {
         try {
             logDao.saveNot(notification);
@@ -197,6 +209,14 @@ public class LogServiceImpl implements LogService{
         }catch (Exception e) {
             return false;
         }
+    }
+    public DriveLog getDLbyID(String id){
+        String hql = "from DriveLog as drivelog where id = '"+id+"'";
+        List<DriveLog> list = logDao.findByHqlDL(hql);
+        if (!list.isEmpty()){
+            return list.get(0);
+        }
+        else return null;
     }
 
 }

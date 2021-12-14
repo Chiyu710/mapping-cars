@@ -93,31 +93,20 @@ public class ApplicationAction {
         }
     }
     public String getFixAP(){
-        if (applicationService.getFixAP(user.getId())){
-            System.out.println("getFixAP!");
-            return "success";
-        }
-        else {
-            return "fail";
-        }
+        applicationService.getFixAP(user.getId());
+        System.out.println("getFixAP!");
+        return "success";
     }
     public String getLendAP(){
-        if (applicationService.getLendAP(user.getId())){
-            System.out.println("getLendAP!");
-            return "success";
-        }
-        else {
-            return "fail";
-        }
+        applicationService.getLendAP(user.getId());
+        System.out.println("getLendAP!");
+        return "success";
     }
     public String getCommuteAP(){
-        if (applicationService.getCommuteAP(user.getId())){
-            System.out.println("getCarAP!");
-            return "success";
-        }
-        else {
-            return "fail";
-        }
+        applicationService.getCommuteAP(user.getId());
+        System.out.println("getCarAP!");
+        return "success";
+
     }
     public String getAllAP(){
         if(applicationService.getAllAP()){

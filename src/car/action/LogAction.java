@@ -20,6 +20,10 @@ public class LogAction {
     public List<Notification> getBriefNotifications() {return briefNotifications;}
     public void setBriefNotifications(List<Notification> briefNotifications) {this.briefNotifications = briefNotifications;}
 
+    List<Track> tracks;
+    public List<Track> getTracks() {return tracks;}
+    public void setTracks(List<Track> tracks) {this.tracks = tracks;}
+
     private LogService logService;
     public LogService getLogService() {return logService;}
     public void setLogService(LogService logService) {this.logService = logService;}
@@ -94,39 +98,24 @@ public class LogAction {
     }
 
     public String getStaffDriveLog(){
-        if (logService.getStaffDRIVELOG(userID)){
-            return "success";
-        }
-        else {
-            return "fail";
-        }
+        logService.getStaffDRIVELOG(userID);
+        return "success";
     }
 
     public String getDRIVELOG(){
-        if (logService.getDRIVELOG()){
+         logService.getDRIVELOG();
             return "success";
-        }
-        else {
-            return "fail";
-        }
+
     }
 
     public String getVIO(){
-        if (logService.getVIO()){
-            return "success";
-        }
-        else {
-            return "fail";
-        }
+        logService.getVIO();
+        return "success";
     }
 
     public String getStaffVIO(){
-        if (logService.getStaffVIO(userID)){
-            return "success";
-        }
-        else {
-            return "fail";
-        }
+        logService.getStaffVIO(userID);
+        return "success";
     }
 
     public String saveVIO(){
@@ -139,6 +128,14 @@ public class LogAction {
         }
     }
 
-
-
+    public String getDLAjax(){
+        //混用ID 下面的id是出车id
+        driveLog=logService.getDLbyID(userID);
+        return "ajax";
+    }
+    public String getTrackAjax(){
+        //混用ID 下面的id是轨迹id
+       tracks= logService.getTrack(userID);
+        return "ajax";
+    }
 }

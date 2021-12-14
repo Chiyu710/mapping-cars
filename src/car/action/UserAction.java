@@ -5,11 +5,12 @@ import car.po.User;
 import car.po.record.StatusLog;
 import car.service.UserService;
 import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionSupport;
 
 import java.util.Date;
 import java.util.Map;
 
-public class UserAction {
+public class UserAction extends ActionSupport {
 
     private User user;
     public User getUser() {return user;}
@@ -32,7 +33,6 @@ public class UserAction {
     Statistics statistics;
     public Statistics getStatistics() {return statistics;}
     public void setStatistics(Statistics statistics) {this.statistics = statistics;}
-
     public String login() {
         if(p==0){
             if (userService.login(user)) {
@@ -44,6 +44,7 @@ public class UserAction {
                 return "adminsuccess";
             }
         }
+        this.addActionError("用户名或密码错误，请重新输入！");
         return "fail";
     }
     public String changeStatus(){
@@ -67,7 +68,6 @@ public class UserAction {
             return "fail";
         }
     }
-
     public String getUserSta(){
         statistics=userService.getUserStatistics();
         return "ajax";

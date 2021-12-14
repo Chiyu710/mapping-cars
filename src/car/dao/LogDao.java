@@ -16,6 +16,7 @@ public interface LogDao {
     List<FixLog> findByHqlFixLog(String hql);
     List<MaintenanceLog> findByHqlML(String hql);
     List<Violation> findByHqlVio(String hql);
+    List<Track>findByHqlTrack(String hql);
     DriveLog getDL(DriveLog driveLog);
     void saveNot(Notification notification);
     void saveStatusLog(StatusLog statusLog);

@@ -52,6 +52,9 @@
                         </div>
                        <s:form action="login" method="post">
                             <div class="mb-3">
+                               <div class="text-danger">
+                                   <s:actionerror/>
+                               </div>
                                 <label for="account" class="form-label">账号</label>
                                 <input class="form-control" type="text" id="account" required="" placeholder="Enter your account" name="user.id">
                             </div>

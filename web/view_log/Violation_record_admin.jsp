@@ -40,6 +40,9 @@
                 <!-- end page title -->
 
                 <div class="row">
+                    <s:if test="#request.myViolation==null">
+                        <h4 class="text-center mb-5 text-primary">似乎还没有违规记录哦...</h4>
+                    </s:if>
                     <s:iterator var="VIO" value="#request.myViolation">
                     <div class="card d-block">
                         <div class="card-body">

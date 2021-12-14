@@ -93,6 +93,19 @@ public class LogDaoImpl extends BaseHibernateDao implements LogDao{
             session.close();
         }
     }
+    public List<Track>findByHqlTrack(String hql){
+        Session session = null;
+        try {
+            session = getSession();
+            String queryString = hql;
+            Query queryObject=session.createQuery(queryString);
+            return queryObject.list();
+        } catch (RuntimeException re) {
+            throw re;
+        } finally {
+            session.close();
+        }
+    }
     public void saveNot(Notification notification) {
         Transaction tran = null;
         Session session = null;
@@ -142,7 +155,6 @@ public class LogDaoImpl extends BaseHibernateDao implements LogDao{
             session.close();
         }
     }
-
     public void saveVio(Violation violation) {
         Transaction tran = null;
         Session session = null;
