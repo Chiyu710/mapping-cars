@@ -23,7 +23,7 @@ public class ApplicationServiceImpl implements ApplicationService{
             Date date = new Date ();
             fixApplication.setApplicationDate(date);
             //System.out.println(fixApplication.toString());
-            fixApplication.setStatus("审核中");
+            if(fixApplication.getStatus()==null) fixApplication.setStatus("审核中");
             applicationDao.saveFix(fixApplication);
             return true;
         }catch (Exception e) {
@@ -89,6 +89,31 @@ public class ApplicationServiceImpl implements ApplicationService{
                 c.setHandler(carApplication.getHandler());
                 c.setStatus(carApplication.getStatus());
                 applicationDao.saveCommute(c);
+            }
+            return true;
+        }catch (Exception e) {
+            return false;
+        }
+    }
+    public boolean finishFix(FixApplication fixApplication){
+        try {
+            FixApplication c=applicationDao.getFAP(fixApplication.getId());
+            if(c!=null){
+                c.setStatus("已完成");
+                applicationDao.saveFix(c);
+            }
+            return true;
+        }catch (Exception e) {
+            return false;
+        }
+
+    }
+    public boolean finishLend(LendApplication lendApplication){
+        try {
+            LendApplication c=applicationDao.getLAP(lendApplication.getId());
+            if(c!=null){
+                c.setStatus("已完成");
+                applicationDao.saveLend(c);
             }
             return true;
         }catch (Exception e) {

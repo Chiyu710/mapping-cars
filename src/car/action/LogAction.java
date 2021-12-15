@@ -29,14 +29,20 @@ public class LogAction {
     public void setLogService(LogService logService) {this.logService = logService;}
 
     private Violation violation;
-
     public Violation getViolation() {
         return violation;
     }
-
     public void setViolation(Violation violation) {
         this.violation = violation;
     }
+
+    private FixLog fixLog;
+    public FixLog getFixLog() {return fixLog;}
+    public void setFixLog(FixLog fixLog) {this.fixLog = fixLog;}
+
+    private MaintenanceLog maintenanceLog;
+    public MaintenanceLog getMaintenanceLog() {return maintenanceLog;}
+    public void setMaintenanceLog(MaintenanceLog maintenanceLog) {this.maintenanceLog = maintenanceLog;}
 
     //    for Ajax
     private String userID;
@@ -136,5 +142,16 @@ public class LogAction {
         //混用ID 下面的id是轨迹id
        tracks= logService.getTrack(userID);
         return "ajax";
+    }
+
+    public String saveFixLog(){
+        if(logService.saveFixLog(fixLog))
+        return "success";
+        else return "fail";
+    }
+    public String saveMALog(){
+        if(logService.saveMaintenanceLog(maintenanceLog))
+            return "success";
+        else return "fail";
     }
 }

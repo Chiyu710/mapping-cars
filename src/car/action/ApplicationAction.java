@@ -166,4 +166,11 @@ public class ApplicationAction {
         statistics=applicationService.getBusinessStatistics();
         return "ajax";
     }
+
+    public  String finishLend(){
+        if(applicationService.finishLend(lendApplication)){
+            return "success";
+        }
+        else return "fail";
+    }
 }

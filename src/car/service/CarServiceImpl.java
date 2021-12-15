@@ -90,6 +90,7 @@ public class CarServiceImpl implements CarService{
     public boolean saveOrUpdateCar(Car car){
         try {
             System.out.println("car status changed");
+            System.out.println(car.getMileage());
             carDao.saveCar(car);
             return true;
         }catch (Exception e) {

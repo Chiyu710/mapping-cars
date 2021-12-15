@@ -171,4 +171,36 @@ public class LogDaoImpl extends BaseHibernateDao implements LogDao{
             session.close();
         }
     }
+    public void saveFixlog(FixLog fixLog){
+        Transaction tran = null;
+        Session session = null;
+        try {
+            session = getSession();
+            tran = session.beginTransaction();
+            session.save(fixLog);
+            tran.commit();
+        } catch (RuntimeException re) {
+
+            if(tran != null) tran.rollback();
+            throw re;
+        } finally {
+            session.close();
+        }
+    }
+   public  void saveMaintenanceLog(MaintenanceLog maintenanceLog){
+        Transaction tran = null;
+        Session session = null;
+        try {
+            session = getSession();
+            tran = session.beginTransaction();
+            session.save(maintenanceLog);
+            tran.commit();
+        } catch (RuntimeException re) {
+
+            if(tran != null) tran.rollback();
+            throw re;
+        } finally {
+            session.close();
+        }
+    }
 }

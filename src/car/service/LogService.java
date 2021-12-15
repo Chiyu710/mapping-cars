@@ -21,5 +21,8 @@ public interface LogService {
       boolean saveDriveLog(DriveLog driveLog);
       boolean saveVio(Violation violation);
       boolean startDriveLog(CarApplication carApplication);
+      boolean saveMaintenanceLog(MaintenanceLog maintenanceLog);
+      boolean saveFixLog(FixLog fixLog);
       DriveLog getDLbyID(String id);
+
 }

@@ -25,4 +25,6 @@ public interface ApplicationService {
     LendApplication getLAPAjax(String appid);
     FixApplication getFAPAjax(String appid);
     Statistics getBusinessStatistics();
+    boolean finishFix(FixApplication fixApplication);
+    boolean finishLend(LendApplication lendApplication);
 }

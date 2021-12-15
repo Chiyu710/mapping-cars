@@ -3,6 +3,8 @@ package car.aspect;
 import car.po.Car;
 import car.po.application.*;
 import car.po.record.DriveLog;
+import car.po.record.FixLog;
+import car.po.record.MaintenanceLog;
 import car.po.record.StatusLog;
 import car.service.ApplicationService;
 import car.service.CarService;
@@ -134,4 +136,61 @@ public class LogSave {
         }
     }
 
+    @Pointcut("execution(* car.service.ApplicationService.finishLend(..))")
+    public void finishLend(){
+        System.out.println("fixapp status changed");
+    }
+    @After("finishLend()")
+    public void carReturn(JoinPoint joinPoint){
+
+        String carid;
+        Object[] args = joinPoint.getArgs();
+        if(args[0]!=null){
+            carid=((LendApplication)args[0]).getCarID();
+            carService.carStatusChange(carid,0);
+            System.out.println("Car status changed");
+            }
+    }
+
+    @Pointcut("execution(* car.service.LogService.saveFixLog(..))")
+    public void finishFix(){}
+    @After("finishFix()")
+    public void carFixed(JoinPoint joinPoint){
+        String carid;
+        String appid;
+        Object[] args = joinPoint.getArgs();
+        if(args[0]!=null){
+            carid=((FixLog)args[0]).getCarid();
+            appid=((FixLog)args[0]).getFixapplicationid();
+            FixApplication fixApplication= applicationService.getFAPAjax(appid);
+            applicationService.sendFix(fixApplication);
+            fixApplication.setStatus("已完成");
+            System.out.println("app状态已改变");
+            carService.carStatusChange(carid,0);
+            System.out.println("车辆状态已改变");
+            }
+    }
+
+    @Pointcut("execution(* car.service.LogService.saveMaintenanceLog(..))")
+    public void finishMA(){}
+    @After("finishMA()")
+    public void carMA(JoinPoint joinPoint){
+        String carid;
+        String appid;
+        Object[] args = joinPoint.getArgs();
+        if(args[0]!=null){
+            carid=((MaintenanceLog)args[0]).getCarid();
+            appid=((MaintenanceLog)args[0]).getFixapplicationid();
+            FixApplication fixApplication= applicationService.getFAPAjax(appid);
+            fixApplication.setStatus("已完成");
+            applicationService.sendFix(fixApplication);
+            System.out.println("app状态已改变");
+            //car change
+            Car car =carService.getCarInfoAjax(Integer.parseInt(carid));
+            car.setStatus("空闲");
+            car.setMileage(0);
+            carService.saveOrUpdateCar(car);
+            System.out.println("车辆状态已改变");
+        }
+    }
 }

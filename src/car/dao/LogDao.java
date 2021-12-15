@@ -22,4 +22,6 @@ public interface LogDao {
     void saveStatusLog(StatusLog statusLog);
     void saveDL(DriveLog driveLog);
     void saveVio(Violation violation);
+    void saveFixlog(FixLog fixLog);
+    void saveMaintenanceLog(MaintenanceLog maintenanceLog);
 }

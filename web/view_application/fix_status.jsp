@@ -22,7 +22,53 @@
     <!-- ============================================================== -->
     <!-- Start Page Content here -->
     <!-- ============================================================== -->
-
+    <div id="savelog-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog mmmd">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="text-center mt-2 mb-2">
+                        <h4>维修/保养情况说明</h4>
+                    </div>
+                    <s:if test='#request.ongoingFA[0].type=="保养"'>
+                        <s:form action="saveMaLog" class="px-3" method="post">
+                            <input name="maintenanceLog.fixapplicationid" value="${request.ongoingFA[0].id}" style="display: none">
+                            <input name="maintenanceLog.username" value="${request.ongoingFA[0].userName}" style="display: none">
+                            <input name="maintenanceLog.carid" value="${request.ongoingFA[0].carID}" style="display: none">
+                            <div class="mb-3">
+                                <label class="form-label">情况说明</label>
+                                <input name="maintenanceLog.remarks" maxlength="200" required>
+                            </div>
+                            <div class="mb-3 ">
+                                <label class="form-label">花费</label>
+                                <input name="maintenanceLog.cost" type="number" required>元
+                            </div>
+                            <div class="mb-2 text-center">
+                                <button class="btn rounded-pill btn-primary" type="submit" style="width: 200px; height: 40px;">提交回执</button>
+                            </div>
+                        </s:form>
+                    </s:if>
+                    <s:else>
+                        <s:form action="saveFixLog" class="px-3" method="post">
+                            <input name="fixLog.fixapplicationid" value="${request.ongoingFA[0].id}" style="display: none">
+                            <input name="fixLog.username" value="${request.ongoingFA[0].userName}" style="display: none">
+                            <input name="fixLog.carid" value="${request.ongoingFA[0].carID}" style="display: none">
+                            <div class="mb-3">
+                                <label class="form-label">情况说明</label>
+                                <input class="ms-2" name="fixLog.remarks" maxlength="200" required>
+                            </div>
+                            <div class="mb-3 ">
+                                <label class="form-label">花费</label>
+                                <input class="ms-2" name="fixLog.cost" type="number" required>元
+                            </div>
+                            <div class="mb-2 text-center">
+                                <button class="btn rounded-pill btn-primary" type="submit" style="width: 200px; height: 40px;">提交回执</button>
+                            </div>
+                        </s:form>
+                    </s:else>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
     <div class="content-page">
         <div class="content">
 

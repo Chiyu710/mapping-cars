@@ -22,13 +22,30 @@
     <!-- ============================================================== -->
     <!-- Start Page Content here -->
     <!-- ============================================================== -->
+    <div id="savelog-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog mmmd">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="text-center mt-2 mb-2">
+                        <h4>借车完毕</h4>
+                    </div>
+                    <s:form action="finishLend" class="px-3" method="post">
+                        <input name="lendApplication.id" value="${request.ongoingLA[0].id}" style="display: none">
+                        <input name="lendApplication.carID" value="${request.ongoingLA[0].carID}" style="display: none">
+                        <p>请确认借出车辆已经归还后提交回执</p>
+                        <div class="mb-2 text-center">
+                            <button class="btn rounded-pill btn-primary" type="submit" style="width: 200px; height: 40px;">确认归还车辆</button>
+                        </div>
+                    </s:form>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 
     <div class="content-page">
         <div class="content">
-
             <!-- Start Content-->
             <div class="container-fluid">
-
                 <!-- start page title -->
                 <div class="row">
                     <div class="col-12">

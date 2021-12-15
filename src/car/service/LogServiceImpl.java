@@ -123,6 +123,28 @@ public class LogServiceImpl implements LogService{
         }
 
     }
+    public boolean saveFixLog(FixLog fixLog){
+        Date date = new Date ();
+        fixLog.setTime(date);
+        try {
+            logDao.saveFixlog(fixLog);
+            System.out.println("fixlog saved");
+            return true;
+        }catch (Exception e) {
+            return false;
+        }
+    }
+    public boolean saveMaintenanceLog(MaintenanceLog maintenanceLog){
+        Date date = new Date ();
+        maintenanceLog.setTime(date);
+        try {
+            logDao.saveMaintenanceLog(maintenanceLog);
+            System.out.println("maintenanceLog saved");
+            return true;
+        }catch (Exception e) {
+            return false;
+        }
+    }
     public boolean getFixLog(String carID) {
         ActionContext ctx = ActionContext.getContext();
         request = (Map) ctx.get("request");
