@@ -24,4 +24,5 @@ public interface ApplicationService {
     CarApplication getCAPAjax(String appid);
     LendApplication getLAPAjax(String appid);
     FixApplication getFAPAjax(String appid);
+    Statistics getBusinessStatistics();
 }

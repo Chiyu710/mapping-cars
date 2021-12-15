@@ -63,7 +63,7 @@ public class LogServiceImpl implements LogService{
     public boolean getNOT() {
         ActionContext ctx = ActionContext.getContext();
         request = (Map) ctx.get("request");
-        String hql = "from Notification as notification ";
+        String hql = "from Notification as notification order by time desc";
         List<Notification> list = logDao.findByHqlNF(hql);
         if (list.isEmpty()){
             return false;
@@ -154,7 +154,7 @@ public class LogServiceImpl implements LogService{
     public boolean getDRIVELOG(){
         ActionContext ctx = ActionContext.getContext();
         request = (Map) ctx.get("request");
-        String hql = "from DriveLog as drivelog ";
+        String hql = "from DriveLog as drivelog order by id desc";
         List<DriveLog> list = logDao.findByHqlDL(hql);
         if (list.isEmpty()){
             return false;

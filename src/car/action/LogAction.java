@@ -60,7 +60,6 @@ public class LogAction {
     }
 
     public String sendNot(){
-        System.out.println(notification);
         if(logService.sendNot(notification)){
             return "success";
         }

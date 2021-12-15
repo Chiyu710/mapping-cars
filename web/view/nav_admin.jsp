@@ -132,7 +132,6 @@
                             <div class="arrow-down"></div>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="topnav-components">
-                            <a href="../view_business/order.jsp" class="dropdown-item"><i class="ti-pulse me-1"></i>今日业务</a>
                             <a href="../view_business/order_statiscs.jsp" class="dropdown-item"><i class="ti-stats-up me-1"></i>业务统计</a>
                             <s:form action="getDriveLog" method="POST" id="DRILOG">
                             <a onclick="document:DRILOG.submit()" class="dropdown-item"><i class="fe-map me-1"></i>行车日志</a>

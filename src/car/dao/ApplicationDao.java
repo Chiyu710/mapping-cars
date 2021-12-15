@@ -19,4 +19,6 @@ public interface ApplicationDao {
     List<LendApplication> findByHqlLend(String hql);
     List<FixApplication> findByHqlFix(String hql);
     long getAppStatistic(String hql);
+    //保持每天有数据 不然就会错
+    List<Long> getStatisticList(String hql);
 }

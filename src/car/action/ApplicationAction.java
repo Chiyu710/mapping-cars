@@ -162,4 +162,8 @@ public class ApplicationAction {
         statistics=applicationService.getAppStatistics();
         return "ajax";
     }
+    public String getBusinessStatistics(){
+        statistics=applicationService.getBusinessStatistics();
+        return "ajax";
+    }
 }

@@ -200,6 +200,12 @@
                 <param name="root">tracks</param>
             </result>
         </action>
+
+        <action name="getBusinessAjax" class="applicationAction" method="getBusinessStatistics">
+            <result name="ajax" type="json">
+                <param name="root">statistics</param>
+            </result>
+        </action>
     </package>
 
 <!--    <package name="Admin" namespace="/" extends="struts-default">-->

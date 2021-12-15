@@ -1,6 +1,8 @@
 package car.po;
 
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 public class Statistics {
     long freeStaff_num;
@@ -19,6 +21,20 @@ public class Statistics {
     long lendApp_num1;
     long lendApp_num2;
     long lendApp_num3;
+
+    long week_carApp;
+    long month_carApp;
+    long week_fixApp;
+    long month_fixApp;
+    long week_lendApp;
+    long month_lendApp;
+
+//    List<Map<Date, Long>> past_week_carApp;
+//    List<Map<Date, Long>> past_week_fixApp;
+//    List<Map<Date, Long>> past_week_lendApp;
+    List<Long> past_week_carApp;
+    List<Long> past_week_fixApp;
+    List<Long> past_week_lendApp;
     Date date;
 
     public long getFreeStaff_num() {
@@ -147,5 +163,77 @@ public class Statistics {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public long getWeek_carApp() {
+        return week_carApp;
+    }
+
+    public void setWeek_carApp(long week_carApp) {
+        this.week_carApp = week_carApp;
+    }
+
+    public long getMonth_carApp() {
+        return month_carApp;
+    }
+
+    public void setMonth_carApp(long month_carApp) {
+        this.month_carApp = month_carApp;
+    }
+
+    public long getWeek_fixApp() {
+        return week_fixApp;
+    }
+
+    public void setWeek_fixApp(long week_fixApp) {
+        this.week_fixApp = week_fixApp;
+    }
+
+    public long getMonth_fixApp() {
+        return month_fixApp;
+    }
+
+    public void setMonth_fixApp(long month_fixApp) {
+        this.month_fixApp = month_fixApp;
+    }
+
+    public long getWeek_lendApp() {
+        return week_lendApp;
+    }
+
+    public void setWeek_lendApp(long week_lendApp) {
+        this.week_lendApp = week_lendApp;
+    }
+
+    public long getMonth_lendApp() {
+        return month_lendApp;
+    }
+
+    public void setMonth_lendApp(long month_lendApp) {
+        this.month_lendApp = month_lendApp;
+    }
+
+    public List<Long> getPast_week_carApp() {
+        return past_week_carApp;
+    }
+
+    public void setPast_week_carApp(List<Long> past_week_carApp) {
+        this.past_week_carApp = past_week_carApp;
+    }
+
+    public List<Long> getPast_week_fixApp() {
+        return past_week_fixApp;
+    }
+
+    public void setPast_week_fixApp(List<Long> past_week_fixApp) {
+        this.past_week_fixApp = past_week_fixApp;
+    }
+
+    public List<Long> getPast_week_lendApp() {
+        return past_week_lendApp;
+    }
+
+    public void setPast_week_lendApp(List<Long> past_week_lendApp) {
+        this.past_week_lendApp = past_week_lendApp;
     }
 }

@@ -100,9 +100,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="text-center mb-3">
-                                    <button type="button" class="btn w-sm btn-success waves-effect waves-light"
-                                            onclick="document:svNot.submit()">Save
-                                    </button>
+                                    <button type="submit" class="btn w-sm btn-success waves-effect waves-light">发布</button>
                                 </s:form>
                             </div>
                         </div> <!-- end col -->
