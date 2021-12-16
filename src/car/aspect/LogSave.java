@@ -9,6 +9,7 @@ import car.po.record.StatusLog;
 import car.service.ApplicationService;
 import car.service.CarService;
 import car.service.LogService;
+import car.service.UserService;
 import org.apache.commons.lang3.ObjectUtils;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
@@ -23,7 +24,8 @@ import java.util.Objects;
 @Component
 @Aspect
 public class LogSave {
-
+    @Autowired
+    private UserService userService;
     @Autowired
     private LogService logService;
     @Autowired
@@ -52,13 +54,23 @@ public class LogSave {
     @After("driveEnd()")
     public void CarChange(JoinPoint joinPoint){
         Object[] args = joinPoint.getArgs();
+        int mileage=driveLog.getMileage();
+        String userid=driveLog.getUserid();
+        int score;
         driveLog=(DriveLog) args[0];
         car.setStatus("空闲");
         car.setId(driveLog.getId());
+        car.setMileage(mileage);
         if(driveLog.getBroke()!= null) car.setFixTimes(1);
         else car.setFixTimes(0);
         carService.saveCarAfterDrive(car);
         System.out.println("after drive car status change");
+        if(mileage>60) score=-50;
+        else if(mileage>30) score=-30;
+        else if(mileage>15) score=-20;
+        else  score=-10;
+        userService.scoreAdd(userid,score);
+        System.out.println("员工状态分已改变");
     }
     
     @Pointcut("execution(* car.service.CarService.gotCarInfo(..))")
@@ -158,16 +170,22 @@ public class LogSave {
     public void carFixed(JoinPoint joinPoint){
         String carid;
         String appid;
+        String userid;
         Object[] args = joinPoint.getArgs();
         if(args[0]!=null){
+
             carid=((FixLog)args[0]).getCarid();
             appid=((FixLog)args[0]).getFixapplicationid();
             FixApplication fixApplication= applicationService.getFAPAjax(appid);
+            userid=fixApplication.getUserID();
             applicationService.sendFix(fixApplication);
             fixApplication.setStatus("已完成");
             System.out.println("app状态已改变");
             carService.carStatusChange(carid,0);
             System.out.println("车辆状态已改变");
+            userService.scoreAdd(userid,-20);
+            System.out.println("员工状态分已改变");
+
             }
     }
 
@@ -177,11 +195,13 @@ public class LogSave {
     public void carMA(JoinPoint joinPoint){
         String carid;
         String appid;
+        String userid;
         Object[] args = joinPoint.getArgs();
         if(args[0]!=null){
             carid=((MaintenanceLog)args[0]).getCarid();
             appid=((MaintenanceLog)args[0]).getFixapplicationid();
             FixApplication fixApplication= applicationService.getFAPAjax(appid);
+            userid=fixApplication.getUserID();
             fixApplication.setStatus("已完成");
             applicationService.sendFix(fixApplication);
             System.out.println("app状态已改变");
@@ -191,6 +211,8 @@ public class LogSave {
             car.setMileage(0);
             carService.saveOrUpdateCar(car);
             System.out.println("车辆状态已改变");
+            userService.scoreAdd(userid,-20);
+            System.out.println("员工状态分已改变");
         }
     }
 }

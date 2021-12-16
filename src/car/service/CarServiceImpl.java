@@ -76,6 +76,7 @@ public class CarServiceImpl implements CarService{
         Car c = carDao.getCar(car.getId());
         c.setStatus(car.getStatus());
         //有就加 没有就不加
+        c.setMileage(c.getMileage()+car.getMileage());
         c.setFixTimes(c.getFixTimes()+car.getFixTimes());
         c.setMileage(c.getMileage()+car.getMileage());
         try {

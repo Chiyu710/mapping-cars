@@ -88,5 +88,38 @@ public class UserServiceImpl implements UserService {
         statistics.setCloseStaff_num(userDao.getUserStatistic(hql));
         return statistics;
     }
+    public boolean healthDeclaration(User user){
+        ActionContext ctx = ActionContext.getContext();
+        session = (Map) ctx.getSession();
+        try {
+            User u=userDao.get(user);
+            u.setHealthy(user.getHealthy());
+            if(u.getHealthy().equals("正常")) u.setStatusScore(60);
+            else u.setStatusScore(0);
+            //更新用户
+            userDao.save(u);
+            session.put("user",u);
+            return true;
+        }catch (Exception e) {
+            return false;
+        }
+    }
+    public boolean scoreAdd(String userid,int score){
+        ActionContext ctx = ActionContext.getContext();
+        session = (Map) ctx.getSession();
+        try {
+            User u=userDao.getById(userid);
+            score=u.getStatusScore()+score;
+            if(score<0) score=10;
+            if(score>100) score=100;
+            u.setStatusScore(score);
+            userDao.save(u);
+            session.put("user",u);
+            System.out.println("用户状态分已更改");
+            return true;
+        }catch (Exception e) {
+            return false;
+        }
+    }
 
 }

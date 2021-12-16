@@ -42,8 +42,52 @@
                     }
                 })
             }
-
         )
+        function statusCheck(){
+            //后端验证切换
+            <%--var newS=$('input:radio:checked').val();--%>
+            <%--alert(${session.user.statusScore});--%>
+            var score=${session.user.statusScore};
+            var free=document.getElementById("btnradio1");
+            var busy=document.getElementById("btnradio2");
+            var close=document.getElementById("btnradio3");
+            if(score==0){
+                alert("您还未激活状态,请先进行健康申报");
+                return false;
+            }
+            else if(score>0 && score<40){
+                if(free.checked){
+                    alert("考虑到目前状况，不允许出车");
+                    return false;
+                }
+                else {
+                    return true;
+                }
+            }
+            else if(score>40 && score<80){
+                var msg = "您目前状态尚可，确定要切换状态吗？";
+                if (confirm(msg)==true){
+                    return true;  //你也可以在这里做其他的操作
+                }else{
+                    return false;
+                }
+            }
+            else {
+                if(busy.checked){
+                    msg = "您目前状态很好，无需休息，如果坚持不出车，请点击确认";
+                    if (confirm(msg)==true){
+                        return true;  //你也可以在这里做其他的操作
+                    }else{
+                        return false;
+                    }
+                }
+                else {
+                    return true;
+                }
+            }
+
+
+        }
     </script>
 
 
@@ -83,25 +127,60 @@
                             <div class="card-body">
                                 <h3 class="mb-2"><s:property value="#session.user.name"/></h3>
                                 <p class="text-muted">Staff-ID-<s:property value="#session.user.id"/></p>
-
-                                <s:if test='#session.user.status=="无法出车"'>
-                                    <button type="button" class="btn btn-danger btn waves-effect mb-2 waves-light" style="width: 350px">无法出车</button>
+                                <s:if test='#session.user.statusScore==0 and #session.user.status!="休假"'>
+                                    <button type="button" class="btn btn-secondary btn waves-effect mb-2 waves-light" style="width: 350px">未激活</button>
                                 </s:if>
+                                <s:elseif test='#session.user.status=="无法出车"'>
+                                    <button type="button" class="btn btn-danger btn waves-effect mb-2 waves-light" style="width: 350px">无法出车</button>
+                                </s:elseif>
                                 <s:elseif test='#session.user.status=="休假"'>
                                     <button type="button" class="btn btn-secondary btn waves-effect mb-2 waves-light " style="width: 350px">休假中</button>
                                 </s:elseif>
                                 <s:else>
                                     <button type="button" class="btn btn-success btn waves-effect mb-2 waves-light " style="width: 350px">可以出车</button>
                                 </s:else>
+
+                                <s:if test='#session.user.statusScore==0'>
+                                    <h4 class="mt-2">状态等级-未激活</h4>
+                                    <p>还未激活状态？<a class="text-info" href="code_apply_staff.jsp">立即进行健康上报<i class="fe-arrow-right"></i></a></p>
+                                    <div class="progress mb-2" >
+                                        <div class="progress-bar bg-success w-auto" role="progressbar"   aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </s:if>
+                                <s:elseif test='#session.user.statusScore>0 and #session.user.statusScore<40'>
+                                    <h4 class="mt-2">状态等级-极差</h4>
+                                    <div class="progress mb-2" >
+                                        <div class="progress-bar bg-danger w-25" role="progressbar"  aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </s:elseif>
+                                <s:elseif test='#session.user.statusScore>40 and #session.user.statusScore<60'>
+                                    <h4 class="mt-2">状态等级-普通</h4>
+                                    <div class="progress mb-2" >
+                                        <div class="progress-bar bg-warning w-50" role="progressbar"  aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </s:elseif>
+                                <s:elseif test='#session.user.statusScore>60 and #session.user.statusScore<80'>
+                                    <h4 class="mt-2">状态等级-较好</h4>
+                                    <div class="progress mb-2" >
+                                        <div class="progress-bar bg-success w-75" role="progressbar"  aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </s:elseif>
+                                <s:elseif test='#session.user.statusScore>80'>
+                                    <h4 class="mt-2">状态等级-优秀</h4>
+                                    <div class="progress mb-2" >
+                                        <div class="progress-bar bg-success w-100" role="progressbar"  aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </s:elseif>
                                 <div class="text-start mt-3">
                                     <h4 class="font-17 text-uppercase">About Me :</h4>
                                     <p class="text-muted mb-2 font-17"><strong>姓名 :</strong> <span class="ms-2"><s:property value="#session.user.name"/></span></p>
 
-                                    <p class="text-muted mb-2 font-17"><strong>电话 :</strong><span class="ms-2"><s:property value="#session.user.age"/></span></p>
+                                    <p class="text-muted mb-2 font-17"><strong>年龄 :</strong><span class="ms-2"><s:property value="#session.user.age"/></span></p>
 
                                     <p class="text-muted mb-2 font-17"><strong>邮箱 :</strong> <span class="ms-2"><s:property value="#session.user.email"/></span></p>
 
                                     <p class="text-muted mb-1 font-17"><strong>所属部门 :</strong> <span class="ms-2"><s:property value="#session.user.department"/></span></p>
+
                                 </div>
 
                             </div>
@@ -112,7 +191,7 @@
                             <h4 class="mt-4">状态切换</h4>
                             <div class="card-body">
                                 <div>
-                                    <s:form action="changeStatus" method="POST">
+                                    <form action="changeStatus.action" method="POST" onsubmit="return statusCheck()">
                                         <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
                                             <input   name="user.id" value="${session.user.id}" style="display: none">
                                             <input   name="statusLog.oldStatus" value="${session.user.status}" style="display: none">
@@ -134,9 +213,8 @@
                                         <div>
                                             <input class="btn btn-primary text-center" type="submit" value="切换状态">
                                         </div>
-                                    </s:form>
+                                    </form>
                                 </div>
-
                             </div> <!-- end card -->
                         </div>
                     </div>

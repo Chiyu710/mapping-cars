@@ -9,6 +9,8 @@ public class User {
     String email;
     String department;
     String status;
+    String healthy;
+    int statusScore;
 
 
     public String getDepartment() {return department;}
@@ -19,7 +21,11 @@ public class User {
     public String getName() {return name;}
     public String getSex() {return sex;}
     public String getStatus() {return status;}
+    public int getStatusScore() {return statusScore;}
+    public String getHealthy() {return healthy;}
 
+    public void setStatusScore(int statusScore) {this.statusScore = statusScore;}
+    public void setHealthy(String healthy) {this.healthy = healthy;}
     public void setId(String id) {this.id = id;}
     public void setStatus(String status) {this.status = status;}
     public void setDepartment(String department) {this.department = department;}

@@ -15,6 +15,7 @@
         <property name="email" column="email"/>
         <property name="department" column="department"/>
         <property name="status" column="status"/>
-
+        <property name="healthy" column="healthy"/>
+        <property name="statusScore" column="statusScore"/>
     </class>
 </hibernate-mapping>

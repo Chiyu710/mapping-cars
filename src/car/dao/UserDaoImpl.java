@@ -57,7 +57,6 @@ public class UserDaoImpl extends BaseHibernateDao implements UserDao {
             session.saveOrUpdate(registerUser);
             tran.commit();
         } catch (RuntimeException re) {
-
             if(tran != null) tran.rollback();
             throw re;
         } finally {
@@ -75,6 +74,22 @@ public class UserDaoImpl extends BaseHibernateDao implements UserDao {
             return u;
         } catch (RuntimeException re) {
 
+            if(tran != null) tran.rollback();
+            throw re;
+        } finally {
+            session.close();
+        }
+    }
+    public User getById(String id){
+        Transaction tran = null;
+        Session session = null;
+        try {
+            session = getSession();
+            tran = session.beginTransaction();
+            User u =session.get(car.po.User.class,id);
+            tran.commit();
+            return u;
+        } catch (RuntimeException re) {
             if(tran != null) tran.rollback();
             throw re;
         } finally {

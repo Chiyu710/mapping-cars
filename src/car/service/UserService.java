@@ -10,4 +10,6 @@ public interface UserService {
     boolean register(User registerUser);
     boolean changeStatus(User user, StatusLog statusLog);
     Statistics getUserStatistics();
+    boolean healthDeclaration(User user);
+    boolean scoreAdd(String userid,int score);
 }

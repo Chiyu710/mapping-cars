@@ -19,6 +19,10 @@
             <result name="success">/view_feedback/submit_success_staff.jsp</result>
             <result name="fail">/view_feedback/error.jsp</result>
         </action>
+        <action name="healthyDeclaration" class="userAction" method="healthyDeclaration">
+            <result name="success">/view_feedback/submit_success_staff.jsp</result>
+            <result name="fail">/view_feedback/error.jsp</result>
+        </action>
     </package>
 
     <package name="Application" namespace="/" extends="struts-default">
@@ -222,24 +226,5 @@
         </action>
 
     </package>
-
-<!--    <package name="Admin" namespace="/" extends="struts-default">-->
-<!--        <action name="login" class="userAction" method="login">-->
-<!--            <result name="success">staff_index.jsp</result>-->
-<!--            <result name="fail">login.jsp</result>-->
-<!--        </action>-->
-<!--        <action name="register" class="userAction" method="register">-->
-<!--            <result name="success">suuccess.jsp</result>-->
-<!--            <result name="fail">Failed.jsp</result>-->
-<!--        </action>-->
-<!--        <action name="changeStatus" class="userAction" method="changeStatus">-->
-<!--            <result name="success">/view_feedback/submit_success_staff.jsp</result>-->
-<!--            <result name="fail">/view_feedback/error.jsp</result>-->
-<!--        </action>-->
-
-
-<!--    </package>-->
-
-
 
 </struts>

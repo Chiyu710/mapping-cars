@@ -68,6 +68,12 @@ public class UserAction extends ActionSupport {
             return "fail";
         }
     }
+    public String healthyDeclaration(){
+        if(userService.healthDeclaration(user)){
+            return "success";
+        }
+        else return"fail";
+    }
     public String getUserSta(){
         statistics=userService.getUserStatistics();
         return "ajax";
