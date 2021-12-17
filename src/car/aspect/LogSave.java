@@ -32,9 +32,6 @@ public class LogSave {
     private CarService carService;
     @Autowired
     private ApplicationService applicationService;
-    @Autowired
-    private Car car ;
-    private DriveLog driveLog;
 
     @Pointcut("execution(* car.service.UserService.changeStatus(..))")
     public void statuschange(){}
@@ -54,21 +51,25 @@ public class LogSave {
     @After("driveEnd()")
     public void CarChange(JoinPoint joinPoint){
         Object[] args = joinPoint.getArgs();
+        DriveLog driveLog=(DriveLog)args[0];
+
+        System.out.println(driveLog.toString());
+
+
         int mileage=driveLog.getMileage();
-        String userid=driveLog.getUserid();
+        String carid=driveLog.getCarid();
+
         int score;
-        driveLog=(DriveLog) args[0];
-        car.setStatus("空闲");
-        car.setId(driveLog.getId());
-        car.setMileage(mileage);
-        if(driveLog.getBroke()!= null) car.setFixTimes(1);
-        else car.setFixTimes(0);
-        carService.saveCarAfterDrive(car);
-        System.out.println("after drive car status change");
+        String userid=driveLog.getUserid();
+
+        carService.saveCarAfterDrive(carid,mileage);
+        System.out.println("after drive car change");
+
         if(mileage>60) score=-50;
         else if(mileage>30) score=-30;
         else if(mileage>15) score=-20;
         else  score=-10;
+
         userService.scoreAdd(userid,score);
         System.out.println("员工状态分已改变");
     }
@@ -206,7 +207,7 @@ public class LogSave {
             applicationService.sendFix(fixApplication);
             System.out.println("app状态已改变");
             //car change
-            Car car =carService.getCarInfoAjax(Integer.parseInt(carid));
+            Car car =carService.getCarInfoAjax(carid);
             car.setStatus("空闲");
             car.setMileage(0);
             carService.saveOrUpdateCar(car);

@@ -22,6 +22,30 @@ public class DriveLog {
     double slatitude;
     double elongitude;
 
+    @Override
+    public String toString() {
+        return "DriveLog{" +
+                "id='" + id + '\'' +
+                ", userid='" + userid + '\'' +
+                ", applicationid='" + applicationid + '\'' +
+                ", carid='" + carid + '\'' +
+                ", trackID='" + trackID + '\'' +
+                ", username='" + username + '\'' +
+                ", destination='" + destination + '\'' +
+                ", startlocatoin='" + startlocatoin + '\'' +
+                ", endtime=" + endtime +
+                ", starttime=" + starttime +
+                ", broke='" + broke + '\'' +
+                ", illegel='" + illegel + '\'' +
+                ", status='" + status + '\'' +
+                ", mileage=" + mileage +
+                ", elatitude=" + elatitude +
+                ", slongitude=" + slongitude +
+                ", slatitude=" + slatitude +
+                ", elongitude=" + elongitude +
+                '}';
+    }
+
     public String getId() {
         return id;
     }

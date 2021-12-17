@@ -5,11 +5,15 @@
         "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-    <package name="User" namespace="/" extends="struts-default">
+    <package name="User" namespace="/" extends="all" >
+        <global-results>
+            <result name="login">/view_auth/login.jsp</result>
+            <result name="index">/view_auth/staff_index.jsp</result>
+        </global-results>
         <action name="login" class="userAction" method="login">
             <result name="success">/view_auth/staff_index.jsp</result>
             <result name="adminsuccess">/view_auth/administrator_index.jsp</result>
-            <result name="fail">/view_auth/login.jsp</result>
+            <result name="login">/view_auth/login.jsp</result>
         </action>
         <action name="register" class="userAction" method="register">
             <result name="success">success.jsp</result>
@@ -25,7 +29,11 @@
         </action>
     </package>
 
-    <package name="Application" namespace="/" extends="struts-default">
+    <package name="Application" namespace="/" extends="all" >
+        <global-results>
+            <result name="login">/view_auth/login.jsp</result>
+            <result name="index">/view_auth/staff_index.jsp</result>
+        </global-results>
         <action name="sendFix" class="applicationAction" method="sendFix">
             <result name="success">/view_feedback/submit_success_staff.jsp</result>
             <result name="fail">/view_feedback/error.jsp</result>
@@ -84,7 +92,11 @@
         </action>
     </package>
 
-    <package name="Car" namespace="/" extends="struts-default">
+    <package name="Car" namespace="/" extends="all">
+        <global-results>
+            <result name="login">/view_auth/login.jsp</result>
+            <result name="index">/view_auth/staff_index.jsp</result>
+        </global-results>
         <action name="takeAllCars" class="carAction" method="takeAllCars">
             <result name="success">/view_car/car_info.jsp</result>
             <result name="fail">/view_feedback/error.jsp</result>
@@ -100,7 +112,11 @@
 
     </package>
 
-    <package name="Log" namespace="/" extends="struts-default">
+    <package name="Log" namespace="/" extends="all">
+        <global-results>
+            <result name="login">/view_auth/login.jsp</result>
+            <result name="index">/view_auth/staff_index.jsp</result>
+        </global-results>
         <action name="getAllNF" class="logAction" method="getAllNF">
             <result name="success">/view_notification/notification_detail.jsp</result>
             <result name="fail">/view_feedback/error.jsp</result>
@@ -225,6 +241,23 @@
             </result>
         </action>
 
+    </package>
+
+    <package  name="all"  extends="struts-default" namespace="/">
+        <interceptors>
+            <interceptor name="loginCheck" class="car.Interceptor.LoginCheckInterceptor"/>
+            <interceptor name="healthyCheck" class="car.Interceptor.healthyCheckInterceptor"/>
+            <interceptor-stack name="myGlobal">
+                <interceptor-ref name="loginCheck">
+                    <param name="excludeMethods">login</param>
+                </interceptor-ref>
+                <interceptor-ref name="healthyCheck">
+                    <param name="excludeMethods">login,getStaffDriveLog,getStaffVIO,healthyDeclaration</param>
+                </interceptor-ref>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="myGlobal"/>
     </package>
 
 </struts>

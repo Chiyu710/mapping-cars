@@ -52,7 +52,7 @@
             var busy=document.getElementById("btnradio2");
             var close=document.getElementById("btnradio3");
             if(score==0){
-                alert("您还未激活状态,请先进行健康申报");
+                alert("您当前的状态不支持切换");
                 return false;
             }
             else if(score>0 && score<40){
@@ -89,8 +89,6 @@
 
         }
     </script>
-
-
 </head>
 
 <!-- body start -->
@@ -117,6 +115,10 @@
                     <div class="col-12">
                         <div class="page-title-box">
                             <h4 class="page-title">欢迎，<s:property value="#session.user.name"/> 先生</h4>
+                            <div class="text-danger mb-2">
+                                <h4 class="text-danger mb-2"><s:property value="tip"/></h4>
+                                <s:actionerror/>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -142,7 +144,9 @@
 
                                 <s:if test='#session.user.statusScore==0'>
                                     <h4 class="mt-2">状态等级-未激活</h4>
-                                    <p>还未激活状态？<a class="text-info" href="code_apply_staff.jsp">立即进行健康上报<i class="fe-arrow-right"></i></a></p>
+                                    <s:if test='#session.user.healthy!="有风险"'>
+                                        <p>还未激活状态？<a class="text-info" href="../view_auth/code_apply_staff.jsp">立即进行健康上报<i class="fe-arrspring ow-right"></i></a></p>
+                                    </s:if>
                                     <div class="progress mb-2" >
                                         <div class="progress-bar bg-success w-auto" role="progressbar"   aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
@@ -153,19 +157,19 @@
                                         <div class="progress-bar bg-danger w-25" role="progressbar"  aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </s:elseif>
-                                <s:elseif test='#session.user.statusScore>40 and #session.user.statusScore<60'>
+                                <s:elseif test='#session.user.statusScore>=40 and #session.user.statusScore<60'>
                                     <h4 class="mt-2">状态等级-普通</h4>
                                     <div class="progress mb-2" >
                                         <div class="progress-bar bg-warning w-50" role="progressbar"  aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </s:elseif>
-                                <s:elseif test='#session.user.statusScore>60 and #session.user.statusScore<80'>
+                                <s:elseif test='#session.user.statusScore>=60 and #session.user.statusScore<80'>
                                     <h4 class="mt-2">状态等级-较好</h4>
                                     <div class="progress mb-2" >
                                         <div class="progress-bar bg-success w-75" role="progressbar"  aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </s:elseif>
-                                <s:elseif test='#session.user.statusScore>80'>
+                                <s:elseif test='#session.user.statusScore>=80'>
                                     <h4 class="mt-2">状态等级-优秀</h4>
                                     <div class="progress mb-2" >
                                         <div class="progress-bar bg-success w-100" role="progressbar"  aria-valuemin="0" aria-valuemax="100"></div>

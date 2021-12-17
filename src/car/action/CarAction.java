@@ -36,7 +36,7 @@ public class CarAction {
 
 
     public String takeCarInfoAjax(){
-        car=carService.getCarInfoAjax(carId);
+        car=carService.getCarInfoAjax(Integer.toString(carId));
         return "ajax";
     }
 

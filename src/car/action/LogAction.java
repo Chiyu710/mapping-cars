@@ -138,6 +138,7 @@ public class LogAction {
         driveLog=logService.getDLbyID(userID);
         return "ajax";
     }
+
     public String getTrackAjax(){
         //混用ID 下面的id是轨迹id
        tracks= logService.getTrack(userID);
@@ -149,6 +150,7 @@ public class LogAction {
         return "success";
         else return "fail";
     }
+
     public String saveMALog(){
         if(logService.saveMaintenanceLog(maintenanceLog))
             return "success";
