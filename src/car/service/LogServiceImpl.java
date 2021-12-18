@@ -110,6 +110,7 @@ public class LogServiceImpl implements LogService{
     public boolean saveDriveLog(DriveLog driveLog){
         DriveLog ODL=logDao.getDL(driveLog);
         ODL.setStatus(driveLog.getStatus());
+        ODL.setMileage(driveLog.getMileage());
         ODL.setBroke(driveLog.getBroke());
         ODL.setIllegel(driveLog.getIllegel());
         Date date = new Date ();

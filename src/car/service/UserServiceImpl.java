@@ -95,14 +95,18 @@ public class UserServiceImpl implements UserService {
         session = (Map) ctx.getSession();
         try {
             User u=userDao.get(user);
-            u.setHealthy(user.getHealthy());
-            if(u.getHealthy().equals("正常")) u.setStatusScore(60);
-            else u.setStatusScore(0);
-            //更新用户
-            userDao.save(u);
-            session.put("user",u);
-            return true;
+            if(u.getHealthy()==null || !(u.getHealthy().equals("正常") || u.getHealthy().equals("有风险"))){
+                u.setHealthy(user.getHealthy());
+                if(u.getHealthy().equals("正常")) u.setStatusScore(60);
+                else u.setStatusScore(0);
+                //更新用户
+                userDao.save(u);
+                session.put("user",u);
+                return true;
+            }
+            return false;
         }catch (Exception e) {
+            System.out.println("123");
             return false;
         }
     }
@@ -112,12 +116,12 @@ public class UserServiceImpl implements UserService {
         try {
             User u=userDao.getById(userid);
             score=u.getStatusScore()+score;
-            if(score<0) score=10;
+            System.out.println(u.getStatusScore());
+            if(score<=0) score=10;
             if(score>100) score=100;
             u.setStatusScore(score);
             userDao.save(u);
             session.put("user",u);
-            System.out.println("用户状态分已更改");
             return true;
         }catch (Exception e) {
             return false;

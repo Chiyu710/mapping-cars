@@ -37,17 +37,9 @@ public class CarServiceImpl implements CarService{
             return true;
         }
     }
-    public Car getCarInfoAjax(int carId){
-        ActionContext ctx = ActionContext.getContext();
-        session = (Map) ctx.getSession();
-        request = (Map) ctx.get("request");
-        String hql = "from Car as car where id= '"+carId+"'" ;
-        List<Car> list = carDao.findByHql(hql);
-        if (list.isEmpty())
-            return null;
-        else {
-            return list.get(0);
-        }
+    public Car getCarInfoAjax(String carId){
+        Car car=carDao.getCar(carId);
+        return car;
     }
     public List<Car> getAllCarsAjax(){
         ActionContext ctx = ActionContext.getContext();
@@ -72,15 +64,11 @@ public class CarServiceImpl implements CarService{
             return list;
         }
     }
-    public boolean saveCarAfterDrive(Car car){
-        Car c = carDao.getCar(car.getId());
-        c.setStatus(car.getStatus());
-        //有就加 没有就不加
-        c.setMileage(c.getMileage()+car.getMileage());
-        c.setFixTimes(c.getFixTimes()+car.getFixTimes());
-        c.setMileage(c.getMileage()+car.getMileage());
+    public boolean saveCarAfterDrive(String carid,int mileage){
+        Car c = carDao.getCar(carid);
+        c.setStatus("空闲");
+        c.setMileage(c.getMileage()+mileage);
         try {
-            System.out.println("car status changed");
             carDao.saveCar(c);
             return true;
         }catch (Exception e) {

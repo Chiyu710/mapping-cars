@@ -3,7 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:aop="http://www.springframework.org/schema/aop"
-       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:mvc="http://www.springframework.org/schema/c"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
     http://www.springframework.org/schema/aop
@@ -15,11 +15,9 @@
 
     <!-- 开启注解扫描 -->
     <context:component-scan base-package="car.aspect"/>
-    <bean class="car.po.Car" id="car" scope="prototype"/>
     <!-- 开启aop注解方式,默认为false -->
     <aop:aspectj-autoproxy/>
-
-
+    <!--数据库连接配置-->
     <context:property-placeholder location="classpath:jdbc.properties"/>
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="${jdbc.driverClassName}"/>

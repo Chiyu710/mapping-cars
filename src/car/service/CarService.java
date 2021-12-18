@@ -11,11 +11,11 @@ public interface CarService {
 
     boolean takeAllCars();
 
-    Car getCarInfoAjax(int carId);
+    Car getCarInfoAjax(String carId);
 
     List<Car> getFreeCarsAjax();
 
-    boolean saveCarAfterDrive(Car car);
+    boolean saveCarAfterDrive(String carid,int mileage);
 
     boolean  gotCarInfo(String carId);
 

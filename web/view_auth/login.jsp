@@ -52,7 +52,8 @@
                         </div>
                        <s:form action="login" method="post">
                             <div class="mb-3">
-                               <div class="text-danger">
+                               <div class="text-danger mb-2">
+                                   <s:property value="tip"/>
                                    <s:actionerror/>
                                </div>
                                 <label for="account" class="form-label" >账号</label>

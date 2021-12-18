@@ -40,6 +40,10 @@
                     </div>
                     <s:form action="SaveDL" class="px-3" method="post">
                         <input name="driveLog.id" value="${request.myBusiness[0].id}" style="display: none">
+                        <input name="driveLog.carid" value="${request.myBusiness[0].carid}" style="display: none">
+                        <input name="driveLog.userid" value="${request.myBusiness[0].userid}" style="display: none">
+                        <input name="driveLog.mileage"  id="dlMileage" style="display: none">
+
                         <input name="driveLog.status" value="已完成" style="display: none">
                         <div class="mb-3 font-18">
                             <label for="emailaddress1" class="form-label">车辆损坏情况(无损坏无需填写)</label>
@@ -113,23 +117,64 @@
                                                             </h5>
                                                         </div>
                                                     </div>
-                                                    <!-- end due date -->
                                                 </div>
-                                                <div class="col-12 mt-1">
-                                                    <div class="card">
-                                                        <div class="card-body">
-                                                            <div id="MAP" class=" pt-3 show">
-                                                            </div> <!-- end collapse-->
-                                                        </div> <!-- end card-body-->
-                                                    </div> <!-- end card-->
-                                                </div> <!-- end col-->
-                                                <!-- end row -->
-                                                <div>
-                                                    <input class="btn btn-primary text-center" data-bs-toggle="modal" data-bs-target="#savelog-modal" type="submit" value="出车完毕" style="width: 500px; height: 40px; font-size: 20px;float: none;display: block;margin-left: auto;margin-right: auto;">
+                                                <div class="col-md-4">
+                                                    <!-- start due date -->
+                                                    <p class="mt-2 mb-1 text-muted font-20">预计时间</p>
+                                                    <div class="d-flex align-items-start">
+                                                        <i class="mdi mdi-alarm font-18 text-primary me-1"></i>
+                                                        <div class="w-100">
+                                                            <h5 class="mt-1 font-20 " id="time">
+
+                                                            </h5>
+                                                        </div>
+                                                    </div>
                                                 </div>
+                                                <div class="col-md-4">
+                                                        <!-- start due date -->
+                                                        <p class="mt-2 mb-1 text-muted font-20">预计驾车距离</p>
+                                                        <div class="d-flex align-items-start">
+                                                            <i class="mdi mdi-alert-circle-outline font-18 text-primary me-1"></i>
+                                                            <div class="w-100">
+                                                                <h5 class="mt-1 font-20" id="distance">
+
+                                                                </h5>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                <div class="col-md-4">
+                                                    <!-- start due date -->
+                                                    <p class="mt-2 mb-1 text-muted font-20">驾车策略</p>
+                                                    <div class="d-flex align-items-start">
+                                                        <i class="mdi mdi-alert-circle-outline font-18 text-primary me-1"></i>
+                                                        <div class="w-100">
+                                                            <h5 class="mt-1 font-20" id="policy">
+
+                                                            </h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- end due date -->
                                             </div>
+                                        <div class="col-12 mt-1">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div id="MAP" class=" pt-3 show">
+                                                    </div> <!-- end collapse-->
+                                                </div> <!-- end card-body-->
+                                            </div> <!-- end card-->
+                                        </div> <!-- end col-->
+                                        <!-- end row -->
+                                        <div>
+                                            <input class="btn btn-primary text-center"
+                                                   data-bs-toggle="modal"
+                                                   data-bs-target="#savelog-modal" type="submit"
+                                                   value="出车完毕"
+                                                   style="width: 500px; height: 40px; font-size: 20px;float: none;display: block;margin-left: auto;margin-right: auto;">
+                                        </div>
                                     </div>
                                 </div>
+                            </div>
 
 
                             </div>
@@ -200,9 +245,21 @@
 
         var endLngLat = [eLo,ela]
 
+        //var distance=driving.distance(startLngLat,endLngLat);
+       // alert(distance);
+
         driving.search(startLngLat, endLngLat, function (status, result) {
             // 未出错时，result即是对应的路线规划方案
             if (status === 'complete') {
+                var distance = result.routes[0].distance/1000;
+                var time =parseInt(result.routes[0].time);
+                var hour= parseInt(time/3600);
+                var min = parseInt(time%3600/60)
+                var policy=result.routes[0].policy;
+                $('#dlMileage').val(parseInt(distance));
+                $('#distance').text(distance+"公里");
+                $('#time').text(hour+"小时"+min+"分钟");
+                $('#policy').text(policy);
                 log.success('绘制驾车路线完成')
             } else {
                 log.error('获取驾车数据失败：' + result)

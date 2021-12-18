@@ -63,7 +63,7 @@ public class UserAction extends ActionSupport {
         }
 
         this.addActionError("用户名或密码错误，请重新输入！");
-        return "fail";
+        return "login";
     }
     public String changeStatus(){
         statusLog.setStaffId(user.getId());
@@ -90,7 +90,10 @@ public class UserAction extends ActionSupport {
         if(userService.healthDeclaration(user)){
             return "success";
         }
-        else return"fail";
+        else {
+            this.addActionError("提交失败，今日已经行过健康上报！");
+            return"index";
+        }
     }
     public String getUserSta(){
         statistics=userService.getUserStatistics();
