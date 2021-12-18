@@ -1,6 +1,7 @@
 package car.Interceptor;
 
 import car.action.UserAction;
+import car.po.Admin;
 import car.po.User;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionContext;
@@ -16,7 +17,8 @@ public class LoginCheckInterceptor extends MethodFilterInterceptor {
         ActionContext ctx = invocation.getInvocationContext();
         Map session = ctx.getSession();
         User user = (User) session.get("user");
-        if (user != null) {
+        Admin admin=(Admin) session.get("admin");
+        if (user != null || admin!=null) {
             // 存在的情况下进行后续操作。
             return invocation.invoke();
         } else {

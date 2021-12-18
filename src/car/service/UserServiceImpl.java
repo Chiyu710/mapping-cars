@@ -52,7 +52,7 @@ public class UserServiceImpl implements UserService {
             return false;
         else {
             Admin admin = (Admin) list.get(0);
-            session.put("loginUser", admin);
+            session.put("admin", admin);
             return true;
         }
     }
