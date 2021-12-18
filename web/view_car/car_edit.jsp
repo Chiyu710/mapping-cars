@@ -16,13 +16,15 @@
     <title>MAPPING CARS MANAGE INDEX</title>
     <jsp:include page="../view/header.jsp"></jsp:include>
 
-</head>
+<s:head/>
 
 <!-- body start -->
 <body class="loading" data-layout-mode="horizontal"
       data-layout='{"mode": "light", "width": "fluid", "menuPosition": "fixed", "sidebar": { "color": "light", "size": "default", "showuser": false}, "topbar": {"color": "dark"}, "showRightSidebarOnPageLoad": true}'>
 
 <!-- Begin page -->
+
+
 <div id="wrapper">
 
     <jsp:include page="../view/nav_admin.jsp"></jsp:include>
@@ -54,22 +56,26 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="mb-3 col-4">
+                                        <s:fielderror fieldName="save.id" />
                                         <label for="car-id" class="form-label">查勘车号 <span class="text-danger">*</span></label>
                                         <input type="text" id="car-id" class="form-control" name="car.id" value="<s:property value="#request.car.id"/>">
                                         <input  name="car.pic" value="<s:property value="#request.car.pic"/>" style="display: none">
                                     </div>
 
                                     <div class="mb-3 col-4">
+                                        <s:fielderror fieldName="save.license" />
                                         <label for="cph" class="form-label">车牌号 <span class="text-danger">*</span></label>
                                         <input type="text" id="cph" class="form-control" name="car.licensePlate" value="<s:property value="#request.car.licensePlate"/>">
                                     </div>
 
                                     <div class="mb-3 col-4">
+                                        <s:fielderror fieldName="save.depart" />
                                         <label for="de" class="form-label">所属部门 <span class="text-danger">*</span></label>
                                         <input type="text" id="de" class="form-control" name="car.department" value="<s:property value="#request.car.department"/>">
                                     </div>
 
                                     <div class="mb-3 col-4">
+                                        <s:fielderror fieldName="save.status" />
                                         <label for="e" class="form-label">当前状态 <span class="text-danger">*</span></label>
                                         <select class="form-select my-1 my-lg-0" id="e" name="car.status" >
                                             <option value="<s:property value="#request.car.status"/>" selected><s:property value="#request.car.status"/></option>
@@ -80,32 +86,38 @@
                                     </div>
 
                                     <div class="mb-3 col-4">
+                                        <s:fielderror fieldName="save.name" />
                                         <label for="nm" class="form-label">别名</label>
                                         <input type="text" id="nm" class="form-control" name="car.name" value="<s:property value="#request.car.name"/>">
                                     </div>
                                     <div class="mb-3 col-4">
                                     </div>
                                     <div class="mb-3 col-4">
+                                        <s:fielderror fieldName="save.purchase" />
                                         <label for="rt" class="form-label">入库时间 <span class="text-danger">*</span></label>
                                         <input type="text" id="rt" class="form-control" name="car.purchase" value="<s:property value="#request.car.Purchase"/>">
                                     </div>
 
                                     <div class="mb-3 col-4">
+                                        <s:fielderror fieldName="save.age" />
                                         <label for="cl" class="form-label">车龄<span class="text-danger">*</span></label>
                                         <input type="text" id="cl" class="form-control" name="car.age" value="<s:property value="#request.car.age"/>">
                                     </div>
 
                                     <div class="mb-3 col-4">
+                                        <s:fielderror fieldName="save.trans" />
                                         <label for="bs" class="form-label">变速箱类型 <span
                                                 class="text-danger">*</span></label>
                                         <input type="text" id="bs" class="form-control"name="car.transmissionCase" value="<s:property value="#request.car.transmissionCase"/>">
                                     </div>
 
                                     <div class="mb-3 col-8">
+                                        <s:fielderror fieldName="save.model" />
                                         <label for="xh" class="form-label">车辆型号 <span class="text-danger">*</span></label>
                                         <input type="text" id="xh" class="form-control"name="car.model" value="<s:property value="#request.car.model"/>">
                                     </div>
                                     <div class="mb-3 col-4">
+                                        <s:fielderror fieldName="save.brand" />
                                         <label for="xhd" class="form-label">车辆品牌</label>
                                         <input type="text" id="xhd" class="form-control"name="car.brand" value="<s:property value="#request.car.brand"/>">
                                     </div>
