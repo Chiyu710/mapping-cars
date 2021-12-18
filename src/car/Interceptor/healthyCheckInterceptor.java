@@ -1,5 +1,6 @@
 package car.Interceptor;
 
+import car.po.Admin;
 import car.po.User;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionContext;
@@ -14,7 +15,8 @@ public class healthyCheckInterceptor extends MethodFilterInterceptor {
         ActionContext ctx = invocation.getInvocationContext();
         Map session = ctx.getSession();
         User user = (User) session.get("user");
-        if (user==null) return Action.LOGIN;
+        Admin admin =(Admin) session.get("admin");
+        if(admin!=null){return invocation.invoke();}
         if (user.getHealthy()==null){
             ctx.put("tip", "您未进行今日的健康申报，请尽快申报！");
             return "index";

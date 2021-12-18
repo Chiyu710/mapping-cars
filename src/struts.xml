@@ -96,6 +96,7 @@
         <action name="takeAllCars" class="carAction" method="takeAllCars">
             <result name="success">/view_car/car_info.jsp</result>
             <result name="fail">/view_feedback/error.jsp</result>
+            <result name="input">/view_auth/administrator_index.jsp</result>
         </action>
         <action name="gotCarInfo" class="carAction" method="gotCarInfo">
             <result name="success">/view_car/car_edit.jsp</result>

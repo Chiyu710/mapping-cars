@@ -8,7 +8,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CarAction {
+public class CarAction extends ActionSupport{
     private List<Car> allCarsInfo;
     public List<Car> getAllCarsInfo() {return allCarsInfo;}
     public void setAllCarsInfo(List<Car> allCarsInfo) {this.allCarsInfo = allCarsInfo;}
@@ -54,6 +54,10 @@ public class CarAction {
         else return "fail";
     }
 
+
+    public void validateTakeAllCars(){
+        this.addFieldError("test", "该名称已存在");
+    }
     public String takeAllCars(){
         System.out.println("get all cars info");
         if(carService.takeAllCars()){
