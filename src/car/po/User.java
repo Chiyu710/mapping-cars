@@ -24,6 +24,7 @@ public class User {
     public int getStatusScore() {return statusScore;}
     public String getHealthy() {return healthy;}
 
+
     public void setStatusScore(int statusScore) {this.statusScore = statusScore;}
     public void setHealthy(String healthy) {this.healthy = healthy;}
     public void setId(String id) {this.id = id;}
@@ -34,4 +35,5 @@ public class User {
     public void setPassword(String password) {this.password = password;}
     public void setSex(String sex) {this.sex = sex;}
     public void setName(String name) {this.name = name;}
+
 }

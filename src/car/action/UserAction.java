@@ -1,5 +1,6 @@
 package car.action;
 
+import car.po.Admin;
 import car.po.Statistics;
 import car.po.User;
 import car.po.record.StatusLog;
@@ -15,6 +16,10 @@ public class UserAction extends ActionSupport {
     private User user;
     public User getUser() {return user;}
     public void setUser(User user) {this.user = user;}
+
+    private Admin admin;
+    public Admin getAdmin() {return admin;}
+    public void setAdmin(Admin admin) {this.admin = admin;}
 
     private StatusLog statusLog;
     public StatusLog getStatusLog() {return statusLog;}
@@ -40,10 +45,23 @@ public class UserAction extends ActionSupport {
             }
         }
         else {
-            if(userService.adminlogin(user)){
-                return "adminsuccess";
+            String position = userService.adminlogin(user.getId(),user.getPassword());
+            System.out.println(position);
+            if(position != null){
+                if(position.equals("car"))
+                    return "adminsuccesscar";
+                if (position.equals("check"))
+                    return "adminsuccesscheck";
+                if (position.equals("not"))
+                    return "adminsuccessnot";
+                if (position.equals("sta"))
+                    return "adminsuccesssta";
+                if (position.equals("all"))
+                    return "adminsuccess";
             }
+
         }
+
         this.addActionError("用户名或密码错误，请重新输入！");
         return "fail";
     }

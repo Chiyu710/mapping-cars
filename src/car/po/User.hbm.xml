@@ -17,5 +17,6 @@
         <property name="status" column="status"/>
         <property name="healthy" column="healthy"/>
         <property name="statusScore" column="statusScore"/>
+
     </class>
 </hibernate-mapping>

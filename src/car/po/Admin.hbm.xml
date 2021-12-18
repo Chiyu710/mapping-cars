@@ -14,6 +14,7 @@
         <property name="age" column="age"/>
         <property name="email" column="email"/>
         <property name="department" column="department"/>
+        <property name="position" column="position"/>
 
     </class>
 </hibernate-mapping>

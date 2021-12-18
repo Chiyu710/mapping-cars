@@ -9,6 +9,10 @@
         <action name="login" class="userAction" method="login">
             <result name="success">/view_auth/staff_index.jsp</result>
             <result name="adminsuccess">/view_auth/administrator_index.jsp</result>
+            <result name="adminsuccesscar">/view_auth/administrator_index_car.jsp</result>
+            <result name="adminsuccesscheck">/view_auth/administrator_index_check.jsp</result>
+            <result name="adminsuccessnot">/view_auth/administrator_index_not.jsp</result>
+            <result name="adminsuccesssta">/view_auth/administrator_index_sta.jsp</result>
             <result name="fail">/view_auth/login.jsp</result>
         </action>
         <action name="register" class="userAction" method="register">
