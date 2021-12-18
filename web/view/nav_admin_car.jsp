@@ -30,7 +30,7 @@
                    href="#" role="button" aria-haspopup="false" aria-expanded="false">
 
                         <span class="pro-user-name ms-1">
-                      <s:property value="#session.loginUser.name"/> <i class="mdi mdi-chevron-down"></i>
+                      <s:property value="#session.admin.name"/> <i class="mdi mdi-chevron-down"></i>
                     </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
@@ -112,13 +112,38 @@
 
                     <li class="nav-item dropdown">
                         <form action="takeAllCars.action" method="POST" id="carInfo">
-                            <a class="nav-link"    onclick="document:carInfo.submit()" role="button">
+                            <a class="nav-link" onclick="document:carInfo.submit()" role="button">
                                 <i class="ti-car me-1"></i>部门车辆
                             </a>
                         </form>
                     </li>
 
+                    <li class="nav-item dropdown">
+                        <a href="../view_notification/notification_release.jsp" class="nav-link"><i
+                                class="fe-clipboard"></i>通知发布
+                        </a>
+                    </li>
 
+
+                    <li class="nav-item dropdown">
+                        <s:form action="SaveVio" method="POST" id="svVio">
+                            <a class="nav-link" href="../view_log/violation_release.jsp" role="button">
+                                <i class="ti-bookmark me-1"></i>违规记录发布
+                            </a>
+                        </s:form>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <s:form action="getNot" method="POST" id="NOT">
+                            <a class="nav-link" onclick="document:NOT.submit()">
+                                <i class="fe-clipboard me-1"></i> 已发布通知
+                            </a>
+                        </s:form>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <s:form action="getDriveLog" method="POST" id="DRILOG">
+                            <a onclick="document:DRILOG.submit()" class="nav-link"><i class="fe-map me-1"></i>行车日志查看</a>
+                        </s:form>
+                    </li>
 
 
                 </ul> <!-- end navbar-->

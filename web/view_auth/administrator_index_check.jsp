@@ -251,7 +251,7 @@
                             </div>
                         </div> <!-- end card -->
                     </div> <!-- end col-->
-                    <div class="col-5 ">
+                    <div class="col-8 ">
                         <div class="card text-center">
                             <div class="card-body">
 

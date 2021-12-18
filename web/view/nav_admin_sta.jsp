@@ -120,20 +120,20 @@
 
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle arrow-none" id="topnav-components" role="button"
-                           data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fe-layers me-1"></i> 部门业务
-                            <div class="arrow-down"></div>
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="topnav-components">
-                            <a href="../view_business/order_statiscs.jsp" class="dropdown-item"><i class="ti-stats-up me-1"></i>业务统计</a>
-                            <s:form action="getDriveLog" method="POST" id="DRILOG">
-                                <a onclick="document:DRILOG.submit()" class="dropdown-item"><i class="fe-map me-1"></i>行车日志</a>
-                            </s:form>
-
-                        </div>
+                        <a href="../view_business/order_statiscs.jsp" class="nav-link"><i class="ti-stats-up me-1"></i>业务统计</a>
                     </li>
 
+                    <li class="nav-item dropdown">
+                        <s:form action="getDriveLog" method="POST" id="DRILOG">
+                            <a onclick="document:DRILOG.submit()" class="nav-link btn"><i class="fe-map me-1"></i>行车日志查看</a>
+                        </s:form>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <s:form action="getVio" method="POST" id="VIO">
+                            <a onclick="document:VIO.submit()" class="nav-link btn"><i class="fe-bookmark me-1"></i>违规记录查看</a>
+                        </s:form>
+                    </li>
 
 
 
