@@ -30,7 +30,7 @@
                    href="#" role="button" aria-haspopup="false" aria-expanded="false">
 
                         <span class="pro-user-name ms-1">
-                      <s:property value="#session.loginUser.name"/> <i class="mdi mdi-chevron-down"></i>
+                      <s:property value="#session.admin.name"/> <i class="mdi mdi-chevron-down"></i>
                     </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
@@ -40,9 +40,6 @@
                     </div>
 
                     <!-- item-->
-                    <a href="../view_auth/administrator_index.jsp"  class="dropdown-item notify-item">
-                        <i class="fe-user"></i>My Account
-                    </a>
 
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item notify-item">
@@ -67,7 +64,7 @@
         <!-- LOGO -->
         <div class="logo-box">
 
-            <a href="../view_auth/administrator_index.jsp" class="logo logo-light text-center">
+            <a href="#" class="logo logo-light text-center">
                 <span class="logo-sm">
                     <img src="../assets/images/logo-sm.png" alt="" height="22">
                 </span>

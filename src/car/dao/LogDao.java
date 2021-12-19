@@ -24,4 +24,5 @@ public interface LogDao {
     void saveVio(Violation violation);
     void saveFixlog(FixLog fixLog);
     void saveMaintenanceLog(MaintenanceLog maintenanceLog);
+    void saveTracks(List<Track> tracks);
 }

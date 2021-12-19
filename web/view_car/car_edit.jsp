@@ -27,9 +27,21 @@
 
 <div id="wrapper">
 
-    <jsp:include page="../view/nav_admin.jsp"></jsp:include>
+    <s:if test='#session.admin.position=="all"'>
+        <jsp:include page="../view/nav_admin.jsp"></jsp:include>
+    </s:if>
+    <s:elseif test='#session.admin.position=="check"'>
+        <jsp:include page="../view/nav_admin_check.jsp"></jsp:include>
+    </s:elseif>
+    <s:elseif test='#session.admin.position=="car"'>
+        <jsp:include page="../view/nav_admin_car.jsp"></jsp:include>
+    </s:elseif>
+    <s:elseif test='#session.admin.position=="sta"'>
+        <jsp:include page="../view/nav_admin_sta.jsp"></jsp:include>
+    </s:elseif>
     <!-- ============================================================== -->
     <!-- Start Page Content here -->
+    <!-- ============================================================== -->
     <!-- ============================================================== -->
 
     <div class="content-page">
@@ -202,13 +214,15 @@
 
                         <!-- end row -->
                     </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="text-center mb-3">
-                                <button onclick="document:carsave.submit()" class="btn w-sm btn-success waves-effect waves-light" >Save</button>
-                            </div>
-                        </div> <!-- end col -->
-                    </div>
+                    <s:if test='#session.admin.position=="all" or #session.admin.position=="car"'>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="text-center mb-3">
+                                    <button onclick="document:carsave.submit()" class="btn w-sm btn-success waves-effect waves-light" >Save</button>
+                                </div>
+                            </div> <!-- end col -->
+                        </div>
+                    </s:if>
                     <!-- end row -->
 
 

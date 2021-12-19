@@ -24,5 +24,5 @@ public interface LogService {
       boolean saveMaintenanceLog(MaintenanceLog maintenanceLog);
       boolean saveFixLog(FixLog fixLog);
       DriveLog getDLbyID(String id);
-
+      boolean saveTracks(List<Track> tracks);
 }

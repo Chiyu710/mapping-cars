@@ -187,7 +187,7 @@ public class LogDaoImpl extends BaseHibernateDao implements LogDao{
             session.close();
         }
     }
-   public  void saveMaintenanceLog(MaintenanceLog maintenanceLog){
+    public void saveMaintenanceLog(MaintenanceLog maintenanceLog){
         Transaction tran = null;
         Session session = null;
         try {
@@ -197,6 +197,24 @@ public class LogDaoImpl extends BaseHibernateDao implements LogDao{
             tran.commit();
         } catch (RuntimeException re) {
 
+            if(tran != null) tran.rollback();
+            throw re;
+        } finally {
+            session.close();
+        }
+    }
+    public void saveTracks(List<Track> tracks){
+        Transaction tran = null;
+        Session session = null;
+        try {
+            session = getSession();
+            tran = session.beginTransaction();
+            for (int i=0;i<tracks.size();i++) {
+                session.save(tracks.get(i));
+            }
+            tran.commit();
+        } catch (RuntimeException re) {
+            System.out.println("track save fail!");
             if(tran != null) tran.rollback();
             throw re;
         } finally {

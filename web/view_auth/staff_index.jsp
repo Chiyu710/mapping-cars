@@ -114,7 +114,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box">
-                            <h4 class="page-title">欢迎，<s:property value="#session.user.name"/> 先生</h4>
+                            <h4 class="page-title">欢迎，<s:property value="#session.user.name"/></h4>
                             <div class="text-danger mb-2">
                                 <h4 class="text-danger mb-2"><s:property value="tip"/></h4>
                                 <s:actionerror/>
@@ -178,7 +178,7 @@
                                 <div class="text-start mt-3">
                                     <h4 class="font-17 text-uppercase">About Me :</h4>
                                     <p class="text-muted mb-2 font-17"><strong>姓名 :</strong> <span class="ms-2"><s:property value="#session.user.name"/></span></p>
-
+                                    <p class="text-muted mb-2 font-17"><strong>今日状态 :</strong> <span class="ms-2"><s:property value="#session.user.healthy"/></span></p>
                                     <p class="text-muted mb-2 font-17"><strong>年龄 :</strong><span class="ms-2"><s:property value="#session.user.age"/></span></p>
 
                                     <p class="text-muted mb-2 font-17"><strong>邮箱 :</strong> <span class="ms-2"><s:property value="#session.user.email"/></span></p>

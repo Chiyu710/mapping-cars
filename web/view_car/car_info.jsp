@@ -23,7 +23,18 @@
 <!-- Begin page -->
 <div id="wrapper">
 
-    <jsp:include page="../view/nav_admin.jsp"></jsp:include>
+    <s:if test='#session.admin.position=="all"'>
+        <jsp:include page="../view/nav_admin.jsp"></jsp:include>
+    </s:if>
+    <s:elseif test='#session.admin.position=="check"'>
+        <jsp:include page="../view/nav_admin_check.jsp"></jsp:include>
+    </s:elseif>
+    <s:elseif test='#session.admin.position=="car"'>
+        <jsp:include page="../view/nav_admin_car.jsp"></jsp:include>
+    </s:elseif>
+    <s:elseif test='#session.admin.position=="sta"'>
+        <jsp:include page="../view/nav_admin_sta.jsp"></jsp:include>
+    </s:elseif>
     <!-- ============================================================== -->
     <!-- Start Page Content here -->
     <!-- ============================================================== -->
@@ -80,9 +91,11 @@
                                         <label class="btn btn-outline-primary" for="btncheck3">停用车辆</label>
                                     </div>
                                     <div class="col-auto">
+                                        <s:if test='#session.admin.position=="all" or #session.admin.position=="car"'>
                                         <div class="text-lg-end my-1 my-lg-0">
                                             <a href="../view_car/car_edit.jsp" class="btn btn-danger waves-effect waves-light"><i class="mdi mdi-plus-circle me-1"></i> Add New</a>
                                         </div>
+                                        </s:if>
                                     </div><!-- end col-->
                                 </div> <!-- end row -->
                             </div>

@@ -222,6 +222,8 @@
         src="https://webapi.amap.com/maps?v=1.4.15&key=b0af08c849bbffa3cab92acc26b93ebc&plugin=AMap.Driving"></script>
 <script type="text/javascript">
     //考虑到出发地都是公司 可以考虑写死
+
+    var tracks =[];
     var map = new AMap.Map('MAP', {
         resizeEnable: true, //是否监控地图容器尺寸变化
         zoom:13, //初始化地图层级
@@ -256,6 +258,11 @@
                 var hour= parseInt(time/3600);
                 var min = parseInt(time%3600/60)
                 var policy=result.routes[0].policy;
+                for(var i=0;i<result.routes[0].steps.length;i++){
+                    tracks.push(result.routes[0].steps[i].start_location);
+                    tracks.push(result.routes[0].steps[i].end_location);
+                    // alert(tracks[i]);
+                }
                 $('#dlMileage').val(parseInt(distance));
                 $('#distance').text(distance+"公里");
                 $('#time').text(hour+"小时"+min+"分钟");
@@ -266,6 +273,22 @@
             }
         })
     })
+
+    // $(document).ready(function() {
+    //     const cars = document.getElementById("carSelect");
+    //     $.ajax({
+    //         url:"saveTracks",
+    //         type:"POST",
+    //         dataType:"JSON",
+    //         data : {
+    //             test:"wcnm"
+    //         },
+    //         success:function (data){
+    //
+    //         }
+    //     })
+    // })
+
 
 </script>
 

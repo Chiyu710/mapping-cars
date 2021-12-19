@@ -49,6 +49,7 @@ public class LogAction {
     public String getUserID() {return userID;}
     public void setUserID(String userID) {this.userID = userID;}
 
+
     public String takeBrief(){
         briefNotifications= logService.getNF(userID);
         System.out.println("通知获取");
@@ -155,5 +156,9 @@ public class LogAction {
         if(logService.saveMaintenanceLog(maintenanceLog))
             return "success";
         else return "fail";
+    }
+
+    public String saveTracks(){
+        return "ajax";
     }
 }
