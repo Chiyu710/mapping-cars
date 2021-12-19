@@ -247,6 +247,10 @@
             </result>
         </action>
 
+        <action name="saveTracks" class="logAction" method="saveTracks">
+            <result name="ajax" type="json">
+            </result>
+        </action>
     </package>
 
     <package  name="all"  extends="struts-default" namespace="/">

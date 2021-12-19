@@ -15,7 +15,6 @@ public class LogServiceImpl implements LogService{
     private LogDao logDao = null;
     public LogDao getLogDao() {return logDao;}
     public void setLogDao(LogDao logDao) {this.logDao = logDao;}
-
     private Map<String, Object> request, session;
     @Override
     public List<Notification> getNF(String recipientID){
@@ -242,6 +241,9 @@ public class LogServiceImpl implements LogService{
             return list.get(0);
         }
         else return null;
+    }
+    public boolean saveTracks(List<Track> tracks){
+        return true;
     }
 
 }

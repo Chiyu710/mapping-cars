@@ -66,6 +66,19 @@ public class CarAction extends ActionSupport{
         else return "fail";
     }
 
+
+
+    public static boolean isNum(String id) {
+        for (int i =0;i < id.length();i++){
+            System.out.println(id.charAt(i));
+            if(!Character.isDigit(id.charAt(i))){
+                return false;
+            }
+        }
+        return true;
+    }
+
+
     public void validateSaveOrUpdateCars() {
         System.out.println(car.toString());
         Integer age = car.getAge();
@@ -110,17 +123,6 @@ public class CarAction extends ActionSupport{
         if(purchase.compareTo(date) == 1)
             this.addFieldError("save.date", "请输入正确日期");
     }
-
-    public static boolean isNum(String id) {
-        for (int i =0;i < id.length();i++){
-            System.out.println(id.charAt(i));
-            if(!Character.isDigit(id.charAt(i))){
-                return false;
-            }
-        }
-        return true;
-    }
-
     public String saveOrUpdateCars(){
         if(carService.saveOrUpdateCar(car)){
             return "success";

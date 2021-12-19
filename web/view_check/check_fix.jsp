@@ -24,7 +24,12 @@
 <!-- Begin page -->
 <div id="wrapper">
 
-    <jsp:include page="../view/nav_admin.jsp"></jsp:include>
+    <s:if test='#session.admin.position=="all"'>
+        <jsp:include page="../view/nav_admin.jsp"></jsp:include>
+    </s:if>
+    <s:elseif test='#session.admin.position=="check"'>
+        <jsp:include page="../view/nav_admin_check.jsp"></jsp:include>
+    </s:elseif>
     <!-- ============================================================== -->
     <!-- Start Page Content here -->
     <!-- ============================================================== -->
