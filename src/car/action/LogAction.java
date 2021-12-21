@@ -56,12 +56,7 @@ public class LogAction {
     // 通过userid获取所有通知信息
     public String getAllNF(){
         briefNotifications= logService.getNF(userID);
-        if(briefNotifications!=null){
             return "success";
-        }
-        else {
-            return "fail";
-        }
     }
 
     // 获取所有通知
