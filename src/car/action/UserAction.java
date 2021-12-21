@@ -13,31 +13,33 @@ import java.util.Map;
 
 public class UserAction extends ActionSupport {
 
+    Statistics statistics;
     private User user;
-    public User getUser() {return user;}
-    public void setUser(User user) {this.user = user;}
-
     private Admin admin;
-    public Admin getAdmin() {return admin;}
-    public void setAdmin(Admin admin) {this.admin = admin;}
-
     private StatusLog statusLog;
-    public StatusLog getStatusLog() {return statusLog;}
-    public void setStatusLog(StatusLog statusLog) {this.statusLog = statusLog;}
-
     private UserService userService=null;
+    private int p;
+
+
+    public User getUser() {return user;}
+    public Admin getAdmin() {return admin;}
+    public StatusLog getStatusLog() {return statusLog;}
     public UserService getUserService() {return userService;}
+    public Statistics getStatistics() {return statistics;}
+    public int getP() {return p;}
+
+
+    public void setUser(User user) {this.user = user;}
+    public void setAdmin(Admin admin) {this.admin = admin;}
+    public void setStatusLog(StatusLog statusLog) {this.statusLog = statusLog;}
     public void setUserService(UserService userService) {
         this.userService = userService;
     }
-
-    private int p;
-    public int getP() {return p;}
     public void setP(int p) {this.p = p;}
-
-    Statistics statistics;
-    public Statistics getStatistics() {return statistics;}
     public void setStatistics(Statistics statistics) {this.statistics = statistics;}
+
+
+    // 用户登录
     public String login() {
         if(p==0){
             if (userService.login(user)) {
@@ -65,6 +67,9 @@ public class UserAction extends ActionSupport {
         this.addActionError("用户名或密码错误，请重新输入！");
         return "login";
     }
+
+
+    // 用户状态更改
     public String changeStatus(){
         statusLog.setStaffId(user.getId());
         statusLog.setNewStatus(user.getStatus());
@@ -77,6 +82,8 @@ public class UserAction extends ActionSupport {
             return "fail";
         }
     }
+
+
     public String register() {
 
         if (userService.register(user)) {
@@ -86,6 +93,9 @@ public class UserAction extends ActionSupport {
             return "fail";
         }
     }
+
+
+    // 健康上报
     public String healthyDeclaration(){
         if(userService.healthDeclaration(user)){
             return "success";
@@ -95,6 +105,9 @@ public class UserAction extends ActionSupport {
             return"index";
         }
     }
+
+
+    // 用户统计图
     public String getUserSta(){
         statistics=userService.getUserStatistics();
         return "ajax";

@@ -27,6 +27,7 @@ public class ApplicationDaoImpl extends BaseHibernateDao implements ApplicationD
             session.close();
         }
     }
+
     public void saveLend(LendApplication lendApplication){
         Transaction tran = null;
         Session session = null;
@@ -44,6 +45,7 @@ public class ApplicationDaoImpl extends BaseHibernateDao implements ApplicationD
         }
 
     }
+
     public void saveCommute(CarApplication carApplication){
         Transaction tran = null;
         Session session = null;
@@ -60,6 +62,9 @@ public class ApplicationDaoImpl extends BaseHibernateDao implements ApplicationD
             session.close();
         }
     }
+
+
+
     public CarApplication getCAP(String appid) {
         Transaction tran = null;
         Session session = null;
@@ -78,6 +83,7 @@ public class ApplicationDaoImpl extends BaseHibernateDao implements ApplicationD
             session.close();
         }
     }
+
     public LendApplication getLAP(String appid){
         Transaction tran = null;
         Session session = null;
@@ -95,6 +101,7 @@ public class ApplicationDaoImpl extends BaseHibernateDao implements ApplicationD
             session.close();
         }
     }
+
     public FixApplication getFAP(String appid){
         Transaction tran = null;
         Session session = null;
@@ -110,46 +117,9 @@ public class ApplicationDaoImpl extends BaseHibernateDao implements ApplicationD
             throw re;
         } finally {
             session.close();
-        }}
-    public List<CarApplication> findByHqlCar(String hql){
-        Session session = null;
-        try {
-            session = getSession();
-            String queryString = hql;
-            Query queryObject=session.createQuery(queryString);
-            return queryObject.list();
-        } catch (RuntimeException re) {
-            throw re;
-        } finally {
-            session.close();
         }
     }
-    public List<LendApplication> findByHqlLend(String hql){
-        Session session = null;
-        try {
-            session = getSession();
-            String queryString = hql;
-            Query queryObject=session.createQuery(queryString);
-            return queryObject.list();
-        } catch (RuntimeException re) {
-            throw re;
-        } finally {
-            session.close();
-        }
-    }
-    public List<FixApplication> findByHqlFix(String hql){
-        Session session = null;
-        try {
-            session = getSession();
-            String queryString = hql;
-            Query queryObject=session.createQuery(queryString);
-            return queryObject.list();
-        } catch (RuntimeException re) {
-            throw re;
-        } finally {
-            session.close();
-        }
-    }
+
     public long getAppStatistic(String hql){
         Transaction tran = null;
         Session session = null;
@@ -170,6 +140,7 @@ public class ApplicationDaoImpl extends BaseHibernateDao implements ApplicationD
             session.close();
         }
     }
+
     public List<Long> getStatisticList(String hql){
         Session session = null;
         try {
@@ -183,5 +154,54 @@ public class ApplicationDaoImpl extends BaseHibernateDao implements ApplicationD
             session.close();
         }
     }
+
+
+
+
+
+
+    public List<CarApplication> findByHqlCar(String hql){
+        Session session = null;
+        try {
+            session = getSession();
+            String queryString = hql;
+            Query queryObject=session.createQuery(queryString);
+            return queryObject.list();
+        } catch (RuntimeException re) {
+            throw re;
+        } finally {
+            session.close();
+        }
+    }
+
+    public List<LendApplication> findByHqlLend(String hql){
+        Session session = null;
+        try {
+            session = getSession();
+            String queryString = hql;
+            Query queryObject=session.createQuery(queryString);
+            return queryObject.list();
+        } catch (RuntimeException re) {
+            throw re;
+        } finally {
+            session.close();
+        }
+    }
+
+    public List<FixApplication> findByHqlFix(String hql){
+        Session session = null;
+        try {
+            session = getSession();
+            String queryString = hql;
+            Query queryObject=session.createQuery(queryString);
+            return queryObject.list();
+        } catch (RuntimeException re) {
+            throw re;
+        } finally {
+            session.close();
+        }
+    }
+
+
 
 }

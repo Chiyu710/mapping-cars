@@ -9,8 +9,9 @@ import java.util.List;
 public interface UserDao {
     List<User> getByHql(String hql);
     List<Admin> getByHqlA(String hql);
-    void save(User registerUser);
-    User get(User user);
     User getById(String id);
+    User get(User user);
     long getUserStatistic(String hql);
+
+    void save(User registerUser);
 }

@@ -29,6 +29,7 @@ public class UserDaoImpl extends BaseHibernateDao implements UserDao {
         }
 
     }
+
     public List<Admin> getByHqlA(String hql) {
         Transaction tran = null;
         Session session = null;
@@ -48,14 +49,16 @@ public class UserDaoImpl extends BaseHibernateDao implements UserDao {
             session.close();
         }
     }
-    public void save(User registerUser){
+
+    public User getById(String id){
         Transaction tran = null;
         Session session = null;
         try {
             session = getSession();
             tran = session.beginTransaction();
-            session.saveOrUpdate(registerUser);
+            User u =session.get(car.po.User.class,id);
             tran.commit();
+            return u;
         } catch (RuntimeException re) {
             if(tran != null) tran.rollback();
             throw re;
@@ -63,6 +66,7 @@ public class UserDaoImpl extends BaseHibernateDao implements UserDao {
             session.close();
         }
     }
+
     public User get(User user){
         Transaction tran = null;
         Session session = null;
@@ -80,22 +84,7 @@ public class UserDaoImpl extends BaseHibernateDao implements UserDao {
             session.close();
         }
     }
-    public User getById(String id){
-        Transaction tran = null;
-        Session session = null;
-        try {
-            session = getSession();
-            tran = session.beginTransaction();
-            User u =session.get(car.po.User.class,id);
-            tran.commit();
-            return u;
-        } catch (RuntimeException re) {
-            if(tran != null) tran.rollback();
-            throw re;
-        } finally {
-            session.close();
-        }
-    }
+
     public long getUserStatistic(String hql){
         Transaction tran = null;
         Session session = null;
@@ -110,6 +99,24 @@ public class UserDaoImpl extends BaseHibernateDao implements UserDao {
 
         } catch (RuntimeException re) {
 
+            if(tran != null) tran.rollback();
+            throw re;
+        } finally {
+            session.close();
+        }
+    }
+
+
+
+    public void save(User registerUser){
+        Transaction tran = null;
+        Session session = null;
+        try {
+            session = getSession();
+            tran = session.beginTransaction();
+            session.saveOrUpdate(registerUser);
+            tran.commit();
+        } catch (RuntimeException re) {
             if(tran != null) tran.rollback();
             throw re;
         } finally {

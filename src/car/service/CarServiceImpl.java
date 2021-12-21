@@ -14,15 +14,16 @@ import java.util.Map;
 public class CarServiceImpl implements CarService{
 
     private CarDao carDao;
+    private Map<String, Object> request, session;
+
+
     public CarDao getCarDao() {
         return carDao;
     }
-    public void setCarDao(CarDao carDao) {
-        this.carDao = carDao;
-    }
+    public void setCarDao(CarDao carDao) { this.carDao = carDao; }
 
-    private Map<String, Object> request, session;
 
+    // 获取所有车辆状态 put session
     @Override
     public boolean takeAllCars(){
         ActionContext ctx = ActionContext.getContext();
@@ -37,10 +38,16 @@ public class CarServiceImpl implements CarService{
             return true;
         }
     }
+
+
+
+
+
     public Car getCarInfoAjax(String carId){
         Car car=carDao.getCar(carId);
         return car;
     }
+
     public List<Car> getAllCarsAjax(){
         ActionContext ctx = ActionContext.getContext();
         session = (Map) ctx.getSession();
@@ -54,6 +61,7 @@ public class CarServiceImpl implements CarService{
             return list;
         }
     }
+
     public List<Car> getFreeCarsAjax() {
         ActionContext ctx = ActionContext.getContext();
         String hql = "from Car as car where status='空闲'";
@@ -64,6 +72,11 @@ public class CarServiceImpl implements CarService{
             return list;
         }
     }
+
+
+
+
+    // 出车完成后提交车辆状态更新
     public boolean saveCarAfterDrive(String carid,int mileage){
         Car c = carDao.getCar(carid);
         c.setStatus("空闲");
@@ -76,6 +89,8 @@ public class CarServiceImpl implements CarService{
         }
 
     }
+
+    // 提交车辆状态更新
     public boolean saveOrUpdateCar(Car car){
         try {
             System.out.println("car status changed");
@@ -86,6 +101,10 @@ public class CarServiceImpl implements CarService{
             return false;
         }
     }
+
+
+
+    // 获取车辆信息 put session
     public boolean gotCarInfo(String carID){
         ActionContext ctx = ActionContext.getContext();
         request = (Map) ctx.get("request");
@@ -97,6 +116,10 @@ public class CarServiceImpl implements CarService{
             return true;
         }
     }
+
+
+
+    // 车辆状态变更
     public boolean carStatusChange(String carID,int status) {
         Car c = carDao.getCar(carID);
         if(c==null) System.out.println("cant get car info!");
@@ -111,6 +134,10 @@ public class CarServiceImpl implements CarService{
             return false;
         }
     }
+
+
+
+    // 分类获取车辆状态  返回Statistics对象
     public Statistics getCarStatistics(){
         Statistics statistics = new Statistics();
         String hql = "select count(id) from Car where status='空闲'";

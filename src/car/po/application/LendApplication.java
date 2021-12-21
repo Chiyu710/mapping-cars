@@ -11,15 +11,13 @@ public class LendApplication extends Application{
     public Date getScheduledD() {return ScheduledD;}
     public String getBorrowerDepartment() {return BorrowerDepartment;}
     public String getBorrowerName() {return BorrowerName;}
-
-    public void setBorrowerDepartment(String borrowerDepartment) {BorrowerDepartment = borrowerDepartment;}
-    public void setBorrowerName(String borrowerName) {BorrowerName = borrowerName;}
-    public void setScheduledD(Date scheduledD) {ScheduledD = scheduledD;}
-
     public String getLicensePlate() {
         return LicensePlate;
     }
 
+    public void setBorrowerDepartment(String borrowerDepartment) {BorrowerDepartment = borrowerDepartment;}
+    public void setBorrowerName(String borrowerName) {BorrowerName = borrowerName;}
+    public void setScheduledD(Date scheduledD) {ScheduledD = scheduledD;}
     public void setLicensePlate(String licensePlate) {
         LicensePlate = licensePlate;
     }

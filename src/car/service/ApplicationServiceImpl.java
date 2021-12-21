@@ -13,8 +13,9 @@ import java.util.Map;
 public class ApplicationServiceImpl implements ApplicationService{
 
     private ApplicationDao applicationDao;
-    public void setApplicationDao(ApplicationDao applicationDao) {this.applicationDao = applicationDao;}
     private Map<String, Object> request, session;
+
+    public void setApplicationDao(ApplicationDao applicationDao) {this.applicationDao = applicationDao;}
 
 
     @Override
@@ -31,6 +32,7 @@ public class ApplicationServiceImpl implements ApplicationService{
         }
 
     }
+
     public boolean sendLend(LendApplication lendApplication){
         try {
             Date date = new Date ();
@@ -43,6 +45,7 @@ public class ApplicationServiceImpl implements ApplicationService{
             return false;
         }
     }
+
     public boolean sendCommute(CarApplication carApplication){
         try {
             //默认值
@@ -55,6 +58,11 @@ public class ApplicationServiceImpl implements ApplicationService{
             return false;
         }
     }
+
+
+
+
+
     public boolean checkFix(FixApplication fixApplication){
         try {
             FixApplication c=applicationDao.getFAP(fixApplication.getId());
@@ -67,8 +75,8 @@ public class ApplicationServiceImpl implements ApplicationService{
         }catch (Exception e) {
             return false;
         }
-
     }
+
     public boolean checkLend(LendApplication lendApplication){
         try {
             LendApplication c=applicationDao.getLAP(lendApplication.getId());
@@ -82,6 +90,7 @@ public class ApplicationServiceImpl implements ApplicationService{
             return false;
         }
     }
+
     public boolean checkCommute(CarApplication carApplication){
         try {
             CarApplication c=applicationDao.getCAP(carApplication.getId());
@@ -95,6 +104,11 @@ public class ApplicationServiceImpl implements ApplicationService{
             return false;
         }
     }
+
+
+
+
+
     public boolean finishFix(FixApplication fixApplication){
         try {
             FixApplication c=applicationDao.getFAP(fixApplication.getId());
@@ -108,6 +122,7 @@ public class ApplicationServiceImpl implements ApplicationService{
         }
 
     }
+
     public boolean finishLend(LendApplication lendApplication){
         try {
             LendApplication c=applicationDao.getLAP(lendApplication.getId());
@@ -120,6 +135,11 @@ public class ApplicationServiceImpl implements ApplicationService{
             return false;
         }
     }
+
+
+
+
+    // 分类获取个人所有维修单 put session
     public boolean getFixAP(String userID){
         ActionContext ctx = ActionContext.getContext();
         request = (Map) ctx.get("request");
@@ -138,6 +158,8 @@ public class ApplicationServiceImpl implements ApplicationService{
             return true;
         }
     }
+
+    // 分类获取个人所有借车单 put session
     public boolean getLendAP(String userID){
         ActionContext ctx = ActionContext.getContext();
         request = (Map) ctx.get("request");
@@ -156,6 +178,8 @@ public class ApplicationServiceImpl implements ApplicationService{
             return true;
         }
     }
+
+    // 分类获取个人所有出车单 put session
     public boolean getCommuteAP(String userID){
         ActionContext ctx = ActionContext.getContext();
         request = (Map) ctx.get("request");
@@ -171,6 +195,8 @@ public class ApplicationServiceImpl implements ApplicationService{
             return true;
         }
     }
+
+    // 分类获取所有单 put session
     public boolean getAllAP(){
         ActionContext ctx = ActionContext.getContext();
         request = (Map) ctx.get("request");
@@ -189,6 +215,8 @@ public class ApplicationServiceImpl implements ApplicationService{
             return true;
         }
     }
+
+    // 获取个人所有维修单 put session
     public boolean getSingelFixAP(String appid){
         ActionContext ctx = ActionContext.getContext();
         request = (Map) ctx.get("request");
@@ -202,6 +230,8 @@ public class ApplicationServiceImpl implements ApplicationService{
             return true;
         }
     }
+
+    // 获取个人所有出借单 put session
     public boolean getSingelLendAP(String appid){
         ActionContext ctx = ActionContext.getContext();
         request = (Map) ctx.get("request");
@@ -215,6 +245,8 @@ public class ApplicationServiceImpl implements ApplicationService{
             return true;
         }
     }
+
+    // 获取个人所有出车单 put session
     public boolean getSingelCommuteAP(String appid){
         ActionContext ctx = ActionContext.getContext();
         request = (Map) ctx.get("request");
@@ -229,21 +261,26 @@ public class ApplicationServiceImpl implements ApplicationService{
             return true;
         }
     }
+
+
     public CarApplication getCAPAjax(String appid){
         String hql = "from CarApplication as carApplication where id='"+appid+"'";
         List<CarApplication> list = applicationDao.findByHqlCar(hql);
         return list.get(0);
     }
+
     public LendApplication getLAPAjax(String appid) {
         String hql = "from LendApplication as lendApplication where id='"+appid+"'";
         List<LendApplication> list = applicationDao.findByHqlLend(hql);
         return list.get(0);
     }
+
     public FixApplication getFAPAjax(String appid) {
         String hql = "from FixApplication as fixApplication where id='"+appid+"'";
         List<FixApplication> list = applicationDao.findByHqlFix(hql);
         return list.get(0);
     }
+
     public Statistics getAppStatistics(){
         Statistics statistics = new Statistics();
         String hql = "select count(id) from CarApplication where status='已完成' and to_days(date) = to_days(now())";
@@ -269,6 +306,7 @@ public class ApplicationServiceImpl implements ApplicationService{
 
         return statistics;
     }
+
     public Statistics getBusinessStatistics(){
         Statistics statistics = new Statistics();
         //出车查询

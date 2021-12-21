@@ -19,6 +19,7 @@ public class UserServiceImpl implements UserService {
     }
     private Map<String, Object> request, session;
 
+    // 员工登录
     @Override
     public boolean login(User loginUser) {
         ActionContext ctx = ActionContext.getContext();
@@ -39,24 +40,6 @@ public class UserServiceImpl implements UserService {
             return true;
         }
     }
-    public String adminlogin(String userid,String pwd) {
-        ActionContext ctx = ActionContext.getContext();
-        session = (Map) ctx.getSession();
-        String id = userid;
-        String password = pwd;
-        String hql = "from Admin as admin where id='" + id
-                + "' and password='" + password + "'";
-        List list = userDao.getByHqlA(hql);
-
-        if (list.isEmpty())
-            return null;
-        else {
-            Admin admin = (Admin) list.get(0);
-            session.put("admin", admin);
-            return admin.getPosition();
-        }
-    }
-
 
     public boolean register(User registerUser){
         try {
@@ -66,6 +49,7 @@ public class UserServiceImpl implements UserService {
             return false;
         }
     }
+
     public boolean changeStatus(User user, StatusLog statusLog) {
         ActionContext ctx = ActionContext.getContext();
         session = (Map) ctx.getSession();
@@ -80,16 +64,27 @@ public class UserServiceImpl implements UserService {
             return false;
         }
     }
-    public Statistics getUserStatistics(){
-        Statistics statistics = new Statistics();
-        String hql = "select count(id) from User where status='可以出车'";
-        statistics.setFreeStaff_num(userDao.getUserStatistic(hql));
-        hql = "select count(id) from User where status='无法出车'";
-        statistics.setBusyStaff_num(userDao.getUserStatistic(hql));
-        hql = "select count(id) from User where status='休假'";
-        statistics.setCloseStaff_num(userDao.getUserStatistic(hql));
-        return statistics;
+
+    // 员工分数增加
+    public boolean scoreAdd(String userid,int score){
+        ActionContext ctx = ActionContext.getContext();
+        session = (Map) ctx.getSession();
+        try {
+            User u=userDao.getById(userid);
+            score=u.getStatusScore()+score;
+            System.out.println(u.getStatusScore());
+            if(score<=0) score=10;
+            if(score>100) score=100;
+            u.setStatusScore(score);
+            userDao.save(u);
+            session.put("user",u);
+            return true;
+        }catch (Exception e) {
+            return false;
+        }
     }
+
+    // 员工健康显示
     public boolean healthDeclaration(User user){
         ActionContext ctx = ActionContext.getContext();
         session = (Map) ctx.getSession();
@@ -110,21 +105,38 @@ public class UserServiceImpl implements UserService {
             return false;
         }
     }
-    public boolean scoreAdd(String userid,int score){
+
+
+
+    // 员工出车状态显示
+    public Statistics getUserStatistics(){
+        Statistics statistics = new Statistics();
+        String hql = "select count(id) from User where status='可以出车'";
+        statistics.setFreeStaff_num(userDao.getUserStatistic(hql));
+        hql = "select count(id) from User where status='无法出车'";
+        statistics.setBusyStaff_num(userDao.getUserStatistic(hql));
+        hql = "select count(id) from User where status='休假'";
+        statistics.setCloseStaff_num(userDao.getUserStatistic(hql));
+        return statistics;
+    }
+
+
+    // 管理员登录
+    public String adminlogin(String userid,String pwd) {
         ActionContext ctx = ActionContext.getContext();
         session = (Map) ctx.getSession();
-        try {
-            User u=userDao.getById(userid);
-            score=u.getStatusScore()+score;
-            System.out.println(u.getStatusScore());
-            if(score<=0) score=10;
-            if(score>100) score=100;
-            u.setStatusScore(score);
-            userDao.save(u);
-            session.put("user",u);
-            return true;
-        }catch (Exception e) {
-            return false;
+        String id = userid;
+        String password = pwd;
+        String hql = "from Admin as admin where id='" + id
+                + "' and password='" + password + "'";
+        List list = userDao.getByHqlA(hql);
+
+        if (list.isEmpty())
+            return null;
+        else {
+            Admin admin = (Admin) list.get(0);
+            session.put("admin", admin);
+            return admin.getPosition();
         }
     }
 

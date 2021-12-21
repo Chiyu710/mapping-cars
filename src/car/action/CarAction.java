@@ -10,29 +10,26 @@ import java.util.Date;
 import java.util.List;
 
 public class CarAction extends ActionSupport{
-    private List<Car> allCarsInfo;
-    public List<Car> getAllCarsInfo() {return allCarsInfo;}
-    public void setAllCarsInfo(List<Car> allCarsInfo) {this.allCarsInfo = allCarsInfo;}
-
-    private Car car;
-    public Car getCar() {return car;}
-    public void setCar(Car car) {this.car = car;}
-
-    private CarService carService;
-    public CarService getCarService() {
-        return carService;
-    }
-    public void setCarService(CarService carService) {
-        this.carService = carService;
-    }
-
     int carId;
-    public int getCarId() {return carId;}
-    public void setCarId(int carId) {this.carId = carId;}
-
     Statistics statistics;
+    private List<Car> allCarsInfo;
+    private Car car;
+    private CarService carService;
+
+    public int getCarId() {return carId;}
     public Statistics getStatistics() {return statistics;}
+    public List<Car> getAllCarsInfo() {return allCarsInfo;}
+    public Car getCar() {return car;}
+    public CarService getCarService() { return carService; }
+
+    public void setCarId(int carId) {this.carId = carId;}
     public void setStatistics(Statistics statistics) {this.statistics = statistics;}
+    public void setAllCarsInfo(List<Car> allCarsInfo) {this.allCarsInfo = allCarsInfo;}
+    public void setCar(Car car) {this.car = car;}
+    public void setCarService(CarService carService) { this.carService = carService; }
+
+
+
 
 
 
@@ -47,17 +44,10 @@ public class CarAction extends ActionSupport{
 
     }
 
-    public String gotCarInfo(){
-        System.out.println("getCarDetail");
-        if (carService.gotCarInfo(car.getId())){
-            return "success";
-        }
-        else return "fail";
-    }
 
 
 
-
+    // 获取所有车辆信息
     public String takeAllCars(){
         System.out.println("get all cars info");
         if(carService.takeAllCars()){
@@ -66,8 +56,26 @@ public class CarAction extends ActionSupport{
         else return "fail";
     }
 
+    // 获取车辆具体信息
+    public String gotCarInfo(){
+        System.out.println("getCarDetail");
+        if (carService.gotCarInfo(car.getId())){
+            return "success";
+        }
+        else return "fail";
+    }
+
+    // 获取车辆统计信息
+    public String getCarStatistics(){
+        statistics=carService.getCarStatistics();
+        return "ajax";
+    }
 
 
+
+
+
+    // 字符串数字检验
     public static boolean isNum(String id) {
         for (int i =0;i < id.length();i++){
             System.out.println(id.charAt(i));
@@ -79,6 +87,7 @@ public class CarAction extends ActionSupport{
     }
 
 
+    // 出车单数据验证
     public void validateSaveOrUpdateCars() {
         System.out.println(car.toString());
         Integer age = car.getAge();
@@ -123,6 +132,7 @@ public class CarAction extends ActionSupport{
         if(purchase.compareTo(date) == 1)
             this.addFieldError("save.date", "请输入正确日期");
     }
+
     public String saveOrUpdateCars(){
         if(carService.saveOrUpdateCar(car)){
             return "success";
@@ -130,9 +140,6 @@ public class CarAction extends ActionSupport{
         else return "fail";
     }
 
-    public String getCarStatistics(){
-        statistics=carService.getCarStatistics();
-        return "ajax";
-    }
+
 
 }

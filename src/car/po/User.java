@@ -5,24 +5,24 @@ public class User {
     String id;
     String name;
     String sex;
-    int age;
     String email;
     String department;
     String status;
     String healthy;
+    int age;
     int statusScore;
 
 
     public String getDepartment() {return department;}
-    public int getAge() {return age;}
     public String getId() {return id;}
     public String getEmail() {return email;}
     public String getPassword() {return password;}
     public String getName() {return name;}
     public String getSex() {return sex;}
     public String getStatus() {return status;}
-    public int getStatusScore() {return statusScore;}
     public String getHealthy() {return healthy;}
+    public int getStatusScore() {return statusScore;}
+    public int getAge() {return age;}
 
 
     public void setStatusScore(int statusScore) {this.statusScore = statusScore;}

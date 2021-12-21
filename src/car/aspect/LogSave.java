@@ -73,7 +73,7 @@ public class LogSave {
         userService.scoreAdd(userid,score);
         System.out.println("员工状态分已改变");
     }
-    
+
     @Pointcut("execution(* car.service.CarService.gotCarInfo(..))")
     public void carinfoget(){}
     @After("carinfoget()")

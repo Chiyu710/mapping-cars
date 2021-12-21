@@ -6,11 +6,16 @@ import car.po.User;
 import car.po.record.StatusLog;
 
 public interface UserService {
-    String  adminlogin(String userid,String pwd);
+    // 员工登录
     boolean login(User loginUser);
     boolean register(User registerUser);
     boolean changeStatus(User user, StatusLog statusLog);
-    Statistics getUserStatistics();
+    // 员工健康显示
     boolean healthDeclaration(User user);
+    // 员工分数增加
     boolean scoreAdd(String userid,int score);
+    // 管理员登录
+    String  adminlogin(String userid,String pwd);
+    // 员工出车状态显示
+    Statistics getUserStatistics();
 }

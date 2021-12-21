@@ -10,35 +10,34 @@ import java.util.Date;
 
 public class ApplicationAction {
 
-    private CarApplication carApplication;
-    public CarApplication getCarApplication() {return carApplication;}
-    public void setCarApplication(CarApplication carApplication) {this.carApplication = carApplication;}
-
-    private FixApplication fixApplication;
-    public FixApplication getFixApplication() {return fixApplication;}
-    public void setFixApplication(FixApplication fixApplication) {this.fixApplication = fixApplication;}
-
-    private LendApplication lendApplication;
-    public LendApplication getLendApplication() {return lendApplication;}
-    public void setLendApplication(LendApplication lendApplication) {this.lendApplication = lendApplication;}
+    String appid;
     Statistics statistics;
-    public Statistics getStatistics() {return statistics;}
-    public void setStatistics(Statistics statistics) {this.statistics = statistics;}
-
+    private CarApplication carApplication;
+    private FixApplication fixApplication;
+    private LendApplication lendApplication;
     private User user;
-    public User getUser() {return user;}
-    public void setUser(User user) {this.user = user;}
+    private ApplicationService applicationService = null;
 
-    private ApplicationService applicationService =null;
-    public void setApplicationService(ApplicationService applicationService) {
-        this.applicationService = applicationService;
-    }
+    public String getAppid() {return appid;}
+    public Statistics getStatistics() {return statistics;}
+    public FixApplication getFixApplication() {return fixApplication;}
+    public CarApplication getCarApplication() {return carApplication;}
+    public LendApplication getLendApplication() {return lendApplication;}
+    public User getUser() {return user;}
     public ApplicationService getApplicationService() {return applicationService;}
 
-    String appid;
-    public String getAppid() {return appid;}
     public void setAppid(String appid) {this.appid = appid;}
+    public void setStatistics(Statistics statistics) {this.statistics = statistics;}
+    public void setCarApplication(CarApplication carApplication) {this.carApplication = carApplication;}
+    public void setFixApplication(FixApplication fixApplication) {this.fixApplication = fixApplication;}
+    public void setLendApplication(LendApplication lendApplication) {this.lendApplication = lendApplication;}
+    public void setApplicationService(ApplicationService applicationService) { this.applicationService = applicationService; }
+    public void setUser(User user) {this.user = user;}
 
+
+
+
+    // 申请提交
     public  String sendFix(){
         if (applicationService.sendFix(fixApplication)){
             return "success";
@@ -47,6 +46,7 @@ public class ApplicationAction {
             return "fail";
         }
     }
+
     public  String sendLend(){
         if (applicationService.sendLend(lendApplication)){
             return "success";
@@ -55,6 +55,7 @@ public class ApplicationAction {
             return "fail";
         }
     }
+
     public String sendCommute(){
         if (applicationService.sendCommute(carApplication)){
             System.out.println("carAPP!");
@@ -64,6 +65,7 @@ public class ApplicationAction {
             return "fail";
         }
     }
+
     public String checkCommute(){
         if (applicationService.checkCommute(carApplication)){
             System.out.println("CheckCarAP!");
@@ -73,6 +75,11 @@ public class ApplicationAction {
             return "fail";
         }
     }
+
+
+
+
+    // 申请审核
     public String checkLend(){
         if (applicationService.checkLend(lendApplication)){
             System.out.println("CheckLendAP!");
@@ -82,6 +89,7 @@ public class ApplicationAction {
             return "fail";
         }
     }
+
     public String checkFix(){
         System.out.println(fixApplication.toString());
         if (applicationService.checkFix(fixApplication)){
@@ -92,22 +100,30 @@ public class ApplicationAction {
             return "fail";
         }
     }
+
+
+
+
+    // 获取申请
     public String getFixAP(){
         applicationService.getFixAP(user.getId());
         System.out.println("getFixAP!");
         return "success";
     }
+
     public String getLendAP(){
         applicationService.getLendAP(user.getId());
         System.out.println("getLendAP!");
         return "success";
     }
+
     public String getCommuteAP(){
         applicationService.getCommuteAP(user.getId());
         System.out.println("getCarAP!");
         return "success";
 
     }
+
     public String getAllAP(){
         if(applicationService.getAllAP()){
             System.out.println("getAllAP!");
@@ -118,6 +134,7 @@ public class ApplicationAction {
         }
 
     }
+
     public String getSingleLendAP(){
         if (applicationService.getSingelLendAP(appid)){
             System.out.println("getLendAP!");
@@ -127,6 +144,7 @@ public class ApplicationAction {
             return "fail";
         }
     }
+
     public String getSingleCommuteAP(){
         if (applicationService.getSingelCommuteAP(appid)){
             System.out.println("getCarAP!");
@@ -136,6 +154,7 @@ public class ApplicationAction {
             return "fail";
         }
     }
+
     public String getSingleFixAP(){
         if(applicationService.getSingelFixAP(appid)){
             System.out.println("getfixAP!");
@@ -146,6 +165,11 @@ public class ApplicationAction {
         }
 
     }
+
+
+
+
+
     public String takeCAPAjax(){
         carApplication=applicationService.getCAPAjax(appid);
         return "ajax";
@@ -166,6 +190,9 @@ public class ApplicationAction {
         statistics=applicationService.getBusinessStatistics();
         return "ajax";
     }
+
+
+
 
     public  String finishLend(){
         if(applicationService.finishLend(lendApplication)){
