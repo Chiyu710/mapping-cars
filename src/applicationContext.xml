@@ -3,6 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:task="http://www.springframework.org/schema/task"
        xmlns:tx="http://www.springframework.org/schema/tx" xmlns:mvc="http://www.springframework.org/schema/c"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
@@ -11,10 +12,13 @@
     http://www.springframework.org/schema/tx
     http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
     http://www.springframework.org/schema/context
-    http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+    http://www.springframework.org/schema/context/spring-context-4.0.xsd
+    http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.0.xsd">
 
     <!-- 开启注解扫描 -->
     <context:component-scan base-package="car.aspect"/>
+    <context:component-scan base-package="car.scheduled"/>
+
     <!-- 开启aop注解方式,默认为false -->
     <aop:aspectj-autoproxy/>
     <!--数据库连接配置-->
@@ -26,6 +30,8 @@
         <property name="password" value="${jdbc.password}"/>
     </bean>
 
+    <task:annotation-driven scheduler="dataScheduler"/>
+    <task:scheduler id="dataScheduler" pool-size="5" />
 
     <!-- 添加sessionFactory bane ，注意，该类是Spring提供的 -->
     <bean id="sessionFactory"

@@ -12,6 +12,6 @@ public interface UserDao {
     User getById(String id);
     User get(User user);
     long getUserStatistic(String hql);
-
+    boolean doHql(String hql);
     void save(User registerUser);
 }

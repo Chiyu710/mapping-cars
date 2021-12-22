@@ -108,7 +108,7 @@ public class UserServiceImpl implements UserService {
 
 
 
-    // 员工出车状态显示
+    // 员工出车状态统计
     public Statistics getUserStatistics(){
         Statistics statistics = new Statistics();
         String hql = "select count(id) from User where status='可以出车'";
@@ -140,4 +140,25 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+    //每日健康状态初始化
+    public boolean healthyInit(){
+        String hql = "UPDATE User SET healthy=null,statusScore=0";
+        if(userDao.doHql(hql)){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    //每小时增加状态分
+    public boolean addStatusScore(){
+        String hql = "UPDATE User SET statusScore=statusScore+5 where healthy='正常'";
+        if(userDao.doHql(hql)){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 }

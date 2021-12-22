@@ -18,4 +18,9 @@ public interface UserService {
     String  adminlogin(String userid,String pwd);
     // 员工出车状态显示
     Statistics getUserStatistics();
+
+    //for schedul
+    boolean healthyInit();
+    boolean addStatusScore();
+
 }

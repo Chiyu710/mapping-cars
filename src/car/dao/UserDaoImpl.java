@@ -106,8 +106,6 @@ public class UserDaoImpl extends BaseHibernateDao implements UserDao {
         }
     }
 
-
-
     public void save(User registerUser){
         Transaction tran = null;
         Session session = null;
@@ -123,6 +121,27 @@ public class UserDaoImpl extends BaseHibernateDao implements UserDao {
             session.close();
         }
     }
+
+    public boolean doHql(String hql){
+        Transaction tran = null;
+        Session session = null;
+        try {
+            session = getSession();
+            tran = session.beginTransaction();
+            String queryString = hql;
+            Query query=session.createQuery(queryString);
+            query.executeUpdate();
+            tran.commit();
+            return true;
+        } catch (RuntimeException re) {
+
+            if(tran != null) tran.rollback();
+            throw re;
+        } finally {
+            session.close();
+        }
+    }
+
 }
 
 
