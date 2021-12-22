@@ -64,14 +64,20 @@
                                         <div class="row mt-3">
                                             <div class="col-4">
                                                 <p class="text-muted font-15 mb-1 text-truncate">今日</p>
+                                                <div class="spinner-border m-2" role="status" name="loading">
+                                                </div>
                                                 <h4 id="car_today"></h4>
                                             </div>
                                             <div class="col-4">
                                                 <p class="text-muted font-15 mb-1 text-truncate">本周</p>
+                                                <div class="spinner-border m-2" role="status" name="loading">
+                                                </div>
                                                 <h4 id="car_week"></h4>
                                             </div>
                                             <div class="col-4">
                                                 <p class="text-muted font-15 mb-1 text-truncate">本月</p>
+                                                <div class="spinner-border m-2" role="status" name="loading">
+                                                </div>
                                                 <h4 id="car_month"></h4>
                                             </div>
                                         </div> <!-- end row -->
@@ -99,14 +105,20 @@
                                         <div class="row mt-3">
                                             <div class="col-4">
                                                 <p class="text-muted font-15 mb-1 text-truncate">今日</p>
+                                                <div class="spinner-border m-2" role="status" name="loading">
+                                                </div>
                                                 <h4 id="fix_today"></h4>
                                             </div>
                                             <div class="col-4">
                                                 <p class="text-muted font-15 mb-1 text-truncate">本周</p>
+                                                <div class="spinner-border m-2" role="status" name="loading">
+                                                </div>
                                                 <h4 id="fix_week"></h4>
                                             </div>
                                             <div class="col-4">
                                                 <p class="text-muted font-15 mb-1 text-truncate">本月</p>
+                                                <div class="spinner-border m-2" role="status" name="loading">
+                                                </div>
                                                 <h4 id="fix_month"></h4>
                                             </div>
                                         </div> <!-- end row -->
@@ -133,14 +145,20 @@
                                         <div class="row mt-3">
                                             <div class="col-4">
                                                 <p class="text-muted font-15 mb-1 text-truncate">今日</p>
+                                                <div class="spinner-border m-2" role="status" name="loading">
+                                                </div>
                                                 <h4 id="lend_today"></h4>
                                             </div>
                                             <div class="col-4">
                                                 <p class="text-muted font-15 mb-1 text-truncate">本周</p>
+                                                <div class="spinner-border m-2" role="status" name="loading">
+                                                </div>
                                                 <h4 id="lend_week"></h4>
                                             </div>
                                             <div class="col-4">
                                                 <p class="text-muted font-15 mb-1 text-truncate">本月</p>
+                                                <div class="spinner-border m-2" role="status" name="loading">
+                                                </div>
                                                 <h4 id="lend_month"></h4>
                                             </div>
                                         </div> <!-- end row -->
@@ -190,6 +208,12 @@
                     type: "POST",
                     dataType: "JSON",
                     success: function (data) {
+
+                        var loading = document.getElementsByName("loading");
+                        for (var i=0;i<loading.length;i++){
+                            loading[i].style.display="none";
+                        }
+
                         myChart.hideLoading();
                         $('#car_today').text(data.carApp_num1);
                         $("#car_week").text(data.week_carApp);

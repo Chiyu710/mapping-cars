@@ -309,34 +309,34 @@ public class ApplicationServiceImpl implements ApplicationService{
 
     public Statistics getBusinessStatistics(){
         Statistics statistics = new Statistics();
-        //出车查询
+        //出车完成数查询
         String hql = "select count(id) from CarApplication where status='已完成' and to_days(date) = to_days(now())";
         statistics.setCarApp_num1(applicationDao.getAppStatistic(hql));
         hql = "select count(id) from CarApplication  as carapplication where status='已完成' and YEARWEEK(date_format(date,'%Y-%m-%d')) = YEARWEEK(now())";
         statistics.setWeek_carApp(applicationDao.getAppStatistic(hql));
         hql = "select count(id) from CarApplication  as carapplication where status='已完成' and DATE_FORMAT(date, '%Y%m' ) = DATE_FORMAT( CURDATE( ) , '%Y%m' )";
         statistics.setMonth_carApp(applicationDao.getAppStatistic(hql));
-
+        //派修完成数查询
         hql = "select count(id) from FixApplication where status='已完成' and to_days(date) = to_days(now())";
         statistics.setFixApp_num1(applicationDao.getAppStatistic(hql));
         hql = "select count(id) from FixApplication where status='已完成' and YEARWEEK(date_format(date,'%Y-%m-%d')) = YEARWEEK(now())";
         statistics.setWeek_fixApp(applicationDao.getAppStatistic(hql));
         hql = "select count(id) from FixApplication  where status='已完成' and DATE_FORMAT(date, '%Y%m' ) = DATE_FORMAT( CURDATE( ) , '%Y%m' )";
         statistics.setMonth_fixApp(applicationDao.getAppStatistic(hql));
-
+        //出借完成数查询
         hql = "select count(id) from LendApplication where status='已完成' and to_days(date) = to_days(now())";
         statistics.setLendApp_num1(applicationDao.getAppStatistic(hql));
         hql = "select count(id) from LendApplication where status='已完成' and YEARWEEK(date_format(date,'%Y-%m-%d')) = YEARWEEK(now())";
         statistics.setWeek_lendApp(applicationDao.getAppStatistic(hql));
         hql = "select count(id) from LendApplication  where status='已完成' and DATE_FORMAT(date, '%Y%m' ) = DATE_FORMAT( CURDATE( ) , '%Y%m' )";
         statistics.setMonth_lendApp(applicationDao.getAppStatistic(hql));
-
-        hql = "select count(id) from CarApplication  where status='已完成' and YEARWEEK(date_format(date,'%Y-%m-%d')) = YEARWEEK(now()) GROUP BY date_format(date,'%d')";
-        statistics.setPast_week_carApp(applicationDao.getStatisticList(hql));
-        hql = "select count(id) from FixApplication  where status='已完成' and YEARWEEK(date_format(date,'%Y-%m-%d')) = YEARWEEK(now()) GROUP BY date_format(date,'%d')";
-        statistics.setPast_week_fixApp(applicationDao.getStatisticList(hql));
-        hql = "select count(id) from LendApplication  where status='已完成' and YEARWEEK(date_format(date,'%Y-%m-%d')) = YEARWEEK(now()) GROUP BY date_format(date,'%d')";
-        statistics.setPast_week_lendApp(applicationDao.getStatisticList(hql));
+//
+//        hql = "select count(id) from CarApplication  where status='已完成' and YEARWEEK(date_format(date,'%Y-%m-%d')) = YEARWEEK(now()) GROUP BY date_format(date,'%d')";
+//        statistics.setPast_week_carApp(applicationDao.getStatisticList(hql));
+//        hql = "select count(id) from FixApplication  where status='已完成' and YEARWEEK(date_format(date,'%Y-%m-%d')) = YEARWEEK(now()) GROUP BY date_format(date,'%d')";
+//        statistics.setPast_week_fixApp(applicationDao.getStatisticList(hql));
+//        hql = "select count(id) from LendApplication  where status='已完成' and YEARWEEK(date_format(date,'%Y-%m-%d')) = YEARWEEK(now()) GROUP BY date_format(date,'%d')";
+//        statistics.setPast_week_lendApp(applicationDao.getStatisticList(hql));
 
         return statistics;
     }
