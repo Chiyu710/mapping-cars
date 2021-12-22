@@ -1,5 +1,7 @@
 package car.po.record;
 
+import car.po.Car;
+
 import java.util.Date;
 
 public class MaintenanceLog {
@@ -9,11 +11,12 @@ public class MaintenanceLog {
     Date time;
     String remarks;
     double cost;
-    String carid;
+    //String carid;
+    private Car car;
 
-    public String getCarid() {
-        return carid;
-    }
+//    public String getCarid() {
+//        return carid;
+//    }
     public String getId() {
         return id;
     }
@@ -35,9 +38,9 @@ public class MaintenanceLog {
 
 
 
-    public void setCarid(String carid) {
-        this.carid = carid;
-    }
+//    public void setCarid(String carid) {
+//        this.carid = carid;
+//    }
     public void setId(String id) {
         this.id = id;
     }
@@ -55,5 +58,13 @@ public class MaintenanceLog {
     }
     public void setCost(double cost) {
         this.cost = cost;
+    }
+
+    public Car getCar() {
+        return car;
+    }
+
+    public void setCar(Car car) {
+        this.car = car;
     }
 }

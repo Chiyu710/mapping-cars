@@ -13,6 +13,8 @@
         <property name="remarks" column="remarks"/>
         <property name="cost" column="cost"/>
         <property name="time" column="time"/>
-        <property name="carid" column="carid"/>
+<!--        <property name="carid" column="carid"/>-->
+        <many-to-one name="car" class="car.po.Car"  column="carid" >
+        </many-to-one>
     </class>
 </hibernate-mapping>

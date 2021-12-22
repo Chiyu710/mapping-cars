@@ -4,6 +4,7 @@ import car.dao.CarDao;
 import car.po.Car;
 import car.po.Statistics;
 import car.po.record.DriveLog;
+import car.po.record.FixLog;
 import com.opensymphony.xwork2.ActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -112,6 +113,8 @@ public class CarServiceImpl implements CarService{
         if (c==null)
             return false;
         else {
+            c.setFixTimes(c.getFixLogs().size());
+            c.setMaintenanceTimes(c.getMaintenanceLogs().size());
             request.put("car", c);
             return true;
         }

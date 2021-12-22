@@ -138,14 +138,10 @@
                                             <h5 class="mt-2"> <span class="text-muted"> 使用年数: <s:property value="#car.age"/></span></h5>
                                             <h5 class="mt-2"> <span class="text-muted"> 距离上次保养里程数: <s:property value="#car.mileage"/>KM</span></h5>
                                             <div class="row">
-                                                <div class="col-6">
-                                                    <h5> <span class="text-muted"> 维修次数：<s:property value="#car.fixTimes"/></span></h5>
-                                                    <h5> <span class="text-muted"> 违规记录：<s:property value="#car.maintenanceTimes"/></span></h5>
-                                                </div>
-                                                <div class="col-6">
+                                                <div class="col-12">
                                                         <form  action="gotCarInfo.action" method="POST">
                                                             <input name="car.id" value="<s:property value="#car.id"/>" style="display: none">
-                                                            <button class="btn btn-outline-primary rounded-pill mt-2 ms-4" type="submit">INFO</button>
+                                                            <button class="btn btn-outline-primary rounded-pill mt-2 ms-4 w-75" type="submit">查看详情</button>
                                                         </form>
                                                 </div>
                                             </div>

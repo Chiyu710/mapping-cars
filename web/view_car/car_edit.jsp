@@ -141,7 +141,7 @@
                     <div class="col-lg-10 mmmd">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="text-uppercase bg-light p-2 mt-0 mb-3">维修记录</h5>
+                                <h5 class="text-uppercase bg-light p-2 mt-0 mb-3">维修记录 <s:property value="#request.car.fixTimes"/>条</h5>
                                 <div class="responsive-table-plugin">
                                     <div class="table-rep-plugin">
                                         <div class="table-responsive" data-pattern="priority-columns">
@@ -156,7 +156,7 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <s:iterator value="#request.fixlog" var="f">
+                                                <s:iterator value="#request.car.fixLogs" var="f">
                                                     <tr>
                                                         <th><s:property value="#f.fixapplicationid"/></th>
                                                         <td><s:property value="#f.username"/></td>
@@ -179,7 +179,7 @@
                     <div class="col-lg-10 mmmd">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="text-uppercase bg-light p-2 mt-0 mb-3">保养记录</h5>
+                                <h5 class="text-uppercase bg-light p-2 mt-0 ">保养记录 <s:property value="#request.car.maintenanceTimes"/>条</h5>
                                 <div class="responsive-table-plugin">
                                     <div class="table-rep-plugin">
                                         <div class="table-responsive" data-pattern="priority-columns">
@@ -194,7 +194,7 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <s:iterator value="#request.Mlog" var="m">
+                                                <s:iterator value="#request.car.maintenanceLogs" var="m">
                                                 <tr>
                                                     <th><s:property value="#m.fixapplicationid"/></th>
                                                     <td><s:property value="#m.username"/></td>

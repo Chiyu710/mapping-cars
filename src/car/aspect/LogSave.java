@@ -74,21 +74,22 @@ public class LogSave {
         System.out.println("员工状态分已改变");
     }
 
-    @Pointcut("execution(* car.service.CarService.gotCarInfo(..))")
-    public void carinfoget(){}
-    @After("carinfoget()")
-    public void getCarLog(JoinPoint joinPoint){
-        Object[] args = joinPoint.getArgs();
-//        for (int i = 0; i < args.length; i++) {
-//            System.out.println("第" + (i+1) + "个参数为:" + args[i]);
+    //采取一对多关系后直接获取
+//    @Pointcut("execution(* car.service.CarService.gotCarInfo(..))")
+//    public void carinfoget(){}
+//    @After("carinfoget()")
+//    public void getCarLog(JoinPoint joinPoint){
+//        Object[] args = joinPoint.getArgs();
+////        for (int i = 0; i < args.length; i++) {
+////            System.out.println("第" + (i+1) + "个参数为:" + args[i]);
+////        }
+//        if(args[0]!=null){
+//            logService.getFixLog((String) args[0]);
+//            logService.getMLog((String) args[0]);
+//            System.out.println("get car log");
 //        }
-        if(args[0]!=null){
-            logService.getFixLog((String) args[0]);
-            logService.getMLog((String) args[0]);
-            System.out.println("get car log");
-        }
-
-    }
+//
+//    }
 
     @Pointcut("execution(* car.service.ApplicationService.checkCommute(..))")
     public void CarcheckEnd(){}
@@ -175,7 +176,7 @@ public class LogSave {
         Object[] args = joinPoint.getArgs();
         if(args[0]!=null){
 
-            carid=((FixLog)args[0]).getCarid();
+            carid=((FixLog)args[0]).getCar().getId();
             appid=((FixLog)args[0]).getFixapplicationid();
             FixApplication fixApplication= applicationService.getFAPAjax(appid);
             userid=fixApplication.getUserID();
@@ -199,7 +200,7 @@ public class LogSave {
         String userid;
         Object[] args = joinPoint.getArgs();
         if(args[0]!=null){
-            carid=((MaintenanceLog)args[0]).getCarid();
+            carid=((MaintenanceLog)args[0]).getCar().getId();
             appid=((MaintenanceLog)args[0]).getFixapplicationid();
             FixApplication fixApplication= applicationService.getFAPAjax(appid);
             userid=fixApplication.getUserID();

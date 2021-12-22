@@ -18,8 +18,22 @@
         <property name="pic" column="pic"/>
         <property name="status" column="status"/>
         <property name="transmissionCase" column="transmissionCase"/>
-        <property name="maintenanceTimes" column="maintenanceTimes"/>
-        <property name="fixTimes" column="fixtimes"/>
         <property name="mileage" column="mileage"/>
+        <!--        <property name="maintenanceTimes" column="maintenanceTimes"/>-->
+        <!--        <property name="fixTimes" column="fixtimes"/>-->
+
+        <set name="fixLogs"  lazy="false">
+            <!--3.2 key的 column表示多的一方外键名 -->
+            <key column="carid"/>
+            <!--3.3 one-to-many的class属性表示多的一方类的全限定名  -->
+            <one-to-many class="car.po.record.FixLog"/>
+        </set>
+
+        <set name="maintenanceLogs" lazy="false">
+            <!--3.2 key的 column表示多的一方外键名 -->
+            <key column="carid"/>
+            <!--3.3 one-to-many的class属性表示多的一方类的全限定名  -->
+            <one-to-many  class="car.po.record.MaintenanceLog"/>
+        </set>
     </class>
 </hibernate-mapping>
