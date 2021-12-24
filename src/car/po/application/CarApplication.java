@@ -7,8 +7,8 @@ public class CarApplication extends Application{
     Date usingDate;
     String destination;
     String workID;
-    double longitude;
-    double latitude;
+    Double longitude;
+    Double latitude;
 
     public String getDestination() {return destination;}
     public Date getUsingDate() {return usingDate;}

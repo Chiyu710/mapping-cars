@@ -18,7 +18,7 @@
         <property name="carID" column="carid"/>
         <property name="handler" column="adminid"/>
         <property name="applicationDate" column="date"/>
-        <property type="java.lang.Double" name="longitude" column="longitude"/>
-        <property type="java.lang.Double" name="latitude"  column="latitude"/>
+        <property name="longitude" type="java.lang.Double"  column="longitude"/>
+        <property name="latitude" type="java.lang.Double"  column="latitude"/>
     </class>
 </hibernate-mapping>
