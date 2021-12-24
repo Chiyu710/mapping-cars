@@ -11,8 +11,9 @@ public class MaintenanceLog {
     Date time;
     String remarks;
     double cost;
-    //String carid;
     private Car car;
+    //String carid;
+
 
 //    public String getCarid() {
 //        return carid;
