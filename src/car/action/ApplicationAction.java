@@ -56,7 +56,7 @@ public class ApplicationAction {
         }
     }
 
-    public String sendCommute(){
+    public  String sendCommute(){
         if (applicationService.sendCommute(carApplication)){
             System.out.println("carAPP!");
             return "success";
@@ -66,7 +66,7 @@ public class ApplicationAction {
         }
     }
 
-    public String checkCommute(){
+    public  String checkCommute(){
         if (applicationService.checkCommute(carApplication)){
             System.out.println("CheckCarAP!");
             return "success";
@@ -190,8 +190,10 @@ public class ApplicationAction {
         statistics=applicationService.getBusinessStatistics();
         return "ajax";
     }
-
-
+    public String getWeekBusiness(){
+        statistics=applicationService.getWeekBusiness();
+        return "ajax";
+    }
 
 
     public  String finishLend(){

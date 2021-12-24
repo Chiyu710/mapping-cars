@@ -330,15 +330,20 @@ public class ApplicationServiceImpl implements ApplicationService{
         statistics.setWeek_lendApp(applicationDao.getAppStatistic(hql));
         hql = "select count(id) from LendApplication  where status='已完成' and DATE_FORMAT(date, '%Y%m' ) = DATE_FORMAT( CURDATE( ) , '%Y%m' )";
         statistics.setMonth_lendApp(applicationDao.getAppStatistic(hql));
-//
-//        hql = "select count(id) from CarApplication  where status='已完成' and YEARWEEK(date_format(date,'%Y-%m-%d')) = YEARWEEK(now()) GROUP BY date_format(date,'%d')";
-//        statistics.setPast_week_carApp(applicationDao.getStatisticList(hql));
-//        hql = "select count(id) from FixApplication  where status='已完成' and YEARWEEK(date_format(date,'%Y-%m-%d')) = YEARWEEK(now()) GROUP BY date_format(date,'%d')";
-//        statistics.setPast_week_fixApp(applicationDao.getStatisticList(hql));
-//        hql = "select count(id) from LendApplication  where status='已完成' and YEARWEEK(date_format(date,'%Y-%m-%d')) = YEARWEEK(now()) GROUP BY date_format(date,'%d')";
-//        statistics.setPast_week_lendApp(applicationDao.getStatisticList(hql));
 
         return statistics;
+    }
+
+    public Statistics getWeekBusiness(){
+        Statistics statistics = new Statistics();
+        String hql;
+        hql = "select count(id) from CarApplication  where status='已完成' and YEARWEEK(date_format(date,'%Y-%m-%d')) = YEARWEEK(now()) GROUP BY date_format(date,'%d')";
+        statistics.setPast_week_carApp(applicationDao.getStatisticList(hql));
+        hql = "select count(id) from FixApplication  where status='已完成' and YEARWEEK(date_format(date,'%Y-%m-%d')) = YEARWEEK(now()) GROUP BY date_format(date,'%d')";
+        statistics.setPast_week_fixApp(applicationDao.getStatisticList(hql));
+        hql = "select count(id) from LendApplication  where status='已完成' and YEARWEEK(date_format(date,'%Y-%m-%d')) = YEARWEEK(now()) GROUP BY date_format(date,'%d')";
+        statistics.setPast_week_lendApp(applicationDao.getStatisticList(hql));
+        return  statistics;
     }
 
 }

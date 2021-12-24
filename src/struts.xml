@@ -246,7 +246,11 @@
                 <param name="root">statistics</param>
             </result>
         </action>
-
+        <action name="getWeekBusinessAjax" class="applicationAction" method="getWeekBusiness">
+            <result name="ajax" type="json">
+                <param name="root">statistics</param>
+            </result>
+        </action>
         <action name="saveTracks" class="logAction" method="saveTracks">
             <result name="ajax" type="json">
             </result>

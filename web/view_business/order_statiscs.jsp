@@ -169,9 +169,35 @@
                     </div> <!-- end col-->
                     <div class="card">
                     <div class="card-body">
-                        <div id="chart" style="width:100%;height: 500px;" >
-
+                        <h4 class="header-title mb-4" id="title">统计图表</h4>
+                        <ul class="nav nav-pills navtab-bg nav-justified">
+                            <li class="nav-item">
+                                <a href="#home1" data-bs-toggle="tab" aria-expanded="false" class="nav-link"  onclick="getWeekStatistics()">
+                                    公司本周业务一览
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#profile1" data-bs-toggle="tab" aria-expanded="true" class="nav-link" onclick="getWeekStatistics()">
+                                    各部门业绩一览
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#messages1" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
+                                    Messages
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane" id="home1" >
+                            </div>
+                            <div class="tab-pane" id="profile1">
+                            </div>
+                            <div class="tab-pane" id="messages1">
+                            </div>
                         </div>
+                        <div id="chart" style="width:100%;height: 500px;">
+                        </div>
+
                     </div>
                 </div>
                 </div>
@@ -194,6 +220,7 @@
         <script src="../assets/libs/toastr/node_modules/jquery/jquery.min.js"></script>
         <script src="../assets/js/echarts.js"></script>
         <script type="text/javascript">
+
             var chartDom = document.getElementById('chart');
             var myChart = echarts.init(chartDom);
             var option;
@@ -202,7 +229,7 @@
             var mylend_week=[];
             var i;
             $(document).ready(function () {
-                myChart.showLoading();
+                $('#chart').hide();
                 $.ajax({
                     url: "getBusinessAjax",
                     type: "POST",
@@ -213,8 +240,6 @@
                         for (var i=0;i<loading.length;i++){
                             loading[i].style.display="none";
                         }
-
-                        myChart.hideLoading();
                         $('#car_today').text(data.carApp_num1);
                         $("#car_week").text(data.week_carApp);
                         $("#car_month").text(data.month_carApp);
@@ -224,6 +249,18 @@
                         $('#lend_today').text(data.lendApp_num1);
                         $("#lend_week").text(data.week_lendApp);
                         $("#lend_month").text(data.month_lendApp);
+                    }
+                })
+            })
+            function getWeekStatistics(){
+                $('#chart').show();
+                myChart.showLoading();
+                $.ajax({
+                    url: "getWeekBusinessAjax",
+                    type: "POST",
+                    dataType: "JSON",
+                    success: function (data) {
+                        myChart.hideLoading();
                         option = {
                             title: {
                                 text: '本周业务一览'
@@ -278,7 +315,7 @@
                         option && myChart.setOption(option);
                     }
                 })
-            })
+            }
         </script>
 
 
