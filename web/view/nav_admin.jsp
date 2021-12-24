@@ -166,7 +166,18 @@
                             </a>
                         </s:form>
                     </li>
-
+                    <li class="nav-item dropdown">
+                        <s:form action="SaveVio" method="POST" id="svVio">
+                            <a class="nav-link"    href="../view_log/violation_release.jsp" role="button">
+                                <i class="ti-bookmark me-1"></i>违规记录发布
+                            </a>
+                        </s:form>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <s:form action="getDriveLog" method="POST" id="StaffManage">
+                            <a onclick="document:StaffManage.submit()" class="nav-link btn"><i class="fe-users me-1"></i>部门员工</a>
+                        </s:form>
+                    </li>
                 </ul> <!-- end navbar-->
             </div> <!-- end .collapsed-->
         </nav>

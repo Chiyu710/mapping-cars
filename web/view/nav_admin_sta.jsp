@@ -132,7 +132,11 @@
                         </s:form>
                     </li>
 
-
+                    <li class="nav-item dropdown">
+                        <s:form action="getDriveLog" method="POST" id="StaffManage">
+                            <a onclick="document:StaffManage.submit()" class="nav-link btn"><i class="fe-users me-1"></i>部门员工</a>
+                        </s:form>
+                    </li>
 
                 </ul> <!-- end navbar-->
             </div> <!-- end .collapsed-->

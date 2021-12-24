@@ -123,8 +123,8 @@ public class CarAction extends ActionSupport{
             this.addFieldError("save.age", "车龄不可为负数");
         if(age > 10)
             this.addFieldError("save.age", "车龄过大");
-        if(!isNum(id) || id.length() != 5 )
-            this.addFieldError("save.id", "车牌号必须为5位数字");
+//        if(!isNum(id) || id.length() != 5 )
+//            this.addFieldError("save.id", "车牌号必须为5位数字");
         if(!depart.equals("技术部") && !depart.equals("销售部"))
             this.addFieldError("save.depart", "非有效部门输入");
         if(!status.equals("工作中") && !status.equals("空闲") && !status.equals("停用"))
