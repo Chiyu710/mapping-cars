@@ -9,7 +9,7 @@
             <generator class="native"/>
         </id>
         <property name="licensePlate" column="LP"/>
-        <property name="mileage" column="mileage"/>
+        <property name="mileage" type="java.lang.Integer" column="mileage"/>
         <property name="remarks" column="remarks"/>
         <property name="type" column="type"/>
         <property name="userID" column="userid"/>

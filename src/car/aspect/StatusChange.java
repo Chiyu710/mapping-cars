@@ -123,10 +123,10 @@ public class StatusChange {
         String userid;
         Object[] args = joinPoint.getArgs();
         if(args[0]!=null){
-
-            carid=((FixLog)args[0]).getCar().getId();
+            FixLog fixLog =(FixLog)args[0];
             appid=((FixLog)args[0]).getFixapplicationid();
             FixApplication fixApplication= applicationService.getFAPAjax(appid);
+            carid=fixApplication.getCarID();
             userid=fixApplication.getUserID();
             applicationService.sendFix(fixApplication);
             fixApplication.setStatus("已完成");

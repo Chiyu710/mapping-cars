@@ -50,7 +50,7 @@
                                     <p class="text-muted"> 你的请求已经提交，请耐心等待结果 </p>
 
                                     <form action="adminRedirect.action" id="aredirect">
-                                        <input value="#session.admin.position" style="display: none">
+                                        <input value="${session.admin.position}" style="display: none" name="admin.position">
                                         <p class="text-dark-50"><a  onclick="document:aredirect.submit()"  class="text-dark ms-1"><b>Back to Index</b></a></p>
                                     </form>
 

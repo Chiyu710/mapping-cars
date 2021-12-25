@@ -19,6 +19,10 @@ public interface UserService {
     // 员工出车状态显示
     Statistics getUserStatistics();
 
+    boolean staffLogOut(User loginUser);
+
+    boolean adminLogOut(User loginUser);
+
     //for schedul
     boolean healthyInit();
     boolean addStatusScore();

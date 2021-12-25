@@ -90,7 +90,7 @@
                         <div class="row mt-3">
                             <form action="adminRedirect.action" id="aredirect">
                             <div class="col-12 text-center">
-                                <input value="#session.admin.position" style="display: none">
+                                <input value="${session.admin.position}" style="display: none" name="admin.position">
                                 <p class="text-white-50">Return to <a onclick="document:aredirect.submit()"  class="text-white ms-1"><b>Home</b></a></p>
                             </div> <!-- end col -->
                             </form>

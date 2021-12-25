@@ -66,4 +66,17 @@ public class FixLog {
     public void setCar(Car car) {
         this.car = car;
     }
+
+    @Override
+    public String toString() {
+        return "FixLog{" +
+                "id='" + id + '\'' +
+                ", fixapplicationid='" + fixapplicationid + '\'' +
+                ", username='" + username + '\'' +
+                ", time=" + time +
+                ", remarks='" + remarks + '\'' +
+                ", cost=" + cost +
+                ", car=" + car +
+                '}';
+    }
 }

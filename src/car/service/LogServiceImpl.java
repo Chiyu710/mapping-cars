@@ -225,7 +225,7 @@ public class LogServiceImpl implements LogService{
         }
     }
 
-    // 提交行车日志
+    // 出车完毕提交
     public boolean saveDriveLog(DriveLog driveLog){
         DriveLog ODL=logDao.getDL(driveLog);
         ODL.setStatus(driveLog.getStatus());

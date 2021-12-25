@@ -18,7 +18,6 @@ public class UserServiceImpl implements UserService {
         this.userDao=userDao;
     }
     private Map<String, Object> session,request;
-
     // 员工登录
     @Override
     public boolean login(User loginUser) {
@@ -40,6 +39,24 @@ public class UserServiceImpl implements UserService {
             return true;
         }
     }
+
+
+    // 员工删除session
+    public boolean staffLogOut(User loginUser) {
+        ActionContext ctx = ActionContext.getContext();
+        session = (Map) ctx.getSession();
+        session.remove("user");
+        return true;
+    }
+
+    // 管理员删除session
+    public boolean adminLogOut(User loginUser) {
+        ActionContext ctx = ActionContext.getContext();
+        session = (Map) ctx.getSession();
+        session.remove("admin");
+        return true;
+    }
+
 
     public boolean save(User registerUser){
         try {

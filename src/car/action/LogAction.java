@@ -70,7 +70,7 @@ public class LogAction {
         }
     }
 
-    // 通过userid获取业务
+    // 通过userid获取当前改员工正在执行的出车业务信息
     public String getBusiness(){
         if (logService.getBusiness(userID)){
             return "success";
@@ -107,7 +107,7 @@ public class LogAction {
 
 
 
-    // 行车日志提交
+    // 出车完毕提交
     public String saveDL(){
         if (logService.saveDriveLog(driveLog)){
             return "success";

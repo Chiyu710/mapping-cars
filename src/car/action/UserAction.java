@@ -131,6 +131,7 @@ public class UserAction extends ActionSupport {
     }
 
     public String adminRedirect(){
+        System.out.println(admin.getPosition());
         return admin.getPosition();
     }
 
@@ -139,6 +140,28 @@ public class UserAction extends ActionSupport {
             return "success";
         }
         else return "fail";
+    }
+
+
+    // 员工登出
+    public String stafflogOut(){
+        if(userService.staffLogOut(user)) {
+            return "success";
+        }
+        else  {
+            return "fail";
+        }
+    }
+
+
+    // 管理员登出
+    public String adminlogOut(){
+        if(userService.adminLogOut(user)) {
+            return "success";
+        }
+        else  {
+            return "fail";
+        }
     }
 
 }

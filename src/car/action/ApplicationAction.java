@@ -56,7 +56,8 @@ public class ApplicationAction {
         }
     }
 
-    public  String sendCommute(){
+    // 出车单提交
+    public String sendCommute(){
         if (applicationService.sendCommute(carApplication)){
             System.out.println("carAPP!");
             return "success";

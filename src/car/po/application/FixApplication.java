@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class FixApplication extends Application{
     String location;
-    int mileage;
+    Integer mileage;
     String type;
     String LicensePlate;
 
