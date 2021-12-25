@@ -261,6 +261,7 @@
                     dataType: "JSON",
                     success: function (data) {
                         myChart.hideLoading();
+                        myChart.clear();
                         option = {
                             title: {
                                 text: '本周业务一览'
@@ -326,6 +327,7 @@
                     dataType: "JSON",
                     success: function (data) {
                         myChart.hideLoading();
+                        myChart.clear();
                         var names=[];
                         var nums=[];
                         for (var i=0;i<data.kpis.length;i++){

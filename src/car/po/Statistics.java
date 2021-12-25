@@ -136,6 +136,7 @@ public class Statistics {
     public List<Kpi> getKpis() {return kpis;}
     public void setKpis(List<Kpi> kpis) {this.kpis = kpis;}
 
+
     public void setKpis(List<String> names, List<Long> numbers) {
         if(names.size()!=numbers.size()){
             System.out.println("kpis size error!");;
@@ -146,7 +147,8 @@ public class Statistics {
         int size=0;
         if(names.size()>6) size=6;
         else size=names.size();
-        for (int i=0;i<size;i++){
+        for (int i=size-1;i>=0;i--){
+            kpi = new Kpi();
             kpi.setName(names.get(i));
             kpi.setCount(numbers.get(i));
             ks.add(kpi);

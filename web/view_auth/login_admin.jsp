@@ -70,7 +70,7 @@
                                     </div>
                                 </div>
                             </div>
-                           <input type="text"  name="p" value="0" style="display: none">
+                           <input type="text"  name="p" value="1" style="display: none">
 
                             <div class="text-center d-grid">
                                 <button class="btn btn-primary" type="submit">登  陆 </button>

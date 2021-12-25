@@ -371,7 +371,6 @@ public class ApplicationServiceImpl implements ApplicationService{
         List<Long> nums=applicationDao.getStatisticList(hql);
         //limit无法使用 在赋值时限制大小
         statistics.setKpis(names,nums);
-        System.out.println(statistics.getKpis().size());
         return statistics;
     }
 

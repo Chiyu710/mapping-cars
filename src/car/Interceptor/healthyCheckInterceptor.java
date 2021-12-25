@@ -17,7 +17,7 @@ public class healthyCheckInterceptor extends MethodFilterInterceptor {
         User user = (User) session.get("user");
         Admin admin =(Admin) session.get("admin");
         if(admin!=null){return invocation.invoke();}
-
+        System.out.println("123");
         if(user.getHealthy()==null){
             ctx.put("tip", "您未进行今日的健康申报，请尽快申报！");
             return "index";
