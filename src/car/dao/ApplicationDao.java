@@ -23,6 +23,6 @@ public interface ApplicationDao {
     List<FixApplication> findByHqlFix(String hql);
 
     long getAppStatistic(String hql);
-    //保持每天有数据 不然就会错
     List<Long> getStatisticList(String hql);
+    List<String> getNames(String hql);
 }

@@ -281,11 +281,16 @@
             </result>
         </action>
 
+        <action name="getRank" class="applicationAction" method="getRankStatistics">
+            <result name="ajax" type="json">
+                <param name="root">statistics</param>
+            </result>
+        </action>
+
         <action name="saveTracks" class="logAction" method="saveTracks">
             <result name="ajax" type="json">
             </result>
         </action>
-
 
     </package>
 

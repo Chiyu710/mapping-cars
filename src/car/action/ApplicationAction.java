@@ -204,5 +204,10 @@ public class ApplicationAction {
         statistics=applicationService.getPersonalBusinessStatistics(appid);
         return "ajax";
     }
+    public String getRankStatistics(){
+        statistics=applicationService.getRank();
+        return "ajax";
+    }
+
 
 }

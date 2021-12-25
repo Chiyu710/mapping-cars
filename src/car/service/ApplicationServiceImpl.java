@@ -362,4 +362,17 @@ public class ApplicationServiceImpl implements ApplicationService{
         return statistics;
     }
 
+    public Statistics getRank(){
+        Statistics statistics =new Statistics();
+        String hql;
+        String sql="SELECT username  FROM `carapplication` GROUP BY username ORDER BY count(id) DESC LIMIT 0,6 ";
+        List<String> names=applicationDao.getNames(sql);
+        hql="select count(id) from CarApplication GROUP BY username ORDER BY count(id) DESC";
+        List<Long> nums=applicationDao.getStatisticList(hql);
+        //limit无法使用 在赋值时限制大小
+        statistics.setKpis(names,nums);
+        System.out.println(statistics.getKpis().size());
+        return statistics;
+    }
+
 }

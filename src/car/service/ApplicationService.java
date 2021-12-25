@@ -40,7 +40,7 @@ public interface ApplicationService {
     Statistics getBusinessStatistics();
     Statistics getWeekBusiness();
     Statistics getPersonalBusinessStatistics(String userID);
-
+    Statistics getRank();
 
     CarApplication getCAPAjax(String appid);
     LendApplication getLAPAjax(String appid);

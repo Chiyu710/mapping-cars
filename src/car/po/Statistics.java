@@ -1,5 +1,6 @@
 package car.po;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -28,10 +29,27 @@ public class Statistics {
     long month_fixApp;
     long week_lendApp;
     long month_lendApp;
+    public class Kpi{
+        String name;
+        long count;
+        public String getName() {
+            return name;
+        }
 
-//    List<Map<Date, Long>> past_week_carApp;
-//    List<Map<Date, Long>> past_week_fixApp;
-//    List<Map<Date, Long>> past_week_lendApp;
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public long getCount() {
+            return count;
+        }
+
+        public void setCount(long count) {
+            this.count = count;
+        }
+    }
+    public List<Kpi> kpis;
+
     List<Long> past_week_carApp;
     List<Long> past_week_fixApp;
     List<Long> past_week_lendApp;
@@ -115,7 +133,26 @@ public class Statistics {
     public List<Long> getPast_week_lendApp() {
         return past_week_lendApp;
     }
+    public List<Kpi> getKpis() {return kpis;}
+    public void setKpis(List<Kpi> kpis) {this.kpis = kpis;}
 
+    public void setKpis(List<String> names, List<Long> numbers) {
+        if(names.size()!=numbers.size()){
+            System.out.println("kpis size error!");;
+            return;
+        }
+        Kpi kpi = new Kpi();
+        List<Kpi> ks = new ArrayList<Kpi>();
+        int size=0;
+        if(names.size()>6) size=6;
+        else size=names.size();
+        for (int i=0;i<size;i++){
+            kpi.setName(names.get(i));
+            kpi.setCount(numbers.get(i));
+            ks.add(kpi);
+        }
+        this.kpis=ks;
+    }
 
     public void setBusyStaff_num(long busyStaff_num) {
         this.busyStaff_num = busyStaff_num;

@@ -155,6 +155,19 @@ public class ApplicationDaoImpl extends BaseHibernateDao implements ApplicationD
         }
     }
 
+    public List<String> getNames(String sql) {
+        Session session = null;
+        try {
+            session = getSession();
+            String queryString = sql;
+            Query queryObject=session.createSQLQuery(queryString);
+            return queryObject.list();
+        } catch (RuntimeException re) {
+            throw re;
+        } finally {
+            session.close();
+        }
+    }
 
 
 

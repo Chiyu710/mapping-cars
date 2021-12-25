@@ -177,8 +177,8 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#profile1" data-bs-toggle="tab" aria-expanded="true" class="nav-link" onclick="getWeekStatistics()">
-                                    各部门业绩一览
+                                <a href="#profile1" data-bs-toggle="tab" aria-expanded="true" class="nav-link" onclick="getRankStatistics()">
+                                    本周排名
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -309,6 +309,61 @@
                                     stack: 'Total',
                                     data: data.past_week_lendApp
                                 }
+                            ]
+                        };
+
+                        option && myChart.setOption(option);
+                    }
+                })
+            }
+
+            function getRankStatistics(){
+                $('#chart').show();
+                myChart.showLoading();
+                $.ajax({
+                    url: "getRank",
+                    type: "POST",
+                    dataType: "JSON",
+                    success: function (data) {
+                        myChart.hideLoading();
+                        var names=[];
+                        var nums=[];
+                        for (var i=0;i<data.kpis.length;i++){
+                            names.push(data.kpis[i].name);
+                            nums.push(data.kpis[i].count);
+                        }
+                        option = {
+                            title: {
+                                text: '本周业务完成排名'
+                            },
+                            tooltip: {
+                                trigger: 'axis',
+                                axisPointer: {
+                                    type: 'shadow'
+                                }
+                            },
+                            legend: {},
+                            grid: {
+                                left: '3%',
+                                right: '4%',
+                                bottom: '3%',
+                                containLabel: true
+                            },
+                            xAxis: {
+                                type: 'value',
+                                boundaryGap: [0, 0.01]
+                            },
+                            yAxis: {
+                                type: 'category',
+                                data: names
+                            },
+                            series: [
+                                {
+                                    name: '完成单数',
+                                    type: 'bar',
+                                    data: nums
+                                },
+
                             ]
                         };
 
