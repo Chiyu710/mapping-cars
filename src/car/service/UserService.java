@@ -8,7 +8,7 @@ import car.po.record.StatusLog;
 public interface UserService {
     // 员工登录
     boolean login(User loginUser);
-    boolean register(User registerUser);
+    boolean save(User registerUser);
     boolean changeStatus(User user, StatusLog statusLog);
     // 员工健康显示
     boolean healthDeclaration(User user);
@@ -23,4 +23,7 @@ public interface UserService {
     boolean healthyInit();
     boolean addStatusScore();
 
+    boolean getAllStaff(Admin admin);
+    boolean getStaffDetail(String userID);
+    boolean deleteStaff(User user);
 }

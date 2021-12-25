@@ -14,4 +14,5 @@ public interface UserDao {
     long getUserStatistic(String hql);
     boolean doHql(String hql);
     void save(User registerUser);
+    void delete(User user);
 }

@@ -38,13 +38,10 @@
 
             <!-- Start Content-->
             <div class="container-fluid">
-
-                <!-- start page title -->
-                <!-- start page title -->
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box">
-                            <h4 class="page-title">部门员工</h4>
+                            <h4 class="page-title">部门员工 </h4>
                         </div>
                     </div>
                 </div>
@@ -59,7 +56,6 @@
                                             <table id="tech-companies-1" class="table table-striped">
                                                 <thead>
                                                 <tr>
-                                                    <th>出车单号</th>
                                                     <th data-priority="1">ID</th>
                                                     <th data-priority="1">姓名</th>
                                                     <th data-priority="3">性别</th>
@@ -72,28 +68,34 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <s:iterator var="DRIL" value="#request.myDriveLog">
+                                                <s:iterator  value="#request.departS" var="s">
                                                 <tr>
-                                                    <th><s:property value="#DRIL.id"/></th>
-                                                    <td><s:property value="#DRIL.carid"/></td>
-                                                    <td><s:property value="#DRIL.username"/></td>
-                                                    <td><s:property value="#DRIL.starttime"/></td>
-                                                    <td><s:property value="#DRIL.endtime"/></td>
-                                                    <td><s:property value="#DRIL.illegal"/></td>
-                                                    <td><s:property value="#DRIL.broke"/></td>
-                                                    <td><s:property value="#DRIL.applicationid"/></td>
-                                                    <s:if test='#session.admin.position=="sta"'>
-                                                        <td>
-                                                            <input name="car.id" value="<s:property value="#car.id"/>" style="display: none">
-                                                            <button onclick="document:carsave.submit()" class="btn btn-sm btn-primary">查看业绩</button>
-                                                        </td>
-                                                    </s:if>
+                                                    <td><s:property value="#s.id"/></td>
+                                                    <td><s:property value="#s.name"/></td>
+                                                    <td><s:property value="#s.sex"/></td>
+                                                    <td><s:property value="#s.age"/></td>
+                                                    <td><s:property value="#s.department"/></td>
+                                                    <td><s:property value="#s.status"/></td>
+                                                    <td><s:property value="#s.statusScore"/></td>
+                                                    <td><s:property value="#s.healthy"/></td>
+                                                    <td>
+                                                        <form action="getSingleStaff.action" method="POST" >
+                                                            <input name="user.id" value="<s:property value="#s.id"/>" style="display: none">
+                                                            <button type="submit" class="btn btn-sm btn-primary">员工详细信息</button>
+                                                        </form>
+                                                    </td>
                                                 </tr>
                                                 </s:iterator>
                                                 </tbody>
                                             </table>
                                         </div> <!-- end .table-responsive -->
+                                        <div class="row">
+                                            <div class="col-6"></div>
+                                            <div class="col-2">
+                                                <a href="../view_business/staff_edit.jsp" class="btn btn-info text-center"> 添加新员工</a>
+                                            </div>
 
+                                        </div>
                                     </div> <!-- end .table-rep-plugin-->
                                 </div> <!-- end .responsive-table-plugin-->
                             </div>

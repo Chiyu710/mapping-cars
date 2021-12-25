@@ -346,4 +346,20 @@ public class ApplicationServiceImpl implements ApplicationService{
         return  statistics;
     }
 
+    public Statistics getPersonalBusinessStatistics(String userID){
+        Statistics statistics = new Statistics();
+        String hql;
+        hql = "select count(id) from CarApplication  where status='已完成' and userid="+userID+"and YEARWEEK(date_format(date,'%Y-%m-%d')) = YEARWEEK(now()) GROUP BY date_format(date,'%d')";
+        statistics.setPast_week_carApp(applicationDao.getStatisticList(hql));
+        hql = "select count(id) from FixApplication  where status='已完成' and userid="+userID+"and YEARWEEK(date_format(date,'%Y-%m-%d')) = YEARWEEK(now()) GROUP BY date_format(date,'%d')";
+        statistics.setPast_week_fixApp(applicationDao.getStatisticList(hql));
+        hql = "select count(id) from LendApplication  where status='已完成' and userid="+userID+"and YEARWEEK(date_format(date,'%Y-%m-%d')) = YEARWEEK(now()) GROUP BY date_format(date,'%d')";
+        statistics.setPast_week_lendApp(applicationDao.getStatisticList(hql));
+        hql = "select count(id) from CarApplication  as carapplication where status='已完成' and YEARWEEK(date_format(date,'%Y-%m-%d')) = YEARWEEK(now())";
+        statistics.setWeek_carApp(applicationDao.getAppStatistic(hql));
+        hql = "select count(id) from CarApplication  as carapplication where  YEARWEEK(date_format(date,'%Y-%m-%d')) = YEARWEEK(now())";
+        statistics.setCarApp_num1(applicationDao.getAppStatistic(hql));
+        return statistics;
+    }
+
 }

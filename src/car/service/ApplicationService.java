@@ -39,6 +39,8 @@ public interface ApplicationService {
     Statistics getAppStatistics();
     Statistics getBusinessStatistics();
     Statistics getWeekBusiness();
+    Statistics getPersonalBusinessStatistics(String userID);
+
 
     CarApplication getCAPAjax(String appid);
     LendApplication getLAPAjax(String appid);

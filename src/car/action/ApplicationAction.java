@@ -166,7 +166,12 @@ public class ApplicationAction {
 
     }
 
-
+    public  String finishLend(){
+        if(applicationService.finishLend(lendApplication)){
+            return "success";
+        }
+        else return "fail";
+    }
 
 
 
@@ -195,11 +200,9 @@ public class ApplicationAction {
         return "ajax";
     }
 
-
-    public  String finishLend(){
-        if(applicationService.finishLend(lendApplication)){
-            return "success";
-        }
-        else return "fail";
+    public String getPersonalBusinessStatistics(){
+        statistics=applicationService.getPersonalBusinessStatistics(appid);
+        return "ajax";
     }
+
 }

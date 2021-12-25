@@ -142,6 +142,22 @@ public class UserDaoImpl extends BaseHibernateDao implements UserDao {
         }
     }
 
+    public void delete(User user){
+        Transaction tran = null;
+        Session session = null;
+        try {
+            session = getSession();
+            tran = session.beginTransaction();
+            session.delete(user);
+            tran.commit();
+        } catch (RuntimeException re) {
+            if(tran != null) tran.rollback();
+            throw re;
+        } finally {
+            session.close();
+        }
+    }
+
 }
 
 

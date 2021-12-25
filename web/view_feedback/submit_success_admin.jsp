@@ -48,7 +48,13 @@
                                     <h3>提交成功!</h3>
 
                                     <p class="text-muted"> 你的请求已经提交，请耐心等待结果 </p>
-                                    <p class="text-dark-50"> <a href="../view_auth/administrator_index.jsp" class="text-dark ms-1"><b>Back to Index</b></a></p>
+
+                                    <form action="adminRedirect.action" id="aredirect">
+                                        <input value="#session.admin.position" style="display: none">
+                                        <p class="text-dark-50"><a  onclick="document:aredirect.submit()"  class="text-dark ms-1"><b>Back to Index</b></a></p>
+                                    </form>
+
+
                                 </div>
 
                             </div> <!-- end card-body -->

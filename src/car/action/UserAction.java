@@ -86,7 +86,7 @@ public class UserAction extends ActionSupport {
 
     public String register() {
 
-        if (userService.register(user)) {
+        if (userService.save(user)) {
             return "success";
         }
         else {
@@ -111,6 +111,34 @@ public class UserAction extends ActionSupport {
     public String getUserSta(){
         statistics=userService.getUserStatistics();
         return "ajax";
+    }
+
+    public String getAllStaff(){
+        userService.getAllStaff(admin);
+        return "success";
+    }
+
+    //staff manage
+    public String getStaffDetail(){
+        userService.getStaffDetail(user.getId());
+        return "success";
+    }
+    public String deleteStaff(){
+        if(userService.deleteStaff(user)){
+            return "success";
+        }
+        else return "fail";
+    }
+
+    public String adminRedirect(){
+        return admin.getPosition();
+    }
+
+    public String saveStaff(){
+        if(userService.save(user)){
+            return "success";
+        }
+        else return "fail";
     }
 
 }

@@ -26,6 +26,23 @@ public class CarDaoImpl extends BaseHibernateDao implements  CarDao{
         }
     }
 
+    public void deleteCar(Car car){
+        Transaction tran = null;
+        Session session = null;
+        try {
+            session = getSession();
+            tran = session.beginTransaction();
+            session.delete(car);
+            tran.commit();
+        } catch (RuntimeException re) {
+
+            if (tran != null) tran.rollback();
+            throw re;
+        } finally {
+            session.close();
+        }
+    }
+
     public void saveCar(Car car) {
         Transaction tran = null;
         Session session = null;

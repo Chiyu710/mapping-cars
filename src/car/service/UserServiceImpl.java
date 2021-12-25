@@ -17,7 +17,7 @@ public class UserServiceImpl implements UserService {
     public void setUserDao(UserDao userDao) {
         this.userDao=userDao;
     }
-    private Map<String, Object> request, session;
+    private Map<String, Object> session,request;
 
     // 员工登录
     @Override
@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService {
         if (list.isEmpty())
             return false;
         else {
-            session.put("user", id);
+            //session.put("user", id);
             request.put("tip", "登录成功！");
             loginUser = (User) list.get(0);
             session.put("user", loginUser);
@@ -41,7 +41,7 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-    public boolean register(User registerUser){
+    public boolean save(User registerUser){
         try {
             userDao.save(registerUser);
             return true;
@@ -161,4 +161,33 @@ public class UserServiceImpl implements UserService {
             return false;
         }
     }
+
+    public boolean getAllStaff(Admin admin){
+        ActionContext ctx = ActionContext.getContext();
+        request = (Map) ctx.get("request");
+        String department = admin.getDepartment();
+        String hql = "from User where department = '"+department+"' order by status";
+        List<User> list = userDao.getByHql(hql);
+        request.put("departS",list);
+        return true;
+    }
+
+    public boolean getStaffDetail(String userID){
+        ActionContext ctx = ActionContext.getContext();
+        request = (Map) ctx.get("request");
+        String hql = "from User where id = '"+userID+"'";
+        List<User> list = userDao.getByHql(hql);
+        request.put("staff",list.get(0));
+        return true;
+    }
+
+    public boolean deleteStaff(User user){
+        try {
+          userDao.delete(user);
+            return true;
+        }catch (Exception e) {
+            return false;
+        }
+    }
+
 }

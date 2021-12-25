@@ -133,7 +133,8 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                        <s:form action="getDriveLog" method="POST" id="StaffManage">
+                        <s:form action="getAllStaff" method="POST" id="StaffManage">
+                            <input name="admin.department" value="${session.admin.department}" style="display: none"/>
                             <a onclick="document:StaffManage.submit()" class="nav-link btn"><i class="fe-users me-1"></i>部门员工</a>
                         </s:form>
                     </li>

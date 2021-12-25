@@ -31,6 +31,30 @@
             <result name="success">/view_feedback/submit_success_staff.jsp</result>
             <result name="fail">/view_feedback/error.jsp</result>
         </action>
+        <action name="getAllStaff" class="userAction" method="getAllStaff">
+            <result name="success">/view_business/departmentStaff.jsp</result>
+            <result name="fail">/view_feedback/error.jsp</result>
+        </action>
+        <action name="getSingleStaff" class="userAction" method="getStaffDetail">
+            <result name="success">/view_business/staff_edit.jsp</result>
+            <result name="fail">/view_feedback/error.jsp</result>
+        </action>
+        <action name="deleteStaff" class="userAction" method="deleteStaff">
+            <result name="success">/view_feedback/submit_success_admin.jsp</result>
+            <result name="fail">/view_feedback/error_admin.jsp</result>
+        </action>
+        <action name="saveStaff" class="userAction" method="saveStaff">
+            <result name="success">/view_feedback/submit_success_admin.jsp</result>
+            <result name="fail">/view_feedback/error_admin.jsp</result>
+        </action>
+        <action name="adminRedirect" class="userAction" method="adminRedirect">
+            <result name="all">/view_auth/administrator_index.jsp</result>
+            <result name="car">/view_auth/administrator_index_car.jsp</result>
+            <result name="check">/view_auth/administrator_index_check.jsp</result>
+            <result name="sta">/view_auth/administrator_index_sta.jsp</result>
+            <result name="fail">/view_auth/login.jsp</result>
+        </action>
+
     </package>
 
     <package name="Application" namespace="/" extends="all">
@@ -251,10 +275,18 @@
                 <param name="root">statistics</param>
             </result>
         </action>
+        <action name="getPersonalWeekBusinessAjax" class="applicationAction" method="getPersonalBusinessStatistics">
+            <result name="ajax" type="json">
+                <param name="root">statistics</param>
+            </result>
+        </action>
+
         <action name="saveTracks" class="logAction" method="saveTracks">
             <result name="ajax" type="json">
             </result>
         </action>
+
+
     </package>
 
     <package  name="all"  extends="struts-default" namespace="/">
